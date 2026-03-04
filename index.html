@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>BIRONGO · CARACAS</title>
+    
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+            position: relative;
+        }
+
+        /* Fondo sutil con gradientes */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER SECTION ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 15vw, 10rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 0.9;
+            color: white;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 0.9rem;
+            color: #ffffff80;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        @media (min-width: 768px) {
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        .hero .tagline i {
+            color: white;
+            opacity: 0.5;
+        }
+
+        /* ===== MAIN GRID ===== */
+        .feed-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 992px) {
+            .feed-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+                margin: 4rem 0;
+            }
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+            }
+        }
+
+        .card:hover {
+            border-color: #ffffff60;
+            box-shadow: 0 20px 40px -20px rgba(255,255,255,0.2);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid #ffffff20;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (min-width: 768px) {
+            .card h2 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .card h2 i {
+            color: white;
+            opacity: 0.5;
+            font-size: 1.8rem;
+        }
+
+        /* ===== YOUTUBE VIDEOS ===== */
+        .youtube-videos {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .video-embed {
+            border: 1px solid #ffffff20;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .video-embed:hover {
+            border-color: white;
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        .video-embed iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: block;
+            border: none;
+        }
+
+        .video-embed p {
+            padding: 0.8rem;
+            background: #080808;
+            border-top: 1px solid #ffffff10;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-embed p i {
+            color: #ffffff60;
+        }
+
+        /* ===== EVENTO DESTACADO ===== */
+        .evento-destacado {
+            margin-bottom: 1rem;
+        }
+
+        .evento-destacado-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+
+        .evento-destacado-item {
+            background: #111;
+            border: 1px solid #ffffff20;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            .evento-destacado-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .evento-destacado-item:hover {
+            border-color: white;
+            transform: translateX(5px);
+            box-shadow: -10px 10px 30px -15px rgba(255,255,255,0.2);
+        }
+
+        .evento-destacado-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(145deg, #1a1a1a, #000);
+            border: 2px solid #ffffff30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .evento-destacado-item:hover .evento-destacado-icon {
+            border-color: white;
+        }
+
+        .evento-destacado-icon i {
+            font-size: 2.5rem;
+            color: #ffffff40;
+            transition: all 0.3s ease;
+        }
+
+        .evento-destacado-item:hover .evento-destacado-icon i {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .evento-destacado-content {
+            flex: 1;
+        }
+
+        .evento-destacado-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .evento-destacado-header {
+                justify-content: center;
+            }
+        }
+
+        .evento-destacado-header h3 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .evento-destacado-date {
+            color: #ffffff60;
+            font-size: 0.85rem;
+            padding: 0.2rem 0.8rem;
+            background: #ffffff10;
+            border-radius: 20px;
+        }
+
+        .evento-destacado-artista {
+            color: #ffffff80;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .evento-destacado-artista i {
+            color: #ffffff60;
+            margin-right: 0.3rem;
+        }
+
+        .evento-destacado-desc {
+            color: #ffffff90;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .evento-destacado-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: #ffffff60;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .evento-destacado-meta {
+                justify-content: center;
+            }
+        }
+
+        .evento-destacado-meta i {
+            margin-right: 0.3rem;
+        }
+
+        .evento-destacado-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ffffff30;
+            transition: all 0.2s ease;
+        }
+
+        .evento-destacado-item:hover .evento-destacado-btn {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        /* ===== ARTISTAS GRID CON SPOTIFY ===== */
+        .artists-embed-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 600px) {
+            .artists-embed-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .artists-embed-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .artists-embed-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .artist-embed-item {
+            background: #0a0a0a;
+            border: 2px solid #ffffff20;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+        }
+
+        .artist-embed-item:hover {
+            border-color: #1DB954;
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px -15px rgba(29, 185, 84, 0.4);
+        }
+
+        .artist-embed-item iframe {
+            width: 100%;
+            height: 380px;
+            display: block;
+            border: none;
+            border-radius: 16px;
+        }
+
+        /* Artistas ocultos para ver más */
+        .hidden-artist {
+            display: none;
+        }
+
+        .hidden-artist.showing {
+            display: block;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== BOTÓN VER MÁS ===== */
+        .ver-mas-btn {
+            background: transparent;
+            border: 2px solid #1DB954;
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1rem 3rem;
+            border-radius: 40px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .ver-mas-btn:hover {
+            background: #1DB954;
+            color: black;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px -10px #1DB954;
+        }
+
+        .ver-mas-btn i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .ver-mas-btn:hover i {
+            transform: rotate(180deg);
+        }
+
+        /* ===== SPOTIFY PLAYLISTS ===== */
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .spotify-item {
+            transition: all 0.3s ease;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .spotify-item:hover {
+            border-color: #1DB954;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+        }
+
+        .spotify-item iframe {
+            display: block;
+            background: #0a0a0a;
+        }
+
+        /* ===== BOTONES DIRECTOS ===== */
+        .direct-links {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .direct-links {
+                flex-direction: row;
+                gap: 2rem;
+                margin: 3rem 0 2rem;
+            }
+        }
+
+        .btn-social {
+            background: transparent;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid white;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            .btn-social {
+                padding: 1rem 3rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .btn-social:hover {
+            background: white;
+            color: black;
+        }
+
+        .btn-social:hover i {
+            color: black;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
+        }
+
+        /* ===== UTILITY ===== */
+        .more-events {
+            margin-top: 1.5rem;
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #ffffff20;
+        }
+
+        .more-events a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .more-events a:hover {
+            gap: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .artists-total {
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="hero">
+            <h1>BIRONGO</h1>
+            <div class="tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · CARACAS</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
+
+        <!-- ===== MAIN CONTENT GRID ===== -->
+        <div class="feed-grid">
+            <!-- COLUMN 1: YOUTUBE VIDEOS -->
+            <div class="card">
+                <h2><i class="fab fa-youtube"></i> YouTube · BirongoCaracas</h2>
+                <div class="youtube-videos">
+                    <!-- Video 1 -->
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube-nocookie.com/embed/ibwSSKettWE" 
+                                title="ALOCATE - GALERIA CARACAS" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen></iframe>
+                        <p><i class="fas fa-play"></i> Alocate · 2 meses · 1.1K vistas</p>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube-nocookie.com/embed/v9t8crwOOxQ" 
+                                title="HERESICKA - BIRONGO" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen></iframe>
+                        <p><i class="fas fa-play"></i> Heresicka · 4 meses · 1.3K vistas</p>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube-nocookie.com/embed/Q1_MW0ApNLw" 
+                                title="SIRDIAMND - FONDO BLANCO" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen></iframe>
+                        <p><i class="fas fa-play"></i> Sirdiamnd · 4 meses · 1.0K vistas</p>
+                    </div>
+                </div>
+                
+                <!-- YouTube Channel Link -->
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-social" style="background: #ff0000; border-color: #ff0000;">
+                        <i class="fab fa-youtube"></i> VER CANAL COMPLETO
+                    </a>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: FEATURED EVENT -->
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> EVENTO · BIRONGO LIVE</h2>
+                
+                <div class="evento-destacado">
+                    <a href="https://www.instagram.com/p/DR2QeLgjj9u/" target="_blank" class="evento-destacado-link">
+                        <div class="evento-destacado-item">
+                            <div class="evento-destacado-icon">
+                                <i class="fas fa-headphones-alt"></i>
+                            </div>
+                            <div class="evento-destacado-content">
+                                <div class="evento-destacado-header">
+                                    <h3>BIRONGO LIVE</h3>
+                                    <span class="evento-destacado-date">13 Dic 2025</span>
+                                </div>
+                                
+                                <div class="evento-destacado-artista">
+                                    <i class="fas fa-user"></i> @birongoccs
+                                </div>
+                                
+                                <p class="evento-destacado-desc">
+                                    Birongo Live / From 100 to 200 bpm: La diferencia está como tu te muevas 📍La Quinta Bar
+                                </p>
+                                
+                                <div class="evento-destacado-meta">
+                                    <span><i class="far fa-heart"></i> 1k likes</span>
+                                    <span><i class="far fa-comment"></i> 200 comentarios</span>
+                                </div>
+                                
+                                <div class="evento-destacado-action">
+                                    <span class="evento-destacado-btn">
+                                        <i class="fab fa-instagram"></i> VER EN INSTAGRAM
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="more-events">
+                    <a href="https://www.instagram.com/birongoccs/" target="_blank">
+                        <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
+                    </a>
+                </div>
+            </div>
+
+            <!-- FULL WIDTH: ARTISTS SECTION WITH SPOTIFY EMBEDS -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2><i class="fas fa-users"></i> DJ PRODUCER - BIRONGO</h2>
+                
+                <div class="artists-embed-grid" id="artistsGrid">
+                    <!-- VISIBLE ARTISTS (8) -->
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5QOEir4O0VWvh2C1PSIXpk?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/2xRaiN53HUcrbyqJbZiobg?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/3YlpT6Mi4sDSva5gbFr098?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5J93iXfPaLAag5wPRoHIjz?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5ZDwQ9rN1DjNqqXDr9cDw6?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/689mBwz2RoGOChmYyOpXnW?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/4We0e10I4cXJtCeGnkouq8?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item visible-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/0yjfe423duXcL5To8EgxLP?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <!-- HIDDEN ARTISTS (MORE) -->
+                    <div class="artist-embed-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/0I7ZCWHk7Env1UykgGVYNX?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/5JWeruMJutO9RbOYPS3OqZ?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                    
+                    <div class="artist-embed-item hidden-artist">
+                        <iframe src="https://open.spotify.com/embed/artist/7r0FHBhhkVztsTzH7hNFMB?utm_source=generator" 
+                                width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"
+                                style="border-radius: 12px; background: #0a0a0a; border: 1px solid #ffffff20;"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Show More Button -->
+                <div class="artists-total">
+                    <button id="verMasBtn" class="ver-mas-btn">
+                        <i class="fas fa-plus-circle"></i> VER MÁS ARTISTAS
+                    </button>
+                </div>
+            </div>
+
+            <!-- FULL WIDTH: SPOTIFY PLAYLISTS -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
+                
+                <div class="spotify-grid">
+                    <div class="spotify-item">
+                        <iframe style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator" 
+                                width="100%" height="152" frameborder="0" allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="spotify-item">
+                        <iframe style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo?utm_source=generator" 
+                                width="100%" height="152" frameborder="0" allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="spotify-item">
+                        <iframe style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD?utm_source=generator" 
+                                width="100%" height="152" frameborder="0" allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="spotify-item">
+                        <iframe style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk?utm_source=generator" 
+                                width="100%" height="152" frameborder="0" allowfullscreen="" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-social" style="background: #1DB954; border-color: #1DB954;">
+                        <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
+                    </a>
+                </div>
+            </div>
+        </div> <!-- END feed-grid -->
+
+        <!-- ===== DIRECT BUTTONS ===== -->
+        <div class="direct-links">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-social">
+                <i class="fab fa-instagram"></i> Instagram @birongoccs
+            </a>
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-social">
+                <i class="fab fa-youtube"></i> YouTube @birongocaracas
+            </a>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> Birongo · Caracas · 2025 <i class="fas fa-bolt"></i></p>
+        </footer>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show more artists functionality
+            const verMasBtn = document.getElementById('verMasBtn');
+            const hiddenArtists = document.querySelectorAll('.hidden-artist');
+            
+            if (verMasBtn) {
+                verMasBtn.addEventListener('click', function() {
+                    hiddenArtists.forEach(artist => {
+                        artist.classList.add('showing');
+                    });
+                    
+                    this.innerHTML = '<i class="fas fa-check-circle"></i> TODOS LOS ARTISTAS VISIBLES';
+                    this.style.opacity = '0.7';
+                    this.style.cursor = 'default';
+                    this.disabled = true;
+                });
+            }
+            
+            // External links security
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
+</body>
+</html>
