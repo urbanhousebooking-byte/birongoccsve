@@ -596,19 +596,43 @@
             text-align: center;
             padding: 1rem 0;
         }
+
+        /* ===== LOGO IMAGEN ===== */
+.logo-image {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .logo-image {
+        max-width: 60%;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo-image {
+        max-width: 50%;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
         <!-- ===== HEADER ===== -->
-        <div class="hero">
-            <h1>BIRONGO</h1>
-            <div class="tagline">
-                <i class="fas fa-headphones-alt"></i>
-                <span>DJs · PRODUCTORES · CARACAS</span>
-                <i class="fas fa-sliders-h"></i>
-            </div>
-        </div>
+<div class="hero">
+    <!-- IMAGEN LOGO (REEMPLAZA EL TEXTO) -->
+    <img src="img/Logo birongo.jpg" 
+         alt="BIRONGO" 
+         class="logo-image">
+    
+    <div class="tagline">
+        <i class="fas fa-headphones-alt"></i>
+        <span>DJs · PRODUCTORES · CARACAS</span>
+        <i class="fas fa-sliders-h"></i>
+    </div>
+</div>
 
         <!-- ===== MAIN CONTENT GRID ===== -->
         <div class="feed-grid">
