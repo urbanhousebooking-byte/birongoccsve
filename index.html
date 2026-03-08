@@ -383,36 +383,40 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ===== SPOTIFY PLAYLISTS ===== */
-        .spotify-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+        /* ===== SPOTIFY PLAYLISTS (CORREGIDO) ===== */
+.spotify-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
 
-        @media (min-width: 768px) {
-            .spotify-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
+@media (min-width: 768px) {
+    .spotify-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
 
-        .spotify-item {
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+.spotify-item {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    line-height: 0; /* Elimina espacios fantasma */
+}
 
-        .spotify-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
-        }
+.spotify-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+}
 
-        .spotify-item iframe {
-            display: block;
-            background: #0a0a0a;
-        }
-
+.spotify-item iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #0a0a0a;
+    vertical-align: bottom; /* Elimina espacio inferior */
+}
         /* ===== BOTONES ===== */
         .btn-group {
             display: flex;
@@ -685,23 +689,42 @@
             </div>
 
             <!-- PLAYLISTS SPOTIFY -->
-            <div class="card" style="grid-column: 1 / -1;">
-                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
-                
-                <div class="spotify-grid">
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" loading="lazy" height="152"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" loading="lazy" height="152"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" loading="lazy" height="152"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" loading="lazy" height="152"></iframe>
-                    </div>
-                </div>
+<div class="card" style="grid-column: 1 / -1;">
+    <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
+    
+    <div class="spotify-grid">
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" 
+                    loading="lazy" 
+                    height="152" 
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+    </div>
+    
+    <div class="text-center mt-2">
+        <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn btn-spotify">
+            <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
+        </a>
+    </div>
+</div>
                 
                 <div class="text-center mt-2">
                     <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn btn-spotify">
