@@ -84,34 +84,6 @@
             letter-spacing: 0.2em;
         }
 
-        /* ===== FILTROS ===== */
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 2px solid #ffffff30;
-            color: white;
-            padding: 0.6rem 1.5rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: white;
-            background: white;
-            color: black;
-        }
-
         /* ===== ARTISTAS GRID ===== */
         .artists-grid {
             display: grid;
@@ -146,15 +118,25 @@
             width: 100%;
             aspect-ratio: 1/1;
             background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .artist-image i {
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artist-image .placeholder-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             font-size: 4rem;
             color: #ffffff20;
+            pointer-events: none;
         }
 
         .artist-overlay {
@@ -230,31 +212,6 @@
             padding: 0.2rem 0.5rem;
         }
 
-        /* Tarjeta especial para Dorkas */
-        .artist-card.dorkas {
-            border: 2px solid #ff69b4;
-            position: relative;
-        }
-
-        .artist-card.dorkas::before {
-            content: '✨ DESTACADA';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff69b4;
-            color: black;
-            font-size: 0.6rem;
-            padding: 0.2rem 0.5rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            z-index: 10;
-        }
-
-        .artist-card.dorkas:hover {
-            border-color: #ff69b4;
-            box-shadow: 0 20px 40px -15px #ff69b4;
-        }
-
         /* ===== BOTONES ===== */
         .btn {
             background: transparent;
@@ -308,20 +265,13 @@
             </div>
         </div>
 
-        <!-- ===== FILTROS (opcional) ===== -->
-        <div class="filters">
-            <button class="filter-btn active">TODOS</button>
-            <button class="filter-btn">DJs</button>
-            <button class="filter-btn">PRODUCTORES</button>
-            <button class="filter-btn">MC's</button>
-        </div>
-
         <!-- ===== GRID DE ARTISTAS ===== -->
         <div class="artists-grid">
             <!-- ARTISTA 1 - ALOCATE -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/alocate.jpg" alt="ALOCATE" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/7sUyHjHdewixq7IrenI03o" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@alocate" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -341,7 +291,8 @@
             <!-- ARTISTA 2 - HERESICKA -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/heresicka.jpg" alt="HERESICKA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/2xRaiN53HUcrbyqJbZiobg" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@heresicka" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -361,7 +312,8 @@
             <!-- ARTISTA 3 - SIRDIAMND -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/sirdiamnd.jpg" alt="SIRDIAMND" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5QOEir4O0VWvh2C1PSIXpk" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@sirdiamnd" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -381,7 +333,8 @@
             <!-- ARTISTA 4 - DESTRO5 -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/destro5.jpg" alt="DESTRO5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5J93iXfPaLAag5wPRoHIjz" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@destro5" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -401,7 +354,8 @@
             <!-- ARTISTA 5 - DE LA TRINIDAD -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/delatrinidad.jpg" alt="DE LA TRINIDAD" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5ZDwQ9rN1DjNqqXDr9cDw6" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@delatrinidad" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -421,7 +375,8 @@
             <!-- ARTISTA 6 - LPZ -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/lpz.jpg" alt="LPZ" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/689mBwz2RoGOChmYyOpXnW" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@lpz" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -441,7 +396,8 @@
             <!-- ARTISTA 7 - GERARD VALERA -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/gerardvalera.jpg" alt="GERARD VALERA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/4We0e10I4cXJtCeGnkouq8" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@gerardvalera" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -461,7 +417,8 @@
             <!-- ARTISTA 8 - KURGANS -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/kurgans.jpg" alt="KURGANS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/0yjfe423duXcL5To8EgxLP" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@kurgans" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -481,7 +438,8 @@
             <!-- ARTISTA 9 - TREBOLL -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/treboll.jpg" alt="TREBOLL" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/0I7ZCWHk7Env1UykgGVYNX" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="https://youtube.com/@treboll" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -498,10 +456,11 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 10 - DORKAS (NUEVA - DESTACADA) -->
-            <div class="artist-card dorkas">
+            <!-- ARTISTA 10 - DORKAS -->
+            <div class="artist-card">
                 <div class="artist-image">
-                    <i class="fas fa-user"></i>
+                    <img src="img/artistas/dorkas.jpg" alt="DORKAS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="#" target="_blank"><i class="fab fa-spotify"></i></a>
                         <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -517,11 +476,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Puedes seguir agregando más artistas con la misma estructura -->
         </div>
 
-        <!-- ===== BOTÓN DE NAVEGACIÓN (SOLO VOLVER AL INICIO) ===== -->
+        <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
         <div class="nav-links">
             <a href="index.html" class="btn">
                 <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
@@ -534,26 +491,9 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT (para filtros) ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const artistCards = document.querySelectorAll('.artist-card');
-            
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remover active de todos
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Agregar active al clickeado
-                    this.classList.add('active');
-                    
-                    const filter = this.textContent.trim();
-                    
-                    // Aquí puedes implementar lógica de filtrado
-                    // Por ahora solo es visual
-                });
-            });
-            
             // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
