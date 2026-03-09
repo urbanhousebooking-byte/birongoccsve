@@ -84,65 +84,26 @@
             letter-spacing: 0.2em;
         }
 
-        /* ===== FILTROS DE EVENTOS ===== */
-        .event-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
+        /* ===== TARJETA DE EVENTO ÚNICO ===== */
+        .evento-unico {
+            max-width: 900px;
+            margin: 2rem auto 4rem;
         }
 
-        .filter-btn {
-            background: transparent;
-            border: 2px solid #ffffff30;
-            color: white;
-            padding: 0.8rem 2rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: white;
-            background: white;
-            color: black;
-        }
-
-        /* ===== GRID DE EVENTOS ===== */
-        .eventos-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        @media (min-width: 768px) {
-            .eventos-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
-            }
-        }
-
-        /* ===== TARJETA DE EVENTO (AHORA ES CLICABLE) ===== */
         .evento-card {
-            background: #111;
+            background: linear-gradient(145deg, #111, #0a0a0a);
             overflow: hidden;
             transition: all 0.4s ease;
             text-decoration: none;
             color: white;
             display: block;
-            border: 1px solid transparent;
-            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
         }
 
         .evento-card:hover {
             transform: translateY(-10px);
-            border-color: white;
-            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.3);
+            box-shadow: 0 40px 60px -20px rgba(255,255,255,0.4);
         }
 
         .evento-imagen {
@@ -174,7 +135,7 @@
         }
 
         .evento-imagen .placeholder-img i {
-            font-size: 4rem;
+            font-size: 5rem;
             color: #ffffff20;
         }
 
@@ -184,70 +145,79 @@
             right: 1rem;
             background: white;
             color: black;
-            padding: 0.3rem 1rem;
-            font-size: 0.7rem;
+            padding: 0.5rem 2rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             z-index: 2;
         }
 
-        .evento-badge.pasado {
-            background: #ffffff30;
-            color: white;
-        }
-
         .evento-contenido {
-            padding: 1.5rem;
+            padding: 2.5rem;
         }
 
         .evento-titulo {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .evento-titulo {
+                font-size: 1.8rem;
+            }
         }
 
         .evento-fecha {
             color: #ffffff80;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
         }
 
         .evento-lugar {
             color: #ffffff60;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
         }
 
         .evento-descripcion {
             color: #ffffff90;
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        @media (max-width: 768px) {
+            .evento-descripcion {
+                max-width: 100%;
+            }
         }
 
         .evento-artistas {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .evento-artista-tag {
             background: #ffffff10;
             color: #ffffff80;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
+            font-size: 0.9rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #ffffff20;
         }
 
         .evento-footer {
@@ -255,36 +225,96 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             border-top: 1px solid #ffffff20;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
         }
 
         .evento-stats {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             color: #ffffff60;
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
 
         .evento-stats i {
-            margin-right: 0.3rem;
+            margin-right: 0.5rem;
+            color: white;
         }
 
-        /* ===== EVENTO DESTACADO ===== */
-        .evento-destacado {
-            grid-column: 1 / -1;
-            background: linear-gradient(145deg, #1a1a1a, #000);
+        .evento-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: gap 0.3s ease;
+            padding: 0.8rem 2rem;
             border: 2px solid white;
-            margin-bottom: 1rem;
         }
 
-        .evento-destacado .evento-contenido {
-            padding: 2rem;
+        .evento-link:hover {
+            gap: 1.2rem;
+            background: white;
+            color: black;
         }
 
-        .evento-destacado .evento-titulo {
+        /* ===== SECCIÓN DE FOTOS Y VIDEOS (GALERÍA) ===== */
+        .galeria-titulo {
+            text-align: center;
+            margin: 4rem 0 2rem;
             font-size: 2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .galeria-item {
+            aspect-ratio: 1/1;
+            background: #111;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border: 1px solid #ffffff20;
+            transition: all 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.02);
+            border-color: white;
+            box-shadow: 0 20px 30px -15px rgba(255,255,255,0.3);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .galeria-item .video-thumb {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .galeria-item .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         /* ===== BOTONES TÁCTILES ===== */
@@ -315,46 +345,6 @@
             box-shadow: 0 2px 4px rgba(255,255,255,0.2);
         }
 
-        .btn-group-tactile {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        @media (min-width: 600px) {
-            .btn-group-tactile {
-                flex-direction: row;
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .btn-group-tactile .btn-tactile {
-                min-width: 200px;
-            }
-        }
-
-        .btn-tactile.btn-primary {
-            background: white;
-            color: black;
-        }
-
-        .btn-tactile.btn-primary:active {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        @media (max-width: 600px) {
-            .btn-tactile {
-                width: 100%;
-                max-width: 280px;
-                margin: 0 auto;
-                padding: 1.2rem 1.5rem;
-            }
-        }
-
-        /* ===== BOTONES DE NAVEGACIÓN ===== */
         .nav-links {
             display: flex;
             justify-content: center;
@@ -377,7 +367,7 @@
     <div class="container">
         <!-- ===== HEADER ===== -->
         <div class="header">
-            <h1>EVENTOS</h1>
+            <h1>EVENTO</h1>
             <div class="subtitle">
                 <i class="fas fa-calendar-alt"></i>
                 <span>BIRONGO · LIVE</span>
@@ -385,28 +375,19 @@
             </div>
         </div>
 
-        <!-- ===== FILTROS DE EVENTOS ===== -->
-        <div class="event-filters">
-            <button class="filter-btn active" data-filter="all">TODOS</button>
-            <button class="filter-btn" data-filter="upcoming">PRÓXIMOS</button>
-            <button class="filter-btn" data-filter="past">PASADOS</button>
-        </div>
-
-        <!-- ===== GRID DE EVENTOS ===== -->
-        <div class="eventos-grid" id="eventos-grid">
-            
-            <!-- EVENTO DESTACADO (PRÓXIMO - REAL) -->
-            <a href="evento-birongo-live-dic2025.html" class="evento-card evento-destacado" data-category="upcoming">
+        <!-- ===== EVENTO ÚNICO (BIRONGO LIVE EN LA QUINTA) ===== -->
+        <div class="evento-unico">
+            <div class="evento-card">
                 <div class="evento-imagen">
-                    <img src="img/eventos/birongo-live-dic2025.jpg" alt="BIRONGO LIVE DICIEMBRE" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
+                    <img src="img/eventos/birongo-live-la-quinta.jpg" alt="BIRONGO LIVE EN LA QUINTA" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
                     <div class="placeholder-img" style="display: none;">
                         <i class="fas fa-headphones-alt"></i>
                     </div>
-                    <span class="evento-badge">PRÓXIMO</span>
+                    <span class="evento-badge">ÚNICO</span>
                 </div>
                 <div class="evento-contenido">
                     <div class="evento-titulo">
-                        <h3>BIRONGO LIVE · DICIEMBRE</h3>
+                        <h3>BIRONGO LIVE</h3>
                         <span class="evento-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
                     </div>
                     <div class="evento-lugar">
@@ -414,191 +395,91 @@
                     </div>
                     <p class="evento-descripcion">
                         From 100 to 200 bpm: La diferencia está como tú te muevas. 
-                        Una noche histórica con lo mejor de la electrónica caraqueña.
+                        Una noche histórica con lo mejor de la electrónica caraqueña en la Quinta Bar.
                     </p>
                     <div class="evento-artistas">
                         <span class="evento-artista-tag">ALOCATE</span>
                         <span class="evento-artista-tag">HERESICKA</span>
                         <span class="evento-artista-tag">SIRDIAMND</span>
                         <span class="evento-artista-tag">DESTRO5</span>
-                        <span class="evento-artista-tag">+8</span>
+                        <span class="evento-artista-tag">DE LA TRINIDAD</span>
+                        <span class="evento-artista-tag">LPZ</span>
+                        <span class="evento-artista-tag">GERARD VALERA</span>
+                        <span class="evento-artista-tag">KURGANS</span>
+                        <span class="evento-artista-tag">TREBOLL</span>
+                        <span class="evento-artista-tag">DORKAS</span>
                     </div>
                     <div class="evento-footer">
                         <div class="evento-stats">
                             <span><i class="fas fa-users"></i> 250 asistiendo</span>
                             <span><i class="far fa-heart"></i> 1.2K interesados</span>
                         </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            VER DETALLES <i class="fas fa-arrow-right"></i>
-                        </span>
+                        <a href="entradas.html" class="evento-link">
+                            COMPRAR ENTRADAS <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </a>
+            </div>
+        </div>
 
-            <!-- EVENTO 1 - BIRONGO & ALOCATE (PASADO) -->
-            <a href="evento-birongo-alocate.html" class="evento-card" data-category="past">
-                <div class="evento-imagen">
-                    <img src="img/eventos/birongo-alocate.jpg" alt="BIRONGO & ALOCATE" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
-                    <div class="placeholder-img" style="display: none;">
-                        <i class="fas fa-headphones-alt"></i>
+        <!-- ===== GALERÍA DE FOTOS Y VIDEOS DEL EVENTO ===== -->
+        <h2 class="galeria-titulo">FOTOS Y VIDEOS</h2>
+        
+        <div class="galeria-grid">
+            <!-- Foto 1 -->
+            <div class="galeria-item">
+                <img src="img/eventos/la-quinta-1.jpg" alt="Birongo Live - Foto 1" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=FOTO+1'">
+            </div>
+            
+            <!-- Video 1 (YouTube) -->
+            <div class="galeria-item">
+                <a href="https://youtube.com/watch?v=VIDEO_ID" target="_blank" style="text-decoration: none; color: white; display: block; width: 100%; height: 100%; position: relative;">
+                    <div class="video-thumb">
+                        <img src="img/eventos/video-thumb-1.jpg" alt="Video thumbnail" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=VIDEO'">
+                        <i class="fas fa-play-circle play-icon"></i>
                     </div>
-                    <span class="evento-badge pasado">PASADO</span>
-                </div>
-                <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h4>BIRONGO & ALOCATE</h4>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 15 OCT 2025</span>
+                </a>
+            </div>
+            
+            <!-- Foto 2 -->
+            <div class="galeria-item">
+                <img src="img/eventos/la-quinta-2.jpg" alt="Birongo Live - Foto 2" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=FOTO+2'">
+            </div>
+            
+            <!-- Foto 3 -->
+            <div class="galeria-item">
+                <img src="img/eventos/la-quinta-3.jpg" alt="Birongo Live - Foto 3" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=FOTO+3'">
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="galeria-item">
+                <a href="https://www.instagram.com/p/DR2QeLgjj9u/" target="_blank" style="text-decoration: none; color: white; display: block; width: 100%; height: 100%; position: relative;">
+                    <div class="video-thumb">
+                        <img src="img/eventos/insta-thumb.jpg" alt="Instagram video" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=INSTAGRAM'">
+                        <i class="fab fa-instagram play-icon" style="font-size: 2.5rem;"></i>
                     </div>
-                    <div class="evento-lugar">
-                        <i class="fas fa-map-marker-alt"></i> Club 304, Caracas
+                </a>
+            </div>
+            
+            <!-- Foto 4 -->
+            <div class="galeria-item">
+                <img src="img/eventos/la-quinta-4.jpg" alt="Birongo Live - Foto 4" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=FOTO+4'">
+            </div>
+            
+            <!-- Foto 5 -->
+            <div class="galeria-item">
+                <img src="img/eventos/la-quinta-5.jpg" alt="Birongo Live - Foto 5" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=FOTO+5'">
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="galeria-item">
+                <a href="https://youtube.com/watch?v=OTRO_VIDEO_ID" target="_blank" style="text-decoration: none; color: white; display: block; width: 100%; height: 100%; position: relative;">
+                    <div class="video-thumb">
+                        <img src="img/eventos/video-thumb-2.jpg" alt="Video thumbnail" onerror="this.src='https://via.placeholder.com/400x400/1a1a1a/666666?text=VIDEO+2'">
+                        <i class="fas fa-play-circle play-icon"></i>
                     </div>
-                    <p class="evento-descripcion">
-                        Back-to-back de techno y house. Noche histórica en el 304 con la crew.
-                    </p>
-                    <div class="evento-footer">
-                        <div class="evento-stats">
-                            <span><i class="fas fa-eye"></i> 1.1K vistas</span>
-                            <span><i class="far fa-images"></i> 23 fotos</span>
-                        </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            VER FOTOS Y VIDEOS <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- EVENTO 2 - BACKBEAT STUDIO (PASADO) -->
-            <a href="evento-backbeat-studio.html" class="evento-card" data-category="past">
-                <div class="evento-imagen">
-                    <img src="img/eventos/backbeat-studio.jpg" alt="BACKBEAT STUDIO" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
-                    <div class="placeholder-img" style="display: none;">
-                        <i class="fas fa-studio"></i>
-                    </div>
-                    <span class="evento-badge pasado">PASADO</span>
-                </div>
-                <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h4>BACKBEAT STUDIO SESSION</h4>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 28 SEP 2025</span>
-                    </div>
-                    <div class="evento-lugar">
-                        <i class="fas fa-map-marker-alt"></i> BackBeat Studio, Caracas
-                    </div>
-                    <p class="evento-descripcion">
-                        Grabación en vivo con la crew completa. Vinilo y máquinas.
-                    </p>
-                    <div class="evento-footer">
-                        <div class="evento-stats">
-                            <span><i class="fas fa-eye"></i> 1.3K vistas</span>
-                            <span><i class="far fa-images"></i> 15 fotos</span>
-                        </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            VER FOTOS Y VIDEOS <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- EVENTO 3 - HERESICKA B2B (PASADO) -->
-            <a href="evento-heresicka-b2b.html" class="evento-card" data-category="past">
-                <div class="evento-imagen">
-                    <img src="img/eventos/heresicka-b2b.jpg" alt="HERESICKA B2B" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
-                    <div class="placeholder-img" style="display: none;">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <span class="evento-badge pasado">PASADO</span>
-                </div>
-                <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h4>HERESICKA B2B</h4>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 10 SEP 2025</span>
-                    </div>
-                    <div class="evento-lugar">
-                        <i class="fas fa-map-marker-alt"></i> La Cueva, Caracas
-                    </div>
-                    <p class="evento-descripcion">
-                        Live set electrónico. 4 horas de música continua.
-                    </p>
-                    <div class="evento-footer">
-                        <div class="evento-stats">
-                            <span><i class="fas fa-eye"></i> 1.3K vistas</span>
-                            <span><i class="far fa-images"></i> 18 fotos</span>
-                        </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            VER FOTOS Y VIDEOS <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- EVENTO 4 - CARACAS SOUND CREW (PASADO) -->
-            <a href="evento-caracas-crew.html" class="evento-card" data-category="past">
-                <div class="evento-imagen">
-                    <img src="img/eventos/caracas-crew.jpg" alt="CARACAS SOUND CREW" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
-                    <div class="placeholder-img" style="display: none;">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <span class="evento-badge pasado">PASADO</span>
-                </div>
-                <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h4>CARACAS SOUND CREW</h4>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 5 AGO 2025</span>
-                    </div>
-                    <div class="evento-lugar">
-                        <i class="fas fa-map-marker-alt"></i> Plaza La Pastora, Caracas
-                    </div>
-                    <p class="evento-descripcion">
-                        La crew completa al aire libre. Session fotográfica.
-                    </p>
-                    <div class="evento-footer">
-                        <div class="evento-stats">
-                            <span><i class="fas fa-eye"></i> 2.1K vistas</span>
-                            <span><i class="far fa-images"></i> 32 fotos</span>
-                        </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            VER FOTOS Y VIDEOS <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- EVENTO 5 - PRÓXIMO (FEBRERO 2026) -->
-            <a href="evento-birongo-feb2026.html" class="evento-card" data-category="upcoming">
-                <div class="evento-imagen">
-                    <img src="img/eventos/birongo-feb2026.jpg" alt="BIRONGO FEBRERO" onerror="this.style.display='none'; this.parentElement.querySelector('.placeholder-img').style.display='flex';">
-                    <div class="placeholder-img" style="display: none;">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <span class="evento-badge">PRÓXIMO</span>
-                </div>
-                <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h4>BIRONGO · EDICIÓN 2026</h4>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 14 FEB 2026</span>
-                    </div>
-                    <div class="evento-lugar">
-                        <i class="fas fa-map-marker-alt"></i> Por anunciar
-                    </div>
-                    <p class="evento-descripcion">
-                        Próximamente más información. Celebración especial.
-                    </p>
-                    <div class="evento-artistas">
-                        <span class="evento-artista-tag">ALOCATE</span>
-                        <span class="evento-artista-tag">HERESICKA</span>
-                        <span class="evento-artista-tag">+invitados</span>
-                    </div>
-                    <div class="evento-footer">
-                        <div class="evento-stats">
-                            <span><i class="fas fa-users"></i> 120 asistiendo</span>
-                            <span><i class="far fa-heart"></i> 580 interesados</span>
-                        </div>
-                        <span class="evento-link" style="color: white; display: inline-flex; align-items: center; gap: 0.5rem;">
-                            MÁS INFO <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
 
         <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
@@ -606,7 +487,7 @@
             <a href="index.html" class="btn-tactile">
                 <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
             </a>
-            <a href="entradas.html" class="btn-tactile btn-primary">
+            <a href="entradas.html" class="btn-tactile btn-primary" style="background: white; color: black;">
                 <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
             </a>
         </div>
@@ -617,41 +498,9 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT (FILTROS FUNCIONALES) ===== -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const eventCards = document.querySelectorAll('.evento-card');
-            
-            // Función para filtrar eventos
-            function filterEvents(category) {
-                eventCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
-                    
-                    if (category === 'all' || cardCategory === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-            
-            // Agregar evento click a cada botón de filtro
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remover active de todos
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Agregar active al clickeado
-                    this.classList.add('active');
-                    
-                    // Obtener categoría del filtro
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Aplicar filtro
-                    filterEvents(filterValue);
-                });
-            });
-            
             // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
