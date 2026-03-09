@@ -322,7 +322,7 @@
             color: #000;
         }
 
-        /* ===== ARTISTAS GRID ===== */
+        /* ===== ARTISTAS GRID (oculto en principal) ===== */
         .artists-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -368,7 +368,6 @@
             border-radius: 16px;
         }
 
-        /* Artistas ocultos */
         .hidden-artist {
             display: none;
         }
@@ -418,23 +417,89 @@
             vertical-align: bottom;
         }
 
-        /* ===== BOTONES ===== */
-        .btn-group {
+        /* ===== BOTONES TÁCTILES ===== */
+        .btn-tactile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-tactile:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
+            box-shadow: 0 2px 4px rgba(255,255,255,0.2);
+        }
+
+        .btn-group-tactile {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             gap: 1rem;
             margin: 2rem 0;
         }
 
         @media (min-width: 600px) {
-            .btn-group {
+            .btn-group-tactile {
                 flex-direction: row;
+                justify-content: center;
                 gap: 2rem;
-                margin: 3rem 0 2rem;
+            }
+            
+            .btn-group-tactile .btn-tactile {
+                min-width: 200px;
             }
         }
 
+        .btn-tactile.btn-instagram {
+            background: linear-gradient(45deg, #fccc63, #bc2a8d);
+            border: none;
+        }
+
+        .btn-tactile.btn-youtube {
+            background: #ff0000;
+            border: none;
+        }
+
+        .btn-tactile.btn-spotify {
+            background: #1DB954;
+            border: none;
+        }
+
+        .btn-tactile.btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-tactile.btn-primary:active {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        @media (max-width: 600px) {
+            .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        /* Mantener compatibilidad con botones antiguos */
         .btn {
             background: transparent;
             padding: 0.8rem 1.5rem;
@@ -477,40 +542,6 @@
         .btn-spotify:hover {
             background: #fff;
             color: #000;
-        }
-
-        /* ===== VER MÁS BUTTON ===== */
-        .ver-mas-btn {
-            background: transparent;
-            border: 2px solid #1DB954;
-            color: white;
-            font-size: 1rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            padding: 1rem 3rem;
-            border-radius: 40px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-
-        .ver-mas-btn:hover {
-            background: #1DB954;
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px -10px #1DB954;
-        }
-
-        .ver-mas-btn i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .ver-mas-btn:hover i {
-            transform: rotate(180deg);
         }
 
         /* ===== UTILITY ===== */
@@ -608,48 +639,49 @@
                 </div>
             </div>
 
-           <!-- COLUMNA EVENTO (con botón nuevo) -->
-<div class="card">
-    <h2><i class="fas fa-calendar-alt"></i> EVENTO · BIRONGO LIVE</h2>
-    
-    <a href="https://www.instagram.com/p/DR2QeLgjj9u/" target="_blank" class="evento-item">
-        <div class="evento-icon">
-            <i class="fas fa-headphones-alt"></i>
-        </div>
-        <div>
-            <div class="evento-header">
-                <h3>BIRONGO LIVE</h3>
-                <span class="evento-date">13 Dic 2025</span>
+            <!-- COLUMNA EVENTO (con botones táctiles) -->
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> EVENTO · BIRONGO LIVE</h2>
+                
+                <a href="https://www.instagram.com/p/DR2QeLgjj9u/" target="_blank" class="evento-item">
+                    <div class="evento-icon">
+                        <i class="fas fa-headphones-alt"></i>
+                    </div>
+                    <div>
+                        <div class="evento-header">
+                            <h3>BIRONGO LIVE</h3>
+                            <span class="evento-date">13 Dic 2025</span>
+                        </div>
+                        <div class="evento-artista"><i class="fas fa-user"></i> @birongoccs</div>
+                        <p class="evento-desc">From 100 to 200 bpm · La Quinta Bar</p>
+                        <div class="evento-meta">
+                            <span><i class="far fa-heart"></i> 1k</span>
+                            <span><i class="far fa-comment"></i> 200</span>
+                        </div>
+                        <div class="evento-btn"><i class="fab fa-instagram"></i> VER EN INSTAGRAM</div>
+                    </div>
+                </a>
+                
+                <!-- BOTÓN A DJs (TÁCTIL) -->
+                <div style="margin: 1.5rem 0 1rem; text-align: center;">
+                    <a href="djs-productores.html" class="btn-tactile" style="border-color: white; background: transparent; width: 100%; max-width: 300px; margin: 0 auto;">
+                        <i class="fas fa-users" style="font-size: 1.2rem;"></i> VER TODOS LOS DJs
+                    </a>
+                </div>
+                
+                <!-- BOTÓN DE ENTRADAS (TÁCTIL) -->
+                <div class="text-center mt-2">
+                    <a href="entradas.html" class="btn-tactile btn-primary" style="width: 100%; max-width: 280px; margin: 0 auto;">
+                        <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
+                    </a>
+                </div>
+                
+                <div class="divider">
+                    <a href="https://www.instagram.com/birongoccs/" target="_blank" class="more-link">
+                        <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
+                    </a>
+                </div>
             </div>
-            <div class="evento-artista"><i class="fas fa-user"></i> @birongoccs</div>
-            <p class="evento-desc">From 100 to 200 bpm · La Quinta Bar</p>
-            <div class="evento-meta">
-                <span><i class="far fa-heart"></i> 1k</span>
-                <span><i class="far fa-comment"></i> 200</span>
-            </div>
-            <div class="evento-btn"><i class="fab fa-instagram"></i> VER EN INSTAGRAM</div>
-        </div>
-    </a>
-    
-    <!-- NUEVO BOTÓN A LA PÁGINA DE DJs -->
-    <div style="margin: 1rem 0 0.5rem; text-align: center;">
-        <a href="djs-productores.html" class="btn" style="border-color: white; background: transparent;">
-            <i class="fas fa-users"></i> VER TODOS LOS DJs Y PRODUCTORES
-        </a>
-    </div>
-    
-    <div class="text-center mt-2">
-        <a href="entradas.html" class="btn">
-            <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
-        </a>
-    </div>
-    
-    <div class="divider">
-        <a href="https://www.instagram.com/birongoccs/" target="_blank" class="more-link">
-            <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
-        </a>
-    </div>
-</div>
 
             <!-- PLAYLISTS SPOTIFY -->
             <div class="card" style="grid-column: 1 / -1;">
@@ -682,20 +714,21 @@
                     </div>
                 </div>
                 
+                <!-- BOTÓN SPOTIFY (TÁCTIL) -->
                 <div class="text-center mt-2">
-                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn btn-spotify">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile btn-spotify" style="width: 100%; max-width: 300px; margin: 0 auto;">
                         <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
                     </a>
                 </div>
             </div>
         </div> <!-- FINAL DEL feed-grid -->
 
-        <!-- ===== BOTONES DIRECTOS ===== -->
-        <div class="btn-group">
-            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn">
+        <!-- ===== BOTONES DIRECTOS TÁCTILES ===== -->
+        <div class="btn-group-tactile">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile btn-instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn">
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile btn-youtube">
                 <i class="fab fa-youtube"></i> YouTube
             </a>
         </div>
@@ -756,14 +789,13 @@
             }
         }
 
-        // Ver más artistas
+        // Ver más artistas (si existe en la página)
         document.addEventListener('DOMContentLoaded', function() {
             loadLatestVideo();
             
             const verMasBtn = document.getElementById('verMasBtn');
-            const hiddenArtists = document.querySelectorAll('.hidden-artist');
-            
             if (verMasBtn) {
+                const hiddenArtists = document.querySelectorAll('.hidden-artist');
                 verMasBtn.addEventListener('click', function() {
                     hiddenArtists.forEach(artist => artist.classList.add('showing'));
                     this.innerHTML = '<i class="fas fa-check-circle"></i> TODOS VISIBLES';
@@ -772,6 +804,7 @@
                 });
             }
             
+            // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
