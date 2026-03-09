@@ -25,7 +25,6 @@
             font-size: 16px;
         }
 
-        /* Fondo sutil */
         body::before {
             content: '';
             position: fixed;
@@ -51,7 +50,6 @@
             }
         }
 
-        /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
@@ -322,66 +320,6 @@
             color: #000;
         }
 
-        /* ===== ARTISTAS GRID (oculto en principal) ===== */
-        .artists-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: 600px) {
-            .artists-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 992px) {
-            .artists-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 1400px) {
-            .artists-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .artist-item {
-            background: #111;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .artist-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px -15px rgba(29, 185, 84, 0.3);
-        }
-
-        .artist-item iframe {
-            width: 100%;
-            height: 380px;
-            display: block;
-            border: none;
-            border-radius: 16px;
-        }
-
-        .hidden-artist {
-            display: none;
-        }
-
-        .hidden-artist.showing {
-            display: block;
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* ===== SPOTIFY PLAYLISTS ===== */
         .spotify-grid {
             display: grid;
@@ -406,7 +344,7 @@
 
         .spotify-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
         }
 
         .spotify-item iframe {
@@ -417,7 +355,7 @@
             vertical-align: bottom;
         }
 
-        /* ===== BOTONES TÁCTILES ===== */
+        /* ===== BOTONES TÁCTILES BLANCO Y NEGRO ===== */
         .btn-tactile {
             display: inline-flex;
             align-items: center;
@@ -464,21 +402,6 @@
             }
         }
 
-        .btn-tactile.btn-instagram {
-            background: linear-gradient(45deg, #fccc63, #bc2a8d);
-            border: none;
-        }
-
-        .btn-tactile.btn-youtube {
-            background: #ff0000;
-            border: none;
-        }
-
-        .btn-tactile.btn-spotify {
-            background: #1DB954;
-            border: none;
-        }
-
         .btn-tactile.btn-primary {
             background: white;
             color: black;
@@ -497,51 +420,6 @@
                 margin: 0 auto;
                 padding: 1.2rem 1.5rem;
             }
-        }
-
-        /* Mantener compatibilidad con botones antiguos */
-        .btn {
-            background: transparent;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #fff;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.8rem;
-        }
-
-        @media (min-width: 768px) {
-            .btn {
-                padding: 1rem 3rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        .btn:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .btn-youtube {
-            background: #ff0000;
-            border-color: #ff0000;
-        }
-
-        .btn-spotify {
-            background: #1DB954;
-            border-color: #1DB954;
-        }
-
-        .btn-spotify:hover {
-            background: #fff;
-            color: #000;
         }
 
         /* ===== UTILITY ===== */
@@ -574,11 +452,6 @@
             padding-top: 1rem;
             border-top: 1px solid #ffffff20;
             text-align: center;
-        }
-
-        .artists-total {
-            text-align: center;
-            padding: 1rem 0;
         }
 
         /* ===== FOOTER ===== */
@@ -633,13 +506,13 @@
                 </div>
                 
                 <div class="text-center mt-2">
-                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn btn-youtube">
+                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
                         <i class="fab fa-youtube"></i> VER CANAL COMPLETO
                     </a>
                 </div>
             </div>
 
-            <!-- COLUMNA EVENTO (con botones táctiles) -->
+            <!-- COLUMNA EVENTO -->
             <div class="card">
                 <h2><i class="fas fa-calendar-alt"></i> EVENTO · BIRONGO LIVE</h2>
                 
@@ -662,14 +535,14 @@
                     </div>
                 </a>
                 
-                <!-- BOTÓN A DJs (TÁCTIL) -->
+                <!-- BOTÓN A DJs -->
                 <div style="margin: 1.5rem 0 1rem; text-align: center;">
-                    <a href="djs-productores.html" class="btn-tactile" style="border-color: white; background: transparent; width: 100%; max-width: 300px; margin: 0 auto;">
-                        <i class="fas fa-users" style="font-size: 1.2rem;"></i> VER TODOS LOS DJs
+                    <a href="djs-productores.html" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                        <i class="fas fa-users"></i> VER TODOS LOS DJs
                     </a>
                 </div>
                 
-                <!-- BOTÓN DE ENTRADAS (TÁCTIL) -->
+                <!-- BOTÓN DE ENTRADAS -->
                 <div class="text-center mt-2">
                     <a href="entradas.html" class="btn-tactile btn-primary" style="width: 100%; max-width: 280px; margin: 0 auto;">
                         <i class="fas fa-ticket-alt"></i> COMPRAR ENTRADAS
@@ -714,21 +587,21 @@
                     </div>
                 </div>
                 
-                <!-- BOTÓN SPOTIFY (TÁCTIL) -->
+                <!-- BOTÓN SPOTIFY -->
                 <div class="text-center mt-2">
-                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile btn-spotify" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
                         <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
                     </a>
                 </div>
             </div>
-        </div> <!-- FINAL DEL feed-grid -->
+        </div>
 
-        <!-- ===== BOTONES DIRECTOS TÁCTILES ===== -->
+        <!-- ===== BOTONES DIRECTOS ===== -->
         <div class="btn-group-tactile">
-            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile btn-instagram">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile btn-youtube">
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
                 <i class="fab fa-youtube"></i> YouTube
             </a>
         </div>
@@ -789,22 +662,9 @@
             }
         }
 
-        // Ver más artistas (si existe en la página)
         document.addEventListener('DOMContentLoaded', function() {
             loadLatestVideo();
             
-            const verMasBtn = document.getElementById('verMasBtn');
-            if (verMasBtn) {
-                const hiddenArtists = document.querySelectorAll('.hidden-artist');
-                verMasBtn.addEventListener('click', function() {
-                    hiddenArtists.forEach(artist => artist.classList.add('showing'));
-                    this.innerHTML = '<i class="fas fa-check-circle"></i> TODOS VISIBLES';
-                    this.style.opacity = '0.7';
-                    this.disabled = true;
-                });
-            }
-            
-            // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
