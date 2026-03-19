@@ -172,36 +172,25 @@
             font-size: 1.8rem;
         }
 
-        /* ===== YOUTUBE SECTION ===== */
-        .video-embed {
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+        /* ===== YOUTUBE MÁS GRANDE ===== */
+.video-embed {
+    width: 100%;
+    border-radius: 0; /* Opcional: quita bordes redondeados para que se vea más masivo */
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+}
 
-        .video-embed iframe {
-            width: 100%;
-            aspect-ratio: 16/9;
-            display: block;
-            border: none;
-        }
+.video-embed iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: block;
+    border: none;
+}
 
-        .video-info {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: #080808;
-        }
-
-        .video-info p {
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .video-info i {
-            color: #ffffff60;
-        }
-
+/* Opcional: si quieres que el video tenga un borde sutil al pasar el mouse */
+.video-embed:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+}
         /* ===== SPOTIFY PLAYLISTS MEJORADO ===== */
         .spotify-grid {
             display: grid;
@@ -375,29 +364,30 @@
 
         <!-- ===== MAIN CONTENT (VERTICAL) ===== -->
         <div class="main-content">
-            <!-- TARJETA 1: YOUTUBE -->
-            <div class="card" style="display: flex; flex-direction: column; align-items: center;">
-                <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MAS RECIENTE</h2>
-                
-                <div style="max-width: 800px; width: 100%; margin: 0 auto;">
-                    <div id="latest-video-container" class="video-embed">
-                        <div style="padding: 2rem; text-align: center; color: #ffffff60;">
-                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
-                            <p>Cargando el último video de Birongo...</p>
-                        </div>
-                    </div>
-                    
-                    <div class="video-info" id="video-info" style="display: none;">
-                        <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
-                    </div>
-                    
-                    <div class="text-center mt-2">
-                        <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
-                            <i class="fab fa-youtube"></i> TODOS LOS VIDEOS SET
-                        </a>
-                    </div>
-                </div>
+            <!-- TARJETA 1: YOUTUBE (VERSIÓN GRANDE) -->
+<div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 1.5rem;">
+    <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MAS RECIENTE</h2>
+    
+    <!-- Video más grande: eliminamos el max-width de 800px para que ocupe todo -->
+    <div style="width: 100%; margin: 0 auto;">
+        <div id="latest-video-container" class="video-embed" style="width: 100%;">
+            <div style="padding: 2rem; text-align: center; color: #ffffff60;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                <p>Cargando el último video de Birongo...</p>
             </div>
+        </div>
+        
+        <div class="video-info" id="video-info" style="display: none;">
+            <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+        </div>
+        
+        <div class="text-center mt-2">
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
+                <i class="fab fa-youtube"></i> TODOS LOS VIDEOS SET
+            </a>
+        </div>
+    </div>
+</div>
 
             <!-- TARJETA 2: EVENTOS -->
             <div class="card">
