@@ -202,40 +202,148 @@
             color: #ffffff60;
         }
 
-        /* ===== SPOTIFY PLAYLISTS ===== */
-        .spotify-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+        /* ===== SECCIÓN SPOTIFY MEJORADA ===== */
 
-        @media (min-width: 768px) {
-            .spotify-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
+/* Tarjeta destacada */
+.featured-spotify {
+    background: linear-gradient(145deg, #0f0f0f, #030303);
+    border: 1px solid #1DB95430;
+}
 
-        .spotify-item {
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            overflow: hidden;
-            background: transparent;
-            line-height: 0;
-        }
+.featured-playlist {
+    margin-top: 1rem;
+}
 
-        .spotify-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(255,255,255,0.2);
-        }
+.featured-playlist-content {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
 
-        .spotify-item iframe {
-            display: block;
-            width: 100%;
-            border: none;
-            background: #0a0a0a;
-            vertical-align: bottom;
-        }
+@media (max-width: 768px) {
+    .featured-playlist-content {
+        flex-direction: column;
+    }
+}
+
+.featured-info {
+    flex: 1;
+}
+
+.featured-info h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1DB954;
+}
+
+@media (max-width: 768px) {
+    .featured-info h3 {
+        font-size: 1.5rem;
+    }
+}
+
+.featured-desc {
+    color: #ffffff90;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.featured-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.featured-tags .tag {
+    background: #1DB95420;
+    color: #1DB954;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px solid #1DB95440;
+}
+
+.featured-stats {
+    display: flex;
+    gap: 2rem;
+    color: #ffffff60;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.featured-stats i {
+    color: #1DB954;
+    margin-right: 0.3rem;
+}
+
+.featured-image {
+    flex: 0 0 200px;
+}
+
+@media (max-width: 768px) {
+    .featured-image {
+        flex: 0 0 auto;
+        width: 200px;
+        margin: 0 auto;
+    }
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px -10px #1DB954;
+    border: 2px solid #1DB954;
+}
+
+/* Botón de Spotify personalizado */
+.btn-tactile.btn-spotify {
+    background: #1DB954;
+    border-color: #1DB954;
+    color: black;
+}
+
+.btn-tactile.btn-spotify:hover {
+    background: transparent;
+    color: white;
+}
+
+/* Grid de playlists existente */
+.spotify-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .spotify-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+.spotify-item {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    line-height: 0;
+}
+
+.spotify-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+}
+
+.spotify-item iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #0a0a0a;
+    vertical-align: bottom;
+}
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
@@ -424,45 +532,76 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3: SPOTIFY PLAYLISTS -->
-            <div class="card">
-                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
-                
-                <div class="spotify-grid">
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" 
-                                loading="lazy" 
-                                height="152" 
-                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
-                                loading="lazy" 
-                                height="152"
-                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
-                                loading="lazy" 
-                                height="152"
-                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
-                    </div>
-                    <div class="spotify-item">
-                        <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
-                                loading="lazy" 
-                                height="152"
-                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
-                    </div>
+           <!-- ===== SECCIÓN SPOTIFY ===== -->
+
+<!-- TARJETA 1: BIRONGO RECOMMENDATIONS (DESTACADA) -->
+<div class="card featured-spotify">
+    <h2><i class="fab fa-spotify"></i> BIRONGO RECOMMENDATIONS</h2>
+    
+    <div class="featured-playlist">
+        <div class="featured-playlist-content">
+            <div class="featured-info">
+                <h3>VITICO · SELECTIONS</h3>
+                <p class="featured-desc">Los temas que están sonando en la crew. Techno, House, Break y más.</p>
+                <div class="featured-tags">
+                    <span class="tag">Techno</span>
+                    <span class="tag">House</span>
+                    <span class="tag">UK Garage</span>
+                    <span class="tag">Break</span>
                 </div>
-                
-                <!-- BOTÓN SPOTIFY -->
-                <div class="text-center mt-2">
-                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
-                        <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
-                    </a>
+                <div class="featured-stats">
+                    <span><i class="fas fa-headphones"></i> 1.2K oyentes</span>
+                    <span><i class="fas fa-music"></i> 45 tracks</span>
                 </div>
+                <a href="https://open.spotify.com/playlist/1zhfUqTriiJaMN0MXC5ZWo" target="_blank" class="btn-tactile btn-spotify" style="margin-top: 1rem;">
+                    <i class="fab fa-spotify"></i> ESCUCHAR EN SPOTIFY
+                </a>
+            </div>
+            <div class="featured-image">
+                <img src="img/playlists/vitico-selections.jpg" alt="Vitico Selections" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/1DB954?text=VITICO'">
             </div>
         </div>
+    </div>
+</div>
+
+<!-- TARJETA 2: PLAYLISTS · BIRONGO SOUND -->
+<div class="card">
+    <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
+    
+    <div class="spotify-grid">
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" 
+                    loading="lazy" 
+                    height="152" 
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+        <div class="spotify-item">
+            <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
+                    loading="lazy" 
+                    height="152"
+                    style="border-radius: 12px; display: block; width: 100%;"></iframe>
+        </div>
+    </div>
+    
+    <!-- BOTÓN SPOTIFY -->
+    <div class="text-center mt-2">
+        <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
+            <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
+        </a>
+    </div>
+</div>
 
         <!-- ===== BOTONES DIRECTOS ===== -->
         <div class="btn-group-tactile">
