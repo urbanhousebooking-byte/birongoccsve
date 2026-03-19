@@ -9,6 +9,544 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.png">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
+        }
+
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #ffffff80;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        @media (min-width: 768px) {
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        .tagline i {
+            color: white;
+            opacity: 0.5;
+        }
+
+        /* ===== MAIN CONTENT (VERTICAL) ===== */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .main-content {
+                gap: 2.5rem;
+                margin: 4rem 0;
+            }
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #0a0a0a;
+            border: none;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 2rem;
+            }
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #ffffff20;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (min-width: 768px) {
+            .card h2 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .card h2 i {
+            color: white;
+            opacity: 0.5;
+            font-size: 1.8rem;
+        }
+
+        /* ===== YOUTUBE SECTION ===== */
+        .video-embed {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .video-embed iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: block;
+            border: none;
+        }
+
+        .video-info {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: #080808;
+        }
+
+        .video-info p {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-info i {
+            color: #ffffff60;
+        }
+
+        /* ===== SPOTIFY PLAYLISTS ===== */
+        .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .spotify-item {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            background: transparent;
+            line-height: 0;
+        }
+
+        .spotify-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .spotify-item iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            background: #0a0a0a;
+            vertical-align: bottom;
+        }
+
+        /* ===== BOTONES TÁCTILES ===== */
+        .btn-tactile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .btn-tactile:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
+            box-shadow: 0 2px 4px rgba(255,255,255,0.2);
+        }
+
+        .btn-group-tactile {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .btn-group-tactile {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+            
+            .btn-group-tactile .btn-tactile {
+                min-width: 200px;
+            }
+        }
+
+        .btn-tactile.btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-tactile.btn-primary:active {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        @media (max-width: 600px) {
+            .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 1.2rem 1.5rem;
+            }
+        }
+
+        /* ===== UTILITY ===== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 1.5rem;
+        }
+
+        .more-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .more-link:hover {
+            gap: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .divider {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ffffff20;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ===== HEADER ===== -->
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <div class="tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span> DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA </span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </div>
+
+        <!-- ===== MAIN CONTENT (VERTICAL) ===== -->
+        <div class="main-content">
+            <!-- TARJETA 1: YOUTUBE -->
+            <div class="card">
+                <h2><i class="fab fa-youtube"></i> VIDEO SET BIRONGO</h2>
+                
+                <div id="latest-video-container" class="video-embed">
+                    <div style="padding: 2rem; text-align: center; color: #ffffff60;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                        <p>Cargando el último video de Birongo...</p>
+                    </div>
+                </div>
+                
+                <div class="video-info" id="video-info" style="display: none;">
+                    <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+                </div>
+                
+                <div class="text-center mt-2">
+                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
+                        <i class="fab fa-youtube"></i> VER CANAL COMPLETO
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: EVENTOS -->
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> EVENTOS · BIRONGO</h2>
+                
+                <!-- BOTÓN PRINCIPAL DE EVENTOS -->
+                <div style="margin: 0.5rem 0 1rem; text-align: center;">
+                    <a href="eventos.html" class="btn-tactile btn-primary" style="width: 100%; max-width: 320px; margin: 0 auto; padding: 1.2rem 2rem;">
+                        <i class="fas fa-calendar-alt"></i> VER TODOS LOS EVENTOS
+                    </a>
+                </div>
+                
+                <!-- SEPARADOR SUTIL -->
+                <div style="margin: 1.5rem 0; border-top: 1px solid #ffffff20;"></div>
+                
+                <!-- BOTÓN DE DJs Y PRODUCTORES -->
+                <div style="margin: 1rem 0; text-align: center;">
+                    <a href="djs-productores.html" class="btn-tactile" style="width: 100%; max-width: 320px; margin: 0 auto;">
+                        <i class="fas fa-users"></i> VER TODOS LOS DJs
+                    </a>
+                </div>
+                
+                <div class="divider">
+                    <a href="https://www.instagram.com/birongoccs/" target="_blank" class="more-link">
+                        <i class="fas fa-arrow-right"></i> MÁS EN @birongoccs
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: SPOTIFY PLAYLISTS -->
+            <div class="card">
+                <h2><i class="fab fa-spotify"></i> PLAYLISTS · BIRONGO SOUND</h2>
+                
+                <div class="spotify-grid">
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo" 
+                                loading="lazy" 
+                                height="152" 
+                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
+                    </div>
+                    <div class="spotify-item">
+                        <iframe src="https://open.spotify.com/embed/playlist/7doWcbwA9g5PBBmLY0ThGk" 
+                                loading="lazy" 
+                                height="152"
+                                style="border-radius: 12px; display: block; width: 100%;"></iframe>
+                    </div>
+                </div>
+                
+                <!-- BOTÓN SPOTIFY -->
+                <div class="text-center mt-2">
+                    <a href="https://open.spotify.com/user/31ewcu2nizkvteb6wft5gc4rwkhy" target="_blank" class="btn-tactile" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                        <i class="fab fa-spotify"></i> SEGUIR EN SPOTIFY
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BOTONES DIRECTOS ===== -->
+        <div class="btn-group-tactile">
+            <a href="https://www.instagram.com/birongoccs/" target="_blank" class="btn-tactile">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+        </footer>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Configuración YouTube API
+        const API_KEY = 'AIzaSyCcxMvPyq3inDZ3Q-HGADJODcSRdu0d5Oc';
+        const CHANNEL_ID = 'UC7ldTCX19wJGwK6NM6EL9gw';
+        
+        async function loadLatestVideo() {
+            const container = document.getElementById('latest-video-container');
+            
+            try {
+                const response = await fetch(
+                    `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1&type=video`
+                );
+                
+                if (!response.ok) throw new Error(`Error ${response.status}`);
+                
+                const data = await response.json();
+                
+                if (!data.items || data.items.length === 0) {
+                    throw new Error('No hay videos');
+                }
+                
+                const video = data.items[0];
+                const videoId = video.id.videoId;
+                const videoTitle = video.snippet.title;
+                
+                container.innerHTML = `
+                    <iframe src="https://www.youtube-nocookie.com/embed/${videoId}" 
+                            title="${videoTitle}" 
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen></iframe>
+                `;
+                
+                document.getElementById('video-title').textContent = videoTitle;
+                document.getElementById('video-info').style.display = 'block';
+                
+            } catch (error) {
+                container.innerHTML = `
+                    <div style="padding: 2rem; text-align: center; color: #ff0000;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem;"></i>
+                        <p>Error al cargar el video</p>
+                        <a href="https://www.youtube.com/@birongocaracas" target="_blank" 
+                           style="margin-top: 1rem; background: #ff0000; border: 2px solid white; padding: 0.5rem 1rem; display: inline-block; text-decoration: none; color: white;">
+                            <i class="fab fa-youtube"></i> VER CANAL
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadLatestVideo();
+            
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
+</body>
+</html><html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>BIRONGO · CARACAS</title>
+    
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
         <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.png">
     
