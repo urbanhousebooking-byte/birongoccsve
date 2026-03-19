@@ -202,52 +202,44 @@
             color: #ffffff60;
         }
 
-        /* ===== SPOTIFY ===== */
-        .featured-spotify {
-            margin-bottom: 1rem;
-        }
+/* ===== SPOTIFY PLAYLISTS MEJORADO ===== */
+.spotify-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0; /* Elimina el gap para que queden pegadas */
+    margin: -1rem -1rem -1rem -1rem; /* Expande hacia los bordes de la tarjeta */
+}
 
-        .featured-spotify iframe {
-            width: 100%;
-            height: 352px;
-            border-radius: 12px;
-            background: #0a0a0a;
-            border: 1px solid #ffffff20;
-        }
+@media (min-width: 768px) {
+    .spotify-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+}
 
-        .spotify-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+.spotify-item {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    line-height: 0;
+    border: none;
+}
 
-        @media (min-width: 768px) {
-            .spotify-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
+.spotify-item iframe {
+    display: block;
+    width: 100%;
+    height: 152px; /* Mantiene la altura original */
+    border: none;
+    background: #0a0a0a;
+    vertical-align: bottom;
+    border-radius: 0; /* Elimina bordes redondeados */
+}
 
-        .spotify-item {
-            transition: all 0.3s ease;
-            border-radius: 12px;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .spotify-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
-        }
-
-        .spotify-item iframe {
-            display: block;
-            width: 100%;
-            border: none;
-            background: #0a0a0a;
-            vertical-align: bottom;
-            border-radius: 12px;
-        }
+/* Hover effect sutil */
+.spotify-item:hover {
+    transform: scale(1.01);
+    z-index: 2;
+    box-shadow: 0 0 30px rgba(29, 185, 84, 0.2);
+}
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
