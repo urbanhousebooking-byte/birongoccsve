@@ -59,23 +59,40 @@
         }
 
         /* ===== HEADER ===== */
-        .header {
+        .hero {
             text-align: center;
             margin-bottom: 2rem;
             padding: 2rem 0;
             border-bottom: 1px solid #ffffff20;
         }
 
-        .header h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: white;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
         }
 
-        .header .subtitle {
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        .tagline {
             font-size: 0.9rem;
             color: #ffffff80;
             display: flex;
@@ -85,7 +102,18 @@
             flex-wrap: wrap;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        .tagline i {
+            color: white;
+            opacity: 0.5;
         }
 
         /* ===== MENÚ DE NAVEGACIÓN ===== */
@@ -93,7 +121,7 @@
             display: flex;
             justify-content: center;
             gap: 2.5rem;
-            margin: 1rem 0 2rem;
+            margin: 1rem 0 3rem;
             flex-wrap: wrap;
             padding: 0.5rem 0;
         }
@@ -152,8 +180,8 @@
 
         /* ===== TARJETA DE EVENTO ===== */
         .evento-unico {
-            max-width: 900px;
-            margin: 2rem auto 4rem;
+            max-width: 1000px;
+            margin: 2rem auto 5rem;
         }
 
         .evento-card {
@@ -174,24 +202,10 @@
             overflow: hidden;
         }
 
-        .evento-imagen img {
+        .evento-imagen iframe {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .evento-imagen .placeholder-img {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(145deg, #1a1a1a, #000);
-        }
-
-        .evento-imagen .placeholder-img i {
-            font-size: 5rem;
-            color: #ffffff20;
+            border: none;
         }
 
         .evento-badge {
@@ -207,6 +221,7 @@
             letter-spacing: 0.1em;
             z-index: 2;
             backdrop-filter: blur(5px);
+            border-radius: 30px;
         }
 
         .evento-contenido {
@@ -276,61 +291,11 @@
             border: 1px solid #ffffff20;
         }
 
-        .evento-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            border-top: 1px solid #ffffff20;
-            padding-top: 2rem;
-        }
-
-        .evento-stats {
-            display: flex;
-            gap: 2rem;
-            color: #ffffff60;
-            font-size: 1rem;
-        }
-
-        .evento-stats i {
-            margin-right: 0.5rem;
-            color: white;
-        }
-
-        .evento-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            padding: 0.8rem 2rem;
-            border: 2px solid white;
-        }
-
-        .evento-link:hover {
-            gap: 1.2rem;
-            background: white;
-            color: black;
-        }
-
-        .evento-link i {
-            transition: transform 0.3s ease;
-        }
-
-        .evento-link:hover i {
-            transform: translateX(5px);
-        }
-
         /* ===== GALERÍA ESTILO ORIGINAL MEJORADA ===== */
         .galeria-titulo {
             text-align: center;
-            margin: 4rem 0 2rem;
-            font-size: 2rem;
+            margin: 5rem 0 3rem;
+            font-size: 2.2rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #ffffff90;
@@ -339,13 +304,13 @@
         .galeria-original {
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 3rem;
             margin: 3rem 0 5rem;
         }
 
         .galeria-item-original {
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: #111;
             border: 1px solid #ffffff30;
@@ -372,10 +337,10 @@
 
         @media (min-width: 1200px) {
             .galeria-original {
-                gap: 3rem;
+                gap: 3.5rem;
             }
             .galeria-item-original {
-                max-width: 700px;
+                max-width: 800px;
             }
         }
 
@@ -419,19 +384,30 @@
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin: 3rem 0 2rem;
+            gap: 1.5rem;
+            margin: 4rem 0 2rem;
             flex-wrap: wrap;
         }
 
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
             padding: 2rem 0 1rem;
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
             font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
         }
     </style>
 </head>
@@ -467,8 +443,7 @@
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                             referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen
-                            style="width: 100%; height: 100%; aspect-ratio: 16/9;">
+                            allowfullscreen>
                     </iframe>
                 </div>
                 <div class="evento-contenido">
