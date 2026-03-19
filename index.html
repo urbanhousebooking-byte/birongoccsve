@@ -372,27 +372,29 @@
 
         <!-- ===== MAIN CONTENT (VERTICAL) ===== -->
         <div class="main-content">
-            <!-- TARJETA 1: YOUTUBE -->
-            <div class="card">
-                <h2><i class="fab fa-youtube"></i> VIDEO SET BIRONGO</h2>
-                
-                <div id="latest-video-container" class="video-embed">
-                    <div style="padding: 2rem; text-align: center; color: #ffffff60;">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
-                        <p>Cargando el último video de Birongo...</p>
-                    </div>
-                </div>
-                
-                <div class="video-info" id="video-info" style="display: none;">
-                    <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
-                </div>
-                
-                <div class="text-center mt-2">
-                    <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
-                        <i class="fab fa-youtube"></i> VER CANAL COMPLETO
-                    </a>
-                </div>
+           <!-- TARJETA 1: YOUTUBE (con tamaño controlado) -->
+<div class="card" style="display: flex; flex-direction: column; align-items: center;">
+    <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET BIRONGO</h2>
+    
+    <div style="max-width: 800px; width: 100%; margin: 0 auto;">
+        <div id="latest-video-container" class="video-embed">
+            <div style="padding: 2rem; text-align: center; color: #ffffff60;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                <p>Cargando el último video de Birongo...</p>
             </div>
+        </div>
+        
+        <div class="video-info" id="video-info" style="display: none;">
+            <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+        </div>
+        
+        <div class="text-center mt-2">
+            <a href="https://www.youtube.com/@birongocaracas" target="_blank" class="btn-tactile">
+                <i class="fab fa-youtube"></i> VER CANAL COMPLETO
+            </a>
+        </div>
+    </div>
+</div>
 
             <!-- TARJETA 2: EVENTOS -->
             <div class="card">
