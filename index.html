@@ -12,7 +12,7 @@
     <!-- ===== FAVICON SVG ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     
-    <!-- ===== FAVICON PNG FALLBACK (opcional) ===== -->
+    <!-- ===== FAVICON PNG FALLBACK ===== -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
     
     <style>
@@ -95,7 +95,7 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN MEJORADO ===== */
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -145,7 +145,6 @@
             width: 100%;
         }
 
-        /* ===== MENÚ RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1.2rem;
@@ -177,7 +176,7 @@
             }
         }
 
-        /* ===== MAIN CONTENT (VERTICAL) ===== */
+        /* ===== MAIN CONTENT ===== */
         .main-content {
             display: flex;
             flex-direction: column;
@@ -583,22 +582,25 @@
             </div>
         </div>
 
-        <!-- ===== MAIN CONTENT (VERTICAL) ===== -->
+        <!-- ===== MAIN CONTENT ===== -->
         <div class="main-content">
-            <!-- TARJETA 1: YOUTUBE -->
+            <!-- TARJETA 1: YOUTUBE (VIDEO MANUAL) -->
             <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 1.5rem;">
                 <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MÁS RECIENTE</h2>
                 
                 <div style="width: 100%; margin: 0 auto;">
-                    <div id="latest-video-container" class="video-embed" style="width: 100%;">
-                        <div style="padding: 2rem; text-align: center; color: #ffffff60;">
-                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
-                            <p>Cargando el último video de Birongo...</p>
-                        </div>
+                    <div class="video-embed" style="width: 100%;">
+                        <iframe src="https://www.youtube-nocookie.com/embed/o4oIPK1CdW8" 
+                                title="Hardechno Mix 2026 - DJ Zarinovak" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                        </iframe>
                     </div>
                     
-                    <div class="video-info" id="video-info" style="display: none;">
-                        <p><i class="fas fa-play"></i> <span id="video-title"></span></p>
+                    <div class="video-info">
+                        <p><i class="fas fa-play"></i> Hardechno Mix 2026 ⚡ DJ Set (NO RULES SOUND, DC92, TSK PHØNIČ) - DJ Zarinovak</p>
                     </div>
                     
                     <div class="text-center mt-2">
@@ -609,19 +611,22 @@
                 </div>
             </div>
 
-            <!-- TARJETA 2: EVENTO DESTACADO -->
+            <!-- TARJETA 2: EVENTO DESTACADO (VIDEO MANUAL) -->
             <div class="card">
                 <h2><i class="fas fa-calendar-alt"></i> ÚLTIMO EVENTO</h2>
                 
                 <div class="evento-unico">
                     <div class="evento-card">
                         <div class="evento-imagen" style="background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
-<iframe src="https://www.youtube-nocookie.com/embed/4cY4nagN-zw?rel=0"
-        title="YouTube video player"
-        style="width: 100%; height: 100%; border: none; position: absolute"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-</iframe>                       </div>
+                            <iframe src="https://www.youtube-nocookie.com/embed/4cY4nagN-zw" 
+                                    title="Birongo Live @ La Quinta Bar" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    allowfullscreen
+                                    style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
+                            </iframe>
+                        </div>
                         <div class="evento-contenido">
                             <div class="evento-titulo">
                                 <h3>BIRONGO LIVE</h3>
@@ -720,57 +725,9 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ===== JAVASCRIPT (SOLO SEGURIDAD) ===== -->
     <script>
-        // ===== YOUTUBE CON PROXY CORS =====
-        async function loadLatestVideo() {
-            const container = document.getElementById('latest-video-container');
-            const channelId = 'UC7ldTCX19wJGwK6NM6EL9gw';
-            
-            try {
-                const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
-                
-                const response = await fetch(proxyUrl + encodeURIComponent(feedUrl));
-                const text = await response.text();
-                
-                const parser = new DOMParser();
-                const xml = parser.parseFromString(text, "text/xml");
-                
-                const firstEntry = xml.querySelector('entry');
-                if (!firstEntry) throw new Error('No hay videos');
-                
-                const videoId = firstEntry.querySelector('yt\\:videoId, videoId').textContent;
-                const videoTitle = firstEntry.querySelector('title').textContent;
-                
-                container.innerHTML = `
-                    <iframe src="https://www.youtube-nocookie.com/embed/${videoId}" 
-                            title="${videoTitle}" 
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen></iframe>
-                `;
-                
-                document.getElementById('video-title').textContent = videoTitle;
-                document.getElementById('video-info').style.display = 'block';
-                
-            } catch (error) {
-                console.error('Error cargando video:', error);
-                container.innerHTML = `
-                    <div style="padding: 2rem; text-align: center; color: #ff0000;">
-                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem;"></i>
-                        <p>Error al cargar el video</p>
-                        <a href="https://www.youtube.com/@birongocaracas" target="_blank" 
-                           style="background: #ff0000; border: 2px solid white; padding: 0.8rem 2rem; display: inline-block; text-decoration: none; color: white; font-weight: bold; text-transform: uppercase;">
-                            <i class="fab fa-youtube"></i> VER CANAL
-                        </a>
-                    </div>
-                `;
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
-            loadLatestVideo();
-            
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
