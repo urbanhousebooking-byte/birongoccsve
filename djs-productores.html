@@ -59,23 +59,40 @@
         }
 
         /* ===== HEADER ===== */
-        .header {
+        .hero {
             text-align: center;
             margin-bottom: 2rem;
             padding: 2rem 0;
             border-bottom: 1px solid #ffffff20;
         }
 
-        .header h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: white;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 4rem;
+                padding: 3rem 0;
+            }
         }
 
-        .header .subtitle {
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        .tagline {
             font-size: 0.9rem;
             color: #ffffff80;
             display: flex;
@@ -85,6 +102,101 @@
             flex-wrap: wrap;
             text-transform: uppercase;
             letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+
+        .tagline i {
+            color: white;
+            opacity: 0.5;
+        }
+
+        /* ===== MENÚ DE NAVEGACIÓN MEJORADO ===== */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 3rem;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        /* ===== MENÚ RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1.2rem;
+                padding: 0.3rem 0;
+                margin: 0.5rem 0 2rem;
+            }
+            
+            .nav-item {
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.8rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                padding: 0.3rem 0.3rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 70px;
+            }
         }
 
         /* ===== ARTISTAS GRID ===== */
@@ -245,6 +357,12 @@
             margin: 3rem 0 2rem;
         }
 
+        @media (max-width: 768px) {
+            .nav-links {
+                margin: 2rem 0 1rem;
+            }
+        }
+
         /* ===== FOOTER ===== */
         footer {
             text-align: center;
@@ -254,11 +372,22 @@
             color: #ffffff40;
             font-size: 0.8rem;
         }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-                <!-- ===== HEADER ===== -->
+        <!-- ===== HEADER ===== -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
             <div class="tagline">
@@ -269,9 +398,9 @@
             
             <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
             <div class="nav-menu">
-                <a href="index.html" class="nav-item active">INICIO</a>
+                <a href="index.html" class="nav-item">INICIO</a>
                 <a href="eventos.html" class="nav-item">EVENTOS</a>
-                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
                 <a href="entradas.html" class="nav-item">ENTRADAS</a>
                 <a href="contacto.html" class="nav-item">CONTACTO</a>
             </div>
@@ -506,7 +635,6 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Seguridad para enlaces externos
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
