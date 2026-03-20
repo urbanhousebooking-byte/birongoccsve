@@ -291,46 +291,71 @@
             border: 1px solid #ffffff20;
         }
 
-       /* ===== IMÁGENES UNIFORMES ===== */
-.galeria-item-original {
-    width: 100%;
-    max-width: 600px;
-    height: 700px; /* Altura fija para todas */
-    margin: 0 auto;
-    background: #111;
-    border: 1px solid #ffffff30;
-    transition: all 0.4s ease;
-    box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* ===== GALERÍA CON TAMAÑO ORIGINAL ===== */
+        .galeria-titulo {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            font-size: 2.2rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #ffffff90;
+        }
 
-.galeria-item-original img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Mantiene la proporción sin recortar */
-    display: block;
-    transition: transform 0.5s ease;
-    background: #0a0a0a; /* Fondo para las áreas vacías */
-}
+        .galeria-original {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 3rem 0 5rem;
+        }
 
-/* Para pantallas grandes */
-@media (min-width: 1200px) {
-    .galeria-item-original {
-        max-width: 700px;
-        height: 800px;
-    }
-}
+        .galeria-item-original {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111;
+            border: 1px solid #ffffff30;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Para móvil */
-@media (max-width: 768px) {
-    .galeria-item-original {
-        height: 500px;
-        max-width: 95%;
-    }
-}
+        .galeria-item-original img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .galeria-item-original:hover {
+            transform: translateY(-5px);
+            border-color: white;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
+        }
+
+        .galeria-item-original:hover img {
+            transform: scale(1.01);
+        }
+
+        @media (min-width: 1200px) {
+            .galeria-original {
+                gap: 3.5rem;
+            }
+            .galeria-item-original {
+                max-width: 900px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .galeria-original {
+                gap: 2rem;
+            }
+            .galeria-item-original {
+                max-width: 95%;
+            }
+        }
 
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
