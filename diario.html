@@ -214,11 +214,15 @@
             transform: translateX(5px);
         }
 
+        /* Imagen principal */
         .noticia-imagen {
             width: 100%;
+            max-width: 500px;
+            margin: 1.5rem auto 0 auto;
             aspect-ratio: 16/9;
             overflow: hidden;
             background: #1a1a1a;
+            border-radius: 12px;
         }
 
         .noticia-imagen img {
@@ -230,6 +234,61 @@
 
         .noticia-card:hover .noticia-imagen img {
             transform: scale(1.03);
+        }
+
+        @media (max-width: 768px) {
+            .noticia-imagen {
+                max-width: 100%;
+                margin: 1rem 1rem 0 1rem;
+                width: calc(100% - 2rem);
+            }
+        }
+
+        /* Galería de imágenes y videos */
+        .media-gallery {
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .media-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1/1;
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            border: 1px solid #ffffff60;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item .video-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            pointer-events: none;
         }
 
         .noticia-header {
@@ -323,6 +382,7 @@
             text-decoration: none;
             transition: all 0.2s ease;
             font-size: 1.2rem;
+            cursor: pointer;
         }
 
         .share-icon:hover {
@@ -347,6 +407,36 @@
         .share-icon.facebook:hover {
             background: #1877F2;
             color: white;
+        }
+
+        /* ===== MODAL PARA VER IMÁGENES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
         }
 
         /* ===== BOTONES TÁCTILES ===== */
@@ -448,10 +538,10 @@
 
         <!-- ===== NOTICIAS ===== -->
         <div class="noticias-grid">
-            <!-- NOTICIA 1 - Sesiones BackBeat -->
-            <div class="noticia-card" data-title="Nuevas sesiones en BackBeat Studio" data-id="noticia1">
+            <!-- NOTICIA 1 - Birongo Live Historia -->
+            <div class="noticia-card" data-title="Así comienza Birongo Live" data-id="noticia1">
                 <div class="noticia-imagen">
-                    <img src="img/Birongo_live_caracas_venezuela_resumen_thumbnail.png" alt="BackBeat Studio" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=BackBeat+Studio'">
+                    <img src="img/Birongo_live_caracas_venezuela_resumen_thumbnail.png" alt="Birongo Live Caracas" onerror="this.src='https://via.placeholder.com/500x280/1a1a1a/666666?text=Birongo+Live'">
                 </div>
                 <div class="noticia-header">
                     <span class="noticia-categoria">BIRONGO LIVE</span>
@@ -463,22 +553,59 @@
                 </div>
                 <div class="noticia-contenido">
                     <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora de entretenimiento decidida a transformar el nicho de la música electrónica en Venezuela.</p>
-                    <p>Mientras se trazaba la estructura de aquel primer encuentro, Birongo ya estaba cobrando vida. No queríamos ser solo "organizadores de eventos"; queríamos ser creadores integrales en el mercado de la música elctrónica. Aprovechando la visión creativa de Heresicka, el equipo comenzó a producir videosets y fotografías que capturaran la esencia de lo que estaba por venir. Estábamos construyendo relaciones, no solo contratos.</p>
+                    
+                    <!-- GALERÍA DE IMÁGENES Y VIDEOS -->
+                    <div class="media-gallery">
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-1.jpg" alt="Birongo Live - Momento 1" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+1'">
+                        </div>
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-2.jpg" alt="Birongo Live - Momento 2" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+2'">
+                        </div>
+                        <div class="gallery-item" onclick="openVideoModal('https://www.youtube.com/embed/4cY4nagN-zw')">
+                            <img src="img/diario/video-thumb.jpg" alt="Video Resumen" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Video'">
+                            <i class="fas fa-play-circle video-icon"></i>
+                        </div>
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-3.jpg" alt="Birongo Live - Momento 3" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+3'">
+                        </div>
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-4.jpg" alt="Birongo Live - Momento 4" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+4'">
+                        </div>
+                    </div>
+                    
+                    <p>Mientras se trazaba la estructura de aquel primer encuentro, Birongo ya estaba cobrando vida. No queríamos ser solo "organizadores de eventos"; queríamos ser creadores integrales en el mercado de la música electrónica. Aprovechando la visión creativa de Heresicka, el equipo comenzó a producir videosets y fotografías que capturaran la esencia de lo que estaba por venir. Estábamos construyendo relaciones, no solo contratos.</p>
                     <p>Emprender en Venezuela siempre tiene su dosis de adrenalina. Como cualquier productora primeriza, nos topamos con obstáculos logísticos y técnicos, pero la respuesta de la escena fue inmediata: la movida nos abrió los brazos. Ese apoyo fue el combustible necesario para transformar la incertidumbre en un proyecto con este potencial.</p>
+                    
+                    <!-- SEGUNDA GALERÍA DE IMÁGENES -->
+                    <div class="media-gallery">
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-5.jpg" alt="Birongo Live - Detrás de cabinas" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+5'">
+                        </div>
+                        <div class="gallery-item" onclick="openModal(this)">
+                            <img src="img/diario/birongo-live-6.jpg" alt="Birongo Live - El público" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+6'">
+                        </div>
+                        <div class="gallery-item" onclick="openVideoModal('https://www.youtube.com/embed/o4oIPK1CdW8')">
+                            <img src="img/diario/video-thumb-2.jpg" alt="Video DJ Set" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Video+2'">
+                            <i class="fas fa-play-circle video-icon"></i>
+                        </div>
+                    </div>
+                    
                     <p>El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego. Bajo el nombre de Birongo Live, logramos algo que muchos consideraban arriesgado: una noche integral.</p>
-                    <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde 50 personas de diferentes nichos se unieron bajo un mismo techo.</p>
+                    <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde más de 200 personas de diferentes nichos se unieron bajo un mismo techo.</p>
                     <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: ayudar a consolidar la movida electrónica en Caracas en todas sus formas.</p>
                 </div>
                 <div class="noticia-footer">
                     <div class="share-buttons">
                         <span class="share-label">COMPARTIR</span>
-                        <a href="#" class="share-icon instagram" onclick="shareToInstagram('Nuevas sesiones en BackBeat Studio', 'noticia1')"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="share-icon whatsapp" onclick="shareToWhatsApp('Nuevas sesiones en BackBeat Studio')"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="share-icon twitter" onclick="shareToTwitter('Nuevas sesiones en BackBeat Studio')"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="share-icon facebook" onclick="shareToFacebook('Nuevas sesiones en BackBeat Studio')"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-icon instagram" onclick="shareToInstagramStory('Así comienza Birongo Live', 'https://birongo.live/diario.html')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="share-icon whatsapp" onclick="shareToWhatsAppApp('Así comienza Birongo Live')"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-icon twitter" onclick="shareToTwitterApp('Así comienza Birongo Live')"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-icon facebook" onclick="shareToFacebookApp()"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
+        </div>
 
         <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
         <div class="nav-links">
@@ -498,34 +625,85 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT PARA COMPARTIR ===== -->
+    <!-- MODAL PARA VER IMÁGENES -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
+    </div>
+
+    <!-- MODAL PARA VIDEOS -->
+    <div id="videoModal" class="modal" onclick="closeVideoModal()">
+        <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+        <iframe id="videoIframe" width="80%" height="80%" src="" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Función para compartir en Instagram
-        function shareToInstagram(title, elementId) {
-            const url = window.location.href;
-            const fullUrl = `${url}#${elementId}`;
-            alert(`📸 Comparte esta noticia en Instagram:\n\n"${title}"\n\n${fullUrl}\n\n📱 Copia este texto y compártelo en tu historia o publicación. No olvides etiquetar a @birongoccs`);
-            window.open('https://www.instagram.com/birongoccs/', '_blank');
+        // Función para abrir modal de imagen
+        function openModal(element) {
+            const img = element.querySelector('img');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
         }
 
-        // Función para compartir en WhatsApp
-        function shareToWhatsApp(title) {
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Función para abrir modal de video
+        function openVideoModal(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            modal.style.display = 'flex';
+            iframe.src = videoUrl;
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            modal.style.display = 'none';
+            iframe.src = '';
+        }
+
+        // Compartir en Instagram Stories (abre la app)
+        function shareToInstagramStory(title, url) {
+            // Intentar abrir la app de Instagram
+            window.location.href = `instagram://story?text=${encodeURIComponent(title + '\n\n' + url)}`;
+            // Fallback después de 500ms si no se abre
+            setTimeout(() => {
+                window.open('https://www.instagram.com/birongoccs/', '_blank');
+            }, 500);
+        }
+
+        // Compartir en WhatsApp (abre la app)
+        function shareToWhatsAppApp(title) {
             const url = window.location.href;
             const message = encodeURIComponent(`🎵 *BIRONGO · DIARIO* 🎵\n\n${title}\n\nLee más aquí: ${url}\n\n#Birongo #MúsicaElectrónica #Caracas`);
-            window.open(`https://wa.me/?text=${message}`, '_blank');
+            window.location.href = `whatsapp://send?text=${message}`;
+            setTimeout(() => {
+                window.open(`https://wa.me/?text=${message}`, '_blank');
+            }, 500);
         }
 
-        // Función para compartir en Twitter
-        function shareToTwitter(title) {
+        // Compartir en Twitter (abre la app)
+        function shareToTwitterApp(title) {
             const url = window.location.href;
             const message = encodeURIComponent(`🎵 ${title}\n\nLee más en Birongo: ${url}\n\n#Birongo #MúsicaElectrónica #Caracas #Techno`);
-            window.open(`https://twitter.com/intent/tweet?text=${message}`, '_blank');
+            window.location.href = `twitter://post?message=${message}`;
+            setTimeout(() => {
+                window.open(`https://twitter.com/intent/tweet?text=${message}`, '_blank');
+            }, 500);
         }
 
-        // Función para compartir en Facebook
-        function shareToFacebook(title) {
+        // Compartir en Facebook
+        function shareToFacebookApp() {
             const url = window.location.href;
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            window.location.href = `fb://share/?link=${encodeURIComponent(url)}`;
+            setTimeout(() => {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            }, 500);
         }
 
         // Seguridad para enlaces externos
