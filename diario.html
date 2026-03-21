@@ -214,15 +214,14 @@
             transform: translateX(5px);
         }
 
-        /* Imagen principal */
+        /* Imagen principal GRANDE */
         .noticia-imagen {
             width: 100%;
-            max-width: 500px;
-            margin: 1.5rem auto 0 auto;
+            max-width: 100%;
+            margin: 0;
             aspect-ratio: 16/9;
             overflow: hidden;
             background: #1a1a1a;
-            border-radius: 12px;
         }
 
         .noticia-imagen img {
@@ -234,14 +233,6 @@
 
         .noticia-card:hover .noticia-imagen img {
             transform: scale(1.03);
-        }
-
-        @media (max-width: 768px) {
-            .noticia-imagen {
-                max-width: 100%;
-                margin: 1rem 1rem 0 1rem;
-                width: calc(100% - 2rem);
-            }
         }
 
         .noticia-header {
@@ -464,7 +455,7 @@
             <!-- NOTICIA 1 - Birongo Live Historia -->
             <div class="noticia-card" data-title="Así comienza Birongo Live" data-id="noticia1">
                 <div class="noticia-imagen">
-                    <img src="img/Birongo_live_caracas_venezuela_resumen_thumbnail.png" alt="Birongo Live Caracas" onerror="this.src='https://via.placeholder.com/500x280/1a1a1a/666666?text=Birongo+Live'">
+                    <img src="img/Birongo_live_caracas_venezuela_resumen_thumbnail.png" alt="Birongo Live Caracas" onerror="this.src='https://via.placeholder.com/1200x675/1a1a1a/666666?text=Birongo+Live'">
                 </div>
                 <div class="noticia-header">
                     <span class="noticia-categoria">BIRONGO LIVE</span>
