@@ -290,6 +290,145 @@
             margin-bottom: 1rem;
         }
 
+        /* ===== TARJETA DE EVENTO (MINI) ===== */
+        .evento-mini {
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            border: 1px solid #ffffff30;
+            margin: 2rem 0 1.5rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .evento-mini:hover {
+            border-color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+        }
+
+        .evento-mini-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .evento-mini-imagen {
+            flex: 0 0 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            .evento-mini-imagen {
+                flex: 0 0 100%;
+                aspect-ratio: 16/9;
+            }
+        }
+
+        .evento-mini-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .evento-mini:hover .evento-mini-imagen img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay-mini {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .evento-mini:hover .play-overlay-mini {
+            opacity: 1;
+        }
+
+        .play-overlay-mini i {
+            font-size: 3rem;
+            color: #ff0000;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .evento-mini-contenido {
+            flex: 1;
+            padding: 1.5rem;
+        }
+
+        .evento-mini-titulo {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .evento-mini-titulo {
+                font-size: 1.2rem;
+            }
+        }
+
+        .evento-mini-fecha {
+            color: #ffffff80;
+            font-size: 0.85rem;
+        }
+
+        .evento-mini-lugar {
+            color: #ffffff60;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .evento-mini-desc {
+            color: #ffffff90;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .evento-mini-artistas {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .evento-mini-artista-tag {
+            background: #ffffff10;
+            color: #ffffff80;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid #ffffff20;
+        }
+
+        .evento-mini-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: gap 0.3s ease;
+        }
+
+        .evento-mini-link:hover {
+            gap: 0.8rem;
+        }
+
         .noticia-footer {
             padding: 1rem 1.5rem 1.5rem 1.5rem;
             border-top: 1px solid #ffffff20;
@@ -472,6 +611,47 @@
                     <p>El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego. Bajo el nombre de Birongo Live, logramos algo que muchos consideraban arriesgado: una noche integral.</p>
                     <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde más de 200 personas de diferentes nichos se unieron bajo un mismo techo.</p>
                     <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: ayudar a consolidar la movida electrónica en Caracas en todas sus formas.</p>
+
+                    <!-- ===== EVENTO MINI (TARJETA DEL EVENTO) ===== -->
+                    <div class="evento-mini">
+                        <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" class="evento-mini-link" style="display: block; text-decoration: none; color: inherit;">
+                            <div class="evento-mini-inner">
+                                <div class="evento-mini-imagen">
+                                    <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
+                                         alt="Birongo Live @ La Quinta Bar"
+                                         onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
+                                    <div class="play-overlay-mini">
+                                        <i class="fab fa-youtube"></i>
+                                    </div>
+                                </div>
+                                <div class="evento-mini-contenido">
+                                    <div class="evento-mini-titulo">
+                                        <h3>BIRONGO LIVE</h3>
+                                        <span class="evento-mini-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
+                                    </div>
+                                    <div class="evento-mini-lugar">
+                                        <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
+                                    </div>
+                                    <p class="evento-mini-desc">
+                                        From 100 to 200 bpm: La diferencia está como tú te muevas. 
+                                        Una noche histórica de la electrónica caraqueña en La Quinta Bar.
+                                    </p>
+                                    <div class="evento-mini-artistas">
+                                        <span class="evento-mini-artista-tag">DESTROXTREBOLL</span>
+                                        <span class="evento-mini-artista-tag">GERALD VALERA</span>
+                                        <span class="evento-mini-artista-tag">HERESICKA</span>
+                                        <span class="evento-mini-artista-tag">MORET</span>
+                                        <span class="evento-mini-artista-tag">SIRDIAMND</span>
+                                        <span class="evento-mini-artista-tag">DE LA TRINIDAD</span>
+                                        <span class="evento-mini-artista-tag">DORKAS</span>
+                                    </div>
+                                    <div class="evento-mini-link">
+                                        VER VIDEO COMPLETO <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
                 <div class="noticia-footer">
                     <div class="share-buttons">
