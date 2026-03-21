@@ -290,7 +290,7 @@
             margin-bottom: 1rem;
         }
 
-        /* ===== TARJETA DE EVENTO (MINI) ===== */
+        /* ===== TARJETA DE EVENTO (MINI) - IMAGEN CENTRADA Y AJUSTADA ===== */
         .evento-mini {
             background: linear-gradient(145deg, #111, #0a0a0a);
             border: 1px solid #ffffff30;
@@ -311,12 +311,16 @@
         }
 
         .evento-mini-imagen {
-            flex: 0 0 200px;
+            flex: 0 0 280px;
             position: relative;
             overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .evento-mini-imagen {
                 flex: 0 0 100%;
                 aspect-ratio: 16/9;
@@ -353,7 +357,7 @@
         }
 
         .play-overlay-mini i {
-            font-size: 3rem;
+            font-size: 4rem;
             color: #ff0000;
             filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
         }
@@ -612,9 +616,9 @@
                     <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde más de 200 personas de diferentes nichos se unieron bajo un mismo techo.</p>
                     <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: ayudar a consolidar la movida electrónica en Caracas en todas sus formas.</p>
 
-                    <!-- ===== EVENTO MINI (TARJETA DEL EVENTO) ===== -->
+                    <!-- ===== EVENTO MINI (TARJETA DEL EVENTO CON IMAGEN CENTRADA) ===== -->
                     <div class="evento-mini">
-                        <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" class="evento-mini-link" style="display: block; text-decoration: none; color: inherit;">
+                        <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" style="text-decoration: none; color: inherit;">
                             <div class="evento-mini-inner">
                                 <div class="evento-mini-imagen">
                                     <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
