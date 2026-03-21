@@ -180,7 +180,7 @@
         /* ===== ARTISTAS GRID ===== */
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
@@ -199,7 +199,9 @@
             transition: all 0.3s ease;
             text-decoration: none;
             color: white;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .artist-card:hover {
@@ -276,6 +278,9 @@
         .artist-info {
             padding: 1rem;
             text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .artist-info h3 {
@@ -288,6 +293,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
         }
 
         .artist-tags {
@@ -296,6 +302,7 @@
             gap: 0.3rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: auto;
         }
 
         .artist-tags span {
@@ -303,6 +310,7 @@
             color: #ffffff80;
             font-size: 0.7rem;
             padding: 0.2rem 0.5rem;
+            border-radius: 20px;
         }
 
         /* ===== BOTONES ===== */
@@ -511,8 +519,8 @@
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/689mBwz2RoGOChmYyOpXnW" target="_blank"><i class="fab fa-spotify"></i></a>
-                        <a href="https://youtube.com/@lpz" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com/lpz" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@moret" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/moret" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="artist-info">
@@ -565,22 +573,22 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 9 - Haddes -->
+            <!-- ARTISTA 9 - HADDES -->
             <div class="artist-card">
                 <div class="artist-image">
-                    <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="TREBOLL" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="HADDES" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/0I7ZCWHk7Env1UykgGVYNX" target="_blank"><i class="fab fa-spotify"></i></a>
-                        <a href="https://youtube.com/@treboll" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com/treboll" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@haddes" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/haddes" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="artist-info">
                     <h3>HADDES</h3>
                     <p>DJ - Productor</p>
                     <div class="artist-tags">
-                        <span>UG Garage</span>
+                        <span>UK Garage</span>
                         <span>Dubstep</span>
                     </div>
                 </div>
@@ -606,9 +614,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-           <!-- ARTISTA 10 - Kaatha -->
+            <!-- ARTISTA 11 - KAATHA -->
             <div class="artist-card">
                 <div class="artist-image">
                     <img src="img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KAATHA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
