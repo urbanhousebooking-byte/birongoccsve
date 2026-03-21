@@ -244,53 +244,6 @@
             }
         }
 
-        /* Galería de imágenes y videos */
-        .media-gallery {
-            margin: 1.5rem 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .media-gallery {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1.5rem;
-            }
-        }
-
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 1/1;
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border: 1px solid #ffffff60;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-item .video-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: white;
-            text-shadow: 0 0 10px rgba(0,0,0,0.5);
-            pointer-events: none;
-        }
-
         .noticia-header {
             padding: 1.5rem 1.5rem 0 1.5rem;
         }
@@ -409,36 +362,6 @@
             color: white;
         }
 
-        /* ===== MODAL PARA VER IMÁGENES ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .modal img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-        }
-
         /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
             display: inline-flex;
@@ -553,44 +476,8 @@
                 </div>
                 <div class="noticia-contenido">
                     <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora de entretenimiento decidida a transformar el nicho de la música electrónica en Venezuela.</p>
-                    
-                    <!-- GALERÍA DE IMÁGENES Y VIDEOS -->
-                    <div class="media-gallery">
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-1.jpg" alt="Birongo Live - Momento 1" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+1'">
-                        </div>
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-2.jpg" alt="Birongo Live - Momento 2" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+2'">
-                        </div>
-                        <div class="gallery-item" onclick="openVideoModal('https://www.youtube.com/embed/4cY4nagN-zw')">
-                            <img src="img/diario/video-thumb.jpg" alt="Video Resumen" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Video'">
-                            <i class="fas fa-play-circle video-icon"></i>
-                        </div>
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-3.jpg" alt="Birongo Live - Momento 3" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+3'">
-                        </div>
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-4.jpg" alt="Birongo Live - Momento 4" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+4'">
-                        </div>
-                    </div>
-                    
                     <p>Mientras se trazaba la estructura de aquel primer encuentro, Birongo ya estaba cobrando vida. No queríamos ser solo "organizadores de eventos"; queríamos ser creadores integrales en el mercado de la música electrónica. Aprovechando la visión creativa de Heresicka, el equipo comenzó a producir videosets y fotografías que capturaran la esencia de lo que estaba por venir. Estábamos construyendo relaciones, no solo contratos.</p>
                     <p>Emprender en Venezuela siempre tiene su dosis de adrenalina. Como cualquier productora primeriza, nos topamos con obstáculos logísticos y técnicos, pero la respuesta de la escena fue inmediata: la movida nos abrió los brazos. Ese apoyo fue el combustible necesario para transformar la incertidumbre en un proyecto con este potencial.</p>
-                    
-                    <!-- SEGUNDA GALERÍA DE IMÁGENES -->
-                    <div class="media-gallery">
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-5.jpg" alt="Birongo Live - Detrás de cabinas" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+5'">
-                        </div>
-                        <div class="gallery-item" onclick="openModal(this)">
-                            <img src="img/diario/birongo-live-6.jpg" alt="Birongo Live - El público" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Foto+6'">
-                        </div>
-                        <div class="gallery-item" onclick="openVideoModal('https://www.youtube.com/embed/o4oIPK1CdW8')">
-                            <img src="img/diario/video-thumb-2.jpg" alt="Video DJ Set" onerror="this.src='https://via.placeholder.com/300x300/1a1a1a/666666?text=Video+2'">
-                            <i class="fas fa-play-circle video-icon"></i>
-                        </div>
-                    </div>
-                    
                     <p>El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego. Bajo el nombre de Birongo Live, logramos algo que muchos consideraban arriesgado: una noche integral.</p>
                     <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde más de 200 personas de diferentes nichos se unieron bajo un mismo techo.</p>
                     <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: ayudar a consolidar la movida electrónica en Caracas en todas sus formas.</p>
@@ -625,53 +512,11 @@
         </footer>
     </div>
 
-    <!-- MODAL PARA VER IMÁGENES -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
-        <img id="modalImage" src="" alt="">
-    </div>
-
-    <!-- MODAL PARA VIDEOS -->
-    <div id="videoModal" class="modal" onclick="closeVideoModal()">
-        <span class="modal-close" onclick="closeVideoModal()">&times;</span>
-        <iframe id="videoIframe" width="80%" height="80%" src="" frameborder="0" allowfullscreen style="border-radius: 12px;"></iframe>
-    </div>
-
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Función para abrir modal de imagen
-        function openModal(element) {
-            const img = element.querySelector('img');
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'flex';
-            modalImg.src = img.src;
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // Función para abrir modal de video
-        function openVideoModal(videoUrl) {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoIframe');
-            modal.style.display = 'flex';
-            iframe.src = videoUrl;
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const iframe = document.getElementById('videoIframe');
-            modal.style.display = 'none';
-            iframe.src = '';
-        }
-
         // Compartir en Instagram Stories (abre la app)
         function shareToInstagramStory(title, url) {
-            // Intentar abrir la app de Instagram
             window.location.href = `instagram://story?text=${encodeURIComponent(title + '\n\n' + url)}`;
-            // Fallback después de 500ms si no se abre
             setTimeout(() => {
                 window.open('https://www.instagram.com/birongoccs/', '_blank');
             }, 500);
