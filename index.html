@@ -473,6 +473,7 @@
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            white-space: nowrap;
         }
 
         .btn-tactile:active {
@@ -512,13 +513,46 @@
             border: 2px solid white;
         }
 
+        /* ===== ESTILOS ESPECÍFICOS PARA MÓVIL ===== */
         @media (max-width: 600px) {
             .btn-tactile {
                 width: 100%;
                 max-width: 280px;
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                white-space: normal;
+                text-align: center;
+            }
+            
+            .btn-tactile.btn-primary {
+                background: white;
+                color: black;
+            }
+            
+            .btn-tactile.btn-primary:active {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+            
+            .btn-group-tactile .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                min-width: 240px;
                 margin: 0 auto;
-                padding: 1.2rem 1.5rem;
-                font-size: 0.8rem;
+            }
+            
+            .card .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                display: flex;
+            }
+            
+            .btn-tactile[href*="spotify"] {
+                width: 100%;
+                max-width: 280px;
             }
         }
 
@@ -612,7 +646,7 @@
 
         <!-- ===== MAIN CONTENT ===== -->
         <div class="main-content">
-            <!-- TARJETA 1: YOUTUBE (MINIATURA QUE REDIRIGE A YOUTUBE) -->
+            <!-- TARJETA 1: YOUTUBE -->
             <div class="card" style="display: flex; flex-direction: column; align-items: center; padding: 1.5rem;">
                 <h2 style="width: 100%;"><i class="fab fa-youtube"></i> VIDEO SET MÁS RECIENTE</h2>
                 
@@ -681,7 +715,6 @@
                                 <span class="evento-artista-tag">DORKAS</span>
                             </div>
                             
-                            <!-- BOTÓN: GALERÍA DEL EVENTO -->
                             <div class="text-center mt-2">
                                 <a href="eventos.html" class="btn-tactile" style="width: 100%; max-width: 280px; margin: 0 auto; padding: 0.8rem 1.5rem; font-size: 0.85rem;">
                                     <i class="fas fa-images"></i> GALERÍA DEL EVENTO
