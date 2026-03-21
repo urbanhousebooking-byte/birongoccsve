@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://birongo.live/sitemap.xml
+Sitemap: https://www.birongo.live/sitemap.xml
