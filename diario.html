@@ -177,146 +177,128 @@
             }
         }
 
-        /* ===== DIARIO / BLOG GRID ===== */
-        .diario-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        /* ===== NOTICIAS / BLOG ===== */
+        .noticias-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
             margin: 2rem 0 4rem;
         }
 
-        @media (min-width: 768px) {
-            .diario-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .diario-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-        }
-
-        .diario-card {
+        .noticia-card {
             background: #0a0a0a;
             border: 1px solid #ffffff20;
             overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            transition: all 0.3s ease;
         }
 
-        .diario-card:hover {
-            transform: translateY(-8px);
-            border-color: white;
-            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+        .noticia-card:hover {
+            border-color: #ffffff60;
+            transform: translateX(5px);
         }
 
-        .diario-imagen {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #1a1a1a;
-            overflow: hidden;
-            position: relative;
+        .noticia-header {
+            padding: 1.5rem 1.5rem 0 1.5rem;
         }
 
-        .diario-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .diario-card:hover .diario-imagen img {
-            transform: scale(1.05);
-        }
-
-        .diario-fecha {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
+        .noticia-categoria {
+            display: inline-block;
             background: #ffffff20;
-            backdrop-filter: blur(5px);
-            padding: 0.3rem 1rem;
+            color: #ffffff90;
             font-size: 0.7rem;
-            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 20px;
-        }
-
-        .diario-contenido {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .diario-titulo {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .diario-descripcion {
-            color: #ffffff80;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-        }
-
-        .diario-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .diario-tag {
-            background: #ffffff10;
-            color: #ffffff70;
-            font-size: 0.7rem;
+            letter-spacing: 0.1em;
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
+            margin-bottom: 1rem;
         }
 
-        .diario-footer {
+        .noticia-titulo {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            .noticia-titulo {
+                font-size: 1.5rem;
+            }
+        }
+
+        .noticia-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: #ffffff60;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        .noticia-meta i {
+            margin-right: 0.3rem;
+            color: #ffffff80;
+        }
+
+        .noticia-contenido {
+            padding: 0 1.5rem 1rem 1.5rem;
+        }
+
+        .noticia-contenido p {
+            color: #ffffffc0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .noticia-imagen {
+            width: 100%;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .noticia-imagen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .noticia-footer {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid #ffffff20;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px solid #ffffff20;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .diario-leer {
-            color: white;
-            text-decoration: none;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
+        .noticia-stats {
+            display: flex;
+            gap: 1.5rem;
+            color: #ffffff60;
+            font-size: 0.85rem;
         }
 
-        .diario-leer:hover {
-            gap: 0.8rem;
+        .noticia-stats i {
+            margin-right: 0.3rem;
         }
 
-        .diario-stats {
+        .noticia-share {
             display: flex;
             gap: 1rem;
-            color: #ffffff60;
-            font-size: 0.7rem;
         }
 
-        .diario-stats i {
-            margin-right: 0.2rem;
+        .noticia-share a {
+            color: #ffffff60;
+            transition: color 0.2s ease;
+            font-size: 1.1rem;
+        }
+
+        .noticia-share a:hover {
+            color: white;
         }
 
         /* ===== BOTONES ===== */
@@ -416,148 +398,196 @@
             </div>
         </div>
 
-        <!-- ===== DIARIO / BLOG ===== -->
-        <div class="diario-grid">
-            <!-- ENTRADA 1 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-1.jpg" alt="Birongo en el estudio" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BIRONGO+ESTUDIO'">
-                    <span class="diario-fecha">15 MAR 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Nuevas sesiones en BackBeat Studio</h3>
-                    <p class="diario-descripcion">Estuvimos grabando nuevas mezclas en el estudio. La energía estuvo increíble con toda la crew.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Estudio</span>
-                        <span class="diario-tag">Grabación</span>
-                        <span class="diario-tag">BackBeat</span>
-                    </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 24</span>
-                            <span><i class="far fa-comment"></i> 3</span>
-                        </div>
+        <!-- ===== NOTICIAS ===== -->
+        <div class="noticias-grid">
+            <!-- NOTICIA 1 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">ESTUDIO · GRABACIÓN</span>
+                    <h2 class="noticia-titulo">Nuevas sesiones en BackBeat Studio</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 15 MARZO 2026</span>
+                        <span><i class="far fa-user"></i> Por: Birongo Crew</span>
+                        <span><i class="far fa-clock"></i> Lectura: 3 min</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- ENTRADA 2 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-2.jpg" alt="Birongo Live en La Quinta" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BIRONGO+LIVE'">
-                    <span class="diario-fecha">10 MAR 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Resumen: Birongo Live en La Quinta Bar</h3>
-                    <p class="diario-descripcion">Una noche increíble con más de 200 personas vibrando al ritmo de la electrónica caraqueña.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Live Set</span>
-                        <span class="diario-tag">La Quinta</span>
-                        <span class="diario-tag">Evento</span>
+                <div class="noticia-contenido">
+                    <div class="noticia-imagen">
+                        <img src="img/diario/estudio-backbeat.jpg" alt="BackBeat Studio" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=BackBeat+Studio'">
                     </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 56</span>
-                            <span><i class="far fa-comment"></i> 8</span>
-                        </div>
+                    <p>Estuvimos grabando nuevas mezclas en el estudio BackBeat. La energía estuvo increíble con toda la crew de Birongo. Durante dos días, los productores y DJs se reunieron para dar forma a los nuevos sonidos que estarán sonando en los próximos eventos.</p>
+                    <p>El ambiente fue electrizante desde el primer momento. Con equipos de última generación, logramos capturar la esencia de lo que será nuestro próximo lanzamiento. Pronto compartiremos más detalles y fechas.</p>
+                    <p>Queremos agradecer a todo el equipo de BackBeat por su hospitalidad y profesionalismo. Sin duda, estas sesiones marcarán un antes y después en el sonido de Birongo. ¡Estén atentos!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 24 me gusta</span>
+                        <span><i class="far fa-comment"></i> 3 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 156 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- ENTRADA 3 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-3.jpg" alt="Nuevos tracks en Spotify" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=NUEVOS+TRACKS'">
-                    <span class="diario-fecha">5 MAR 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Nuevas canciones en nuestras playlist</h3>
-                    <p class="diario-descripcion">Actualizamos nuestras recomendaciones con los últimos tracks que están sonando en la crew.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Spotify</span>
-                        <span class="diario-tag">Playlist</span>
-                        <span class="diario-tag">Nuevo</span>
-                    </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 42</span>
-                            <span><i class="far fa-comment"></i> 5</span>
-                        </div>
+            <!-- NOTICIA 2 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">EVENTOS · LIVE SET</span>
+                    <h2 class="noticia-titulo">Resumen: Birongo Live en La Quinta Bar</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 10 MARZO 2026</span>
+                        <span><i class="far fa-user"></i> Por: ALOCATE</span>
+                        <span><i class="far fa-clock"></i> Lectura: 4 min</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- ENTRADA 4 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-4.jpg" alt="Detrás de las cabinas" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=BEHIND+THE+DECKS'">
-                    <span class="diario-fecha">28 FEB 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Detrás de las cabinas: Así preparamos un set</h3>
-                    <p class="diario-descripcion">Te mostramos el proceso creativo detrás de cada presentación. Selección, mezcla y energía.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Detrás</span>
-                        <span class="diario-tag">DJ Set</span>
-                        <span class="diario-tag">Proceso</span>
+                <div class="noticia-contenido">
+                    <div class="noticia-imagen">
+                        <img src="img/diario/la-quinta-live.jpg" alt="Birongo Live La Quinta" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=La+Quinta+Live'">
                     </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 38</span>
-                            <span><i class="far fa-comment"></i> 4</span>
-                        </div>
+                    <p>Una noche increíble con más de 200 personas vibrando al ritmo de la electrónica caraqueña. La Quinta Bar se llenó de energía desde las primeras horas de la noche, con un público que no dejó de moverse al son de los sets que presentamos.</p>
+                    <p>Desde las 10 de la noche hasta el amanecer, los DJs de Birongo hicieron vibrar cada rincón del lugar. HERESICKA, DESTRO5, DE LA TRINIDAD y MORET fueron algunos de los que pusieron a bailar a los asistentes con sus mezclas únicas.</p>
+                    <p>Queremos agradecer a todos los que nos acompañaron, a La Quinta Bar por el espacio, y al equipo de sonido que hizo posible esta experiencia. ¡Nos vemos en la próxima!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 56 me gusta</span>
+                        <span><i class="far fa-comment"></i> 8 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 342 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- ENTRADA 5 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-5.jpg" alt="Entrevista con ALOCATE" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=ALOCATE'">
-                    <span class="diario-fecha">20 FEB 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Entrevista: ALOCATE y su visión del Hardtechno</h3>
-                    <p class="diario-descripcion">Hablamos con uno de los referentes de la escena sobre su proceso creativo y próximos lanzamientos.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Entrevista</span>
-                        <span class="diario-tag">ALOCATE</span>
-                        <span class="diario-tag">Hardtechno</span>
+            <!-- NOTICIA 3 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">MÚSICA · PLAYLISTS</span>
+                    <h2 class="noticia-titulo">Nuevas canciones en nuestras playlist</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 5 MARZO 2026</span>
+                        <span><i class="far fa-user"></i> Por: SIRDIAMND</span>
+                        <span><i class="far fa-clock"></i> Lectura: 2 min</span>
                     </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 67</span>
-                            <span><i class="far fa-comment"></i> 12</span>
-                        </div>
+                </div>
+                <div class="noticia-contenido">
+                    <p>Actualizamos nuestras recomendaciones con los últimos tracks que están sonando en la crew. Desde techno hasta house, pasando por drum & bass y UK garage. Tenemos una selección especial para que disfrutes en tus próximos sets o simplemente para escuchar en casa.</p>
+                    <p>Hemos agregado nuevos temas de artistas locales e internacionales que están marcando la pauta en la escena electrónica. No te pierdas nuestra playlist "Birongo Recommendations" en Spotify, donde encontrarás lo mejor del momento.</p>
+                    <p>También estamos preparando una playlist especial con los tracks que sonaron en el último evento. Muy pronto más detalles. ¡Sigue nuestras redes para estar al tanto!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 42 me gusta</span>
+                        <span><i class="far fa-comment"></i> 5 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 198 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- ENTRADA 6 -->
-            <div class="diario-card">
-                <div class="diario-imagen">
-                    <img src="img/diario/entrada-6.jpg" alt="Fotos del evento" onerror="this.src='https://via.placeholder.com/600x340/1a1a1a/666666?text=FOTOS+EVENTO'">
-                    <span class="diario-fecha">15 FEB 2026</span>
-                </div>
-                <div class="diario-contenido">
-                    <h3 class="diario-titulo">Galería: Los mejores momentos del Birongo Live</h3>
-                    <p class="diario-descripcion">Revive la noche con nuestra selección de fotos y videos del evento en La Quinta Bar.</p>
-                    <div class="diario-tags">
-                        <span class="diario-tag">Galería</span>
-                        <span class="diario-tag">Fotos</span>
-                        <span class="diario-tag">Recuerdos</span>
+            <!-- NOTICIA 4 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">ENTREVISTA</span>
+                    <h2 class="noticia-titulo">Detrás de las cabinas: Así preparamos un set</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 28 FEBRERO 2026</span>
+                        <span><i class="far fa-user"></i> Por: DORKAS</span>
+                        <span><i class="far fa-clock"></i> Lectura: 5 min</span>
                     </div>
-                    <div class="diario-footer">
-                        <a href="#" class="diario-leer">LEER MÁS <i class="fas fa-arrow-right"></i></a>
-                        <div class="diario-stats">
-                            <span><i class="far fa-heart"></i> 89</span>
-                            <span><i class="far fa-comment"></i> 15</span>
-                        </div>
+                </div>
+                <div class="noticia-contenido">
+                    <p>Te mostramos el proceso creativo detrás de cada presentación. Selección, mezcla y energía. Hemos querido compartir con ustedes cómo preparamos nuestros sets, desde la selección de tracks hasta la estructura que le damos a cada presentación.</p>
+                    <p>No es solo poner música; es un viaje que construimos para que ustedes lo vivan. Cada track es seleccionado cuidadosamente, pensando en la energía que queremos transmitir en cada momento de la noche.</p>
+                    <p>En esta ocasión, nuestros DJs nos cuentan sus secretos, sus técnicas de mezcla y cómo logran mantener la energía alta durante horas. ¡No te lo pierdas!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 38 me gusta</span>
+                        <span><i class="far fa-comment"></i> 4 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 175 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTICIA 5 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">ARTISTA</span>
+                    <h2 class="noticia-titulo">Entrevista: ALOCATE y su visión del Hardtechno</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 20 FEBRERO 2026</span>
+                        <span><i class="far fa-user"></i> Por: HERESICKA</span>
+                        <span><i class="far fa-clock"></i> Lectura: 6 min</span>
+                    </div>
+                </div>
+                <div class="noticia-contenido">
+                    <div class="noticia-imagen">
+                        <img src="img/diario/alocate-entrevista.jpg" alt="ALOCATE Entrevista" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=ALOCATE'">
+                    </div>
+                    <p>Hablamos con uno de los referentes de la escena sobre su proceso creativo y próximos lanzamientos. ALOCATE nos abre las puertas de su estudio y nos cuenta cómo empezó en el mundo de la música electrónica, sus influencias y lo que viene para este 2026.</p>
+                    <p>"Para mí, el hardtechno es más que un género, es una forma de expresión", nos comenta ALOCATE. "Cada set que preparo es una historia que quiero contar, una energía que quiero compartir con la gente".</p>
+                    <p>Además, nos adelanta que está trabajando en nuevo material que verá la luz en los próximos meses. ¡No te lo pierdas!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 67 me gusta</span>
+                        <span><i class="far fa-comment"></i> 12 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 423 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTICIA 6 -->
+            <div class="noticia-card">
+                <div class="noticia-header">
+                    <span class="noticia-categoria">GALERÍA · RECUERDOS</span>
+                    <h2 class="noticia-titulo">Galería: Los mejores momentos del Birongo Live</h2>
+                    <div class="noticia-meta">
+                        <span><i class="far fa-calendar"></i> 15 FEBRERO 2026</span>
+                        <span><i class="far fa-user"></i> Por: Gerard Valera</span>
+                        <span><i class="far fa-clock"></i> Lectura: 3 min</span>
+                    </div>
+                </div>
+                <div class="noticia-contenido">
+                    <p>Revive la noche con nuestra selección de fotos y videos del evento en La Quinta Bar. Fue una noche mágica donde la música electrónica se fusionó con la energía única del público caraqueño.</p>
+                    <div class="noticia-imagen">
+                        <img src="img/diario/galeria-evento.jpg" alt="Galería evento" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=Galería+del+Evento'">
+                    </div>
+                    <p>Desde los momentos previos al inicio hasta el cierre con los mejores beats, capturamos instantes que reflejan la esencia de Birongo. Agradecemos a todos los que compartieron con nosotros esa noche.</p>
+                    <p>Pronto estaremos publicando más fotos en nuestras redes. ¡Síguenos para no perderte ningún detalle!</p>
+                </div>
+                <div class="noticia-footer">
+                    <div class="noticia-stats">
+                        <span><i class="far fa-heart"></i> 89 me gusta</span>
+                        <span><i class="far fa-comment"></i> 15 comentarios</span>
+                        <span><i class="fas fa-eye"></i> 567 vistas</span>
+                    </div>
+                    <div class="noticia-share">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
