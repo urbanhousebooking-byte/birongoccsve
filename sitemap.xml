@@ -1,110 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Página Principal -->
-  <url>
-    <loc>https://www.birongo.live/</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <!-- DJs & PRODUCTORES -->
-  <url>
-    <loc>https://www.birongo.live/djs-productores.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- DIARIO / NOTICIAS -->
-  <url>
-    <loc>https://www.birongo.live/diario.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <news:news>
-      <news:publication>
-        <news:name>Birongo</news:name>
-        <news:language>es</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-21T10:00:00+00:00</news:publication_date>
-      <news:title>Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</news:title>
-    </news:news>
-  </url>
-  
-  <!-- EVENTOS -->
-  <url>
-    <loc>https://www.birongo.live/eventos.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- ENTRADAS -->
-  <url>
-    <loc>https://www.birongo.live/entradas.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- CONTACTO -->
-  <url>
-    <loc>https://www.birongo.live/contacto.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <!-- IMÁGENES DE ARTISTAS -->
-  <url>
-    <loc>https://www.birongo.live/djs-productores.html</loc>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>ALOCATE - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Heresicka_Foto_Artistas.png</image:loc>
-      <image:title>HERESICKA - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/SirDiamnd_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>SIRDIAMND - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DESTRO5 - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/De La Trinidad_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DE LA TRINIDAD - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>MORET - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>GERARD VALERA - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>KURGANS - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>HADDES - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DORKAS - Birongo Live</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.birongo.live/img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>KAATHA - Birongo Live</image:title>
-    </image:image>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://www.birongo.live/</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/index.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/djs-productores.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/diario.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/eventos.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/entradas.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.birongo.live/contacto.html</loc>
+  <lastmod>2026-03-21T22:47:45+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
 </urlset>
