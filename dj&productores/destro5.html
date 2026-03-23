@@ -490,11 +490,11 @@
             flex-wrap: wrap;
         }
 
-        /* SECCIÓN DE CANCIONES DESTACADAS DE SPOTIFY */
+/* SECCIÓN DE CANCIONES DESTACADAS DE SPOTIFY */
 .spotify-tracks-grid {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 .track-card {
@@ -504,29 +504,34 @@
     background: #111;
     border: 1px solid #ffffff20;
     border-radius: 12px;
-    padding: 0.8rem 1rem;
-    text-decoration: none;
-    color: white;
+    padding: 0.8rem;
     transition: all 0.2s ease;
+    flex-wrap: wrap;
 }
 
 .track-card:hover {
     background: #1a1a1a;
     border-color: #1DB954;
-    transform: translateX(5px);
 }
 
-.track-card:active {
-    transform: scale(0.98);
+.track-cover {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #1a1a1a;
 }
 
-.track-icon i {
-    font-size: 2rem;
-    color: #1DB954;
+.track-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .track-info {
     flex: 1;
+    min-width: 150px;
 }
 
 .track-name {
@@ -546,20 +551,35 @@
     margin-top: 0.2rem;
 }
 
-.track-play i {
-    font-size: 1.5rem;
-    color: #ffffff60;
-    transition: color 0.2s ease;
+.track-player {
+    flex: 2;
+    min-width: 200px;
 }
 
-.track-card:hover .track-play i {
-    color: #1DB954;
+.track-player iframe {
+    border-radius: 8px;
+    background: #000;
 }
 
 @media (max-width: 768px) {
+    .track-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .track-player {
+        width: 100%;
+    }
+    
+    .track-cover {
+        width: 50px;
+        height: 50px;
+    }
+    
     .track-name {
         font-size: 0.9rem;
     }
+    
     .track-artist {
         font-size: 0.7rem;
     }
@@ -671,55 +691,124 @@
     </div>
 </div>
 
-<!-- LANZAMIENTOS DESTACADOS EN SPOTIFY (NUEVA SECCIÓN) -->
+<!-- LANZAMIENTOS DESTACADOS EN SPOTIFY -->
 <div class="music-section">
     <h3><i class="fab fa-spotify"></i> LANZAMIENTOS DESTACADOS</h3>
     <div class="spotify-tracks-grid">
-        <a href="https://open.spotify.com/intl-es/track/0T55yoZtNJqzKybr3HIYt7" target="_blank" class="track-card">
-            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+        <!-- Track 1 - SMNNV -->
+        <div class="track-card">
+            <div class="track-cover">
+                <img src="https://i.scdn.co/image/ab67616d00001e02d3f8c7c9a8b4e2f1c5d6a7b8" 
+                     alt="SMNNV"
+                     onerror="this.src='https://via.placeholder.com/60x60?text=SMNNV'">
+            </div>
             <div class="track-info">
                 <div class="track-name">SMNNV</div>
                 <div class="track-artist">Luis Piña, Destro5, Durai, Treboll</div>
                 <div class="track-year">2026</div>
             </div>
-            <div class="track-play"><i class="fas fa-play-circle"></i></div>
-        </a>
-        <a href="https://open.spotify.com/intl-es/track/5Cth8LgYwRvdZRp1fGiMpl" target="_blank" class="track-card">
-            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-player">
+                <iframe src="https://open.spotify.com/embed/track/0T55yoZtNJqzKybr3HIYt7?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameborder="0" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Track 2 - You Know It (Afro Style Remix) -->
+        <div class="track-card">
+            <div class="track-cover">
+                <img src="https://i.scdn.co/image/ab67616d00001e02e4f8c7c9a8b4e2f1c5d6a7b9" 
+                     alt="You Know It - Afro Style Remix"
+                     onerror="this.src='https://via.placeholder.com/60x60?text=You+Know+It'">
+            </div>
             <div class="track-info">
                 <div class="track-name">You Know It (Afro Style Remix)</div>
                 <div class="track-artist">Melo Greco, Destro5</div>
                 <div class="track-year">2025</div>
             </div>
-            <div class="track-play"><i class="fas fa-play-circle"></i></div>
-        </a>
-        <a href="https://open.spotify.com/intl-es/track/4GwOM0XcfH5AJmB0YFy95J" target="_blank" class="track-card">
-            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-player">
+                <iframe src="https://open.spotify.com/embed/track/5Cth8LgYwRvdZRp1fGiMpl?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameborder="0" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Track 3 - Oh Lanana -->
+        <div class="track-card">
+            <div class="track-cover">
+                <img src="https://i.scdn.co/image/ab67616d00001e02c5d6a7b8e9f0c1d2e3a4b5c6" 
+                     alt="Oh Lanana"
+                     onerror="this.src='https://via.placeholder.com/60x60?text=Oh+Lanana'">
+            </div>
             <div class="track-info">
                 <div class="track-name">Oh Lanana</div>
                 <div class="track-artist">Destro5, ómada, Onibas</div>
                 <div class="track-year">2026</div>
             </div>
-            <div class="track-play"><i class="fas fa-play-circle"></i></div>
-        </a>
-        <a href="https://open.spotify.com/intl-es/track/0dJUwIo4oE5hTiNO9y4LHc" target="_blank" class="track-card">
-            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-player">
+                <iframe src="https://open.spotify.com/embed/track/4GwOM0XcfH5AJmB0YFy95J?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameborder="0" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Track 4 - NADA (Destro5 Remix) -->
+        <div class="track-card">
+            <div class="track-cover">
+                <img src="https://i.scdn.co/image/ab67616d00001e02b6c7d8e9f0a1b2c3d4e5f6a7" 
+                     alt="NADA - Destro5 Remix"
+                     onerror="this.src='https://via.placeholder.com/60x60?text=NADA'">
+            </div>
             <div class="track-info">
                 <div class="track-name">NADA (Destro5 Remix)</div>
                 <div class="track-artist">De La Trinidad, Markez (VE), Destro5</div>
                 <div class="track-year">2026</div>
             </div>
-            <div class="track-play"><i class="fas fa-play-circle"></i></div>
-        </a>
-        <a href="https://open.spotify.com/intl-es/track/5aDBDhj8IN5VLlrEKTpB0J" target="_blank" class="track-card">
-            <div class="track-icon"><i class="fab fa-spotify"></i></div>
+            <div class="track-player">
+                <iframe src="https://open.spotify.com/embed/track/0dJUwIo4oE5hTiNO9y4LHc?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameborder="0" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Track 5 - Leski Down -->
+        <div class="track-card">
+            <div class="track-cover">
+                <img src="https://i.scdn.co/image/ab67616d00001e02a1b2c3d4e5f6a7b8c9d0e1f2" 
+                     alt="Leski Down"
+                     onerror="this.src='https://via.placeholder.com/60x60?text=Leski+Down'">
+            </div>
             <div class="track-info">
                 <div class="track-name">Leski Down</div>
                 <div class="track-artist">Destro5</div>
                 <div class="track-year">2021</div>
             </div>
-            <div class="track-play"><i class="fas fa-play-circle"></i></div>
-        </a>
+            <div class="track-player">
+                <iframe src="https://open.spotify.com/embed/track/5aDBDhj8IN5VLlrEKTpB0J?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameborder="0" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
     </div>
 </div>
 
