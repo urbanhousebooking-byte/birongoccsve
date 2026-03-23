@@ -6,33 +6,34 @@
     <title>DESTRO5 · DJ & Productor · Birongo</title>
 
     <!-- ===== SEO BÁSICO ===== -->
-    <meta name="description" content="DESTROXTREBOLL, DJ y productor de música electrónica en Caracas, Venezuela. Techno, hard techno, hard groove. Miembro del colectivo Birongo.">
-    <meta name="keywords" content="DESTROXTREBOLL, DJ Caracas, productor electrónico Venezuela, techno, hard techno, hard groove, Birongo, música electrónica">
+    <meta name="description" content="DESTRO5, DJ y productor de música electrónica en Caracas, Venezuela. UK House, Afro Latin House, EDM. Miembro del colectivo Birongo.">
+    <meta name="keywords" content="DESTRO5, Destro5, DJ Caracas, productor electrónico Venezuela, UK House, Afro Latin House, EDM, Birongo, música electrónica">
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
 
     <!-- ===== OPEN GRAPH ===== -->
-    <meta property="og:title" content="DESTROXTREBOLL · DJ & Productor · Birongo">
-    <meta property="og:description" content="DJ y productor de música electrónica en Caracas. Techno, hard techno, hard groove. Miembro del colectivo Birongo.">
+    <meta property="og:title" content="DESTRO5 · DJ & Productor · Birongo">
+    <meta property="og:description" content="DJ y productor de música electrónica en Caracas. UK House, Afro Latin House, EDM. Miembro del colectivo Birongo.">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://www.birongo.live/destro5.html">
-    <meta property="og:image" content="https://www.birongo.live/img/artistas/destroxtreboll.jpg">
+    <meta property="og:image" content="https://www.birongo.live/img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png">
     <meta property="og:locale" content="es_VE">
 
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DESTROXTREBOLL · DJ & Productor · Birongo">
-    <meta name="twitter:description" content="DJ y productor de música electrónica en Caracas. Techno, hard techno, hard groove.">
+    <meta name="twitter:title" content="DESTRO5 · DJ & Productor · Birongo">
+    <meta name="twitter:description" content="DJ y productor de música electrónica en Caracas. UK House, Afro Latin House, EDM.">
+    <meta name="twitter:image" content="https://www.birongo.live/img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png">
 
     <!-- ===== SCHEMA.ORG ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "DESTROXTREBOLL",
+      "name": "DESTRO5",
       "alternateName": "Destro5",
-      "description": "DJ y productor de música electrónica en Caracas, Venezuela. Especializado en ukhouse, afro latin house y edm. Miembro del colectivo Birongo.",
-      "image": "https://www.birongo.live/img/artistas/destroxtreboll.jpg",
+      "description": "DJ y productor de música electrónica en Caracas, Venezuela. Especializado en UK House, Afro Latin House y EDM. Miembro del colectivo Birongo.",
+      "image": "https://www.birongo.live/img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png",
       "sameAs": [
         "https://www.instagram.com/destro5/",
         "https://soundcloud.com/destro5",
@@ -43,7 +44,7 @@
         "name": "Birongo",
         "url": "https://www.birongo.live"
       },
-      "knowsAbout": ["Techno", "Hard Techno", "Hard Groove", "Música Electrónica"],
+      "knowsAbout": ["UK House", "Afro Latin House", "EDM", "Música Electrónica"],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Caracas",
@@ -179,6 +180,14 @@
             width: 100%;
         }
 
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
@@ -205,6 +214,8 @@
             letter-spacing: 0.1em;
             transition: all 0.3s ease;
             margin-bottom: 2rem;
+            cursor: pointer;
+            border-radius: 4px;
         }
 
         .back-button:hover {
@@ -230,7 +241,7 @@
 
         .artist-image {
             flex: 1;
-            min-height: 300px;
+            min-height: 350px;
             background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
             display: flex;
             align-items: center;
@@ -243,20 +254,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .artist-image-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #2a2a2a, #0a0a0a);
-        }
-
-        .artist-image-placeholder i {
-            font-size: 8rem;
-            color: #ffffff30;
+            object-position: center;
         }
 
         .artist-info {
@@ -509,28 +507,28 @@
             </div>
         </div>
 
-        <!-- BOTÓN DE RETROCESO -->
-        <a href="djs-productores.html" class="back-button">
+        <!-- BOTÓN DE RETROCESO - CORREGIDO -->
+        <a href="djs-productores.html" class="back-button" id="backButton">
             <i class="fas fa-arrow-left"></i> VOLVER A DJs & PRODUCTORES
         </a>
 
-        <!-- PERFIL DEL ARTISTA -->
+        <!-- PERFIL DEL ARTISTA CON IMAGEN -->
         <div class="artist-card">
             <div class="artist-image">
-                <div class="artist-image-placeholder">
-                    <i class="fas fa-user-music"></i>
-                </div>
+                <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" 
+                     alt="DESTRO5 - DJ y Productor" 
+                     onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'artist-image-placeholder\'><i class=\'fas fa-user-music\'></i></div>';">
             </div>
             <div class="artist-info">
                 <div class="artist-tag">
                     <i class="fas fa-record-vinyl"></i> DJ / PRODUCTOR
                 </div>
-                <h1 class="artist-name">DESTROXTREBOLL</h1>
+                <h1 class="artist-name">DESTRO5</h1>
                 <div class="artist-genre">
-                    <span class="genre-badge">TECHNO</span>
-                    <span class="genre-badge">HARD TECHNO</span>
-                    <span class="genre-badge">HARD GROOVE</span>
-                    <span class="genre-badge">INDUSTRIAL</span>
+                    <span class="genre-badge">UK HOUSE</span>
+                    <span class="genre-badge">AFRO LATIN HOUSE</span>
+                    <span class="genre-badge">EDM</span>
+                    <span class="genre-badge">TECH HOUSE</span>
                 </div>
                 <p class="artist-description">
                     Destro5 es un DJ y productor venezolano en el diverso mundo del EDM. 
@@ -553,6 +551,9 @@
                     </a>
                     <a href="https://www.youtube.com/@destro5" target="_blank" class="social-link">
                         <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                    <a href="https://open.spotify.com/intl-es/artist/5J93iXfPaLAag5wPRoHIjz" target="_blank" class="social-link">
+                        <i class="fab fa-spotify"></i> Spotify
                     </a>
                 </div>
             </div>
@@ -589,7 +590,7 @@
                         </div>
                     </a>
                     <div class="video-info">
-                        <p>Birongo Live @ La Quinta Bar - DESTROXTREBOLL</p>
+                        <p>Birongo Live @ La Quinta Bar - DESTRO5</p>
                     </div>
                 </div>
             </div>
@@ -650,9 +651,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Enlaces externos con noopener
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
             });
+            
+            // Asegurar que el botón de retroceso funcione correctamente
+            const backButton = document.getElementById('backButton');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'djs-productores.html';
+                });
+            }
         });
     </script>
 </body>
