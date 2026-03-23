@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>DESTROXTREBOLL · DJ & Productor · Birongo</title>
+
+    <!-- ===== SEO BÁSICO ===== -->
+    <meta name="description" content="DESTROXTREBOLL, DJ y productor de música electrónica en Caracas, Venezuela. Techno, hard techno, hard groove. Miembro del colectivo Birongo.">
+    <meta name="keywords" content="DESTROXTREBOLL, DJ Caracas, productor electrónico Venezuela, techno, hard techno, hard groove, Birongo, música electrónica">
+    <meta name="author" content="Birongo Crew">
+    <meta name="robots" content="index, follow">
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:title" content="DESTROXTREBOLL · DJ & Productor · Birongo">
+    <meta property="og:description" content="DJ y productor de música electrónica en Caracas. Techno, hard techno, hard groove. Miembro del colectivo Birongo.">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://www.birongo.live/destro5.html">
+    <meta property="og:image" content="https://www.birongo.live/img/artistas/destroxtreboll.jpg">
+    <meta property="og:locale" content="es_VE">
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DESTROXTREBOLL · DJ & Productor · Birongo">
+    <meta name="twitter:description" content="DJ y productor de música electrónica en Caracas. Techno, hard techno, hard groove.">
+
+    <!-- ===== SCHEMA.ORG ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "DESTROXTREBOLL",
+      "alternateName": "Destro5",
+      "description": "DJ y productor de música electrónica en Caracas, Venezuela. Especializado en techno, hard techno y hard groove. Miembro del colectivo Birongo.",
+      "image": "https://www.birongo.live/img/artistas/destroxtreboll.jpg",
+      "sameAs": [
+        "https://www.instagram.com/destro5/",
+        "https://soundcloud.com/destro5",
+        "https://www.youtube.com/@destro5"
+      ],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Birongo",
+        "url": "https://www.birongo.live"
+      },
+      "knowsAbout": ["Techno", "Hard Techno", "Hard Groove", "Música Electrónica"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Caracas",
+        "addressCountry": "Venezuela"
+      }
+    }
+    </script>
+
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+
+    <!-- Cronitor RUM -->
+    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script>
+        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* HEADER */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 3rem;
+                padding: 2rem 0;
+            }
+        }
+
+        .logo-image {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        /* MENÚ */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .nav-item {
+                font-size: 0.75rem;
+                letter-spacing: 0.12em;
+            }
+        }
+
+        /* BOTÓN RETROCESO */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #ffffff30;
+            color: white;
+            padding: 0.7rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: #ffffff10;
+            border-color: #ffffff60;
+            gap: 0.8rem;
+        }
+
+        /* TARJETA DE ARTISTA */
+        .artist-card {
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .artist-card {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        .artist-image {
+            flex: 1;
+            min-height: 300px;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .artist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .artist-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #2a2a2a, #0a0a0a);
+        }
+
+        .artist-image-placeholder i {
+            font-size: 8rem;
+            color: #ffffff30;
+        }
+
+        .artist-info {
+            flex: 1.5;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .artist-info {
+                padding: 1.5rem;
+            }
+        }
+
+        .artist-name {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .artist-name {
+                font-size: 1.8rem;
+            }
+        }
+
+        .artist-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ffffff10;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ffffff20;
+        }
+
+        .artist-tag i {
+            font-size: 0.9rem;
+        }
+
+        .artist-genre {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .genre-badge {
+            background: #ffffff10;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #ffffff90;
+        }
+
+        .artist-description {
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ffffff10;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            border: 1px solid #ffffff20;
+        }
+
+        .social-link:hover {
+            background: #ffffff20;
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            font-size: 1.1rem;
+        }
+
+        /* SECCIÓN DE MÚSICA */
+        .music-section {
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .music-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 1px solid #ffffff20;
+            padding-bottom: 0.8rem;
+        }
+
+        .youtube-grid, .spotify-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .youtube-grid, .spotify-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .video-thumbnail-link {
+            display: block;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail-link:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-overlay i {
+            font-size: 3rem;
+            color: #ff0000;
+        }
+
+        .video-info {
+            margin-top: 0.8rem;
+            padding: 0.5rem;
+        }
+
+        .video-info p {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .spotify-item iframe {
+            width: 100%;
+            height: 152px;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* BOTONES TÁCTILES */
+        .btn-tactile {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.8rem;
+            border: 2px solid #fff;
+            background: transparent;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-tactile:active {
+            transform: scale(0.97);
+            background: white;
+            color: black;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.7rem;
+            color: #ffffff40;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="hero">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">INICIO</a>
+                <a href="djs-productores.html" class="nav-item active">DJs & PRODUCTORES</a>
+                <a href="diario.html" class="nav-item">DIARIO</a>
+                <a href="eventos.html" class="nav-item">EVENTOS</a>
+                <a href="entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item">CONTACTO</a>
+            </div>
+        </div>
+
+        <!-- BOTÓN DE RETROCESO -->
+        <a href="djs-productores.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> VOLVER A DJs & PRODUCTORES
+        </a>
+
+        <!-- PERFIL DEL ARTISTA -->
+        <div class="artist-card">
+            <div class="artist-image">
+                <div class="artist-image-placeholder">
+                    <i class="fas fa-user-music"></i>
+                </div>
+            </div>
+            <div class="artist-info">
+                <div class="artist-tag">
+                    <i class="fas fa-record-vinyl"></i> DJ / PRODUCTOR
+                </div>
+                <h1 class="artist-name">DESTROXTREBOLL</h1>
+                <div class="artist-genre">
+                    <span class="genre-badge">TECHNO</span>
+                    <span class="genre-badge">HARD TECHNO</span>
+                    <span class="genre-badge">HARD GROOVE</span>
+                    <span class="genre-badge">INDUSTRIAL</span>
+                </div>
+                <p class="artist-description">
+                    DESTROXTREBOLL (también conocido como Destro5) es DJ y productor de música electrónica con sede en Caracas, Venezuela. 
+                    Su estilo se caracteriza por sets enérgicos que exploran los rincones más oscuros y potentes del techno, 
+                    combinando hard techno, hard groove y sonidos industriales. Miembro activo del colectivo Birongo, 
+                    ha participado en los eventos más importantes de la escena electrónica caraqueña, 
+                    destacándose por su presencia escénica y selección musical contundente.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/destro5/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i> @destro5
+                    </a>
+                    <a href="https://soundcloud.com/destro5" target="_blank" class="social-link">
+                        <i class="fab fa-soundcloud"></i> SoundCloud
+                    </a>
+                    <a href="https://www.youtube.com/@destro5" target="_blank" class="social-link">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETS EN YOUTUBE -->
+        <div class="music-section">
+            <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
+            <div class="youtube-grid">
+                <div>
+                    <a href="https://www.youtube.com/watch?v=o4oIPK1CdW8" target="_blank" class="video-thumbnail-link">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/o4oIPK1CdW8/maxresdefault.jpg" 
+                                 alt="Hardechno Mix 2026 - DJ Zarinovak"
+                                 onerror="this.src='https://img.youtube.com/vi/o4oIPK1CdW8/hqdefault.jpg'">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="video-info">
+                        <p>Hardechno Mix 2026 ⚡ DJ Set (NO RULES SOUND, DC92, TSK PHØNIČ)</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" class="video-thumbnail-link">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
+                                 alt="Birongo Live @ La Quinta Bar"
+                                 onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="video-info">
+                        <p>Birongo Live @ La Quinta Bar - DESTROXTREBOLL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLAYLISTS EN SPOTIFY -->
+        <div class="music-section">
+            <h3><i class="fab fa-spotify"></i> PLAYLISTS RECOMENDADAS</h3>
+            <div class="spotify-grid">
+                <div class="spotify-item">
+                    <iframe src="https://open.spotify.com/embed/playlist/1zhfUqTriiJaMN0MXC5ZWo?utm_source=generator&theme=0" 
+                            frameborder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                    </iframe>
+                </div>
+                <div class="spotify-item">
+                    <iframe src="https://open.spotify.com/embed/playlist/4FqIWucxeM0mjD1uuiycIU?utm_source=generator&theme=0" 
+                            frameborder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                    </iframe>
+                </div>
+                <div class="spotify-item">
+                    <iframe src="https://open.spotify.com/embed/playlist/67LxMgHy02ThMIIfJQ5rlo?utm_source=generator&theme=0" 
+                            frameborder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                    </iframe>
+                </div>
+                <div class="spotify-item">
+                    <iframe src="https://open.spotify.com/embed/playlist/7CTgmUYwLsXVtZvemepGhD?utm_source=generator&theme=0" 
+                            frameborder="0" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÓN DE ACCIÓN -->
+        <div class="text-center mt-3">
+            <a href="djs-productores.html" class="btn-tactile">
+                <i class="fas fa-users"></i> CONOCE MÁS ARTISTAS
+            </a>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+            <div class="footer-tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRÓNICA · CARACAS · VENEZUELA</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
+</body>
+</html>
