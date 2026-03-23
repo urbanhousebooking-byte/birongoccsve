@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title> Destro5 - Birongo</title>
+    <title>Destro5 · DJ & Productor · Birongo</title>
 
     <!-- ===== SEO BÁSICO ===== -->
     <meta name="description" content="DESTRO5, DJ y productor de música electrónica en Caracas, Venezuela. UK House, Afro Latin House, EDM. Miembro del colectivo Birongo.">
@@ -432,77 +432,63 @@
             }
         }
 
+        /* YOUTUBE VIDEOS - TAMAÑO COMPLETO */
         .youtube-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        @media (min-width: 768px) {
-            .youtube-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .video-thumbnail-link {
-            display: block;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .video-thumbnail {
-            position: relative;
+        .youtube-video-container {
             width: 100%;
-            aspect-ratio: 16/9;
-            overflow: hidden;
             background: #000;
-        }
-
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-radius: 12px;
+            overflow: hidden;
             transition: transform 0.3s ease;
         }
 
-        .video-thumbnail-link:hover .video-thumbnail img {
-            transform: scale(1.05);
+        .youtube-video-container:hover {
+            transform: scale(1.02);
         }
 
-        .play-overlay {
+        .youtube-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .youtube-video-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .play-overlay i {
-            font-size: 3rem;
-            color: #ff0000;
-        }
-
-        .video-info {
-            margin-top: 0.8rem;
-            padding: 0.5rem;
-        }
-
-        .video-info p {
-            font-size: 0.9rem;
-            font-weight: 500;
+        .video-title {
+            padding: 1rem;
+            background: #0a0a0a;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffffff;
+            border-top: 1px solid #ffffff20;
         }
 
         @media (max-width: 768px) {
-            .video-info p {
-                font-size: 0.8rem;
+            .youtube-grid {
+                gap: 1.5rem;
+            }
+            
+            .video-title {
+                font-size: 0.85rem;
+                padding: 0.8rem;
             }
         }
 
-        /* Reproductor de Spotify - Sin ícono adicional */
+        /* Reproductor de Spotify */
         .spotify-profile {
             width: 100%;
             border-radius: 12px;
@@ -515,6 +501,12 @@
             height: 352px;
             border: none;
             border-radius: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .spotify-profile iframe {
+                height: 280px;
+            }
         }
 
         /* BOTONES TÁCTILES */
@@ -669,29 +661,31 @@
             </div>
         </div>
 
-        <!-- SETS EN YOUTUBE -->
+        <!-- SETS EN YOUTUBE - TAMAÑO COMPLETO -->
         <div class="music-section">
             <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
             <div class="youtube-grid">
-                <div>
-                    <a href="https://youtu.be/Wt9RnBHnW90" target="_blank" class="video-thumbnail-link">
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/Wt9RnBHnW90/maxresdefault.jpg" 
-                                 alt="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set"
-                                 onerror="this.src='https://img.youtube.com/vi/Wt9RnBHnW90/hqdefault.jpg'">
-                            <div class="play-overlay">
-                                <i class="fab fa-youtube"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="video-info">
-                        <p>Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5</p>
+                <!-- Video 2 - Afro House Mix 2025 -->
+                <div class="youtube-video-container">
+                    <div class="youtube-video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/Wt9RnBHnW90" 
+                            title="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-title">
+                        <i class="fab fa-youtube" style="color: #ff0000; margin-right: 0.5rem;"></i> 
+                        Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- PERFIL DE SPOTIFY - Solo el reproductor embebido, sin ícono adicional -->
+        <!-- PERFIL DE SPOTIFY -->
         <div class="music-section">
             <h3><i class="fab fa-spotify"></i> SPOTIFY</h3>
             <div class="spotify-profile">
