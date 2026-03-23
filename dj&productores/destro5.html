@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Destro5 - Birongo</title>
+    <title>Destro5 · DJ & Productor · Birongo</title>
 
     <!-- ===== SEO BÁSICO ===== -->
     <meta name="description" content="DESTRO5, DJ y productor de música electrónica en Caracas, Venezuela. UK House, Afro Latin House, EDM. Miembro del colectivo Birongo.">
@@ -432,7 +432,7 @@
             }
         }
 
-        /* YOUTUBE VIDEOS - TAMAÑO COMPLETO */
+        /* YOUTUBE VIDEOS - CON MINIATURA QUE LLEVA A YOUTUBE */
         .youtube-grid {
             display: flex;
             flex-direction: column;
@@ -445,27 +445,63 @@
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
         }
 
         .youtube-video-container:hover {
             transform: scale(1.02);
         }
 
-        .youtube-video-wrapper {
+        .youtube-thumbnail-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+            cursor: pointer;
         }
 
-        .youtube-video-wrapper iframe {
+        .youtube-thumbnail-wrapper img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: none;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .youtube-video-container:hover .youtube-thumbnail-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .youtube-video-container:hover .play-overlay {
+            background: rgba(0,0,0,0.2);
+        }
+
+        .play-overlay i {
+            font-size: 4rem;
+            color: #ff0000;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .youtube-video-container:hover .play-overlay i {
+            transform: scale(1.1);
         }
 
         .video-title {
@@ -475,6 +511,14 @@
             font-size: 1rem;
             color: #ffffff;
             border-top: 1px solid #ffffff20;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-title i {
+            color: #ff0000;
+            font-size: 1.1rem;
         }
 
         @media (max-width: 768px) {
@@ -486,26 +530,42 @@
                 font-size: 0.85rem;
                 padding: 0.8rem;
             }
+            
+            .play-overlay i {
+                font-size: 3rem;
+            }
         }
 
-        /* Reproductor de Spotify */
+        /* REPRODUCTOR DE SPOTIFY - COMPLETO EN MÓVILES */
         .spotify-profile {
             width: 100%;
             border-radius: 12px;
             overflow: hidden;
+            background: #000;
         }
 
         .spotify-profile iframe {
             display: block;
             width: 100%;
-            height: 352px;
+            min-height: 352px;
+            height: auto;
             border: none;
             border-radius: 12px;
         }
 
+        /* Ajuste específico para móviles */
         @media (max-width: 768px) {
             .spotify-profile iframe {
-                height: 280px;
+                min-height: 380px;
+                height: 380px;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .spotify-profile iframe {
+                min-height: 420px;
+                height: 420px;
             }
         }
 
@@ -661,31 +721,28 @@
             </div>
         </div>
 
-        <!-- SETS EN YOUTUBE - TAMAÑO COMPLETO -->
+        <!-- SETS EN YOUTUBE - CON MINIATURAS QUE LLEVAN A YOUTUBE -->
         <div class="music-section">
             <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
             <div class="youtube-grid">
                 <!-- Video 2 - Afro House Mix 2025 -->
-                <div class="youtube-video-container">
-                    <div class="youtube-video-wrapper">
-                        <iframe 
-                            src="https://www.youtube.com/embed/Wt9RnBHnW90" 
-                            title="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerpolicy="strict-origin-when-cross-origin" 
-                            allowfullscreen>
-                        </iframe>
+                <a href="https://youtu.be/Wt9RnBHnW90" target="_blank" class="youtube-video-container">
+                    <div class="youtube-thumbnail-wrapper">
+                        <img src="https://img.youtube.com/vi/Wt9RnBHnW90/maxresdefault.jpg" 
+                             alt="Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5"
+                             onerror="this.src='https://img.youtube.com/vi/Wt9RnBHnW90/hqdefault.jpg'">
+                        <div class="play-overlay">
+                            <i class="fab fa-youtube"></i>
+                        </div>
                     </div>
                     <div class="video-title">
-                        <i class="fab fa-youtube" style="color: #ff0000; margin-right: 0.5rem;"></i> 
-                        Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5
+                        <i class="fab fa-youtube"></i> Afro House Mix 2025 🦁 Tribal Warm Up DJ Set | DESTRO5
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
-        <!-- PERFIL DE SPOTIFY -->
+        <!-- PERFIL DE SPOTIFY - COMPLETO EN TODOS LOS DISPOSITIVOS -->
         <div class="music-section">
             <h3><i class="fab fa-spotify"></i> SPOTIFY</h3>
             <div class="spotify-profile">
@@ -694,7 +751,7 @@
                     style="border-radius:12px" 
                     src="https://open.spotify.com/embed/artist/5J93iXfPaLAag5wPRoHIjz?utm_source=generator&theme=0" 
                     width="100%" 
-                    height="352" 
+                    height="100%" 
                     frameborder="0" 
                     allowfullscreen="" 
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
