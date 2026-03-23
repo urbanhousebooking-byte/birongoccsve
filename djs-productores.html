@@ -247,6 +247,11 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            cursor: pointer;
+        }
+
+        .artist-card:active {
+            transform: scale(0.98);
         }
 
         .artist-card:hover {
@@ -292,6 +297,7 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             gap: 1rem;
+            z-index: 2;
         }
 
         .artist-card:hover .artist-overlay {
@@ -302,6 +308,7 @@
             color: white;
             font-size: 1.8rem;
             transition: transform 0.2s ease;
+            text-decoration: none;
         }
 
         .artist-overlay a:hover {
@@ -326,6 +333,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            pointer-events: none;
         }
 
         .artist-info h3 {
@@ -454,7 +462,7 @@
         <!-- ===== GRID DE ARTISTAS ===== -->
         <div class="artists-grid">
             <!-- ARTISTA 1 - ALOCATE (SIN SPOTIFY) -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ALOCATE" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -474,7 +482,7 @@
             </div>
 
             <!-- ARTISTA 2 - HERESICKA -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Heresicka_Foto_Artistas.png" alt="HERESICKA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -495,7 +503,7 @@
             </div>
 
             <!-- ARTISTA 3 - SIRDIAMND -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/SirDiamnd_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="SIRDIAMND" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -515,8 +523,8 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 4 - DESTRO5 -->
-            <div class="artist-card">
+            <!-- ARTISTA 4 - DESTRO5 (CON ENLACE A DESTRO5.HTML) -->
+            <div class="artist-card" data-artist-url="destro5.html">
                 <div class="artist-image">
                     <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DESTRO5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -537,7 +545,7 @@
             </div>
 
             <!-- ARTISTA 5 - DE LA TRINIDAD -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/De La Trinidad_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DE LA TRINIDAD" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -558,7 +566,7 @@
             </div>
 
             <!-- ARTISTA 6 - MORET -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="MORET" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -578,7 +586,7 @@
             </div>
 
             <!-- ARTISTA 7 - GERARD VALERA -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="GERARD VALERA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -598,7 +606,7 @@
             </div>
 
             <!-- ARTISTA 8 - KURGANS -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KURGANS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -618,7 +626,7 @@
             </div>
 
             <!-- ARTISTA 9 - HADDES -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="HADDES" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -638,7 +646,7 @@
             </div>
 
             <!-- ARTISTA 10 - DORKAS (SIN SPOTIFY) -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DORKAS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -658,7 +666,7 @@
             </div>
 
             <!-- ARTISTA 11 - KAATHA -->
-            <div class="artist-card">
+            <div class="artist-card" data-artist-url="">
                 <div class="artist-image">
                     <img src="img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KAATHA" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
@@ -699,8 +707,28 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Enlaces externos con noopener
             document.querySelectorAll('a[href^="http"]').forEach(link => {
                 link.setAttribute('rel', 'noopener noreferrer');
+            });
+
+            // Función para redirigir al hacer clic en la tarjeta del artista
+            const artistCards = document.querySelectorAll('.artist-card');
+            
+            artistCards.forEach(card => {
+                const artistUrl = card.getAttribute('data-artist-url');
+                
+                // Si tiene URL definida, hacer que toda la tarjeta sea clickeable
+                if (artistUrl && artistUrl !== '') {
+                    card.addEventListener('click', function(e) {
+                        // Evitar que el clic se propague si se hizo clic en los iconos de redes sociales
+                        if (e.target.closest('.artist-overlay a')) {
+                            return;
+                        }
+                        // Redirigir a la página del artista
+                        window.location.href = artistUrl;
+                    });
+                }
             });
         });
     </script>
