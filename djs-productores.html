@@ -6,41 +6,41 @@
     <title>Artistas - Birongo</title>
 
     <!-- ===== SEO BÁSICO ===== -->
-<meta name="description" content="Birongo: Colectivo de música electrónica en Caracas. DJs, productores, eventos y la mejor escena electrónica venezolana.">
-<meta name="keywords" content="Birongo, música electrónica Caracas, DJs Venezuela, techno, house, drum and bass, eventos electrónicos, La Quinta Bar">
-<meta name="author" content="Birongo Crew">
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
+    <meta name="description" content="Birongo: Colectivo de música electrónica en Caracas. DJs, productores, eventos y la mejor escena electrónica venezolana.">
+    <meta name="keywords" content="Birongo, música electrónica Caracas, DJs Venezuela, techno, house, drum and bass, eventos electrónicos, La Quinta Bar">
+    <meta name="author" content="Birongo Crew">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
 
-<!-- ===== OPEN GRAPH (para compartir en redes) ===== -->
-<meta property="og:title" content="BIRONGO · Música Electrónica Caracas">
-<meta property="og:description" content="Colectivo de música electrónica en Caracas. Conoce nuestros DJs, productores y eventos.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.birongo.live">
-<meta property="og:image" content="https://www.birongo.live/img/Logo birongo.jpg">
-<meta property="og:locale" content="es_VE">
+    <!-- ===== OPEN GRAPH (para compartir en redes) ===== -->
+    <meta property="og:title" content="BIRONGO · Música Electrónica Caracas">
+    <meta property="og:description" content="Colectivo de música electrónica en Caracas. Conoce nuestros DJs, productores y eventos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.birongo.live">
+    <meta property="og:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+    <meta property="og:locale" content="es_VE">
 
-<!-- ===== TWITTER CARD ===== -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BIRONGO · Música Electrónica Caracas">
-<meta name="twitter:description" content="Colectivo de música electrónica en Caracas.">
-<meta name="twitter:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BIRONGO · Música Electrónica Caracas">
+    <meta name="twitter:description" content="Colectivo de música electrónica en Caracas.">
+    <meta name="twitter:image" content="https://www.birongo.live/img/Logo birongo.jpg">
 
-<!-- ===== SCHEMA.ORG (para Google) ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Birongo",
-  "url": "https://www.birongo.live",
-  "logo": "https://www.birongo.live/img/Logo birongo.jpg",
-  "description": "Colectivo de música electrónica en Caracas, Venezuela. DJs, productores y eventos.",
-  "sameAs": [
-    "https://www.instagram.com/birongoccs/",
-    "https://www.youtube.com/@birongocaracas"
-  ]
-}
-</script>
+    <!-- ===== SCHEMA.ORG (para Google) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Birongo",
+      "url": "https://www.birongo.live",
+      "logo": "https://www.birongo.live/img/Logo birongo.jpg",
+      "description": "Colectivo de música electrónica en Caracas, Venezuela. DJs, productores y eventos.",
+      "sameAs": [
+        "https://www.instagram.com/birongoccs/",
+        "https://www.youtube.com/@birongocaracas"
+      ]
+    }
+    </script>
     
     <!-- FONTS & ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -53,13 +53,12 @@
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
     <!-- Cronitor RUM -->
-<script async src="https://rum.cronitor.io/script.js"></script>
-<script>
-    window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
-    cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
-</script>
+    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script>
+        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
+    </script>
 
-    
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -366,6 +365,49 @@
             border-radius: 20px;
         }
 
+        /* BOTÓN VER MÁS ELEGANTE */
+        .btn-ver-mas {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #ffffff30;
+            color: #ffffff90;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            margin-top: 0.8rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: fit-content;
+            pointer-events: auto;
+        }
+
+        .btn-ver-mas:hover {
+            border-color: #ffffff;
+            color: white;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-ver-mas:active {
+            transform: scale(0.96);
+        }
+
+        .btn-ver-mas i {
+            font-size: 0.7rem;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-ver-mas:hover i {
+            transform: translateX(3px);
+        }
+
         /* ===== BOTONES ===== */
         .btn {
             background: transparent;
@@ -523,7 +565,7 @@
                 </div>
             </div>
 
-            <!-- ARTISTA 4 - DESTRO5 (CON ENLACE A DESTRO5.HTML) -->
+            <!-- ARTISTA 4 - DESTRO5 (CON ENLACE A DESTRO5.HTML Y BOTÓN VER MÁS) -->
             <div class="artist-card" data-artist-url="dj&productores/destro5.html">
                 <div class="artist-image">
                     <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DESTRO5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -541,6 +583,11 @@
                         <span>UK House</span>
                         <span>Afro Latin House</span>
                     </div>
+                    <!-- BOTÓN VER MÁS ELEGANTE -->
+                    <a href="dj&productores/destro5.html" class="btn-ver-mas" onclick="event.stopPropagation();">
+                        <span>VER MÁS</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
 
@@ -721,8 +768,8 @@
                 // Si tiene URL definida, hacer que toda la tarjeta sea clickeable
                 if (artistUrl && artistUrl !== '') {
                     card.addEventListener('click', function(e) {
-                        // Evitar que el clic se propague si se hizo clic en los iconos de redes sociales
-                        if (e.target.closest('.artist-overlay a')) {
+                        // Evitar que el clic se propague si se hizo clic en los iconos de redes sociales o en el botón ver más
+                        if (e.target.closest('.artist-overlay a') || e.target.closest('.btn-ver-mas')) {
                             return;
                         }
                         // Redirigir a la página del artista
