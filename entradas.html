@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Preventa - Birongo Live 2.0 | Entradas $5</title>
 
-    <!-- ===== FAVICON SVG ===== -->
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     
     <!-- ===== FONTS & ICONS ===== -->
@@ -15,72 +15,76 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000000; font-family: 'Inter', sans-serif; color: #ffffff; line-height: 1.5; min-height: 100vh; }
-        .site-header { text-align: center; padding: 2.5rem 1.5rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .logo-image { max-width: 220px; height: auto; margin-bottom: 1.5rem; }
-        @media (min-width: 768px) { .logo-image { max-width: 280px; } }
-        .nav-menu { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; }
-        .nav-item { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; padding: 0.5rem 0; transition: color 0.3s ease; position: relative; }
+        .site-header { text-align: center; padding: 2rem 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .logo-image { max-width: 200px; height: auto; margin-bottom: 1rem; }
+        @media (min-width: 768px) { .logo-image { max-width: 240px; } }
+        .nav-menu { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 1.2rem; }
+        .nav-item { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; padding: 0.4rem 0; transition: color 0.3s ease; position: relative; }
         .nav-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: white; transition: width 0.3s ease; }
         .nav-item:hover::after, .nav-item.active::after { width: 100%; }
         .nav-item:hover, .nav-item.active { color: white; }
-        .main-container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
-        .event-header { text-align: center; margin-bottom: 2.5rem; }
-        .preventa-badge { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(255,255,255,0.6); margin-bottom: 1rem; font-weight: 500; }
-        .event-title { font-size: 2.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; font-family: 'Space Grotesk', monospace; }
-        .event-location { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
-        .event-date { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.5rem; }
-        .ticket-card { background: rgba(10,10,10,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem; }
-        .ticket-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 1.8rem; gap: 1.5rem; }
+        .main-container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+        .event-header { text-align: center; margin-bottom: 1.8rem; }
+        .preventa-badge { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255,255,255,0.6); margin-bottom: 0.8rem; font-weight: 500; }
+        .event-title { font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; font-family: 'Space Grotesk', monospace; }
+        .event-location { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+        .event-date { color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 0.3rem; }
+        .ticket-card { background: rgba(10,10,10,0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+        .ticket-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 1.2rem; gap: 1rem; }
         .ticket-info { flex: 2; }
-        .ticket-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.25rem; }
-        .ticket-desc { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
+        .ticket-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+        .ticket-desc { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.05em; }
         .ticket-price { flex: 1; text-align: center; }
-        .price-amount { font-size: 1.4rem; font-weight: 700; }
-        .price-hint { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
+        .price-amount { font-size: 1.2rem; font-weight: 700; }
+        .price-hint { font-size: 0.6rem; color: rgba(255,255,255,0.5); }
         .ticket-quantity { flex: 1; display: flex; justify-content: flex-end; }
         .quantity-selector { display: flex; align-items: center; gap: 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); }
-        .qty-btn { background: none; border: none; color: white; width: 42px; height: 42px; font-size: 1.2rem; cursor: pointer; transition: all 0.2s; }
+        .qty-btn { background: none; border: none; color: white; width: 36px; height: 36px; font-size: 1.1rem; cursor: pointer; transition: all 0.2s; }
         .qty-btn:hover { background: rgba(255,255,255,0.1); }
-        .qty-value { width: 50px; text-align: center; font-size: 1rem; background: transparent; border: none; color: white; font-weight: 500; }
-        .form-card { background: rgba(10,10,10,0.6); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; overflow: hidden; }
-        .card-header { padding: 1.2rem 1.8rem; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); }
-        .card-header h3 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.8); margin: 0; }
-        .card-body { padding: 1.8rem; }
-        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+        .qty-value { width: 40px; text-align: center; font-size: 0.9rem; background: transparent; border: none; color: white; font-weight: 500; }
+        .form-card { background: rgba(10,10,10,0.6); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.2rem; overflow: hidden; }
+        .card-header { padding: 0.9rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); }
+        .card-header h3 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.8); margin: 0; }
+        .card-header i { margin-right: 0.5rem; }
+        .card-body { padding: 1.2rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; }
+        @media (min-width: 480px) { .form-grid { grid-template-columns: repeat(2, 1fr); } }
         .form-group { margin-bottom: 0; }
-        .form-group.full-width { grid-column: span 2; }
-        .form-group label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; font-weight: 500; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.9rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; font-family: 'Inter', sans-serif; font-size: 0.9rem; transition: all 0.3s; }
+        .form-group.full-width { grid-column: span 1; }
+        @media (min-width: 480px) { .form-group.full-width { grid-column: span 2; } }
+        .form-group label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 0.3rem; font-weight: 500; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.7rem 0.8rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; font-family: 'Inter', sans-serif; font-size: 0.85rem; transition: all 0.3s; border-radius: 0; }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); }
-        .file-input-wrapper { position: relative; width: 100%; }
-        .file-input-wrapper input[type="file"] { position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer; }
-        .file-label { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s; }
-        .file-label:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
-        .file-name { color: rgba(255,255,255,0.7); font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .bcv-rate-card { background: rgba(0,0,0,0.4); padding: 0.8rem; text-align: center; margin-top: 0.5rem; border: 1px solid rgba(255,215,0,0.2); }
-        .bcv-rate-value { font-size: 1rem; font-weight: 600; color: #ffd966; }
-        .payment-tabs { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem; }
-        .payment-tab { padding: 0.7rem 1.5rem; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.25s; font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
-        .payment-tab i { margin-right: 0.5rem; }
+        .bcv-rate-card { background: rgba(0,0,0,0.4); padding: 0.6rem; text-align: center; margin-bottom: 1.2rem; border: 1px solid rgba(255,215,0,0.2); }
+        .bcv-rate-value { font-size: 0.9rem; font-weight: 600; color: #ffd966; }
+        .bcv-updated { font-size: 0.6rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
+        .payment-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 0.8rem; }
+        .payment-tab { padding: 0.5rem 1rem; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.25s; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .payment-tab i { margin-right: 0.4rem; }
         .payment-tab.active { background: white; color: black; border-color: white; }
-        .payment-details { display: none; background: rgba(0,0,0,0.4); padding: 1.2rem; margin-top: 0.5rem; border-left: 2px solid white; }
+        .payment-details { display: none; background: rgba(0,0,0,0.4); padding: 0.8rem; margin-top: 0.5rem; border-left: 2px solid white; }
         .payment-details.active { display: block; }
-        .bank-info { font-size: 0.85rem; line-height: 1.6; }
-        .highlight { color: #ffd966; font-size: 0.8rem; margin-top: 0.5rem; display: inline-block; }
-        .total-card { background: rgba(20,20,20,0.8); border: 1px solid rgba(255,255,255,0.15); text-align: center; padding: 1.8rem; margin: 1.5rem 0; }
-        .total-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
-        .total-amount { font-size: 2.8rem; font-weight: 700; line-height: 1.2; }
-        .total-bs { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 0.5rem; }
-        .btn-confirm { width: 100%; padding: 1.2rem; background: transparent; border: 1.5px solid white; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.9rem; cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif; }
+        .bank-info { font-size: 0.75rem; line-height: 1.5; }
+        .highlight { color: #ffd966; font-size: 0.7rem; margin-top: 0.4rem; display: inline-block; }
+        .total-card { background: rgba(20,20,20,0.8); border: 1px solid rgba(255,255,255,0.15); text-align: center; padding: 1.2rem; margin: 1.2rem 0; }
+        .total-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); margin-bottom: 0.3rem; }
+        .total-amount { font-size: 2rem; font-weight: 700; line-height: 1.2; }
+        .total-bs { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; }
+        .btn-confirm { width: 100%; padding: 1rem; background: transparent; border: 1.5px solid white; color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif; }
         .btn-confirm:hover { background: white; color: black; }
         .btn-confirm:active { transform: scale(0.98); }
         .btn-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
-        .alert { padding: 1rem; margin: 1rem 0; text-align: center; display: none; font-size: 0.85rem; }
+        .alert { padding: 0.8rem; margin: 1rem 0; text-align: center; display: none; font-size: 0.75rem; }
         .alert-success { background: rgba(0,255,0,0.08); border: 1px solid rgba(0,255,0,0.3); color: #2ecc71; }
         .alert-error { background: rgba(255,0,0,0.08); border: 1px solid rgba(255,0,0,0.3); color: #e74c3c; }
         .alert-info { background: rgba(255,255,0,0.08); border: 1px solid rgba(255,255,0,0.3); color: #f1c40f; }
-        footer { text-align: center; padding: 2rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 0.7rem; letter-spacing: 0.05em; margin-top: 2rem; }
-        @media (max-width: 768px) { .main-container { padding: 1.5rem; } .ticket-row { flex-direction: column; text-align: center; padding: 1.5rem; } .ticket-quantity { justify-content: center; } .form-grid { grid-template-columns: 1fr; gap: 1rem; } .form-group.full-width { grid-column: span 1; } .event-title { font-size: 1.8rem; } .payment-tab { padding: 0.5rem 1rem; font-size: 0.7rem; } .total-amount { font-size: 2.2rem; } }
+        footer { text-align: center; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 0.6rem; letter-spacing: 0.05em; margin-top: 1.5rem; }
+        @media (max-width: 480px) {
+            .ticket-row { flex-direction: column; text-align: center; padding: 1rem; }
+            .ticket-quantity { justify-content: center; }
+            .payment-tab { padding: 0.4rem 0.7rem; font-size: 0.6rem; }
+            .event-title { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -127,148 +131,127 @@
 
     <div id="alertMessage" class="alert"></div>
 
-    <!-- ===== FORMULARIO CON FORMSPREE ===== -->
-    <form id="ventaForm" action="https://formspree.io/f/xvzvggwy" method="POST" enctype="multipart/form-data">
-        <!-- Datos Personales -->
-        <div class="form-card">
-            <div class="card-header">
-                <h3><i class="far fa-user" style="margin-right: 0.5rem;"></i> TUS DATOS</h3>
-            </div>
-            <div class="card-body">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>NOMBRE COMPLETO *</label>
-                        <input type="text" name="nombre" id="fullName" placeholder="María González" required>
-                    </div>
-                    <div class="form-group">
-                        <label>CÉDULA DE IDENTIDAD *</label>
-                        <input type="text" name="cedula" id="idNumber" placeholder="V-12345678" required>
-                    </div>
-                    <div class="form-group">
-                        <label>CORREO ELECTRÓNICO *</label>
-                        <input type="email" name="email" id="email" placeholder="tu@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>TELÉFONO / WHATSAPP *</label>
-                        <input type="tel" name="telefono" id="phone" placeholder="0412-1234567" required>
-                    </div>
+    <!-- FORMULARIO - ABRE EL CLIENTE DE CORREO -->
+    <div class="form-card">
+        <div class="card-header">
+            <h3><i class="far fa-user"></i> TUS DATOS</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>NOMBRE COMPLETO *</label>
+                    <input type="text" id="fullName" placeholder="María González">
+                </div>
+                <div class="form-group">
+                    <label>CÉDULA DE IDENTIDAD *</label>
+                    <input type="text" id="idNumber" placeholder="V-12345678">
+                </div>
+                <div class="form-group">
+                    <label>CORREO ELECTRÓNICO *</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>TELÉFONO / WHATSAPP *</label>
+                    <input type="tel" id="phone" placeholder="0412-1234567">
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Tasa BCV en tiempo real -->
-        <div class="bcv-rate-card">
-            <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i>
-            <span style="font-size: 0.75rem;">TASA BCV (DÓLAR OFICIAL):</span>
-            <span class="bcv-rate-value" id="bcvRate">Cargando...</span>
-            <div class="bcv-updated" id="bcvUpdated"></div>
-            <input type="hidden" name="tasa_bcv" id="tasaBcvField">
+    <!-- Tasa BCV en tiempo real -->
+    <div class="bcv-rate-card">
+        <i class="fas fa-chart-line"></i>
+        <span style="font-size: 0.7rem;"> TASA BCV OFICIAL:</span>
+        <span class="bcv-rate-value" id="bcvRate">Cargando...</span>
+        <div class="bcv-updated" id="bcvUpdated"></div>
+        <input type="hidden" id="tasaBcvField">
+    </div>
+
+    <!-- Método de Pago -->
+    <div class="form-card">
+        <div class="card-header">
+            <h3><i class="fas fa-credit-card"></i> MÉTODO DE PAGO</h3>
         </div>
-
-        <!-- Método de Pago -->
-        <div class="form-card">
-            <div class="card-header">
-                <h3><i class="fas fa-credit-card" style="margin-right: 0.5rem;"></i> MÉTODO DE PAGO</h3>
-            </div>
-            <div class="card-body">
-                <div class="payment-tabs">
-                    <div class="payment-tab active" data-payment="Pago Móvil">
-                        <i class="fas fa-mobile-alt"></i> PAGO MÓVIL
-                    </div>
-                    <div class="payment-tab" data-payment="Zelle">
-                        <i class="fas fa-university"></i> ZELLE
-                    </div>
-                    <div class="payment-tab" data-payment="Binance / USDT">
-                        <i class="fab fa-bitcoin"></i> BINANCE
-                    </div>
+        <div class="card-body">
+            <div class="payment-tabs">
+                <div class="payment-tab active" data-payment="Pago Móvil">
+                    <i class="fas fa-mobile-alt"></i> PAGO MÓVIL
                 </div>
-                <input type="hidden" name="metodo_pago" id="metodoPagoField" value="Pago Móvil">
-
-                <div id="pagomovilDetails" class="payment-details active">
-                    <div class="bank-info">
-                        <strong>📱 Pago Móvil</strong><br>
-                        Teléfono: 0424-5948063<br>
-                        Cédula: V-21.125.996<br>
-                        Banco Destino: Provincial (0108)<br>
-                        <span class="highlight">💡 Monto: $5 × cantidad × tasa BCV del día</span>
-                    </div>
+                <div class="payment-tab" data-payment="Zelle">
+                    <i class="fas fa-university"></i> ZELLE
                 </div>
-
-                <div id="zelleDetails" class="payment-details">
-                    <div class="bank-info">
-                        <strong>💵 Zelle</strong><br>
-                        Email: sotospectra@gmail.com<br>
-                        Beneficiario: Miguel Alvarado<br>
-                        Notas Adicionales: Colocar el nombre del comprador<br>
-                        <span class="highlight">💡 Monto: $5 USD por entrada</span>
-                    </div>
-                </div>
-
-                <div id="binanceDetails" class="payment-details">
-                    <div class="bank-info">
-                        <strong>₿ Binance / USDT</strong><br>
-                        Correo: aaronsoto1997@gmail.com<br>
-                        Usuario: @Sirsoto<br>
-                        ID: 155230260<br>
-                        <span class="highlight">💡 Monto: $5 USD por entrada en USDT</span>
-                    </div>
+                <div class="payment-tab" data-payment="Binance / USDT">
+                    <i class="fab fa-bitcoin"></i> BINANCE
                 </div>
             </div>
-        </div>
+            <input type="hidden" id="metodoPagoField" value="Pago Móvil">
 
-        <!-- Comprobante de Pago con imagen -->
-        <div class="form-card">
-            <div class="card-header">
-                <h3><i class="fas fa-receipt" style="margin-right: 0.5rem;"></i> COMPROBANTE DE PAGO</h3>
+            <div id="pagomovilDetails" class="payment-details active">
+                <div class="bank-info">
+                    <strong>📱 Pago Móvil</strong><br>
+                    Teléfono: 0424-5948063<br>
+                    Cédula: V-21.125.996<br>
+                    Banco Destino: Provincial (0108)<br>
+                    <span class="highlight">💡 Monto: $5 × cantidad × tasa BCV</span>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="form-group full-width">
-                    <label>REFERENCIA / ID DE TRANSACCIÓN *</label>
-                    <input type="text" name="referencia" id="reference" placeholder="Número de referencia de tu pago" required>
+
+            <div id="zelleDetails" class="payment-details">
+                <div class="bank-info">
+                    <strong>💵 Zelle</strong><br>
+                    Email: sotospectra@gmail.com<br>
+                    Beneficiario: Miguel Alvarado<br>
+                    <span class="highlight">💡 Monto: $5 USD por entrada</span>
                 </div>
-                <div class="form-group full-width">
-                    <label>CAPTURA DE PAGO (IMAGEN) *</label>
-                    <div class="file-input-wrapper">
-                        <input type="file" name="comprobante" id="paymentImage" accept="image/*" required>
-                        <div class="file-label">
-                            <span class="file-name" id="fileName">Seleccionar archivo...</span>
-                            <i class="fas fa-cloud-upload-alt file-icon"></i>
-                        </div>
-                    </div>
-                    <small style="color: rgba(255,255,255,0.4); font-size: 0.7rem; display: block; margin-top: 0.3rem;">
-                        Formatos aceptados: JPG, PNG, GIF (máx. 10MB)
-                    </small>
+            </div>
+
+            <div id="binanceDetails" class="payment-details">
+                <div class="bank-info">
+                    <strong>₿ Binance / USDT</strong><br>
+                    Correo: aaronsoto1997@gmail.com<br>
+                    Usuario: @Sirsoto<br>
+                    ID: 155230260<br>
+                    <span class="highlight">💡 Monto: $5 USD por entrada en USDT</span>
                 </div>
-                <div class="form-group full-width">
-                    <label>NOTAS ADICIONALES</label>
-                    <textarea name="notas" id="notes" rows="2" placeholder="Alguna información extra..."></textarea>
-                </div>
-                
-                <!-- Campos ocultos para cálculos -->
-                <input type="hidden" name="cantidad" id="cantidadField">
-                <input type="hidden" name="total_usd" id="totalUSDField">
-                <input type="hidden" name="total_bs" id="totalVESField">
             </div>
         </div>
+    </div>
 
-        <!-- Total -->
-        <div class="total-card">
-            <div class="total-label">TOTAL A PAGAR</div>
-            <div class="total-amount" id="totalDisplayUSD">$5.00 USD</div>
-            <div class="total-bs" id="totalDisplayVES">+ tasa BCV del día</div>
+    <!-- Comprobante de Pago -->
+    <div class="form-card">
+        <div class="card-header">
+            <h3><i class="fas fa-receipt"></i> COMPROBANTE DE PAGO</h3>
         </div>
+        <div class="card-body">
+            <div class="form-group full-width">
+                <label>REFERENCIA / ID DE TRANSACCIÓN *</label>
+                <input type="text" id="reference" placeholder="Número de referencia de tu pago">
+            </div>
+            <div class="form-group full-width">
+                <label>NOTAS ADICIONALES</label>
+                <textarea id="notes" rows="2" placeholder="Alguna información extra..."></textarea>
+            </div>
+            <input type="hidden" id="cantidadField">
+            <input type="hidden" id="totalUSDField">
+            <input type="hidden" id="totalVESField">
+        </div>
+    </div>
 
-        <button type="submit" class="btn-confirm" id="submitBtn">
-            <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> CONFIRMAR Y ENVIAR
-        </button>
-    </form>
+    <!-- Total -->
+    <div class="total-card">
+        <div class="total-label">TOTAL A PAGAR</div>
+        <div class="total-amount" id="totalDisplayUSD">$5.00 USD</div>
+        <div class="total-bs" id="totalDisplayVES">+ tasa BCV del día</div>
+    </div>
+
+    <button class="btn-confirm" id="submitBtn">
+        <i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> ABRIR CORREO Y ENVIAR
+    </button>
 </div>
 
 <footer>
     <p>BIRONGO · CARACAS · 2025</p>
-    <div style="margin-top: 0.5rem; opacity: 0.5;">
-        DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRONICA
-    </div>
+    <div style="margin-top: 0.3rem; opacity: 0.5;">DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRONICA</div>
 </footer>
 
 <script>
@@ -285,7 +268,6 @@
     const bcvRateSpan = document.getElementById('bcvRate');
     const bcvUpdatedSpan = document.getElementById('bcvUpdated');
     
-    // Actualizar total
     function updateTotal() {
         const totalUSD = PRICE_USD * currentQuantity;
         totalDisplayUSD.textContent = `$${totalUSD}.00 USD`;
@@ -294,49 +276,39 @@
         
         if (currentBCVRate > 0) {
             const totalVES = (totalUSD * currentBCVRate).toFixed(2);
-            totalDisplayVES.textContent = `≈ Bs ${totalVES} (tasa BCV: Bs ${currentBCVRate.toFixed(2)})`;
+            totalDisplayVES.textContent = `≈ Bs ${totalVES} (tasa: Bs ${currentBCVRate.toFixed(2)})`;
             document.getElementById('totalVESField').value = totalVES;
         } else {
             totalDisplayVES.textContent = '+ tasa BCV del día';
         }
     }
 
-    // Obtener tasa BCV desde API
     async function fetchBCVRate() {
         try {
             bcvRateSpan.textContent = 'Actualizando...';
-            // Usando la API que compartiste
             const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
             const data = await response.json();
-            console.log('API Response:', data); // Para depuración
             
-            // La API devuelve el promedio en el campo "promedio"
             if (data && data.promedio && data.promedio > 0) {
                 currentBCVRate = data.promedio;
                 bcvRateSpan.textContent = `Bs ${currentBCVRate.toFixed(2)}`;
-                const fechaActualizacion = data.fechaActualizacion || new Date().toISOString();
-                bcvUpdatedSpan.textContent = `Actualizado: ${new Date(fechaActualizacion).toLocaleString('es-VE')}`;
+                const fecha = data.fechaActualizacion ? new Date(data.fechaActualizacion) : new Date();
+                bcvUpdatedSpan.textContent = `Actualizado: ${fecha.toLocaleString('es-VE')}`;
                 document.getElementById('tasaBcvField').value = currentBCVRate;
                 updateTotal();
             } else {
-                throw new Error('Formato de respuesta inválido');
+                throw new Error('Formato inválido');
             }
         } catch (error) {
-            console.error('Error al obtener tasa BCV:', error);
+            console.error('Error tasa BCV:', error);
             bcvRateSpan.textContent = 'Bs 60.00 (estimado)';
             currentBCVRate = 60;
             document.getElementById('tasaBcvField').value = 60;
             updateTotal();
-            bcvUpdatedSpan.textContent = 'Usando tasa estimada. Si el problema persiste, actualiza la página.';
+            bcvUpdatedSpan.textContent = 'Usando tasa estimada. Actualiza la página.';
         }
     }
 
-    // Controles de cantidad
     qtyMinus.addEventListener('click', () => {
         if (currentQuantity > 1) {
             currentQuantity--;
@@ -359,110 +331,139 @@
         tab.addEventListener('click', () => {
             paymentTabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
-            const currentPayment = tab.dataset.payment;
-            document.getElementById('metodoPagoField').value = currentPayment;
+            document.getElementById('metodoPagoField').value = tab.dataset.payment;
             
-            document.querySelectorAll('.payment-details').forEach(detail => {
-                detail.classList.remove('active');
-            });
-            
-            const paymentMap = {
-                'Pago Móvil': 'pagomovilDetails',
-                'Zelle': 'zelleDetails',
-                'Binance / USDT': 'binanceDetails'
-            };
-            document.getElementById(paymentMap[currentPayment]).classList.add('active');
+            document.querySelectorAll('.payment-details').forEach(d => d.classList.remove('active'));
+            const map = { 'Pago Móvil': 'pagomovilDetails', 'Zelle': 'zelleDetails', 'Binance / USDT': 'binanceDetails' };
+            document.getElementById(map[tab.dataset.payment]).classList.add('active');
         });
     });
 
-    // Manejo de archivo de imagen
-    const fileInput = document.getElementById('paymentImage');
-    const fileNameSpan = document.getElementById('fileName');
-    
-    fileInput.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            if (file.size > 10 * 1024 * 1024) {
-                showAlert('❌ La imagen no debe superar los 10MB', 'error');
-                fileInput.value = '';
-                fileNameSpan.textContent = 'Seleccionar archivo...';
-                return;
-            }
-            
-            if (!file.type.match('image.*')) {
-                showAlert('❌ Solo se permiten archivos de imagen (JPG, PNG, GIF)', 'error');
-                fileInput.value = '';
-                fileNameSpan.textContent = 'Seleccionar archivo...';
-                return;
-            }
-            
-            fileNameSpan.textContent = file.name;
-        } else {
-            fileNameSpan.textContent = 'Seleccionar archivo...';
-        }
-    });
-
-    // Mostrar alerta
     function showAlert(message, type) {
         const alertDiv = document.getElementById('alertMessage');
         alertDiv.textContent = message;
         alertDiv.className = `alert alert-${type}`;
         alertDiv.style.display = 'block';
-        setTimeout(() => {
-            alertDiv.style.display = 'none';
-        }, 5000);
+        setTimeout(() => { alertDiv.style.display = 'none'; }, 5000);
     }
 
-    // Validaciones antes de enviar
-    document.getElementById('ventaForm').addEventListener('submit', function(e) {
+    // Validar teléfono venezolano
+    function validatePhone(phone) {
+        const phoneRegex = /^(0412|0414|0416|0424|0426|0410|0420)[0-9]{7}$/;
+        return phoneRegex.test(phone);
+    }
+
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function validateIdNumber(id) {
+        const idRegex = /^[VEJPG]-\d{6,8}$/i;
+        return idRegex.test(id);
+    }
+
+    // Abrir cliente de correo
+    function openMail() {
         const name = document.getElementById('fullName').value.trim();
         const idNumber = document.getElementById('idNumber').value.trim();
         const email = document.getElementById('email').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const reference = document.getElementById('reference').value.trim();
-        const imageFile = document.getElementById('paymentImage').files[0];
+        const notes = document.getElementById('notes').value.trim();
+        const metodoPago = document.getElementById('metodoPagoField').value;
+        const totalUSD = PRICE_USD * currentQuantity;
+        const totalVES = (totalUSD * currentBCVRate).toFixed(2);
         
-        // Validar teléfono venezolano
-        const phoneRegex = /^(0412|0414|0416|0424|0426|0410|0420)[0-9]{7}$/;
-        if (!phoneRegex.test(phone)) {
-            e.preventDefault();
-            showAlert('❌ Por favor, ingresa un teléfono venezolano válido (Ej: 04121234567)', 'error');
-            return false;
-        }
+        const subject = encodeURIComponent(`🎫 PREVENTA BIRONGO LIVE 2.0 - ${name}`);
         
-        // Validar email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            e.preventDefault();
-            showAlert('❌ Por favor, ingresa un correo electrónico válido', 'error');
-            return false;
-        }
+        const body = encodeURIComponent(
+            `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `DATOS DEL COMPRADOR\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `Nombre: ${name}\n` +
+            `Cédula: ${idNumber}\n` +
+            `Email: ${email}\n` +
+            `Teléfono: ${phone}\n` +
+            `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `DETALLES DE LA COMPRA\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `Evento: Birongo Live 2.0\n` +
+            `Lugar: La Quinta Bar, Caracas\n` +
+            `Hora: 9:00 PM\n` +
+            `Cantidad: ${currentQuantity} entrada(s)\n` +
+            `Total USD: $${totalUSD}.00\n` +
+            `Total Bs: Bs ${totalVES}\n` +
+            `Tasa BCV: Bs ${currentBCVRate.toFixed(2)}\n` +
+            `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `MÉTODO DE PAGO\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `${metodoPago}\n` +
+            `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `REFERENCIA DE PAGO\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `${reference}\n` +
+            `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `NOTAS ADICIONALES\n` +
+            `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `${notes || 'Sin notas adicionales'}\n` +
+            `\n✅ Estado: Pendiente de validación de pago\n` +
+            `\n📸 Por favor adjuntar captura del comprobante de pago.\n` +
+            `\n---\nEnviado desde birongo.live/entradas | Preventa`
+        );
         
-        // Validar cédula
-        const idRegex = /^[VEJPG]-\d{6,8}$/i;
-        if (!idRegex.test(idNumber)) {
-            e.preventDefault();
-            showAlert('❌ Por favor, ingresa una cédula válida (Ej: V-12345678)', 'error');
-            return false;
-        }
-        
-        if (!name || !reference) {
-            e.preventDefault();
-            showAlert('❌ Por favor, completa todos los campos obligatorios', 'error');
-            return false;
-        }
-        
-        if (!imageFile) {
-            e.preventDefault();
-            showAlert('⚠️ Por favor, adjunta una captura de tu comprobante de pago', 'error');
-            return false;
-        }
-        
-        showAlert('📧 Enviando comprobante...', 'info');
+        window.location.href = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${body}`;
         return true;
+    }
+
+    // Botón principal
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        const name = document.getElementById('fullName').value.trim();
+        const idNumber = document.getElementById('idNumber').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const reference = document.getElementById('reference').value.trim();
+        
+        // Validaciones
+        if (!name) {
+            showAlert('❌ Ingresa tu nombre completo', 'error');
+            return;
+        }
+        
+        if (!validateIdNumber(idNumber)) {
+            showAlert('❌ Ingresa una cédula válida (Ej: V-12345678)', 'error');
+            return;
+        }
+        
+        if (!validateEmail(email)) {
+            showAlert('❌ Ingresa un correo electrónico válido', 'error');
+            return;
+        }
+        
+        if (!validatePhone(phone)) {
+            showAlert('❌ Ingresa un teléfono venezolano válido (Ej: 04121234567)', 'error');
+            return;
+        }
+        
+        if (!reference) {
+            showAlert('❌ Ingresa la referencia de tu pago', 'error');
+            return;
+        }
+        
+        // Abrir correo
+        openMail();
+        
+        const totalUSD = PRICE_USD * currentQuantity;
+        const totalVES = (totalUSD * currentBCVRate).toFixed(2);
+        showAlert(`✅ Abriendo correo. Total: $${totalUSD} USD (Bs ${totalVES}). Adjunta la captura de pago.`, 'success');
+        
+        // Limpiar campos opcionales
+        setTimeout(() => {
+            document.getElementById('notes').value = '';
+        }, 1000);
     });
     
-    // Cargar tasa BCV al iniciar y actualizar cada 5 minutos
     fetchBCVRate();
     setInterval(fetchBCVRate, 5 * 60 * 1000);
 </script>
