@@ -303,7 +303,7 @@
     async function fetchBCVRate() {
         try {
             bcvRateSpan.textContent = 'Actualizando...';
-            const response = await fetch('https://ve.dolarapi.com');
+            const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
             const data = await response.json();
             
             if (data && data.price) {
