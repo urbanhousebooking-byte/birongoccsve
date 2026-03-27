@@ -316,7 +316,7 @@
 
     <script>
        // ========== CONFIGURACIÓN ==========
-const GOOGLE_SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbwKp9uDaodWTTMSJQi94pfCljPRZUGLcP2DUmE-JG89QXikptOvt_vjd3cIsh9wPJYtxw/exec";
+const GOOGLE_SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbzeXFpMFKuyhbBOiwcNcEBm8YHBBHD6sWOctLJA8rn_AEPMHxelFok5Mzec1jBX5l1-/exec";
 const PRICE_USD = 5;
 
 let currentQuantity = 1;
@@ -462,10 +462,17 @@ let selectedFile = null;
                 
                 const response = await fetch(GOOGLE_SHEETS_API_URL, {
                     method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData)
+  body: JSON.stringify(tuData)
+})
+.then(response => {
+  console.log("Datos enviados (con no-cors no podrás leer la respuesta)");
+})
+.catch(error => console.error('Error:', error));
                 });
                 
                 const result = await response.text();
