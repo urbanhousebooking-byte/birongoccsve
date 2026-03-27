@@ -316,6 +316,7 @@
 
     <script>
         // ========== CONFIGURACIÓN ==========
+        // 🔴 ESTA ES LA URL DE TU GOOGLE APPS SCRIPT - YA COLOCADA CORRECTAMENTE
         const GOOGLE_SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbzxFxbAD1Mr-7JE2mjwv3lulvJ2YxY7HzkVLtXRhBtEqfR_mRvqkdRQewEKM5dPnh-q1g/exec";
         const PRICE_USD = 5;
         
@@ -475,7 +476,7 @@
                     console.log('✅ Datos guardados correctamente');
                     return true;
                 } else {
-                    console.error('❌ Error:', response.status);
+                    console.error('❌ Error HTTP:', response.status);
                     return false;
                 }
                 
