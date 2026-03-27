@@ -33,7 +33,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- ===== SUPABASE CLIENT ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <style>
+        /* ===== ESTILOS (MANTENER LOS MISMOS QUE YA TENÍAS) ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background: #000000; font-family: 'Inter', sans-serif; color: #ffffff; line-height: 1.6; font-size: 16px; }
         body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%); pointer-events: none; z-index: -1; }
@@ -315,13 +319,17 @@
     </div>
 
     <script>
-       // ========== CONFIGURACIÓN ==========
-const GOOGLE_SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbzeXFpMFKuyhbBOiwcNcEBm8YHBBHD6sWOctLJA8rn_AEPMHxelFok5Mzec1jBX5l1-/exec";
-const PRICE_USD = 5;
-
-let currentQuantity = 1;
-let currentBCVRate = 60;
-let selectedFile = null;
+        // ========== CONFIGURACIÓN SUPABASE ==========
+        // 🔴 REEMPLAZA CON TUS CREDENCIALES DE SUPABASE
+        const SUPABASE_URL = "https://cupdndnszpaavgkbigiy.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cGRuZG5zenBhYXZna2JpZ2l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2Mzg1NjUsImV4cCI6MjA5MDIxNDU2NX0.-yofLprFtSXmZESemY_AyoZNlP7R0NU3MCneAN7h-Zc";
+        
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        const PRICE_USD = 5;
+        let currentQuantity = 1;
+        let currentBCVRate = 60;
+        let selectedFile = null;
 
         // Elementos DOM
         const qtyInput = document.getElementById('ticketQty');
@@ -455,36 +463,37 @@ let selectedFile = null;
         function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
         function validateIdNumber(id) { return /^[VEJPG]-\d{6,8}$/i.test(id); }
 
-        // ========== GUARDAR EN GOOGLE SHEETS ==========
-        async function saveToGoogleSheets(formData) {
+        // ========== GUARDAR EN SUPABASE ==========
+        async function saveToSupabase(formData) {
             try {
-                console.log('📤 Enviando a Google Sheets:', formData);
+                console.log('📤 Enviando a Supabase:', formData);
                 
-                const response = await fetch(GOOGLE_SHEETS_API_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    cache: 'no-cache',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-  body: JSON.stringify(tuData)
-})
-.then(response => {
-  console.log("Datos enviados (con no-cors no podrás leer la respuesta)");
-})
-.catch(error => console.error('Error:', error));
-                });
+                const { data, error } = await supabase
+                    .from('ventas')
+                    .insert([
+                        {
+                            nombre: formData.nombre,
+                            cedula: formData.cedula,
+                            email: formData.email,
+                            telefono: formData.telefono,
+                            cantidad: formData.cantidad,
+                            metodo_pago: formData.metodo_pago,
+                            referencia: formData.referencia,
+                            total_usd: formData.total_usd,
+                            tasa_bcv: formData.tasa_bcv,
+                            total_bs: formData.total_bs,
+                            notas: formData.notas || '',
+                            estado: 'Pendiente'
+                        }
+                    ]);
                 
-                const result = await response.text();
-                console.log('📥 Respuesta:', result);
-                
-                if (response.ok) {
-                    console.log('✅ Datos guardados correctamente');
-                    return true;
-                } else {
-                    console.error('❌ Error HTTP:', response.status);
+                if (error) {
+                    console.error('❌ Error Supabase:', error);
                     return false;
                 }
+                
+                console.log('✅ Datos guardados en Supabase:', data);
+                return true;
                 
             } catch (error) {
                 console.error('❌ Error de red:', error);
@@ -543,7 +552,6 @@ let selectedFile = null;
 
             try {
                 const formData = {
-                    timestamp: new Date().toISOString(),
                     nombre: name,
                     cedula: idNumber,
                     email: email,
@@ -554,13 +562,12 @@ let selectedFile = null;
                     total_usd: totalUSD,
                     tasa_bcv: currentBCVRate,
                     total_bs: totalVES,
-                    notas: notes,
-                    comprobante: selectedFile ? "si" : "no"
+                    notas: notes
                 };
                 
-                // 1. Guardar en Google Sheets
+                // 1. Guardar en Supabase
                 showAlert('📊 Guardando en base de datos...', 'info');
-                const saved = await saveToGoogleSheets(formData);
+                const saved = await saveToSupabase(formData);
                 
                 if (saved) {
                     showAlert('✅ Datos guardados correctamente', 'success');
@@ -629,7 +636,7 @@ let selectedFile = null;
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - URL:', GOOGLE_SHEETS_API_URL);
+        console.log('🚀 Página lista - Supabase configurada');
     </script>
 </body>
 </html>
