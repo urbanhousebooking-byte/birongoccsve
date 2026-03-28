@@ -177,7 +177,6 @@
         @media (max-width: 480px) {
             .nav-menu {
                 gap: 0.8rem;
-                flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -581,6 +580,20 @@
             color: #e74c3c;
         }
 
+        .upload-progress {
+            background: rgba(255,215,0,0.1);
+            border: 1px solid #ffd966;
+            padding: 0.8rem;
+            text-align: center;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .upload-progress.active {
+            display: block;
+        }
+
         .btn-confirm {
             width: 100%;
             padding: 1.2rem;
@@ -834,8 +847,11 @@
                         </div>
                         <input type="file" id="fileInput" accept="image/jpeg,image/png,application/pdf" style="display: none;">
                         <div id="fileList" class="file-list"></div>
-                        <div style="font-size: 0.7rem; color: #ffd966; margin-top: 0.5rem; text-align: center;">
-                            <i class="fas fa-paperclip"></i> La imagen se adjuntará AUTOMÁTICAMENTE al correo
+                        <div id="uploadProgress" class="upload-progress">
+                            <i class="fas fa-spinner fa-pulse"></i> Subiendo comprobante a la nube...
+                        </div>
+                        <div style="font-size: 0.7rem; color: #ffd966; margin-top: 0.8rem; text-align: center;">
+                            <i class="fas fa-cloud-upload-alt"></i> El comprobante se guardará automáticamente en nuestra base de datos
                         </div>
                     </div>
                     <div class="form-group full-width">
@@ -845,6 +861,7 @@
                     <input type="hidden" id="cantidadField">
                     <input type="hidden" id="totalUSDField">
                     <input type="hidden" id="totalVESField">
+                    <input type="hidden" id="comprobanteUrlField">
                 </div>
             </div>
 
@@ -868,6 +885,7 @@
     </div>
 
     <script>
+        // ========== CONFIGURACIÓN SUPABASE ==========
         const SUPABASE_URL = "https://cupdndnszpaavgkbigiy.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cGRuZG5zenBhYXZna2JpZ2l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2Mzg1NjUsImV4cCI6MjA5MDIxNDU2NX0.-yofLprFtSXmZESemY_AyoZNlP7R0NU3MCneAN7h-Zc";
         
@@ -877,7 +895,7 @@
         let currentQuantity = 1;
         let currentBCVRate = 60;
         let selectedFile = null;
-        let selectedFileDataURL = null;
+        let uploadedFileUrl = null;
 
         const qtyInput = document.getElementById('ticketQty');
         const qtyMinus = document.getElementById('qtyMinus');
@@ -891,6 +909,7 @@
         const fileListDiv = document.getElementById('fileList');
         const submitBtn = document.getElementById('submitBtn');
         const alertMessageDiv = document.getElementById('alertMessage');
+        const uploadProgressDiv = document.getElementById('uploadProgress');
 
         function updateTotal() {
             const totalUSD = PRICE_USD * currentQuantity;
@@ -933,20 +952,11 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        function fileToDataURL(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(file);
-            });
-        }
-
         function updateFileList() {
             fileListDiv.innerHTML = '';
             if (!selectedFile) {
                 fileListDiv.innerHTML = '<div style="text-align: center; padding: 0.5rem; color: rgba(255,255,255,0.4);">No hay archivo seleccionado</div>';
-                selectedFileDataURL = null;
+                uploadedFileUrl = null;
                 return;
             }
             const fileItem = document.createElement('div');
@@ -962,10 +972,51 @@
             fileListDiv.appendChild(fileItem);
             fileItem.querySelector('.remove-file').addEventListener('click', () => {
                 selectedFile = null;
-                selectedFileDataURL = null;
+                uploadedFileUrl = null;
                 fileInput.value = '';
                 updateFileList();
             });
+        }
+
+        async function uploadToSupabaseStorage(file, referencia, nombre) {
+            try {
+                // Crear nombre único para el archivo
+                const timestamp = Date.now();
+                const extension = file.name.split('.').pop();
+                const safeName = nombre.replace(/\s/g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const fileName = `comprobantes/${timestamp}_${referencia}_${safeName}.${extension}`;
+                
+                console.log('📤 Subiendo archivo a Supabase Storage:', fileName);
+                
+                // Subir archivo a Supabase Storage
+                const { data, error } = await supabaseClient.storage
+                    .from('comprobantes')
+                    .upload(fileName, file, {
+                        cacheControl: '3600',
+                        upsert: false,
+                        contentType: file.type
+                    });
+                
+                if (error) {
+                    console.error('❌ Error al subir:', error);
+                    throw error;
+                }
+                
+                console.log('✅ Archivo subido:', data);
+                
+                // Obtener URL pública
+                const { data: urlData } = supabaseClient.storage
+                    .from('comprobantes')
+                    .getPublicUrl(fileName);
+                
+                console.log('🔗 URL pública:', urlData.publicUrl);
+                
+                return urlData.publicUrl;
+                
+            } catch (error) {
+                console.error('❌ Error en uploadToSupabaseStorage:', error);
+                throw error;
+            }
         }
 
         async function handleFile(file) {
@@ -983,7 +1034,6 @@
             }
             
             selectedFile = file;
-            selectedFileDataURL = await fileToDataURL(file);
             updateFileList();
             return true;
         }
@@ -1015,7 +1065,7 @@
         function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
         function validateIdNumber(id) { return /^[VEJPG]-\d{6,8}$/i.test(id); }
 
-        async function saveToSupabase(formData) {
+        async function saveToSupabase(formData, comprobanteUrl) {
             try {
                 const { data, error } = await supabaseClient
                     .from('ventas')
@@ -1032,28 +1082,33 @@
                             tasa_bcv: formData.tasa_bcv,
                             total_bs: formData.total_bs,
                             notas: formData.notas || '',
+                            comprobante_url: comprobanteUrl,
                             estado: 'Pendiente'
                         }
                     ]);
                 
                 if (error) {
+                    console.error('❌ Error Supabase:', error);
                     showAlert('❌ Error al guardar: ' + error.message, 'error');
                     return false;
                 }
+                
+                console.log('✅ Datos guardados en Supabase:', data);
                 return true;
+                
             } catch (error) {
+                console.error('❌ Error de red:', error);
                 return false;
             }
         }
 
-        // FUNCIÓN PRINCIPAL: Abre el correo con la imagen adjunta AUTOMÁTICAMENTE
-        async function openEmailWithAttachment(formData, imageDataURL) {
+        function openMailWithData(formData, comprobanteUrl) {
             const totalUSD = formData.total_usd;
             const totalVES = formData.total_bs;
             
-            const subject = `🎫 PREVENTA BIRONGO LIVE 2.0 - ${formData.nombre}`;
+            const subject = encodeURIComponent(`🎫 PREVENTA BIRONGO LIVE 2.0 - ${formData.nombre}`);
             
-            const body = `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
+            let body = `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDATOS DEL COMPRADOR\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
                 `Nombre: ${formData.nombre}\nCédula: ${formData.cedula}\nEmail: ${formData.email}\nTeléfono: ${formData.telefono}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDETALLES DE LA COMPRA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
@@ -1061,94 +1116,13 @@
                 `Cantidad: ${formData.cantidad} entrada(s)\nTotal USD: $${totalUSD}.00\nTasa BCV: Bs ${formData.tasa_bcv.toFixed(2)}\nTotal Bs: Bs ${totalVES}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nMÉTODO DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.metodo_pago}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nREFERENCIA DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.referencia}\n\n` +
+                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOMPROBANTE DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✅ El comprobante ha sido guardado en nuestra base de datos.\n📎 Ver en: ${comprobanteUrl}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNOTAS ADICIONALES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.notas || 'Sin notas adicionales'}\n\n` +
-                `✅ Estado: Pendiente de validación de pago\n\n---\nEnviado desde birongo.live/entradas | Preventa`;
+                `✅ Estado: Pendiente de validación de pago\n\n` +
+                `---\nEnviado desde birongo.live/entradas | Preventa`;
             
-            // Convertir DataURL a Blob para adjuntar
-            const response = await fetch(imageDataURL);
-            const blob = await response.blob();
-            const extension = selectedFile.type.split('/')[1];
-            const fileName = `comprobante_${formData.referencia}_${formData.nombre.replace(/\s/g, '_')}.${extension === 'jpeg' ? 'jpg' : extension}`;
-            const file = new File([blob], fileName, { type: selectedFile.type });
-            
-            // MÉTODO 1: Web Share API (iOS, Android, macOS, Windows con navegadores modernos)
-            // Esto abre el menú compartir nativo con el archivo adjunto
-            if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-                try {
-                    await navigator.share({
-                        title: subject,
-                        text: body,
-                        files: [file]
-                    });
-                    showAlert('✅ Correo listo para enviar con el comprobante adjunto', 'success');
-                    return true;
-                } catch (shareError) {
-                    console.log('Usuario canceló o error en share:', shareError);
-                    // Si el usuario cancela, no mostramos error, solo continuamos
-                    if (shareError.name !== 'AbortError') {
-                        console.log('Error en share, usando fallback');
-                    }
-                }
-            }
-            
-            // MÉTODO 2: Fallback para PC - Crear archivo .eml con la imagen adjunta
-            const matches = imageDataURL.match(/^data:([^;]+);base64,(.+)$/);
-            if (matches) {
-                const mimeType = matches[1];
-                const base64Data = matches[2];
-                const boundary = "----=_NextPart_000_0001_01DB1234.ABCDEFGH";
-                const now = new Date().toUTCString();
-                
-                const emailContent = `From: "${formData.nombre}" <${formData.email}>
-To: "Birongo Entradas" <birongoentradas@gmail.com>
-Subject: ${subject}
-Date: ${now}
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="${boundary}"
-
---${boundary}
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-
-${body}
-
---${boundary}
-Content-Type: ${mimeType}; name="${fileName}"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="${fileName}"
-
-${base64Data.match(/.{1,76}/g).join('\n')}
-
---${boundary}--`;
-                
-                const blob = new Blob([emailContent], { type: 'message/rfc822' });
-                const url = URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `Birongo_${formData.referencia}_${formData.nombre.replace(/\s/g, '_')}.eml`;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-                
-                showAlert('💻 Archivo .eml descargado. Ábrelo con Outlook/Thunderbird para enviar el correo con la imagen adjunta.', 'success');
-                return true;
-            }
-            
-            // MÉTODO 3: Último recurso - mailto con instrucciones
-            const subjectEncoded = encodeURIComponent(subject);
-            const bodyEncoded = encodeURIComponent(body + "\n\n📸 IMPORTANTE: Adjunta la imagen del comprobante que se descargó.");
-            window.location.href = `mailto:birongoentradas@gmail.com?subject=${subjectEncoded}&body=${bodyEncoded}`;
-            
-            // Descargar imagen como último recurso
-            const downloadLink = document.createElement('a');
-            downloadLink.href = imageDataURL;
-            downloadLink.download = fileName;
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-            
-            showAlert('📧 Se abrió tu correo. La imagen se descargó, por favor adjúntala manualmente.', 'info');
+            const encodedBody = encodeURIComponent(body);
+            window.location.href = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodedBody}`;
             return true;
         }
 
@@ -1168,12 +1142,24 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
             if (!validateEmail(email)) { showAlert('❌ Ingresa un correo electrónico válido', 'error'); return; }
             if (!validatePhone(phone)) { showAlert('❌ Ingresa un teléfono válido (Ej: 04121234567)', 'error'); return; }
             if (!reference) { showAlert('❌ Ingresa la referencia de tu pago', 'error'); return; }
-            if (!selectedFile || !selectedFileDataURL) { showAlert('⚠️ Adjunta la captura de tu comprobante de pago', 'error'); return; }
+            if (!selectedFile) { showAlert('⚠️ Adjunta la captura de tu comprobante de pago', 'error'); return; }
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> PROCESANDO...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> SUBIENDO COMPROBANTE...';
+            uploadProgressDiv.classList.add('active');
 
             try {
+                // 1. Subir el archivo a Supabase Storage
+                showAlert('📤 Subiendo comprobante a la nube...', 'info');
+                const comprobanteUrl = await uploadToSupabaseStorage(selectedFile, reference, name);
+                uploadedFileUrl = comprobanteUrl;
+                document.getElementById('comprobanteUrlField').value = comprobanteUrl;
+                
+                showAlert('✅ Comprobante subido correctamente', 'success');
+                
+                // 2. Guardar datos en Supabase
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> GUARDANDO DATOS...';
+                
                 const formData = {
                     nombre: name,
                     cedula: idNumber,
@@ -1188,38 +1174,45 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
                     notas: notes
                 };
                 
-                showAlert('📊 Guardando en base de datos...', 'info');
-                await saveToSupabase(formData);
+                showAlert('📊 Guardando datos en la base de datos...', 'info');
+                const saved = await saveToSupabase(formData, comprobanteUrl);
                 
-                showAlert('📧 Abriendo correo con imagen adjunta...', 'info');
+                if (saved) {
+                    showAlert('✅ ¡Todo guardado correctamente! Abriendo correo...', 'success');
+                } else {
+                    showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos', 'info');
+                }
                 
-                setTimeout(async () => {
-                    await openEmailWithAttachment(formData, selectedFileDataURL);
-                    
-                    setTimeout(() => {
-                        document.getElementById('fullName').value = '';
-                        document.getElementById('idNumber').value = '';
-                        document.getElementById('email').value = '';
-                        document.getElementById('phone').value = '';
-                        document.getElementById('reference').value = '';
-                        document.getElementById('notes').value = '';
-                        selectedFile = null;
-                        selectedFileDataURL = null;
-                        fileInput.value = '';
-                        updateFileList();
-                        currentQuantity = 1;
-                        qtyInput.value = 1;
-                        updateTotal();
-                    }, 3000);
-                }, 500);
+                // 3. Abrir correo con confirmación
+                setTimeout(() => {
+                    openMailWithData(formData, comprobanteUrl);
+                }, 800);
+                
+                // 4. Limpiar formulario
+                setTimeout(() => {
+                    document.getElementById('fullName').value = '';
+                    document.getElementById('idNumber').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('phone').value = '';
+                    document.getElementById('reference').value = '';
+                    document.getElementById('notes').value = '';
+                    selectedFile = null;
+                    uploadedFileUrl = null;
+                    fileInput.value = '';
+                    updateFileList();
+                    currentQuantity = 1;
+                    qtyInput.value = 1;
+                    updateTotal();
+                }, 5000);
                 
             } catch (error) {
                 console.error('Error:', error);
-                showAlert('❌ Error al procesar. Contacta a @birongoccs', 'error');
+                showAlert('❌ Error al subir el comprobante. Verifica tu conexión e intenta de nuevo.', 'error');
             } finally {
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-envelope"></i> CONFIRMAR Y ENVIAR';
+                    uploadProgressDiv.classList.remove('active');
                 }, 8000);
             }
         });
@@ -1247,7 +1240,7 @@ ${base64Data.match(/.{1,76}/g).join('\n')}
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Adjunto automático activado - Web Share API + .eml');
+        console.log('🚀 Página lista - Subida automática a Supabase Storage activada');
     </script>
 </body>
 </html>
