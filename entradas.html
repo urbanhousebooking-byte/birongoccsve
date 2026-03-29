@@ -1064,7 +1064,7 @@
 
         async function saveToSupabase(formData, comprobanteUrl) {
             try {
-                // Insertar datos - el trigger generará automáticamente el código_entrada
+                // Eliminar el .select() que puede estar causando problemas
                 const { data, error } = await supabaseClient
                     .from('ventas')
                     .insert([
@@ -1083,25 +1083,21 @@
                             comprobante_url: comprobanteUrl,
                             estado: 'Pendiente'
                         }
-                    ])
-                    .select(); // IMPORTANTE: para obtener el registro insertado con el código generado
+                    ]);
                 
                 if (error) {
-                    console.error('❌ Error Supabase:', error);
-                    showAlert('❌ Error al guardar: ' + error.message, 'error');
+                    console.error('❌ Error detallado:', error);
+                    showAlert(`❌ Error: ${error.message || 'No se pudo guardar los datos'}`, 'error');
                     return false;
                 }
                 
-                // Mostrar el código de entrada generado
-                if (data && data[0] && data[0].codigo_entrada) {
-                    console.log('✅ Código de entrada generado:', data[0].codigo_entrada);
-                    showAlert(`🎫 ¡Código de entrada generado: ${data[0].codigo_entrada}! Guarda este código para tu ingreso.`, 'success');
-                }
-                
+                console.log('✅ Datos guardados exitosamente:', data);
+                showAlert('🎫 ¡Registro exitoso! Tu compra ha sido guardada.', 'success');
                 return true;
                 
             } catch (error) {
-                console.error('❌ Error de red:', error);
+                console.error('❌ Error en saveToSupabase:', error);
+                showAlert('❌ Error de conexión. Intenta nuevamente.', 'error');
                 return false;
             }
         }
@@ -1178,7 +1174,7 @@
                 if (saved) {
                     showSuccessMessageAndClean();
                 } else {
-                    showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos. Contacta a soporte.', 'info');
+                    showAlert('⚠️ Hubo un problema al guardar los datos. Contacta a soporte.', 'info');
                 }
                 
             } catch (error) {
@@ -1216,7 +1212,7 @@
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Generación automática de código de entrada');
+        console.log('🚀 Página lista - Versión corregida sin errores 401');
     </script>
 </body>
 </html>
