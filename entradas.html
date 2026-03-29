@@ -888,4 +888,335 @@
             <div class="footer-tagline">
                 <i class="fas fa-headphones-alt"></i>
                 <span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
-                <i class="fas fa-sl
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // ========== CONFIGURACIÓN SUPABASE ==========
+        const SUPABASE_URL = "https://cupdndnszpaavgkbigiy.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1cGRuZG5zenBhYXZna2JpZ2l5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2Mzg1NjUsImV4cCI6MjA5MDIxNDU2NX0.-yofLprFtSXmZESemY_AyoZNlP7R0NU3MCneAN7h-Zc";
+        
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        
+        const PRICE_USD = 5;
+        let currentQuantity = 1;
+        let currentBCVRate = 60;
+        let selectedFile = null;
+        let uploadedFileUrl = null;
+
+        const qtyInput = document.getElementById('ticketQty');
+        const qtyMinus = document.getElementById('qtyMinus');
+        const qtyPlus = document.getElementById('qtyPlus');
+        const totalDisplayUSD = document.getElementById('totalDisplayUSD');
+        const totalDisplayVES = document.getElementById('totalDisplayVES');
+        const bcvRateSpan = document.getElementById('bcvRate');
+        const bcvUpdatedSpan = document.getElementById('bcvUpdated');
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileListDiv = document.getElementById('fileList');
+        const submitBtn = document.getElementById('submitBtn');
+        const alertMessageDiv = document.getElementById('alertMessage');
+        const uploadProgressDiv = document.getElementById('uploadProgress');
+
+        function updateTotal() {
+            const totalUSD = PRICE_USD * currentQuantity;
+            totalDisplayUSD.textContent = `$${totalUSD}.00 USD`;
+            document.getElementById('totalUSDField').value = totalUSD;
+            document.getElementById('cantidadField').value = currentQuantity;
+            
+            if (currentBCVRate > 0) {
+                const totalVES = (totalUSD * currentBCVRate).toFixed(2);
+                totalDisplayVES.textContent = `≈ Bs ${totalVES}`;
+                document.getElementById('totalVESField').value = totalVES;
+            }
+        }
+
+        async function fetchBCVRate() {
+            try {
+                bcvRateSpan.textContent = 'Actualizando...';
+                const response = await fetch('https://ve.dolarapi.com/v1/dolares/oficial');
+                const data = await response.json();
+                if (data && data.promedio && data.promedio > 0) {
+                    currentBCVRate = data.promedio;
+                    bcvRateSpan.textContent = `Bs ${currentBCVRate.toFixed(2)}`;
+                    const fecha = data.fechaActualizacion ? new Date(data.fechaActualizacion) : new Date();
+                    bcvUpdatedSpan.textContent = `Actualizado: ${fecha.toLocaleString('es-VE')}`;
+                    document.getElementById('tasaBcvField').value = currentBCVRate;
+                    updateTotal();
+                }
+            } catch (error) {
+                bcvRateSpan.textContent = 'Bs 60.00 (estimado)';
+                currentBCVRate = 60;
+                updateTotal();
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function updateFileList() {
+            fileListDiv.innerHTML = '';
+            if (!selectedFile) {
+                fileListDiv.innerHTML = '<div style="text-align: center; padding: 0.5rem; color: rgba(255,255,255,0.4);">No hay archivo seleccionado</div>';
+                uploadedFileUrl = null;
+                return;
+            }
+            const fileItem = document.createElement('div');
+            fileItem.className = 'file-item';
+            fileItem.innerHTML = `
+                <div class="file-item-info">
+                    <i class="fas fa-${selectedFile.type.includes('image') ? 'image' : 'file-pdf'}"></i>
+                    <span>${selectedFile.name}</span>
+                    <span style="font-size: 0.65rem; color: rgba(255,255,255,0.4);">(${formatFileSize(selectedFile.size)})</span>
+                </div>
+                <button class="remove-file"><i class="fas fa-times"></i></button>
+            `;
+            fileListDiv.appendChild(fileItem);
+            fileItem.querySelector('.remove-file').addEventListener('click', () => {
+                selectedFile = null;
+                uploadedFileUrl = null;
+                fileInput.value = '';
+                updateFileList();
+            });
+        }
+
+        async function uploadToSupabaseStorage(file, referencia, nombre) {
+            try {
+                const timestamp = Date.now();
+                const extension = file.name.split('.').pop();
+                const safeName = nombre.replace(/\s/g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const fileName = `comprobantes/${timestamp}_${referencia}_${safeName}.${extension}`;
+                
+                const { data, error } = await supabaseClient.storage
+                    .from('comprobantes')
+                    .upload(fileName, file, {
+                        cacheControl: '3600',
+                        upsert: false,
+                        contentType: file.type
+                    });
+                
+                if (error) throw error;
+                
+                const { data: urlData } = supabaseClient.storage
+                    .from('comprobantes')
+                    .getPublicUrl(fileName);
+                
+                return urlData.publicUrl;
+                
+            } catch (error) {
+                console.error('❌ Error en uploadToSupabaseStorage:', error);
+                throw error;
+            }
+        }
+
+        async function handleFile(file) {
+            const maxSize = 10 * 1024 * 1024;
+            const isValidType = file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'application/pdf';
+            const isValidSize = file.size <= maxSize;
+            
+            if (!isValidType) {
+                showAlert('❌ Formato no válido. Solo JPG, PNG o PDF.', 'error');
+                return false;
+            }
+            if (!isValidSize) {
+                showAlert('❌ El archivo no debe superar los 10MB.', 'error');
+                return false;
+            }
+            
+            selectedFile = file;
+            updateFileList();
+            return true;
+        }
+
+        fileUploadArea.addEventListener('click', () => fileInput.click());
+        fileUploadArea.addEventListener('dragover', (e) => { e.preventDefault(); fileUploadArea.style.borderColor = 'rgba(255,255,255,0.8)'; });
+        fileUploadArea.addEventListener('dragleave', (e) => { e.preventDefault(); fileUploadArea.style.borderColor = 'rgba(255,255,255,0.2)'; });
+        fileUploadArea.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            fileUploadArea.style.borderColor = 'rgba(255,255,255,0.2)';
+            const file = e.dataTransfer.files[0];
+            if (file) await handleFile(file);
+        });
+        fileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (file) await handleFile(file);
+            fileInput.value = '';
+        });
+
+        function showAlert(message, type) {
+            alertMessageDiv.textContent = message;
+            alertMessageDiv.className = `alert alert-${type}`;
+            alertMessageDiv.style.display = 'block';
+            document.getElementById('alertContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => { alertMessageDiv.style.display = 'none'; }, 8000);
+        }
+
+        function validatePhone(phone) { return /^[0-9]{10,11}$/.test(phone); }
+        function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+        function validateIdNumber(id) { return /^[0-9]{6,8}$/.test(id); }
+
+        async function saveToSupabase(formData, comprobanteUrl) {
+            try {
+                // Insertar datos - el trigger generará automáticamente el código_entrada
+                const { data, error } = await supabaseClient
+                    .from('ventas')
+                    .insert([
+                        {
+                            nombre: formData.nombre,
+                            cedula: formData.cedula,
+                            email: formData.email,
+                            telefono: formData.telefono,
+                            cantidad: formData.cantidad,
+                            metodo_pago: formData.metodo_pago,
+                            referencia: formData.referencia,
+                            total_usd: formData.total_usd,
+                            tasa_bcv: formData.tasa_bcv,
+                            total_bs: formData.total_bs,
+                            notas: formData.notas || '',
+                            comprobante_url: comprobanteUrl,
+                            estado: 'Pendiente'
+                        }
+                    ])
+                    .select(); // IMPORTANTE: para obtener el registro insertado con el código generado
+                
+                if (error) {
+                    console.error('❌ Error Supabase:', error);
+                    showAlert('❌ Error al guardar: ' + error.message, 'error');
+                    return false;
+                }
+                
+                // Mostrar el código de entrada generado
+                if (data && data[0] && data[0].codigo_entrada) {
+                    console.log('✅ Código de entrada generado:', data[0].codigo_entrada);
+                    showAlert(`🎫 ¡Código de entrada generado: ${data[0].codigo_entrada}! Guarda este código para tu ingreso.`, 'success');
+                }
+                
+                return true;
+                
+            } catch (error) {
+                console.error('❌ Error de red:', error);
+                return false;
+            }
+        }
+
+        function showSuccessMessageAndClean() {
+            showAlert('✅ ¡REGISTRO EXITOSO! Tu compra ha sido registrada correctamente. Revisa tu correo electrónico, te enviaremos la confirmación en los próximos minutos.', 'success');
+            
+            setTimeout(() => {
+                document.getElementById('fullName').value = '';
+                document.getElementById('idNumber').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('reference').value = '';
+                document.getElementById('notes').value = '';
+                selectedFile = null;
+                uploadedFileUrl = null;
+                fileInput.value = '';
+                updateFileList();
+                currentQuantity = 1;
+                qtyInput.value = 1;
+                updateTotal();
+            }, 5000);
+        }
+
+        submitBtn.addEventListener('click', async function() {
+            const name = document.getElementById('fullName').value.trim();
+            let idNumber = document.getElementById('idNumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const reference = document.getElementById('reference').value.trim();
+            const notes = document.getElementById('notes').value.trim();
+            const metodoPago = document.getElementById('metodoPagoField').value;
+            const totalUSD = PRICE_USD * currentQuantity;
+            const totalVES = (totalUSD * currentBCVRate).toFixed(2);
+
+            if (!name) { showAlert('❌ Ingresa tu nombre completo', 'error'); return; }
+            if (!validateIdNumber(idNumber)) { showAlert('❌ Ingresa una cédula válida (solo números, 6-8 dígitos)', 'error'); return; }
+            if (!validateEmail(email)) { showAlert('❌ Ingresa un correo electrónico válido', 'error'); return; }
+            if (!validatePhone(phone)) { showAlert('❌ Ingresa un teléfono válido (10-11 dígitos, ejemplo: 04121234567)', 'error'); return; }
+            if (!reference) { showAlert('❌ Ingresa la referencia de tu pago', 'error'); return; }
+            if (!selectedFile) { showAlert('⚠️ Adjunta la captura de tu comprobante de pago', 'error'); return; }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> SUBIENDO COMPROBANTE...';
+            uploadProgressDiv.classList.add('active');
+
+            try {
+                showAlert('📤 Subiendo comprobante a la nube...', 'info');
+                const comprobanteUrl = await uploadToSupabaseStorage(selectedFile, reference, name);
+                uploadedFileUrl = comprobanteUrl;
+                document.getElementById('comprobanteUrlField').value = comprobanteUrl;
+                
+                showAlert('✅ Comprobante subido correctamente', 'success');
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> GUARDANDO DATOS...';
+                
+                const formData = {
+                    nombre: name,
+                    cedula: idNumber,
+                    email: email,
+                    telefono: phone,
+                    cantidad: currentQuantity,
+                    metodo_pago: metodoPago,
+                    referencia: reference,
+                    total_usd: totalUSD,
+                    tasa_bcv: currentBCVRate,
+                    total_bs: totalVES,
+                    notas: notes
+                };
+                
+                showAlert('📊 Guardando datos en la base de datos...', 'info');
+                const saved = await saveToSupabase(formData, comprobanteUrl);
+                
+                if (saved) {
+                    showSuccessMessageAndClean();
+                } else {
+                    showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos. Contacta a soporte.', 'info');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showAlert('❌ Error al procesar tu compra. Verifica tu conexión e intenta de nuevo.', 'error');
+            } finally {
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-envelope"></i> CONFIRMAR Y ENVIAR';
+                    uploadProgressDiv.classList.remove('active');
+                }, 8000);
+            }
+        });
+
+        qtyMinus.addEventListener('click', () => {
+            if (currentQuantity > 1) { currentQuantity--; qtyInput.value = currentQuantity; updateTotal(); }
+        });
+        qtyPlus.addEventListener('click', () => {
+            if (currentQuantity < 10) { currentQuantity++; qtyInput.value = currentQuantity; updateTotal(); }
+        });
+
+        document.querySelectorAll('.payment-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.payment-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('metodoPagoField').value = tab.dataset.payment;
+                document.querySelectorAll('.payment-details').forEach(d => d.classList.remove('active'));
+                const map = { 'Pago Móvil': 'pagomovilDetails', 'Zelle': 'zelleDetails', 'Binance / USDT': 'binanceDetails' };
+                document.getElementById(map[tab.dataset.payment]).classList.add('active');
+            });
+        });
+
+        fetchBCVRate();
+        setInterval(fetchBCVRate, 5 * 60 * 1000);
+        updateFileList();
+        updateTotal();
+        
+        console.log('🚀 Página lista - Generación automática de código de entrada');
+    </script>
+</body>
+</html>
