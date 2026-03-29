@@ -289,6 +289,16 @@
             background: rgba(255,255,255,0.08);
         }
 
+        /* Solo números en campos específicos */
+        .numeric-input {
+            -moz-appearance: textfield;
+        }
+        .numeric-input::-webkit-inner-spin-button,
+        .numeric-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         .ticket-row {
             display: flex;
             flex-wrap: wrap;
@@ -664,6 +674,55 @@
             color: #ffd966;
         }
 
+        .email-help-modal {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a1a1a;
+            border-left: 4px solid #ffd966;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+            max-width: 300px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .email-help-modal.show {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .email-help-modal i {
+            color: #ffd966;
+            margin-right: 8px;
+        }
+
+        .email-help-modal .close-help {
+            float: right;
+            margin-left: 10px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .email-help-modal .close-help:hover {
+            opacity: 1;
+        }
+
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -737,7 +796,7 @@
                         </div>
                         <div class="form-group">
                             <label>CÉDULA DE IDENTIDAD *</label>
-                            <input type="text" id="idNumber" placeholder="V-12345678">
+                            <input type="text" id="idNumber" placeholder="12345678" class="numeric-input" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="8">
                         </div>
                         <div class="form-group">
                             <label>CORREO ELECTRÓNICO *</label>
@@ -745,7 +804,7 @@
                         </div>
                         <div class="form-group">
                             <label>TELÉFONO / WHATSAPP *</label>
-                            <input type="tel" id="phone" placeholder="0412-1234567">
+                            <input type="tel" id="phone" placeholder="04121234567" class="numeric-input" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
                         </div>
                     </div>
                 </div>
@@ -874,6 +933,15 @@
             </div>
         </div>
 
+        <!-- Modal flotante de ayuda para email -->
+        <div id="emailHelpModal" class="email-help-modal">
+            <span class="close-help" onclick="this.parentElement.classList.remove('show')">✕</span>
+            <i class="fas fa-envelope"></i>
+            <strong>¿No se abrió el correo?</strong><br>
+            Copia esta información y envíala a:<br>
+            <span style="color:#ffd966; font-size:0.9rem;">birongoentradas@gmail.com</span>
+        </div>
+
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
             <div class="footer-tagline">
@@ -896,6 +964,8 @@
         let currentBCVRate = 60;
         let selectedFile = null;
         let uploadedFileUrl = null;
+        let lastFormData = null;
+        let lastComprobanteUrl = null;
 
         const qtyInput = document.getElementById('ticketQty');
         const qtyMinus = document.getElementById('qtyMinus');
@@ -910,6 +980,7 @@
         const submitBtn = document.getElementById('submitBtn');
         const alertMessageDiv = document.getElementById('alertMessage');
         const uploadProgressDiv = document.getElementById('uploadProgress');
+        const emailHelpModal = document.getElementById('emailHelpModal');
 
         function updateTotal() {
             const totalUSD = PRICE_USD * currentQuantity;
@@ -980,15 +1051,11 @@
 
         async function uploadToSupabaseStorage(file, referencia, nombre) {
             try {
-                // Crear nombre único para el archivo
                 const timestamp = Date.now();
                 const extension = file.name.split('.').pop();
                 const safeName = nombre.replace(/\s/g, '_').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 const fileName = `comprobantes/${timestamp}_${referencia}_${safeName}.${extension}`;
                 
-                console.log('📤 Subiendo archivo a Supabase Storage:', fileName);
-                
-                // Subir archivo a Supabase Storage
                 const { data, error } = await supabaseClient.storage
                     .from('comprobantes')
                     .upload(fileName, file, {
@@ -997,19 +1064,11 @@
                         contentType: file.type
                     });
                 
-                if (error) {
-                    console.error('❌ Error al subir:', error);
-                    throw error;
-                }
+                if (error) throw error;
                 
-                console.log('✅ Archivo subido:', data);
-                
-                // Obtener URL pública
                 const { data: urlData } = supabaseClient.storage
                     .from('comprobantes')
                     .getPublicUrl(fileName);
-                
-                console.log('🔗 URL pública:', urlData.publicUrl);
                 
                 return urlData.publicUrl;
                 
@@ -1061,9 +1120,9 @@
             setTimeout(() => { alertMessageDiv.style.display = 'none'; }, 5000);
         }
 
-        function validatePhone(phone) { return /^(0412|0414|0416|0424|0426|0410|0420)[0-9]{7}$/.test(phone); }
+        function validatePhone(phone) { return /^[0-9]{10,11}$/.test(phone); }
         function validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
-        function validateIdNumber(id) { return /^[VEJPG]-\d{6,8}$/i.test(id); }
+        function validateIdNumber(id) { return /^[0-9]{6,8}$/.test(id); }
 
         async function saveToSupabase(formData, comprobanteUrl) {
             try {
@@ -1093,7 +1152,6 @@
                     return false;
                 }
                 
-                console.log('✅ Datos guardados en Supabase:', data);
                 return true;
                 
             } catch (error) {
@@ -1102,13 +1160,12 @@
             }
         }
 
-        function openMailWithData(formData, comprobanteUrl) {
+        // Función universal para copiar al portapapeles + mostrar modal de ayuda
+        function copyToClipboardAndHelp(formData, comprobanteUrl) {
             const totalUSD = formData.total_usd;
             const totalVES = formData.total_bs;
             
-            const subject = encodeURIComponent(`🎫 PREVENTA BIRONGO LIVE 2.0 - ${formData.nombre}`);
-            
-            let body = `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
+            const emailBody = `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDATOS DEL COMPRADOR\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
                 `Nombre: ${formData.nombre}\nCédula: ${formData.cedula}\nEmail: ${formData.email}\nTeléfono: ${formData.telefono}\n\n` +
                 `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDETALLES DE LA COMPRA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
@@ -1121,14 +1178,48 @@
                 `✅ Estado: Pendiente de validación de pago\n\n` +
                 `---\nEnviado desde birongo.live/entradas | Preventa`;
             
-            const encodedBody = encodeURIComponent(body);
-            window.location.href = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodedBody}`;
-            return true;
+            // Copiar al portapapeles
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(emailBody).then(() => {
+                    showAlert('📋 Información copiada al portapapeles. Pégalo en tu correo y envíalo a birongoentradas@gmail.com', 'success');
+                }).catch(() => {
+                    showAlert('✉️ Abre tu correo y envía la información a birongoentradas@gmail.com', 'info');
+                });
+            } else {
+                // Fallback para navegadores antiguos
+                const textarea = document.createElement('textarea');
+                textarea.value = emailBody;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showAlert('📋 Información copiada. Envíala a birongoentradas@gmail.com', 'success');
+            }
+            
+            // Mostrar modal flotante de ayuda
+            emailHelpModal.classList.add('show');
+            setTimeout(() => {
+                emailHelpModal.classList.remove('show');
+            }, 8000);
+            
+            // También intentar abrir el correo (puede funcionar en algunos navegadores)
+            try {
+                const subject = encodeURIComponent(`🎫 PREVENTA BIRONGO LIVE 2.0 - ${formData.nombre}`);
+                const mailtoUrl = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodeURIComponent(emailBody)}`;
+                const link = document.createElement('a');
+                link.href = mailtoUrl;
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(() => document.body.removeChild(link), 100);
+            } catch(e) {
+                console.log('mailto no soportado directamente');
+            }
         }
 
         submitBtn.addEventListener('click', async function() {
             const name = document.getElementById('fullName').value.trim();
-            const idNumber = document.getElementById('idNumber').value.trim();
+            let idNumber = document.getElementById('idNumber').value.trim();
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const reference = document.getElementById('reference').value.trim();
@@ -1138,9 +1229,9 @@
             const totalVES = (totalUSD * currentBCVRate).toFixed(2);
 
             if (!name) { showAlert('❌ Ingresa tu nombre completo', 'error'); return; }
-            if (!validateIdNumber(idNumber)) { showAlert('❌ Ingresa una cédula válida (Ej: V-12345678)', 'error'); return; }
+            if (!validateIdNumber(idNumber)) { showAlert('❌ Ingresa una cédula válida (solo números, 6-8 dígitos)', 'error'); return; }
             if (!validateEmail(email)) { showAlert('❌ Ingresa un correo electrónico válido', 'error'); return; }
-            if (!validatePhone(phone)) { showAlert('❌ Ingresa un teléfono válido (Ej: 04121234567)', 'error'); return; }
+            if (!validatePhone(phone)) { showAlert('❌ Ingresa un teléfono válido (10-11 dígitos, ejemplo: 04121234567)', 'error'); return; }
             if (!reference) { showAlert('❌ Ingresa la referencia de tu pago', 'error'); return; }
             if (!selectedFile) { showAlert('⚠️ Adjunta la captura de tu comprobante de pago', 'error'); return; }
 
@@ -1149,7 +1240,6 @@
             uploadProgressDiv.classList.add('active');
 
             try {
-                // 1. Subir el archivo a Supabase Storage
                 showAlert('📤 Subiendo comprobante a la nube...', 'info');
                 const comprobanteUrl = await uploadToSupabaseStorage(selectedFile, reference, name);
                 uploadedFileUrl = comprobanteUrl;
@@ -1157,7 +1247,6 @@
                 
                 showAlert('✅ Comprobante subido correctamente', 'success');
                 
-                // 2. Guardar datos en Supabase
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> GUARDANDO DATOS...';
                 
                 const formData = {
@@ -1174,21 +1263,24 @@
                     notas: notes
                 };
                 
+                lastFormData = formData;
+                lastComprobanteUrl = comprobanteUrl;
+                
                 showAlert('📊 Guardando datos en la base de datos...', 'info');
                 const saved = await saveToSupabase(formData, comprobanteUrl);
                 
                 if (saved) {
-                    showAlert('✅ ¡Todo guardado correctamente! Abriendo correo...', 'success');
+                    showAlert('✅ ¡Todo guardado correctamente!', 'success');
                 } else {
                     showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos', 'info');
                 }
                 
-                // 3. Abrir correo con confirmación
+                // Método universal: copiar al portapapeles + ayuda visual
                 setTimeout(() => {
-                    openMailWithData(formData, comprobanteUrl);
-                }, 800);
+                    copyToClipboardAndHelp(formData, comprobanteUrl);
+                }, 500);
                 
-                // 4. Limpiar formulario
+                // Limpiar formulario después de 5 segundos
                 setTimeout(() => {
                     document.getElementById('fullName').value = '';
                     document.getElementById('idNumber').value = '';
@@ -1240,7 +1332,7 @@
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Subida automática a Supabase Storage activada');
+        console.log('🚀 Página lista - Compatibilidad universal activada');
     </script>
 </body>
 </html>
