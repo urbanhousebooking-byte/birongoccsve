@@ -674,55 +674,6 @@
             color: #ffd966;
         }
 
-        .email-help-modal {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1a1a1a;
-            border-left: 4px solid #ffd966;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            z-index: 1000;
-            display: none;
-            max-width: 300px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .email-help-modal.show {
-            display: block;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .email-help-modal i {
-            color: #ffd966;
-            margin-right: 8px;
-        }
-
-        .email-help-modal .close-help {
-            float: right;
-            margin-left: 10px;
-            cursor: pointer;
-            opacity: 0.7;
-        }
-
-        .email-help-modal .close-help:hover {
-            opacity: 1;
-        }
-
         footer {
             text-align: center;
             margin-top: 4rem;
@@ -933,15 +884,6 @@
             </div>
         </div>
 
-        <!-- Modal flotante de ayuda para email -->
-        <div id="emailHelpModal" class="email-help-modal">
-            <span class="close-help" onclick="this.parentElement.classList.remove('show')">✕</span>
-            <i class="fas fa-envelope"></i>
-            <strong>¿No se abrió el correo?</strong><br>
-            Copia esta información y envíala a:<br>
-            <span style="color:#ffd966; font-size:0.9rem;">birongoentradas@gmail.com</span>
-        </div>
-
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
             <div class="footer-tagline">
@@ -980,7 +922,6 @@
         const submitBtn = document.getElementById('submitBtn');
         const alertMessageDiv = document.getElementById('alertMessage');
         const uploadProgressDiv = document.getElementById('uploadProgress');
-        const emailHelpModal = document.getElementById('emailHelpModal');
 
         function updateTotal() {
             const totalUSD = PRICE_USD * currentQuantity;
@@ -1117,7 +1058,7 @@
             alertMessageDiv.className = `alert alert-${type}`;
             alertMessageDiv.style.display = 'block';
             document.getElementById('alertContainer').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            setTimeout(() => { alertMessageDiv.style.display = 'none'; }, 5000);
+            setTimeout(() => { alertMessageDiv.style.display = 'none'; }, 8000);
         }
 
         function validatePhone(phone) { return /^[0-9]{10,11}$/.test(phone); }
@@ -1160,61 +1101,27 @@
             }
         }
 
-        // Función universal para copiar al portapapeles + mostrar modal de ayuda
-        function copyToClipboardAndHelp(formData, comprobanteUrl) {
-            const totalUSD = formData.total_usd;
-            const totalVES = formData.total_bs;
+        // NUEVA FUNCIÓN: solo muestra mensaje de éxito sin redirigir a correo
+        function showSuccessMessageAndClean() {
+            // Mensaje claro de éxito
+            showAlert('✅ ¡REGISTRO EXITOSO! Tu compra ha sido registrada correctamente. Revisa tu correo electrónico, te enviaremos la confirmación en los próximos minutos.', 'success');
             
-            const emailBody = `🎫 PREVENTA BIRONGO LIVE 2.0\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDATOS DEL COMPRADOR\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                `Nombre: ${formData.nombre}\nCédula: ${formData.cedula}\nEmail: ${formData.email}\nTeléfono: ${formData.telefono}\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nDETALLES DE LA COMPRA\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                `Evento: Birongo Live 2.0\nLugar: La Quinta Bar, Caracas\nFecha: Sábado 18 de Abril · 11:00 PM\n` +
-                `Cantidad: ${formData.cantidad} entrada(s)\nTotal USD: $${totalUSD}.00\nTasa BCV: Bs ${formData.tasa_bcv.toFixed(2)}\nTotal Bs: Bs ${totalVES}\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nMÉTODO DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.metodo_pago}\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nREFERENCIA DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.referencia}\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOMPROBANTE DE PAGO\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n✅ El comprobante ha sido guardado en nuestra base de datos.\n📎 Ver en: ${comprobanteUrl}\n\n` +
-                `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNOTAS ADICIONALES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n${formData.notas || 'Sin notas adicionales'}\n\n` +
-                `✅ Estado: Pendiente de validación de pago\n\n` +
-                `---\nEnviado desde birongo.live/entradas | Preventa`;
-            
-            // Copiar al portapapeles
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(emailBody).then(() => {
-                    showAlert('📋 Información copiada al portapapeles. Pégalo en tu correo y envíalo a birongoentradas@gmail.com', 'success');
-                }).catch(() => {
-                    showAlert('✉️ Abre tu correo y envía la información a birongoentradas@gmail.com', 'info');
-                });
-            } else {
-                // Fallback para navegadores antiguos
-                const textarea = document.createElement('textarea');
-                textarea.value = emailBody;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showAlert('📋 Información copiada. Envíala a birongoentradas@gmail.com', 'success');
-            }
-            
-            // Mostrar modal flotante de ayuda
-            emailHelpModal.classList.add('show');
+            // Limpiar formulario después de 5 segundos
             setTimeout(() => {
-                emailHelpModal.classList.remove('show');
-            }, 8000);
-            
-            // También intentar abrir el correo (puede funcionar en algunos navegadores)
-            try {
-                const subject = encodeURIComponent(`🎫 PREVENTA BIRONGO LIVE 2.0 - ${formData.nombre}`);
-                const mailtoUrl = `mailto:birongoentradas@gmail.com?subject=${subject}&body=${encodeURIComponent(emailBody)}`;
-                const link = document.createElement('a');
-                link.href = mailtoUrl;
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(() => document.body.removeChild(link), 100);
-            } catch(e) {
-                console.log('mailto no soportado directamente');
-            }
+                document.getElementById('fullName').value = '';
+                document.getElementById('idNumber').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('reference').value = '';
+                document.getElementById('notes').value = '';
+                selectedFile = null;
+                uploadedFileUrl = null;
+                fileInput.value = '';
+                updateFileList();
+                currentQuantity = 1;
+                qtyInput.value = 1;
+                updateTotal();
+            }, 5000);
         }
 
         submitBtn.addEventListener('click', async function() {
@@ -1270,36 +1177,15 @@
                 const saved = await saveToSupabase(formData, comprobanteUrl);
                 
                 if (saved) {
-                    showAlert('✅ ¡Todo guardado correctamente!', 'success');
+                    // ✅ ÉXITO: mostramos mensaje amigable y limpiamos formulario
+                    showSuccessMessageAndClean();
                 } else {
-                    showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos', 'info');
+                    showAlert('⚠️ La imagen se subió pero hubo problema al guardar los datos. Contacta a soporte.', 'info');
                 }
-                
-                // Método universal: copiar al portapapeles + ayuda visual
-                setTimeout(() => {
-                    copyToClipboardAndHelp(formData, comprobanteUrl);
-                }, 500);
-                
-                // Limpiar formulario después de 5 segundos
-                setTimeout(() => {
-                    document.getElementById('fullName').value = '';
-                    document.getElementById('idNumber').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('phone').value = '';
-                    document.getElementById('reference').value = '';
-                    document.getElementById('notes').value = '';
-                    selectedFile = null;
-                    uploadedFileUrl = null;
-                    fileInput.value = '';
-                    updateFileList();
-                    currentQuantity = 1;
-                    qtyInput.value = 1;
-                    updateTotal();
-                }, 5000);
                 
             } catch (error) {
                 console.error('Error:', error);
-                showAlert('❌ Error al subir el comprobante. Verifica tu conexión e intenta de nuevo.', 'error');
+                showAlert('❌ Error al procesar tu compra. Verifica tu conexión e intenta de nuevo.', 'error');
             } finally {
                 setTimeout(() => {
                     submitBtn.disabled = false;
@@ -1332,7 +1218,7 @@
         updateFileList();
         updateTotal();
         
-        console.log('🚀 Página lista - Compatibilidad universal activada');
+        console.log('🚀 Página lista - Registro sin redirección a correo');
     </script>
 </body>
 </html>
