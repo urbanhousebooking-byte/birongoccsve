@@ -230,7 +230,7 @@
             }
         }
 
-        /* ===== NOTICIAS EN GRID VERTICAL (tarjetas elegantes) ===== */
+        /* ===== NOTICIAS EN GRID ===== */
         .noticias-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -425,50 +425,6 @@
             color: white;
         }
 
-        /* Modal de imagen expandida */
-        .image-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(8px);
-        }
-        .image-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-image-container {
-            max-width: 90vw;
-            max-height: 90vh;
-            position: relative;
-        }
-        .modal-image-container img {
-            max-width: 100%;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 12px;
-        }
-        .modal-close-img {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
         .btn-tactile {
             display: inline-flex;
             align-items: center;
@@ -533,9 +489,14 @@
             </div>
         </div>
 
-        <!-- NOTICIAS EN GRID VERTICAL - IMAGEN ARRIBA, TÍTULO DEBAJO -->
+        <!-- ========================================================= -->
+        <!-- NOTICIAS EN GRID - AGREGAR MÁS TARJETAS COPIANDO EL BLOQUE -->
+        <!-- COPIA DESDE <!-- TARJETA INICIO --> HASTA <!-- TARJETA FIN -->
+        <!-- Y PÉGALO DENTRO DE .noticias-container, ANTES O DESPUÉS -->
+        <!-- ========================================================= -->
         <div class="noticias-container">
-            <!-- NOTICIA 1 - PRINCIPAL -> blog_birongo/blog_1.html -->
+            
+            <!-- ========== TARJETA 1 - INICIO ========== -->
             <div class="noticia-card">
                 <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_1.html'">
                     <img src="img/diario/Birongo_live_caracas_venezuela_la_quinta_bar (1).png" alt="Birongo Live La Quinta Bar">
@@ -549,7 +510,7 @@
                         <span><i class="far fa-clock"></i> 5 min</span>
                     </div>
                     <div class="noticia-descripcion-h">
-                        <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. El 13 de diciembre de 2025, La Quinta Bar fue el escenario de nuestra prueba de fuego. Una noche donde más de 200 personas se unieron en una experiencia sonora única, fusionando UK Garage, Drum & Bass, Melodic House y Hardgroove.</p>
+                        <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. El 13 de diciembre de 2025, La Quinta Bar fue el escenario de nuestra prueba de fuego. Una noche donde más de 200 personas se unieron en una experiencia sonora única.</p>
                     </div>
                     <div class="noticia-footer-h" onclick="event.stopPropagation()">
                         <div class="share-buttons-h">
@@ -561,8 +522,9 @@
                     </div>
                 </div>
             </div>
+            <!-- ========== TARJETA 1 - FIN ========== -->
 
-            <!-- NOTICIA 2 -> blog_birongo/blog_2.html -->
+            <!-- ========== TARJETA 2 - INICIO ========== -->
             <div class="noticia-card">
                 <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_2.html'">
                     <img src="https://picsum.photos/id/104/400/250" alt="Nuevos artistas electrónicos">
@@ -572,7 +534,7 @@
                     <h2 class="noticia-titulo-h">Nuevos artistas se suman a la familia Birongo</h2>
                     <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 22 MAR 2026</span><span><i class="far fa-user"></i> Redacción</span></div>
                     <div class="noticia-descripcion-h">
-                        <p>La escena electrónica caraqueña sigue creciendo. Cuatro nuevos DJs y productores se integran al roster de Birongo, ampliando los géneros desde el deep house hasta el techno industrial. Próximamente fechas de showcases y presentaciones exclusivas.</p>
+                        <p>La escena electrónica caraqueña sigue creciendo. Cuatro nuevos DJs y productores se integran al roster de Birongo, ampliando los géneros desde el deep house hasta el techno industrial. Próximamente fechas de showcases.</p>
                     </div>
                     <div class="noticia-footer-h" onclick="event.stopPropagation()">
                         <div class="share-buttons-h">
@@ -583,50 +545,41 @@
                     </div>
                 </div>
             </div>
+            <!-- ========== TARJETA 2 - FIN ========== -->
 
-            <!-- NOTICIA 3 -> blog_birongo/blog_3.html -->
+            <!-- ========================================================= -->
+            <!-- ⭐⭐⭐ PARA AGREGAR MÁS TARJETAS, COPIA EL BLOQUE DE ABAJO ⭐⭐⭐ -->
+            <!-- ========================================================= -->
+            <!-- 
+            ========== TARJETA NUEVA - INICIO (COPIAR ESTE BLOQUE) ==========
             <div class="noticia-card">
-                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_3.html'">
-                    <img src="https://picsum.photos/id/20/400/250" alt="La Quinta Bar Caracas">
+                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_X.html'">
+                    <img src="URL_DE_LA_IMAGEN" alt="Descripción de la imagen">
                 </div>
                 <div class="noticia-contenido-h">
-                    <span class="noticia-categoria-h">🏛️ ESPACIOS ICÓNICOS</span>
-                    <h2 class="noticia-titulo-h">La Quinta Bar: el epicentro underground de Caracas</h2>
-                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 10 MAR 2026</span></div>
+                    <span class="noticia-categoria-h">🎵 CATEGORÍA</span>
+                    <h2 class="noticia-titulo-h">Título de la noticia aquí</h2>
+                    <div class="noticia-meta-h">
+                        <span><i class="far fa-calendar"></i> DD MMM 2026</span>
+                        <span><i class="far fa-user"></i> Autor</span>
+                    </div>
                     <div class="noticia-descripcion-h">
-                        <p>Con más de 15 años de historia, La Quinta Bar ha sido testigo de los mejores momentos de la noche caraqueña. Birongo eligió este lugar para su lanzamiento oficial y la conexión fue inmediata. Conoce la historia detrás del venue que marcó un antes y después.</p>
+                        <p>Descripción corta de la noticia. Esto es un resumen que aparecerá en la tarjeta.</p>
                     </div>
                     <div class="noticia-footer-h" onclick="event.stopPropagation()">
                         <div class="share-buttons-h">
                             <span class="share-label-h">COMPARTIR</span>
-                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('La Quinta Bar: epicentro underground', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('La Quinta Bar: epicentro underground', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('Título de la noticia', 'blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('Título de la noticia', 'blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-icon-h facebook-h" onclick="shareFacebook('blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+            ========== TARJETA NUEVA - FIN ==========
+            -->
+            <!-- ========================================================= -->
 
-            <!-- NOTICIA 4 -> blog_birongo/blog_4.html -->
-            <div class="noticia-card">
-                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_4.html'">
-                    <img src="https://picsum.photos/id/29/400/250" alt="Birongo Sessions">
-                </div>
-                <div class="noticia-contenido-h">
-                    <span class="noticia-categoria-h">🎫 PRÓXIMOS EVENTOS</span>
-                    <h2 class="noticia-titulo-h">Birongo Sessions: nueva serie de eventos íntimos</h2>
-                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 5 MAR 2026</span></div>
-                    <div class="noticia-descripcion-h">
-                        <p>Para abril de 2026, Birongo lanza "Sessions", una serie de encuentros con capacidad limitada para vivir la música electrónica en su máxima expresión. Experiencias únicas, sonido de alta fidelidad y conexión real entre artistas y público.</p>
-                    </div>
-                    <div class="noticia-footer-h" onclick="event.stopPropagation()">
-                        <div class="share-buttons-h">
-                            <span class="share-label-h">COMPARTIR</span>
-                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('Birongo Sessions', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('Birongo Sessions', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="nav-links">
@@ -639,40 +592,7 @@
         </footer>
     </div>
 
-    <!-- MODAL DE IMAGEN (expandir imagen) -->
-    <div id="imageModal" class="image-modal">
-        <div class="modal-image-container">
-            <button class="modal-close-img" id="closeModalBtn">&times;</button>
-            <img id="modalImage" src="" alt="Imagen expandida">
-        </div>
-    </div>
-
     <script>
-        // Lightbox para expandir imágenes (solo si se hace clic con intención de expandir)
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        
-        function openModal(imgSrc) { 
-            modalImg.src = imgSrc; 
-            modal.classList.add('active'); 
-            document.body.style.overflow = 'hidden'; 
-        }
-        
-        function closeModal() { 
-            modal.classList.remove('active'); 
-            document.body.style.overflow = ''; 
-        }
-        
-        // Para expandir imagen con clic derecho o si se quiere ver en grande (opcional)
-        // Pero mantenemos la función de redirección al hacer clic normal en la imagen
-        // Si se quiere expandir, se puede hacer clic con Ctrl o desde el modal que aparece al hacer clic en el ícono
-        // Por ahora mantenemos la redirección como prioridad
-        
-        modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
-        closeModalBtn.addEventListener('click', closeModal);
-        document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
-
         // Funciones de compartir
         function shareWhatsApp(title, urlPath) {
             const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
