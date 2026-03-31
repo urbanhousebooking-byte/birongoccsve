@@ -91,7 +91,7 @@
     </script>
     
     <style>
-        /* ===== RESET & BASE ===== */
+        /* ===== RESET & BASE (misma resolución que index.html) ===== */
         * {
             margin: 0;
             padding: 0;
@@ -120,7 +120,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1rem;
         }
@@ -136,7 +136,7 @@
             font-weight: 700;
         }
 
-        /* ===== HEADER - LOGO TAMAÑO ESTÁNDAR ===== */
+        /* ===== HEADER - LOGO TAMAÑO ESTÁNDAR (mismo que index) ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -146,14 +146,13 @@
 
         @media (min-width: 768px) {
             .hero {
-                margin-bottom: 3rem;
-                padding: 2rem 0;
+                margin-bottom: 4rem;
+                padding: 3rem 0;
             }
         }
 
         .logo-image {
-            max-width: 280px;
-            width: 100%;
+            max-width: 80%;
             height: auto;
             margin: 0 auto 1rem;
             display: block;
@@ -161,17 +160,17 @@
 
         @media (min-width: 768px) {
             .logo-image {
-                max-width: 320px;
+                max-width: 60%;
             }
         }
 
         @media (min-width: 992px) {
             .logo-image {
-                max-width: 360px;
+                max-width: 50%;
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
+        /* ===== MENÚ DE NAVEGACIÓN (mismo que index) ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -184,13 +183,14 @@
         .nav-item {
             color: #ffffff80;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             padding: 0.5rem 0;
             position: relative;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-item::after {
@@ -223,10 +223,31 @@
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
+                padding: 0.3rem 0;
             }
+            
             .nav-item {
-                font-size: 0.75rem;
-                letter-spacing: 0.15em;
+                font-size: 0.8rem;
+                letter-spacing: 0.12em;
+                padding: 0.4rem 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-menu {
+                gap: 0.7rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                padding: 0.3rem 0.2rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 65px;
             }
         }
 
@@ -312,6 +333,12 @@
             display: flex;
             flex-direction: column;
             flex: 1;
+        }
+
+        @media (max-width: 480px) {
+            .noticia-contenido-h {
+                padding: 1rem;
+            }
         }
 
         .noticia-categoria-h {
@@ -425,27 +452,33 @@
             color: white;
         }
 
+        /* ===== BOTONES TÁCTILES (mismo estilo que index) ===== */
         .btn-tactile {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            padding: 0.8rem 1.8rem;
+            padding: 1rem 2rem;
             border: 2px solid #fff;
             background: transparent;
             color: white;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: all 0.2s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            white-space: nowrap;
         }
 
         .btn-tactile:active {
             transform: scale(0.97);
             background: white;
             color: black;
+            box-shadow: 0 2px 4px rgba(255,255,255,0.2);
         }
 
         .nav-links {
@@ -454,6 +487,26 @@
             margin: 2rem 0 2rem;
         }
 
+        @media (max-width: 600px) {
+            .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.15em;
+                white-space: normal;
+                text-align: center;
+            }
+            
+            .nav-links .btn-tactile {
+                width: 100%;
+                max-width: 280px;
+                margin: 0 auto;
+                display: flex;
+            }
+        }
+
+        /* ===== FOOTER (mismo estilo que index) ===== */
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -461,6 +514,17 @@
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
             font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
         }
 
         .footer-tagline {
@@ -472,6 +536,13 @@
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-tagline i {
+            color: #ffffff60;
+            font-size: 0.6rem;
         }
     </style>
 </head>
@@ -490,9 +561,8 @@
         </div>
 
         <!-- ========================================================= -->
-        <!-- NOTICIAS EN GRID - AGREGAR MÁS TARJETAS COPIANDO EL BLOQUE -->
-        <!-- COPIA DESDE <!-- TARJETA INICIO -->  <!-- TARJETA FIN -->
-        <!-- Y PÉGALO DENTRO DE .noticias-container, ANTES O DESPUÉS -->
+        <!-- NOTICIAS EN GRID - SOLO TARJETAS 1 Y 2 ACTIVAS -->
+        <!-- TARJETAS 3 Y 4 COMENTADAS (OCULTAS) PARA ACTIVAR CUANDO SE NECESITEN -->
         <!-- ========================================================= -->
         <div class="noticias-container">
             
@@ -548,37 +618,58 @@
             <!-- ========== TARJETA 2 - FIN ========== -->
 
             <!-- ========================================================= -->
-            <!-- ⭐⭐⭐ PARA AGREGAR MÁS TARJETAS, COPIA EL BLOQUE DE ABAJO ⭐⭐⭐ -->
+            <!-- TARJETAS OCULTAS (COMENTADAS) - ACTIVAR CUANDO ESTÉN LISTAS -->
             <!-- ========================================================= -->
-            <!-- 
-            ========== TARJETA NUEVA - INICIO (COPIAR ESTE BLOQUE) ==========
+            
+            <!-- ========== TARJETA 3 - OCULTA (La Quinta Bar) ========== -->
+            <!--
             <div class="noticia-card">
-                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_X.html'">
-                    <img src="URL_DE_LA_IMAGEN" alt="Descripción de la imagen">
+                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_3.html'">
+                    <img src="https://picsum.photos/id/15/400/250" alt="La Quinta Bar historia">
                 </div>
                 <div class="noticia-contenido-h">
-                    <span class="noticia-categoria-h">🎵 CATEGORÍA</span>
-                    <h2 class="noticia-titulo-h">Título de la noticia aquí</h2>
-                    <div class="noticia-meta-h">
-                        <span><i class="far fa-calendar"></i> DD MMM 2026</span>
-                        <span><i class="far fa-user"></i> Autor</span>
-                    </div>
+                    <span class="noticia-categoria-h">🏠 ESPACIOS</span>
+                    <h2 class="noticia-titulo-h">La Quinta Bar: El lugar que vió nacer a Birongo</h2>
+                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 10 MAR 2026</span><span><i class="far fa-user"></i> Equipo Birongo</span></div>
                     <div class="noticia-descripcion-h">
-                        <p>Descripción corta de la noticia. Esto es un resumen que aparecerá en la tarjeta.</p>
+                        <p>Un espacio icónico en Caracas se convierte en el hogar temporal de nuestra comunidad. Conocé la historia de La Quinta Bar y por qué fue el lugar perfecto para nuestro lanzamiento.</p>
                     </div>
                     <div class="noticia-footer-h" onclick="event.stopPropagation()">
                         <div class="share-buttons-h">
                             <span class="share-label-h">COMPARTIR</span>
-                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('Título de la noticia', 'blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('Título de la noticia', 'blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="share-icon-h facebook-h" onclick="shareFacebook('blog_birongo/blog_X.html'); event.stopPropagation();"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('La Quinta Bar: El lugar que vió nacer a Birongo', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('La Quinta Bar: El lugar que vió nacer a Birongo', 'blog_birongo/blog_3.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-            ========== TARJETA NUEVA - FIN ==========
             -->
-            <!-- ========================================================= -->
+            <!-- ========== TARJETA 3 - FIN OCULTA ========== -->
+
+            <!-- ========== TARJETA 4 - OCULTA (Hardgroove y UK Garage) ========== -->
+            <!--
+            <div class="noticia-card">
+                <div class="noticia-imagen-h" onclick="window.location.href='blog_birongo/blog_4.html'">
+                    <img src="https://picsum.photos/id/100/400/250" alt="Hardgroove y UK Garage en Caracas">
+                </div>
+                <div class="noticia-contenido-h">
+                    <span class="noticia-categoria-h">🎵 GÉNEROS</span>
+                    <h2 class="noticia-titulo-h">Hardgroove y UK Garage: Los sonidos que definen a Birongo</h2>
+                    <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 05 MAR 2026</span><span><i class="far fa-user"></i> SirDiamnd</span></div>
+                    <div class="noticia-descripcion-h">
+                        <p>Exploramos los géneros que marcan la identidad sonora de Birongo. Desde el Hardgroove hasta el UK Garage, descubre cómo estos estilos están transformando la escena electrónica en Caracas.</p>
+                    </div>
+                    <div class="noticia-footer-h" onclick="event.stopPropagation()">
+                        <div class="share-buttons-h">
+                            <span class="share-label-h">COMPARTIR</span>
+                            <a href="#" class="share-icon-h whatsapp-h" onclick="shareWhatsApp('Hardgroove y UK Garage: Los sonidos que definen a Birongo', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-icon-h twitter-h" onclick="shareTwitter('Hardgroove y UK Garage: Los sonidos que definen a Birongo', 'blog_birongo/blog_4.html'); event.stopPropagation();"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+            <!-- ========== TARJETA 4 - FIN OCULTA ========== -->
 
         </div>
 
