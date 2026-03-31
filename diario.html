@@ -136,7 +136,7 @@
             font-weight: 700;
         }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER - LOGO TAMAÑO ESTÁNDAR ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -152,7 +152,8 @@
         }
 
         .logo-image {
-            max-width: 70%;
+            max-width: 280px;
+            width: 100%;
             height: auto;
             margin: 0 auto 1rem;
             display: block;
@@ -160,13 +161,13 @@
 
         @media (min-width: 768px) {
             .logo-image {
-                max-width: 50%;
+                max-width: 320px;
             }
         }
 
         @media (min-width: 992px) {
             .logo-image {
-                max-width: 40%;
+                max-width: 360px;
             }
         }
 
@@ -229,11 +230,11 @@
             }
         }
 
-        /* ===== NOTICIAS HORIZONTALES - TARJETAS CLICKEABLES ===== */
+        /* ===== NOTICIAS HORIZONTALES - IMÁGENES MÁS PEQUEÑAS Y UNIFORMES ===== */
         .noticias-container {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.8rem;
             margin: 2rem 0 3rem;
         }
 
@@ -262,9 +263,9 @@
             background: #0f0f0f;
         }
 
-        /* Imagen lateral */
+        /* Imagen lateral - TAMAÑO MÁS PEQUEÑO Y UNIFORME */
         .noticia-imagen-h {
-            flex: 0 0 280px;
+            flex: 0 0 200px;
             position: relative;
             overflow: hidden;
             background: #1a1a1a;
@@ -286,13 +287,13 @@
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
-            bottom: 12px;
-            right: 12px;
+            bottom: 10px;
+            right: 10px;
             background: rgba(0,0,0,0.7);
             color: white;
-            padding: 6px 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
+            padding: 5px 8px;
+            border-radius: 25px;
+            font-size: 0.65rem;
             opacity: 0;
             transition: opacity 0.3s ease;
             backdrop-filter: blur(4px);
@@ -307,7 +308,7 @@
         /* Contenido de la tarjeta */
         .noticia-contenido-h {
             flex: 1;
-            padding: 1.5rem;
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
         }
@@ -316,19 +317,19 @@
             display: inline-block;
             background: #ffffff20;
             color: #ffffff90;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 0.25rem 0.9rem;
+            padding: 0.2rem 0.8rem;
             border-radius: 20px;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
             width: fit-content;
         }
 
         .noticia-titulo-h {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
             line-height: 1.3;
             font-weight: 700;
             color: white;
@@ -336,18 +337,18 @@
 
         @media (max-width: 768px) {
             .noticia-titulo-h {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
 
         .noticia-meta-h {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
             color: #ffffff70;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.8rem;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.6rem;
             border-bottom: 1px solid #ffffff20;
         }
 
@@ -358,11 +359,11 @@
 
         .noticia-descripcion-h {
             color: #ffffffc0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0.8rem;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -372,9 +373,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #ffffff70;
-            margin-top: 0.5rem;
+            margin-top: 0.3rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -387,26 +388,26 @@
             transform: translateX(4px);
         }
 
-        /* Footer con botones de compartir (evitamos que el click se propague) */
+        /* Footer con botones de compartir */
         .noticia-footer-h {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            gap: 1rem;
-            margin-top: 0.8rem;
-            padding-top: 0.8rem;
+            gap: 0.8rem;
+            margin-top: 0.6rem;
+            padding-top: 0.6rem;
             border-top: 1px solid #ffffff20;
         }
 
         .share-buttons-h {
             display: flex;
-            gap: 0.6rem;
+            gap: 0.5rem;
             align-items: center;
         }
 
         .share-label-h {
             color: #ffffff60;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
         }
 
@@ -414,14 +415,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
             background: #1a1a1a;
             color: #ffffffb0;
             text-decoration: none;
             transition: all 0.2s ease;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             border: none;
         }
@@ -541,14 +542,20 @@
                 flex-direction: column;
             }
             .noticia-imagen-h {
-                flex: 0 0 200px;
+                flex: 0 0 180px;
                 aspect-ratio: 16/9;
             }
             .noticia-contenido-h {
-                padding: 1.2rem;
+                padding: 1rem;
             }
             .noticia-titulo-h {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .noticia-imagen-h {
+                flex: 0 0 160px;
             }
         }
     </style>
@@ -567,7 +574,7 @@
             </div>
         </div>
 
-        <!-- NOTICIAS EN FORMATO HORIZONTAL - CADA TARJETA REDIRIGE A SU PROPIO HTML -->
+        <!-- NOTICIAS EN FORMATO HORIZONTAL - IMÁGENES MÁS PEQUEÑAS -->
         <div class="noticias-container">
             <!-- NOTICIA 1 - PRINCIPAL -> blog_birongo/blog_1.html -->
             <a href="blog_birongo/blog_1.html" class="noticia-link">
@@ -579,12 +586,12 @@
                         <span class="noticia-categoria-h">🎧 BIRONGO LIVE</span>
                         <h2 class="noticia-titulo-h">Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</h2>
                         <div class="noticia-meta-h">
-                            <span><i class="far fa-calendar"></i> 15 MARZO 2026</span>
-                            <span><i class="far fa-user"></i> Birongo</span>
-                            <span><i class="far fa-clock"></i> 5 min lectura</span>
+                            <span><i class="far fa-calendar"></i> 15 MAR 2026</span>
+                            <span><i class="far fa-user"></i> Birongo Crew</span>
+                            <span><i class="far fa-clock"></i> 5 min</span>
                         </div>
                         <div class="noticia-descripcion-h">
-                            <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora decidida a transformar el nicho de la música electrónica en Venezuela. El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego.</p>
+                            <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. El 13 de diciembre de 2025, La Quinta Bar fue el escenario de nuestra prueba de fuego. Una noche donde más de 200 personas se unieron en una experiencia sonora única.</p>
                         </div>
                         <div class="click-indicator">
                             <i class="fas fa-arrow-right"></i> <span>LEER NOTICIA COMPLETA →</span>
@@ -604,15 +611,15 @@
             <!-- NOTICIA 2 -> blog_birongo/blog_2.html -->
             <a href="blog_birongo/blog_2.html" class="noticia-link">
                 <div class="noticia-horizontal">
-                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/104/800/450">
-                        <img src="https://picsum.photos/id/104/800/450" alt="Nuevos artistas electrónicos">
+                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/104/400/250">
+                        <img src="https://picsum.photos/id/104/400/250" alt="Nuevos artistas electrónicos">
                     </div>
                     <div class="noticia-contenido-h">
                         <span class="noticia-categoria-h">✨ TALENTO FRESCO</span>
                         <h2 class="noticia-titulo-h">Nuevos artistas se suman a la familia Birongo</h2>
                         <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 22 MAR 2026</span><span><i class="far fa-user"></i> Redacción</span></div>
                         <div class="noticia-descripcion-h">
-                            <p>La escena electrónica caraqueña sigue creciendo. Cuatro nuevos DJs y productores se integran al roster de Birongo, ampliando los géneros que van desde el deep house hasta el techno industrial. Conoce sus perfiles, próximos lanzamientos y fechas de showcases exclusivos en los próximos meses.</p>
+                            <p>La escena electrónica caraqueña sigue creciendo. Cuatro nuevos DJs y productores se integran al roster de Birongo, ampliando los géneros desde el deep house hasta el techno industrial.</p>
                         </div>
                         <div class="click-indicator"><i class="fas fa-arrow-right"></i> <span>LEER NOTICIA COMPLETA →</span></div>
                         <div class="noticia-footer-h" onclick="event.stopPropagation()">
@@ -629,15 +636,15 @@
             <!-- NOTICIA 3 -> blog_birongo/blog_3.html -->
             <a href="blog_birongo/blog_3.html" class="noticia-link">
                 <div class="noticia-horizontal">
-                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/20/800/450">
-                        <img src="https://picsum.photos/id/20/800/450" alt="La Quinta Bar Caracas">
+                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/20/400/250">
+                        <img src="https://picsum.photos/id/20/400/250" alt="La Quinta Bar Caracas">
                     </div>
                     <div class="noticia-contenido-h">
                         <span class="noticia-categoria-h">🏛️ ESPACIOS ICÓNICOS</span>
                         <h2 class="noticia-titulo-h">La Quinta Bar: el epicentro underground de Caracas</h2>
                         <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 10 MAR 2026</span></div>
                         <div class="noticia-descripcion-h">
-                            <p>Con más de 15 años de historia, La Quinta Bar ha sido testigo de los mejores momentos de la noche caraqueña. Birongo eligió este lugar para su lanzamiento oficial y la conexión fue inmediata. Conoce la historia detrás del venue que marcó un antes y después en la escena electrónica local.</p>
+                            <p>Con más de 15 años de historia, La Quinta Bar ha sido testigo de los mejores momentos de la noche caraqueña. Birongo eligió este lugar para su lanzamiento oficial.</p>
                         </div>
                         <div class="click-indicator"><i class="fas fa-arrow-right"></i> <span>LEER NOTICIA COMPLETA →</span></div>
                         <div class="noticia-footer-h" onclick="event.stopPropagation()">
@@ -654,15 +661,15 @@
             <!-- NOTICIA 4 -> blog_birongo/blog_4.html -->
             <a href="blog_birongo/blog_4.html" class="noticia-link">
                 <div class="noticia-horizontal">
-                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/29/800/450">
-                        <img src="https://picsum.photos/id/29/800/450" alt="Birongo Sessions">
+                    <div class="noticia-imagen-h" data-img-src="https://picsum.photos/id/29/400/250">
+                        <img src="https://picsum.photos/id/29/400/250" alt="Birongo Sessions">
                     </div>
                     <div class="noticia-contenido-h">
                         <span class="noticia-categoria-h">🎫 PRÓXIMOS EVENTOS</span>
                         <h2 class="noticia-titulo-h">Birongo Sessions: nueva serie de eventos íntimos</h2>
                         <div class="noticia-meta-h"><span><i class="far fa-calendar"></i> 5 MAR 2026</span></div>
                         <div class="noticia-descripcion-h">
-                            <p>Para abril de 2026, Birongo lanza "Sessions", una serie de encuentros con capacidad limitada para vivir la música electrónica en su máxima expresión. Experiencias únicas, sonido de alta fidelidad y conexión real entre artistas y público. Pronto más detalles y preventa de entradas.</p>
+                            <p>Para abril de 2026, Birongo lanza "Sessions", una serie de encuentros con capacidad limitada para vivir la música electrónica en su máxima expresión.</p>
                         </div>
                         <div class="click-indicator"><i class="fas fa-arrow-right"></i> <span>LEER NOTICIA COMPLETA →</span></div>
                         <div class="noticia-footer-h" onclick="event.stopPropagation()">
@@ -687,7 +694,7 @@
         </footer>
     </div>
 
-    <!-- MODAL DE IMAGEN (para expandir imágenes al hacer clic) -->
+    <!-- MODAL DE IMAGEN -->
     <div id="imageModal" class="image-modal">
         <div class="modal-image-container">
             <button class="modal-close-img" id="closeModalBtn">&times;</button>
@@ -696,7 +703,7 @@
     </div>
 
     <script>
-        // Lightbox para expandir imágenes (al hacer clic en la imagen, no en toda la tarjeta)
+        // Lightbox para expandir imágenes
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const closeModalBtn = document.getElementById('closeModalBtn');
@@ -729,7 +736,7 @@
         closeModalBtn.addEventListener('click', closeModal);
         document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
 
-        // Funciones de compartir con URL personalizada
+        // Funciones de compartir
         function shareWhatsApp(title, urlPath) {
             const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
             const fullUrl = baseUrl + urlPath;
