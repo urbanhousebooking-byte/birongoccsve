@@ -252,115 +252,279 @@
             }
         }
 
-        /* ===== NOTICIAS / BLOG ===== */
+        /* ===== NUEVO ESTILO NOTICIAS: GRID 4x4 ===== */
         .noticias-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin: 2rem 0 4rem;
         }
 
+        @media (max-width: 1200px) {
+            .noticias-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .noticias-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .noticias-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Tarjeta de noticia estilo moderno */
         .noticia-card {
             background: #0a0a0a;
             border: 1px solid #ffffff20;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
         }
 
         .noticia-card:hover {
-            border-color: #ffffff60;
-            transform: translateX(5px);
+            border-color: #ffffff80;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -15px rgba(255,255,255,0.15);
         }
 
-        /* Imagen principal */
+        /* Imagen contenedor con cursor pointer para expandir */
         .noticia-imagen {
             width: 100%;
-            max-width: 100%;
-            margin: 0;
             aspect-ratio: 16/9;
             overflow: hidden;
             background: #1a1a1a;
+            position: relative;
+            cursor: pointer;
         }
 
         .noticia-imagen img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .noticia-card:hover .noticia-imagen img {
-            transform: scale(1.03);
+            transform: scale(1.05);
+        }
+
+        /* Overlay sutil al pasar mouse */
+        .noticia-imagen::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+        }
+
+        .noticia-imagen:hover::after {
+            opacity: 1;
         }
 
         .noticia-header {
-            padding: 1.5rem 1.5rem 0 1.5rem;
+            padding: 1rem 1rem 0.5rem 1rem;
         }
 
         .noticia-categoria {
             display: inline-block;
             background: #ffffff20;
             color: #ffffff90;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            padding: 0.2rem 0.8rem;
+            padding: 0.2rem 0.7rem;
             border-radius: 20px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
         }
 
         .noticia-titulo {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+            font-weight: 700;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         @media (max-width: 768px) {
             .noticia-titulo {
-                font-size: 1.5rem;
+                font-size: 1.1rem;
             }
         }
 
         .noticia-meta {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
             color: #ffffff60;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.6rem;
             border-bottom: 1px solid #ffffff20;
         }
 
         .noticia-meta i {
             margin-right: 0.3rem;
             color: #ffffff80;
+            font-size: 0.7rem;
         }
 
         .noticia-contenido {
-            padding: 0 1.5rem 1rem 1.5rem;
+            padding: 0 1rem 0.8rem 1rem;
+            flex: 1;
         }
 
         .noticia-contenido p {
             color: #ffffffc0;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        /* ===== TARJETA DE EVENTO MINI ===== */
+        /* Versión expandida dentro de la misma tarjeta (cuando se hace clic en imagen) */
+        .noticia-card.expanded {
+            position: relative;
+            z-index: 10;
+            transform: scale(1);
+            border-color: #ffffff80;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.8);
+        }
+
+        .noticia-card.expanded .noticia-contenido p {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        .noticia-card.expanded .noticia-titulo {
+            -webkit-line-clamp: unset;
+        }
+
+        /* Modal de imagen expandida (lightbox) */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-image-container {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            animation: modalZoom 0.3s ease;
+        }
+
+        @keyframes modalZoom {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image-container img {
+            width: auto;
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1);
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: -35px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ccc;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.6);
+            padding: 0.3rem;
+            border-radius: 20px;
+            width: fit-content;
+            margin: 0 auto;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ===== TARJETA DE EVENTO MINI (dentro de la primera noticia) ===== */
         .evento-mini {
             background: linear-gradient(145deg, #111, #0a0a0a);
             border: 1px solid #ffffff30;
-            margin: 2rem 0 1.5rem;
+            margin: 1rem 0 0.5rem;
             overflow: hidden;
             transition: all 0.4s ease;
+            border-radius: 8px;
         }
 
         .evento-mini:hover {
             border-color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(255,255,255,0.15);
         }
 
         .evento-mini-inner {
@@ -369,7 +533,7 @@
         }
 
         .evento-mini-imagen {
-            flex: 0 0 280px;
+            flex: 0 0 120px;
             position: relative;
             overflow: hidden;
             background: #000;
@@ -415,62 +579,60 @@
         }
 
         .play-overlay-mini i {
-            font-size: 4rem;
+            font-size: 2.5rem;
             color: #ff0000;
             filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
         }
 
         .evento-mini-contenido {
             flex: 1;
-            padding: 1.5rem;
+            padding: 0.8rem;
         }
 
         .evento-mini-titulo {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.3rem;
         }
 
-        @media (max-width: 600px) {
-            .evento-mini-titulo {
-                font-size: 1.2rem;
-            }
+        .evento-mini-titulo h3 {
+            font-size: 1rem;
         }
 
         .evento-mini-fecha {
             color: #ffffff80;
-            font-size: 0.85rem;
+            font-size: 0.7rem;
         }
 
         .evento-mini-lugar {
             color: #ffffff60;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.7rem;
+            margin-bottom: 0.4rem;
         }
 
         .evento-mini-desc {
             color: #ffffff90;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
         .evento-mini-artistas {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem;
         }
 
         .evento-mini-artista-tag {
             background: #ffffff10;
             color: #ffffff80;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.8rem;
+            font-size: 0.6rem;
+            padding: 0.1rem 0.5rem;
             border-radius: 20px;
             border: 1px solid #ffffff20;
         }
@@ -478,39 +640,40 @@
         .evento-mini-link {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             color: white;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             transition: gap 0.3s ease;
         }
 
         .evento-mini-link:hover {
-            gap: 0.8rem;
+            gap: 0.7rem;
         }
 
         .noticia-footer {
-            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            padding: 0.8rem 1rem 1rem 1rem;
             border-top: 1px solid #ffffff20;
             display: flex;
             justify-content: flex-end;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
+            margin-top: auto;
         }
 
         /* ===== BOTONES DE COMPARTIR ===== */
         .share-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             align-items: center;
         }
 
         .share-label {
             color: #ffffff60;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
@@ -519,14 +682,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             background: #1a1a1a;
             color: #ffffff80;
             text-decoration: none;
             transition: all 0.2s ease;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
         }
 
@@ -554,7 +717,6 @@
             color: white;
         }
 
-        /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
             display: inline-flex;
             align-items: center;
@@ -588,13 +750,6 @@
             flex-wrap: wrap;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                margin: 2rem 0 1rem;
-            }
-        }
-
-        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -651,65 +806,37 @@
             </div>
         </div>
 
-        <!-- ===== NOTICIAS ===== -->
+        <!-- ===== NOTICIAS EN GRID 4x4 (múltiples noticias de ejemplo) ===== -->
         <div class="noticias-grid">
-            <!-- NOTICIA 1 - Birongo Live Historia -->
+            <!-- NOTICIA 1 - Birongo Live Historia (principal) -->
             <div class="noticia-card" data-title="Así comienza Birongo Live" data-id="noticia1">
-                <div class="noticia-imagen">
-                    <img src="img/diario/Birongo_live_caracas_venezuela_la_quinta_bar (1).png" alt="Birongo Live en La Quinta Bar - Música electrónica Caracas" onerror="this.src='https://via.placeholder.com/1200x675/1a1a1a/666666?text=Birongo+Live'">
+                <div class="noticia-imagen" data-img-src="img/diario/Birongo_live_caracas_venezuela_la_quinta_bar (1).png" data-img-alt="Birongo Live en La Quinta Bar">
+                    <img src="img/diario/Birongo_live_caracas_venezuela_la_quinta_bar (1).png" alt="Birongo Live en La Quinta Bar - Música electrónica Caracas" onerror="this.src='https://via.placeholder.com/800x450/1a1a1a/666666?text=Birongo+Live'">
                 </div>
                 <div class="noticia-header">
                     <span class="noticia-categoria">BIRONGO LIVE</span>
-                    <h1 class="noticia-titulo">Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</h1>
+                    <h2 class="noticia-titulo">Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</h2>
                     <div class="noticia-meta">
-                        <span><i class="far fa-calendar"></i> 15 MARZO 2026</span>
-                        <span><i class="far fa-user"></i> Por: Birongo Crew</span>
+                        <span><i class="far fa-calendar"></i> 15 MAR 2026</span>
+                        <span><i class="far fa-user"></i> Birongo Crew</span>
                     </div>
                 </div>
                 <div class="noticia-contenido">
-                    <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora de entretenimiento decidida a transformar el nicho de la música electrónica en Venezuela.</p>
-                    <p>Mientras se trazaba la estructura de aquel primer encuentro, Birongo ya estaba cobrando vida. No queríamos ser solo "organizadores de eventos"; queríamos ser creadores integrales en el mercado de la música electrónica. Aprovechando la visión creativa de Heresicka, el equipo comenzó a producir videosets y fotografías que capturaran la esencia de lo que estaba por venir. Estábamos construyendo relaciones, no solo contratos.</p>
-                    <p>Emprender en Venezuela siempre tiene su dosis de adrenalina. Como cualquier productora primeriza, nos topamos con obstáculos logísticos y técnicos, pero la respuesta de la escena fue inmediata: la movida nos abrió los brazos. Ese apoyo fue el combustible necesario para transformar la incertidumbre en un proyecto con este potencial.</p>
-                    <p>El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego. Bajo el nombre de Birongo Live, logramos algo que muchos consideraban arriesgado: una noche integral.</p>
-                    <p>No nos encasillamos. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde más de 200 personas de diferentes nichos se unieron bajo un mismo techo.</p>
-                    <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: ayudar a consolidar la movida electrónica en Caracas en todas sus formas.</p>
-
-                    <!-- ===== EVENTO MINI (TARJETA DEL EVENTO) ===== -->
+                    <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: SirDiamnd y Heresicka. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora.</p>
+                    <p>El 13 de diciembre de 2025, la mítica La Quinta Bar en Las Mercedes fue el escenario de nuestra prueba de fuego. Una noche integral donde más de 200 personas se unieron bajo un mismo techo.</p>
                     <div class="evento-mini">
                         <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" style="text-decoration: none; color: inherit;">
                             <div class="evento-mini-inner">
                                 <div class="evento-mini-imagen">
-                                    <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
-                                         alt="Birongo Live @ La Quinta Bar - Video Resumen"
-                                         onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
-                                    <div class="play-overlay-mini">
-                                        <i class="fab fa-youtube"></i>
-                                    </div>
+                                    <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" alt="Video Resumen" onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
+                                    <div class="play-overlay-mini"><i class="fab fa-youtube"></i></div>
                                 </div>
                                 <div class="evento-mini-contenido">
-                                    <div class="evento-mini-titulo">
-                                        <h3>BIRONGO LIVE</h3>
-                                        <span class="evento-mini-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
-                                    </div>
-                                    <div class="evento-mini-lugar">
-                                        <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
-                                    </div>
-                                    <p class="evento-mini-desc">
-                                        From 100 to 200 bpm: La diferencia está como tú te muevas. 
-                                        Una noche histórica de la electrónica caraqueña en La Quinta Bar.
-                                    </p>
-                                    <div class="evento-mini-artistas">
-                                        <span class="evento-mini-artista-tag">DESTROXTREBOLL</span>
-                                        <span class="evento-mini-artista-tag">GERALD VALERA</span>
-                                        <span class="evento-mini-artista-tag">HERESICKA</span>
-                                        <span class="evento-mini-artista-tag">MORET</span>
-                                        <span class="evento-mini-artista-tag">SIRDIAMND</span>
-                                        <span class="evento-mini-artista-tag">DE LA TRINIDAD</span>
-                                        <span class="evento-mini-artista-tag">DORKAS</span>
-                                    </div>
-                                    <div class="evento-mini-link">
-                                        VER VIDEO COMPLETO <i class="fas fa-arrow-right"></i>
-                                    </div>
+                                    <div class="evento-mini-titulo"><h3>BIRONGO LIVE</h3><span class="evento-mini-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span></div>
+                                    <div class="evento-mini-lugar"><i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas</div>
+                                    <p class="evento-mini-desc">From 100 to 200 bpm: La diferencia está como tú te muevas.</p>
+                                    <div class="evento-mini-artistas"><span class="evento-mini-artista-tag">DESTROXTREBOLL</span><span class="evento-mini-artista-tag">GERALD VALERA</span><span class="evento-mini-artista-tag">HERESICKA</span><span class="evento-mini-artista-tag">MORET</span><span class="evento-mini-artista-tag">SIRDIAMND</span></div>
+                                    <div class="evento-mini-link">VER VIDEO <i class="fas fa-arrow-right"></i></div>
                                 </div>
                             </div>
                         </a>
@@ -718,78 +845,116 @@
                 <div class="noticia-footer">
                     <div class="share-buttons">
                         <span class="share-label">COMPARTIR</span>
-                        <a href="#" class="share-icon instagram" onclick="shareToInstagramStory('Así comienza Birongo Live', 'https://birongo.live/diario.html')"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="share-icon instagram" onclick="shareToInstagramStory('Así comienza Birongo Live', window.location.href)"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="share-icon whatsapp" onclick="shareToWhatsAppApp('Así comienza Birongo Live')"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" class="share-icon twitter" onclick="shareToTwitterApp('Así comienza Birongo Live')"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="share-icon facebook" onclick="shareToFacebookApp()"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
+
+            <!-- NOTICIA 2 - Nuevos artistas se unen a Birongo -->
+            <div class="noticia-card">
+                <div class="noticia-imagen" data-img-src="https://picsum.photos/id/104/800/450" data-img-alt="Nuevos artistas electrónicos">
+                    <img src="https://picsum.photos/id/104/800/450" alt="Nuevos talentos en Birongo">
+                </div>
+                <div class="noticia-header">
+                    <span class="noticia-categoria">TALENTO</span>
+                    <h2 class="noticia-titulo">Nuevos artistas se suman a la familia Birongo</h2>
+                    <div class="noticia-meta"><span><i class="far fa-calendar"></i> 22 MAR 2026</span><span><i class="far fa-user"></i> Redacción</span></div>
+                </div>
+                <div class="noticia-contenido"><p>La escena electrónica caraqueña sigue creciendo. Cuatro nuevos DJs y productores se integran al roster de Birongo, ampliando los géneros que van desde el deep house hasta el techno industrial. Próximamente fechas y showcases.</p></div>
+                <div class="noticia-footer"><div class="share-buttons"><span class="share-label">COMPARTIR</span><a href="#" class="share-icon whatsapp" onclick="shareToWhatsAppApp('Nuevos artistas se suman a Birongo')"><i class="fab fa-whatsapp"></i></a><a href="#" class="share-icon twitter" onclick="shareToTwitterApp('Nuevos artistas se suman a Birongo')"><i class="fab fa-twitter"></i></a></div></div>
+            </div>
 
         <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
         <div class="nav-links">
-            <a href="index.html" class="btn-tactile">
-                <i class="fas fa-arrow-left"></i> VOLVER AL INICIO
-            </a>
+            <a href="index.html" class="btn-tactile"><i class="fas fa-arrow-left"></i> VOLVER AL INICIO</a>
         </div>
 
         <!-- ===== FOOTER ===== -->
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
-            <div class="footer-tagline">
-                <i class="fas fa-headphones-alt"></i>
-                <span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
-                <i class="fas fa-sliders-h"></i>
-            </div>
+            <div class="footer-tagline"><i class="fas fa-headphones-alt"></i><span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span><i class="fas fa-sliders-h"></i></div>
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- Modal de imagen expandida -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-image-container">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <img id="modalImage" src="" alt="Imagen expandida">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
     <script>
-        // Compartir en Instagram Stories
-        function shareToInstagramStory(title, url) {
-            window.location.href = `instagram://story?text=${encodeURIComponent(title + '\n\n' + url)}`;
-            setTimeout(() => {
-                window.open('https://www.instagram.com/birongoccs/', '_blank');
-            }, 500);
+        // ===== EXPANDIR IMAGEN AL HACER CLIC (Lightbox sin otros HTML) =====
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal(imgSrc, imgAlt) {
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt || 'Imagen Birongo';
+            modalCaption.textContent = imgAlt || 'Birongo Live';
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        // Compartir en WhatsApp
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Asignar evento click a todas las imágenes con clase .noticia-imagen
+        document.querySelectorAll('.noticia-imagen').forEach(imgContainer => {
+            imgContainer.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const img = imgContainer.querySelector('img');
+                if (img && img.src) {
+                    const imgSrc = img.getAttribute('src') || img.src;
+                    const imgAlt = img.getAttribute('alt') || 'Birongo noticia';
+                    openModal(imgSrc, imgAlt);
+                } else {
+                    const dataSrc = imgContainer.getAttribute('data-img-src');
+                    if(dataSrc) openModal(dataSrc, imgContainer.getAttribute('data-img-alt') || 'Imagen');
+                }
+            });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+        closeModalBtn.addEventListener('click', closeModal);
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+
+        // Funciones de compartir (igual que antes)
+        function shareToInstagramStory(title, url) {
+            window.location.href = `instagram://story?text=${encodeURIComponent(title + '\n\n' + url)}`;
+            setTimeout(() => { window.open('https://www.instagram.com/birongoccs/', '_blank'); }, 500);
+        }
         function shareToWhatsAppApp(title) {
             const url = window.location.href;
             const message = encodeURIComponent(`🎵 *BIRONGO · DIARIO* 🎵\n\n${title}\n\nLee más aquí: ${url}\n\n#Birongo #MúsicaElectrónica #Caracas`);
             window.location.href = `whatsapp://send?text=${message}`;
-            setTimeout(() => {
-                window.open(`https://wa.me/?text=${message}`, '_blank');
-            }, 500);
+            setTimeout(() => { window.open(`https://wa.me/?text=${message}`, '_blank'); }, 500);
         }
-
-        // Compartir en Twitter
         function shareToTwitterApp(title) {
             const url = window.location.href;
             const message = encodeURIComponent(`🎵 ${title}\n\nLee más en Birongo: ${url}\n\n#Birongo #MúsicaElectrónica #Caracas #Techno`);
             window.location.href = `twitter://post?message=${message}`;
-            setTimeout(() => {
-                window.open(`https://twitter.com/intent/tweet?text=${message}`, '_blank');
-            }, 500);
+            setTimeout(() => { window.open(`https://twitter.com/intent/tweet?text=${message}`, '_blank'); }, 500);
         }
-
-        // Compartir en Facebook
         function shareToFacebookApp() {
             const url = window.location.href;
             window.location.href = `fb://share/?link=${encodeURIComponent(url)}`;
-            setTimeout(() => {
-                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-            }, 500);
+            setTimeout(() => { window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank'); }, 500);
         }
-
-        // Seguridad para enlaces externos
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="http"]:not([onclick])').forEach(link => {
-                link.setAttribute('rel', 'noopener noreferrer');
-            });
-        });
+        document.querySelectorAll('a[href^="http"]:not([onclick])').forEach(link => link.setAttribute('rel', 'noopener noreferrer'));
     </script>
 </body>
 </html>
