@@ -46,9 +46,6 @@
             color: #ffffff;
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         body::before {
@@ -184,9 +181,8 @@
             position: relative;
             border-radius: 24px;
             overflow: hidden;
-            cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -207,51 +203,55 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
-            padding: 2rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+            padding: 2.5rem;
             text-align: center;
         }
 
         .preventa-banner-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-family: 'Space Grotesk', sans-serif;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            background: linear-gradient(135deg, #fff, #ffd966);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .preventa-banner-subtitle {
-            font-size: 1rem;
-            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.9);
             letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .preventa-cta-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            background: linear-gradient(135deg, #ffd966 0%, #ffcc33 100%);
             color: #000000;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2.8rem;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(255,215,0,0.3);
         }
 
         .preventa-cta-btn:hover {
             transform: scale(1.05);
-            background: linear-gradient(135deg, #ffd966 0%, #ffcc33 100%);
+            background: linear-gradient(135deg, #ffcc33 0%, #ffb700 100%);
             color: #000000;
-            box-shadow: 0 0 25px rgba(255,215,0,0.5);
+            box-shadow: 0 0 30px rgba(255,215,0,0.6);
         }
 
         .preventa-cta-btn i {
@@ -260,18 +260,19 @@
 
         @media (max-width: 768px) {
             .preventa-banner-overlay {
-                padding: 1.2rem;
+                padding: 1.5rem;
             }
             .preventa-banner-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+                letter-spacing: 0.08em;
             }
             .preventa-banner-subtitle {
-                font-size: 0.75rem;
-                margin-bottom: 1rem;
+                font-size: 0.85rem;
+                margin-bottom: 1.2rem;
             }
             .preventa-cta-btn {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.75rem;
+                padding: 0.7rem 1.8rem;
+                font-size: 0.85rem;
             }
         }
 
@@ -282,6 +283,7 @@
             .preventa-banner-title {
                 font-size: 1.2rem;
                 letter-spacing: 0.05em;
+                margin-bottom: 0.4rem;
             }
             .preventa-banner-subtitle {
                 font-size: 0.65rem;
@@ -315,14 +317,25 @@
 
         .event-info {
             text-align: center;
-            margin-bottom: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .event-info p {
+            margin: 0.5rem 0;
         }
 
         .event-date {
             color: #ffd966;
             font-size: 1rem;
-            margin-top: 0.5rem;
             letter-spacing: 0.05em;
+        }
+
+        .event-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffd966;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
@@ -341,8 +354,8 @@
         </div>
 
         <!-- BANNER DE PREVENTAS CON BOTÓN -->
-        <div class="preventa-banner" id="preventaBanner">
-            <img src="https://placehold.co/1200x500/1a1a2e/ffd966?text=BIRONGO+LIVE+2.0" alt="Preventa Birongo Live 2.0" class="preventa-banner-image">
+        <div class="preventa-banner">
+            <img src="eventos/FLYER_BIRONGO_2-0_1_1.png" alt="Preventa Birongo Live 2.0" class="preventa-banner-image">
             <div class="preventa-banner-overlay">
                 <h2 class="preventa-banner-title">✦ PREVENTA - BIRONGO 2.0 ✦</h2>
                 <p class="preventa-banner-subtitle">Asegura tu entrada antes de que se agoten</p>
@@ -350,7 +363,7 @@
                    class="preventa-cta-btn" 
                    target="_blank" 
                    rel="noopener noreferrer">
-                    <i class=""></i> COMPRAR AHORA
+                    <i class="fas fa-ticket-alt"></i> COMPRAR AHORA
                 </a>
             </div>
         </div>
@@ -358,7 +371,7 @@
         <div class="event-info">
             <p><i class="fas fa-map-marker-alt"></i> La Quinta Bar · Caracas, Venezuela</p>
             <p class="event-date"><i class="far fa-calendar"></i> Sábado 18 de Abril · 11:00 PM</p>
-            <p style="color: #ffd966; margin-top: 0.5rem; font-size: 0.9rem;"></p>
+            <p class="event-price">🎫 $5 USD + tasa BCV</p>
         </div>
 
         <footer>
