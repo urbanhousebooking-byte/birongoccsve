@@ -58,6 +58,9 @@
 
     <!-- FAVICON -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+    
+    <!-- FAVICON PNG FALLBACK -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
     <!-- Cronitor RUM -->
     <script async src="https://rum.cronitor.io/script.js"></script>
@@ -67,6 +70,7 @@
     </script>
 
     <style>
+        /* ===== RESET & BASE - MISMO QUE EL INDEX ===== */
         * {
             margin: 0;
             padding: 0;
@@ -95,7 +99,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 1rem;
         }
@@ -111,7 +115,7 @@
             font-weight: 700;
         }
 
-        /* HEADER */
+        /* ===== HEADER ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
@@ -121,8 +125,8 @@
 
         @media (min-width: 768px) {
             .hero {
-                margin-bottom: 3rem;
-                padding: 2rem 0;
+                margin-bottom: 4rem;
+                padding: 3rem 0;
             }
         }
 
@@ -135,29 +139,37 @@
 
         @media (min-width: 768px) {
             .logo-image {
+                max-width: 60%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-image {
                 max-width: 50%;
             }
         }
 
-        /* MENÚ */
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin: 1rem 0 2rem;
             flex-wrap: wrap;
+            padding: 0.5rem 0;
         }
 
         .nav-item {
             color: #ffffff80;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             padding: 0.5rem 0;
             position: relative;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-item::after {
@@ -190,14 +202,35 @@
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
+                padding: 0.3rem 0;
             }
+            
             .nav-item {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 letter-spacing: 0.12em;
+                padding: 0.4rem 0;
             }
         }
 
-        /* BOTÓN RETROCESO */
+        @media (max-width: 600px) {
+            .nav-menu {
+                gap: 0.7rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item {
+                font-size: 0.7rem;
+                letter-spacing: 0.08em;
+                padding: 0.3rem 0.2rem;
+                white-space: normal;
+                text-align: center;
+                min-width: 65px;
+            }
+        }
+
+        /* ===== BOTÓN RETROCESO ===== */
         .back-button {
             display: inline-flex;
             align-items: center;
@@ -223,7 +256,14 @@
             gap: 0.8rem;
         }
 
-        /* TARJETA DE ARTISTA */
+        @media (max-width: 600px) {
+            .back-button {
+                font-size: 0.7rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* ===== TARJETA DE ARTISTA ===== */
         .artist-card {
             background: #0a0a0a;
             border: 1px solid #ffffff20;
@@ -317,7 +357,6 @@
             line-height: 1.6;
         }
 
-        /* Versión completa para pantallas grandes */
         .description-full {
             display: block;
         }
@@ -326,7 +365,6 @@
             display: none;
         }
 
-        /* Botón "Leer más" para móviles */
         .read-more-btn {
             display: none;
             background: transparent;
@@ -401,7 +439,14 @@
             font-size: 1.1rem;
         }
 
-        /* SECCIÓN DE MÚSICA */
+        @media (max-width: 600px) {
+            .social-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* ===== SECCIÓN DE MÚSICA ===== */
         .music-section {
             background: #0a0a0a;
             border: 1px solid #ffffff20;
@@ -535,36 +580,45 @@
             }
         }
 
-        /* BOTONES TÁCTILES */
+        /* ===== BOTONES TÁCTILES ===== */
         .btn-tactile {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            padding: 0.8rem 1.8rem;
+            padding: 1rem 2rem;
             border: 2px solid #fff;
             background: transparent;
             color: white;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: all 0.2s ease;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            white-space: nowrap;
         }
 
         .btn-tactile:active {
             transform: scale(0.97);
             background: white;
             color: black;
+            box-shadow: 0 2px 4px rgba(255,255,255,0.2);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .btn-tactile {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.7rem;
+                width: 100%;
+                max-width: 280px;
+                padding: 1rem 1.5rem;
+                font-size: 0.85rem;
                 letter-spacing: 0.15em;
+                white-space: normal;
+                text-align: center;
+                display: inline-flex;
             }
         }
 
@@ -576,7 +630,7 @@
             margin-top: 2rem;
         }
 
-        /* FOOTER */
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
             margin-top: 3rem;
@@ -584,6 +638,17 @@
             border-top: 1px solid #ffffff20;
             color: #ffffff40;
             font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
         }
 
         .footer-tagline {
@@ -595,18 +660,19 @@
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        @media (max-width: 768px) {
-            .footer-tagline {
-                font-size: 0.6rem;
-            }
+        .footer-tagline i {
+            color: #ffffff60;
+            font-size: 0.6rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
+        <!-- HEADER - MISMO QUE EL INDEX -->
         <div class="hero">
             <img src="../img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
             
@@ -643,17 +709,13 @@
                 
                 <!-- DESCRIPCIÓN COMPLETA (para PC y tablets) -->
                 <div class="artist-description description-full" id="fullDescription">
-                    <!-- ESPACIO PARA LA BIOGRAFÍA COMPLETA DE MORET -->
-                    <!-- Aquí puedes agregar la biografía detallada del artista -->
                     <p>Con poco más de un año de trayectoria, Sebastián ha logrado posicionarse rápidamente en la escena electrónica venezolana, presentándose en plataformas de renombre como Licuadora Alternativa y Techno Veneko. A sus 25 años, el DJ y productor busca romper los esquemas tradicionales del país, utilizando su experiencia previa como fotógrafo en las noches caraqueñas y su paso por el colectivo BROZ para construir una reputación que lo ha llevado a pinchar en locales emblemáticos como 360, Edén y TechRaza.</p>
                     <br>
-                    <p>Aunque sus inicios estuvieron marcados por las melodías del Melodic House e influencias de referentes como Hernán Cattaneo, su visión artística ha evolucionado hacia una propuesta más enérgica. Bajo su faceta como productor, LPZ ahora fusiona sonidos hipnóticos y profundos con el groove de las altas velocidades, estableciéndose como uno de los pioneros en traer este estilo europeo a Venezuela con el objetivo de revitalizar la música Hard durante el 2026.</p>
+                    <p>Aunque sus inicios estuvieron marcados por las melodías del Melodic House e influencias de referentes como Hernán Cattaneo, su visión artística ha evolucionado hacia una propuesta más enérgica. Bajo su faceta como productor, Moret ahora fusiona sonidos hipnóticos y profundos con el groove de las altas velocidades, estableciéndose como uno de los pioneros en traer este estilo europeo a Venezuela con el objetivo de revitalizar la música Hard durante el 2026.</p>
                 </div>
                 
                 <!-- DESCRIPCIÓN RESUMIDA (para móviles) -->
                 <div class="artist-description description-short" id="shortDescription">
-                    <!-- ESPACIO PARA LA BIOGRAFÍA RESUMIDA DE MORET -->
-                    <!-- Aquí puedes agregar un resumen con los aspectos más destacados -->
                     <p>Con poco más de un año de trayectoria, Sebastián ha logrado posicionarse rápidamente en la escena electrónica venezolana, presentándose en plataformas de renombre como Licuadora Alternativa y Techno Veneko. A sus 25 años, el DJ y productor busca romper los esquemas tradicionales del país, utilizando su experiencia previa como fotógrafo en las noches caraqueñas y su paso por el colectivo BROZ para construir una reputación que lo ha llevado a pinchar en locales emblemáticos como 360, Edén y TechRaza...</p>
                 </div>
                 
@@ -717,7 +779,6 @@
         // Función para alternar entre descripción corta y completa en móviles
         let expanded = false;
         
-        // Variables para almacenar las descripciones que agregarás
         const fullDescription = document.getElementById('fullDescription')?.innerHTML || '<p><em>Biografía de MORET pendiente de agregar. Este espacio está reservado para la descripción completa de su carrera, trayectoria y logros en la música electrónica.</em></p>';
         const shortDescription = document.getElementById('shortDescription')?.innerHTML || '<p><em>Biografía resumida de MORET pendiente de agregar. Este espacio está reservado para la versión corta de su perfil.</em></p>';
         
