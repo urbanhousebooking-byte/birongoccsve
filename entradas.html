@@ -176,108 +176,186 @@
             }
         }
 
-        /* ===== BANNER DE PREVENTAS - ELEGANTE Y SIN ANIMACIONES ===== */
-        .preventa-banner {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            max-width: 850px;
+        /* ===== TARJETA HORIZONTAL ===== */
+        .ticket-card {
+            display: flex;
+            max-width: 900px;
             margin: 0 auto;
+            background: linear-gradient(145deg, #111111, #0a0a0a);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .preventa-banner-image {
+        .card-image {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-image img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        .preventa-banner-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 70%, transparent 100%);
+        .card-content {
+            flex: 1;
             padding: 2rem;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .preventa-banner-title {
-            font-size: 2rem;
-            font-weight: 600;
+        .preventa-badge {
+            display: inline-block;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.6rem;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #ffffff;
+            letter-spacing: 0.2em;
+            color: #ffd966;
+            margin-bottom: 1rem;
             font-weight: 500;
         }
 
-        .preventa-banner-subtitle {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.7);
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 1.2rem;
-            font-weight: 300;
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #ffffff;
         }
 
-        .preventa-cta-btn {
-            display: inline-block;
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .event-details {
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .detail-item i {
+            width: 20px;
+            color: #ffd966;
+            font-size: 0.9rem;
+        }
+
+        .price-info {
+            margin: 1rem 0 1.5rem;
+            padding: 0.8rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .price-usd {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd966;
+            letter-spacing: -0.02em;
+        }
+
+        .price-usd small {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .price-bs {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.2rem;
+        }
+
+        .btn-comprar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
             background: #ffffff;
             color: #000000;
-            padding: 0.8rem 2.2rem;
-            border-radius: 40px;
-            font-weight: 600;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             font-size: 0.85rem;
             text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.2);
             font-family: 'Inter', sans-serif;
+            border: none;
+            width: fit-content;
             transition: none;
         }
 
-        .preventa-cta-btn i {
-            margin-right: 0.5rem;
+        .btn-comprar i {
+            font-size: 1rem;
         }
 
         @media (max-width: 768px) {
-            .preventa-banner {
-                max-width: 95%;
+            .ticket-card {
+                flex-direction: column;
+                max-width: 450px;
+                margin: 0 auto;
             }
-            .preventa-banner-overlay {
-                padding: 1.2rem;
+            
+            .card-image {
+                max-height: 250px;
             }
-            .preventa-banner-title {
-                font-size: 1.3rem;
-                letter-spacing: 0.1em;
+            
+            .card-image img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
             }
-            .preventa-banner-subtitle {
-                font-size: 0.7rem;
-                margin-bottom: 0.8rem;
+            
+            .card-content {
+                padding: 1.5rem;
             }
-            .preventa-cta-btn {
-                padding: 0.5rem 1.5rem;
-                font-size: 0.7rem;
+            
+            .card-title {
+                font-size: 1.4rem;
+            }
+            
+            .price-usd {
+                font-size: 1.6rem;
+            }
+            
+            .btn-comprar {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.75rem;
+                width: 100%;
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            .preventa-banner-overlay {
-                padding: 0.8rem;
+            .card-content {
+                padding: 1.2rem;
             }
-            .preventa-banner-title {
-                font-size: 1rem;
-                letter-spacing: 0.08em;
-                margin-bottom: 0.3rem;
+            
+            .card-title {
+                font-size: 1.2rem;
             }
-            .preventa-banner-subtitle {
-                font-size: 0.6rem;
-                margin-bottom: 0.6rem;
+            
+            .detail-item {
+                font-size: 0.75rem;
             }
-            .preventa-cta-btn {
-                padding: 0.4rem 1rem;
-                font-size: 0.6rem;
+            
+            .price-usd {
+                font-size: 1.4rem;
             }
         }
 
@@ -300,30 +378,6 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
-
-        .event-info {
-            text-align: center;
-            margin: 1.5rem auto;
-            max-width: 500px;
-        }
-
-        .event-info p {
-            margin: 0.4rem 0;
-            font-size: 0.9rem;
-        }
-
-        .event-date {
-            color: #ffd966;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-
-        .event-price {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #ffd966;
-            margin-top: 0.4rem;
-        }
     </style>
 </head>
 <body>
@@ -340,25 +394,47 @@
             </div>
         </div>
 
-        <!-- BANNER DE PREVENTAS CON BOTÓN BLANCO -->
-        <div class="preventa-banner">
-            <img src="eventos/FLYER_BIRONGO_2-0_1_1.png" alt="Preventa Birongo Live 2.0" class="preventa-banner-image">
-            <div class="preventa-banner-overlay">
-                <h2 class="preventa-banner-title">✦ PREVENTA - BIRONGO 2.0 ✦</h2>
-                <p class="preventa-banner-subtitle">Asegura tu entrada antes de que se agoten</p>
+        <!-- TARJETA HORIZONTAL: IMAGEN IZQUIERDA | CONTENIDO DERECHA -->
+        <div class="ticket-card">
+            <div class="card-image">
+                <img src="eventos/FLYER_BIRONGO_2-0_1_1.png" alt="Birongo Live 2.0">
+            </div>
+            <div class="card-content">
+                <span class="preventa-badge">✦ PREVENTA EXCLUSIVA ✦</span>
+                <h2 class="card-title">BIRONGO LIVE 2.0</h2>
+                <p class="card-subtitle">La experiencia de música electrónica más esperada del año</p>
+                
+                <div class="event-details">
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>La Quinta Bar · Caracas, Venezuela</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="far fa-calendar"></i>
+                        <span>Sábado 18 de Abril · 11:00 PM</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-music"></i>
+                        <span>Música Electrónica · Sonido Profesional</span>
+                    </div>
+                </div>
+                
+                <div class="price-info">
+                    <div class="price-usd">
+                       <small>/ por entrada</small>
+                    </div>
+                    <div class="price-bs">
+
+                    </div>
+                </div>
+                
                 <a href="https://ticketplate.com/checkout/birongo-live-202604182300" 
-                   class="preventa-cta-btn" 
+                   class="btn-comprar" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     <i class="fas fa-ticket-alt"></i> COMPRAR AHORA
                 </a>
             </div>
-        </div>
-
-        <div class="event-info">
-            <p><i class="fas fa-map-marker-alt"></i> La Quinta Bar · Caracas, Venezuela</p>
-            <p class="event-date"><i class="far fa-calendar"></i> Sábado 18 de Abril · 11:00 PM</p>
-            <p class="event-price">🎫 $5 USD + tasa BCV</p>
         </div>
 
         <footer>
