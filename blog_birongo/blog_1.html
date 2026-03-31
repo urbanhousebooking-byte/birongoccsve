@@ -1,1 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Birongo Live: Así comenzó la experiencia electrónica en Caracas | Birongo</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Descubre cómo nació Birongo Live, la productora de música electrónica en Caracas. Historia completa del primer evento en La Quinta Bar, con SirDiamnd, Heresicka y más artistas.">
+    <meta name="keywords" content="Birongo, música electrónica Caracas, La Quinta Bar, SirDiamnd, Heresicka, techno, house, evento electrónico Venezuela">
+    <meta name="author" content="Birongo Crew">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Birongo Live: Así comenzó la experiencia electrónica en Caracas">
+    <meta property="og:description" content="Todo gran proyecto tiene un punto de partida. Conoce la historia completa del primer evento de Birongo en La Quinta Bar.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://birongo.live/blog_birongo/blog_1.html">
+    <meta property="og:image" content="https://birongo.live/img_diario/Birongo_live_caracas_venezuela_la_quinta_bar.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_VE">
+    <meta property="og:site_name" content="Birongo">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Birongo Live: Así comenzó la experiencia electrónica en Caracas">
+    <meta name="twitter:description" content="La historia completa del primer evento de Birongo en La Quinta Bar. Una noche que marcó el inicio de una nueva era para la electrónica caraqueña.">
+    <meta name="twitter:image" content="https://birongo.live/img_diario/Birongo_live_caracas_venezuela_la_quinta_bar.png">
+    
+    <!-- FONTS & ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            background: #000000;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                margin-bottom: 3rem;
+                padding: 2rem 0;
+            }
+        }
+
+        .logo-image {
+            max-width: 70%;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .logo-image {
+                max-width: 50%;
+            }
+        }
+
+        /* Menú de navegación */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        .nav-item:hover {
+            color: white;
+        }
+
+        .nav-item:hover::after {
+            width: 100%;
+        }
+
+        .nav-item.active {
+            color: white;
+        }
+
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .nav-item {
+                font-size: 0.7rem;
+                letter-spacing: 0.15em;
+            }
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-bottom: 2rem;
+            font-size: 0.8rem;
+            color: #ffffff60;
+        }
+        .breadcrumb a {
+            color: #ffffff80;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumb a:hover {
+            color: white;
+        }
+        .breadcrumb i {
+            margin: 0 0.5rem;
+            font-size: 0.7rem;
+        }
+
+        /* Artículo principal */
+        .article-header {
+            margin-bottom: 2rem;
+        }
+        .article-categoria {
+            display: inline-block;
+            background: #ffffff20;
+            color: #ffffff90;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+        }
+        .article-titulo {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .article-titulo {
+                font-size: 1.8rem;
+            }
+        }
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: #ffffff70;
+            font-size: 0.85rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ffffff20;
+            margin-bottom: 1.5rem;
+        }
+        .article-meta i {
+            margin-right: 0.3rem;
+        }
+
+        /* Imagen destacada */
+        .featured-image {
+            margin: 1.5rem 0 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #ffffff30;
+            transition: transform 0.3s ease, border-color 0.3s;
+        }
+        .featured-image:hover {
+            border-color: #ffffff80;
+            transform: scale(1.01);
+        }
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #ffffff60;
+            padding: 0.5rem;
+            background: #0a0a0a;
+        }
+
+        /* Contenido del artículo */
+        .article-content {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #ffffffdd;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: white;
+        }
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            color: white;
+        }
+        .article-content blockquote {
+            border-left: 4px solid #ffffff60;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #ffffffb0;
+        }
+
+        /* Tarjeta de evento integrada */
+        .evento-card-grande {
+            background: linear-gradient(145deg, #111, #080808);
+            border: 1px solid #ffffff30;
+            border-radius: 20px;
+            margin: 2rem 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .evento-card-grande:hover {
+            border-color: #ff3366;
+            transform: translateY(-5px);
+            box-shadow: 0 25px 40px -15px rgba(255,51,102,0.2);
+        }
+        .evento-card-inner {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .evento-card-imagen {
+            flex: 0 0 280px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+        @media (max-width: 768px) {
+            .evento-card-imagen {
+                flex: 0 0 100%;
+                aspect-ratio: 16/9;
+            }
+        }
+        .evento-card-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .evento-card-grande:hover .evento-card-imagen img {
+            transform: scale(1.05);
+        }
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .evento-card-grande:hover .play-overlay {
+            opacity: 1;
+        }
+        .play-overlay i {
+            font-size: 4rem;
+            color: #ff3366;
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+        }
+        .evento-card-contenido {
+            flex: 1;
+            padding: 1.5rem;
+        }
+        .evento-card-titulo {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .evento-card-fecha {
+            color: #ff3366;
+            font-size: 0.8rem;
+        }
+        .evento-card-artistas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.8rem 0;
+        }
+        .artista-tag {
+            background: #ffffff15;
+            color: #ffffffb0;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid #ffffff30;
+        }
+        .btn-video {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #ff3366;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+        .btn-video:hover {
+            background: white;
+            color: #ff3366;
+            gap: 0.9rem;
+        }
+
+        /* Galería de imágenes */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 600px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #ffffff20;
+            transition: all 0.3s;
+        }
+        .gallery-item:hover {
+            border-color: #ffffff80;
+            transform: scale(1.02);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Compartir y etiquetas */
+        .share-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid #ffffff20;
+            border-bottom: 1px solid #ffffff20;
+        }
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #ffffff10;
+            color: #ffffff80;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+        .tag:hover {
+            background: #ffffff30;
+            color: white;
+        }
+        .share-buttons-large {
+            display: flex;
+            gap: 0.8rem;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+        .share-btn:hover {
+            transform: translateY(-2px);
+        }
+        .share-btn.whatsapp:hover { background: #25D366; }
+        .share-btn.twitter:hover { background: #1DA1F2; }
+        .share-btn.facebook:hover { background: #1877F2; }
+
+        /* Noticias relacionadas */
+        .related-news {
+            margin: 3rem 0;
+        }
+        .related-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffffff30;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .related-card {
+            background: #0a0a0a;
+            border: 1px solid #ffffff20;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+        .related-card:hover {
+            border-color: #ffffff80;
+            transform: translateY(-4px);
+        }
+        .related-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+        .related-card-content {
+            padding: 1rem;
+        }
+        .related-card-category {
+            font-size: 0.65rem;
+            color: #ffffff70;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .related-card-title {
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+            font-weight: 600;
+        }
+
+        /* Botón volver */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            margin: 2rem 0;
+        }
+        .back-button:hover {
+            background: white;
+            color: black;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+        .footer-tagline {
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Modal de imagen */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-img-container {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="hero">
+            <img src="../img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-item">INICIO</a>
+                <a href="../djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
+                <a href="../diario.html" class="nav-item active">DIARIO</a>
+                <a href="../eventos.html" class="nav-item">EVENTOS</a>
+                <a href="../entradas.html" class="nav-item">ENTRADAS</a>
+                <a href="../contacto.html" class="nav-item">CONTACTO</a>
+            </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="../diario.html">DIARIO</a> <i class="fas fa-chevron-right"></i> 
+            <span>Así comienza Birongo Live</span>
+        </div>
+
+        <!-- Artículo principal -->
+        <article>
+            <div class="article-header">
+                <span class="article-categoria">🎧 BIRONGO LIVE · LANZAMIENTO</span>
+                <h1 class="article-titulo">Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</h1>
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> 15 MARZO 2026</span>
+                    <span><i class="far fa-user"></i> Por: Birongo Crew</span>
+                    <span><i class="far fa-clock"></i> 6 min lectura</span>
+                    <span><i class="fas fa-tag"></i> Historia · La Quinta Bar</span>
+                </div>
+            </div>
+
+            <!-- Imagen destacada (clickeable) -->
+            <div class="featured-image" onclick="openModal('../img_diario/Birongo_live_caracas_venezuela_la_quinta_bar.png')">
+                <img src="../img_diario/Birongo_live_caracas_venezuela_la_quinta_bar.png" alt="Birongo Live en La Quinta Bar - Música electrónica Caracas">
+                <div class="image-caption">📸 La Quinta Bar, Las Mercedes - 13 de diciembre 2025</div>
+            </div>
+
+            <div class="article-content">
+                <p>Todo gran proyecto tiene un punto de partida, y para Birongo, ese momento tiene nombres propios: <strong>SirDiamnd y Heresicka</strong>. Lo que comenzó como una oportunidad para organizar un evento en la capital, terminó convirtiéndose en la piedra angular de una nueva productora de entretenimiento decidida a transformar el nicho de la música electrónica en Venezuela.</p>
+
+                <p>Mientras se trazaba la estructura de aquel primer encuentro, Birongo ya estaba cobrando vida. No queríamos ser solo "organizadores de eventos"; queríamos ser <strong>creadores integrales en el mercado de la música electrónica</strong>. Aprovechando la visión creativa de Heresicka, el equipo comenzó a producir videosets y fotografías que capturaran la esencia de lo que estaba por venir. Estábamos construyendo relaciones, no solo contratos.</p>
+
+                <h2>El desafío de emprender en Venezuela</h2>
+                <p>Emprender en Venezuela siempre tiene su dosis de adrenalina. Como cualquier productora primeriza, nos topamos con obstáculos logísticos y técnicos, pero la respuesta de la escena fue inmediata: <strong>la movida nos abrió los brazos</strong>. Ese apoyo fue el combustible necesario para transformar la incertidumbre en un proyecto con este potencial. Cada llamado, cada gestión, cada detalle fue una lección aprendida sobre la marcha.</p>
+
+                <blockquote>"No esperábamos que la comunidad respondiera con tanta fuerza. Esa noche entendimos que Caracas necesitaba esto." — Heresicka, co-fundadora de Birongo.</blockquote>
+
+                <h2>La noche que lo cambió todo: 13 de diciembre de 2025</h2>
+                <p>El <strong>13 de diciembre de 2025</strong>, la mítica <strong>La Quinta Bar en Las Mercedes</strong> fue el escenario de nuestra prueba de fuego. Bajo el nombre de <strong>Birongo Live</strong>, logramos algo que muchos consideraban arriesgado: una noche integral. Desde los ritmos rotos del UK Garage y el Drum & Bass, hasta la atmósfera del Melodic House y la potencia del Hardgroove. Fue un viaje sonoro donde <strong>más de 200 personas</strong> de diferentes nichos se unieron bajo un mismo techo.</p>
+
+                <!-- Tarjeta del evento -->
+                <div class="evento-card-grande">
+                    <div class="evento-card-inner">
+                        <div class="evento-card-imagen">
+                            <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" alt="Birongo Live Video Resumen">
+                            <div class="play-overlay">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                        <div class="evento-card-contenido">
+                            <div class="evento-card-titulo">
+                                <h3>📀 BIRONGO LIVE @ LA QUINTA BAR</h3>
+                                <span class="evento-card-fecha"><i class="far fa-calendar"></i> 13 DICIEMBRE 2025</span>
+                            </div>
+                            <p><i class="fas fa-map-marker-alt"></i> La Quinta Bar, Las Mercedes, Caracas</p>
+                            <p><strong>From 100 to 200 bpm:</strong> La diferencia está como tú te muevas. Una noche que marcó historia.</p>
+                            <div class="evento-card-artistas">
+                                <span class="artista-tag">DESTROXTREBOLL</span>
+                                <span class="artista-tag">GERALD VALERA</span>
+                                <span class="artista-tag">HERESICKA</span>
+                                <span class="artista-tag">MORET</span>
+                                <span class="artista-tag">SIRDIAMND</span>
+                                <span class="artista-tag">DE LA TRINIDAD</span>
+                                <span class="artista-tag">DORKAS</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" class="btn-video">
+                                <i class="fab fa-youtube"></i> VER VIDEO COMPLETO <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <p>La satisfacción fue unánime. Superamos las expectativas de los proveedores, el público y, sobre todo, las nuestras. Logramos atraer a personas de estilos opuestos y unirlas en una sola experiencia. Este fue el primer gran paso hacia nuestro objetivo principal: <strong>ayudar a consolidar la movida electrónica en Caracas en todas sus formas</strong>.</p>
+
+                <h2>Lo que viene para Birongo</h2>
+                <p>Este evento fue solo el comienzo. Hoy, Birongo es una productora en crecimiento que ya prepara nuevas experiencias, alianzas con talentos emergentes y espacios que llevarán la música electrónica a otro nivel. Próximamente: <strong>Birongo Sessions</strong>, una serie de eventos íntimos diseñados para conectar artistas y público como nunca antes.</p>
+
+                <p>La música electrónica en Venezuela tiene un nuevo hogar. Y esto recién empieza.</p>
+            </div>
+
+            <!-- Galería de imágenes adicionales (simuladas) -->
+            <div class="image-gallery">
+                <div class="gallery-item" onclick="openModal('https://picsum.photos/id/104/800/600')">
+                    <img src="https://picsum.photos/id/104/800/600" alt="Ambiente del evento">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://picsum.photos/id/29/800/600')">
+                    <img src="https://picsum.photos/id/29/800/600" alt="DJ en cabina">
+                </div>
+            </div>
+
+            <!-- Compartir y etiquetas -->
+            <div class="share-section">
+                <div class="tags">
+                    <span class="tag">#BirongoLive</span>
+                    <span class="tag">#MúsicaElectrónicaCaracas</span>
+                    <span class="tag">#LaQuintaBar</span>
+                    <span class="tag">#TechnoVenezuela</span>
+                </div>
+                <div class="share-buttons-large">
+                    <a href="#" class="share-btn whatsapp" onclick="shareWhatsApp()"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="#" class="share-btn twitter" onclick="shareTwitter()"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="share-btn facebook" onclick="shareFacebook()"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Noticias relacionadas -->
+        <div class="related-news">
+            <h3 class="related-title"><i class="fas fa-newspaper"></i> NOTICIAS RELACIONADAS</h3>
+            <div class="related-grid">
+                <a href="blog_2.html" class="related-card">
+                    <img src="https://picsum.photos/id/104/400/250" alt="Nuevos artistas">
+                    <div class="related-card-content">
+                        <div class="related-card-category">TALENTO</div>
+                        <div class="related-card-title">Nuevos artistas se suman a la familia Birongo</div>
+                    </div>
+                </a>
+                <a href="blog_3.html" class="related-card">
+                    <img src="https://picsum.photos/id/20/400/250" alt="La Quinta Bar">
+                    <div class="related-card-content">
+                        <div class="related-card-category">ESPACIOS</div>
+                        <div class="related-card-title">La Quinta Bar: el epicentro underground de Caracas</div>
+                    </div>
+                </a>
+                <a href="blog_4.html" class="related-card">
+                    <img src="https://picsum.photos/id/29/400/250" alt="Birongo Sessions">
+                    <div class="related-card-content">
+                        <div class="related-card-category">EVENTOS</div>
+                        <div class="related-card-title">Birongo Sessions: nueva serie de eventos íntimos</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Botón volver al diario -->
+        <div style="text-align: center;">
+            <a href="../diario.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> VOLVER AL DIARIO
+            </a>
+        </div>
+
+        <footer>
+            <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
+            <div class="footer-tagline">
+                <i class="fas fa-headphones-alt"></i>
+                <span>DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRÓNICA · CARACAS · VENEZUELA</span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de imagen expandida -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-img-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <img id="modalImage" src="" alt="Imagen expandida">
+        </div>
+    </div>
+
+    <script>
+        // Modal de imagen
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        function openModal(imgSrc) {
+            modalImg.src = imgSrc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+        });
+
+        // Compartir
+        const currentUrl = encodeURIComponent(window.location.href);
+        const pageTitle = encodeURIComponent("Así comienza Birongo Live - La experiencia integral de música electrónica en Caracas");
+        
+        function shareWhatsApp() {
+            window.open(`https://wa.me/?text=${pageTitle} - ${currentUrl}`, '_blank');
+        }
+        function shareTwitter() {
+            window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${currentUrl}`, '_blank');
+        }
+        function shareFacebook() {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
+        }
+    </script>
+</body>
+</html>
