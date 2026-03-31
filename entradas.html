@@ -44,7 +44,7 @@
     </script>
     
     <style>
-        /* ===== RESET & BASE - MISMO QUE EL INDEX ===== */
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -205,10 +205,10 @@
             }
         }
 
-        /* ===== TARJETA HORIZONTAL MEJORADA ===== */
+        /* ===== TARJETA HORIZONTAL - IMAGEN COMPLETA ===== */
         .ticket-card {
             display: flex;
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
             background: linear-gradient(135deg, #0c0c0c 0%, #080808 100%);
             border: 1px solid rgba(255,255,255,0.12);
@@ -224,15 +224,18 @@
         }
 
         .card-image {
-            flex: 1.1;
+            flex: 1;
             min-width: 0;
             background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             display: block;
             transition: opacity 0.3s ease;
         }
@@ -357,18 +360,18 @@
         @media (max-width: 768px) {
             .ticket-card {
                 flex-direction: column;
-                max-width: 480px;
+                max-width: 500px;
                 margin: 0 auto;
             }
             
             .card-image {
-                max-height: 280px;
+                max-height: none;
             }
             
             .card-image img {
                 width: 100%;
-                height: 280px;
-                object-fit: cover;
+                height: auto;
+                object-fit: contain;
             }
             
             .card-content {
@@ -458,7 +461,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER - MISMO QUE EL INDEX -->
+        <!-- HEADER -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
             <div class="nav-menu">
@@ -471,7 +474,7 @@
             </div>
         </div>
 
-        <!-- TARJETA HORIZONTAL MEJORADA -->
+        <!-- TARJETA HORIZONTAL CON IMAGEN COMPLETA -->
         <div class="ticket-card">
             <div class="card-image">
                 <img src="eventos/FLYER_BIRONGO_2-0_1_1.png" alt="Birongo Live 2.0">
