@@ -26,14 +26,25 @@
     <meta name="twitter:title" content="Preventa Birongo Live 2.0 · Entradas $5 USD">
     <meta name="twitter:description" content="Compra tus entradas para Birongo Live 2.0 en preventa exclusiva.">
     
-    <!-- ===== FAVICON SVG ===== -->
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
+    
+    <!-- FAVICON PNG FALLBACK -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
     
     <!-- ===== FONTS & ICONS ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Cronitor RUM -->
+    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script>
+        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+        cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
+    </script>
+    
     <style>
+        /* ===== RESET & BASE - MISMO QUE EL INDEX ===== */
         * {
             margin: 0;
             padding: 0;
@@ -45,6 +56,7 @@
             font-family: 'Inter', sans-serif;
             color: #ffffff;
             line-height: 1.6;
+            font-size: 16px;
             min-height: 100vh;
         }
 
@@ -62,28 +74,39 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
-            width: 100%;
+            padding: 1rem;
         }
 
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ===== HEADER ===== */
         .hero {
             text-align: center;
             margin-bottom: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding: 2rem 0;
+            border-bottom: 1px solid #ffffff20;
         }
 
         @media (min-width: 768px) {
             .hero {
-                margin-bottom: 3rem;
-                padding: 2rem 0;
+                margin-bottom: 4rem;
+                padding: 3rem 0;
             }
         }
 
         .logo-image {
-            max-width: 60%;
+            max-width: 80%;
             height: auto;
             margin: 0 auto 1rem;
             display: block;
@@ -91,16 +114,17 @@
 
         @media (min-width: 768px) {
             .logo-image {
-                max-width: 40%;
+                max-width: 60%;
             }
         }
 
         @media (min-width: 992px) {
             .logo-image {
-                max-width: 30%;
+                max-width: 50%;
             }
         }
 
+        /* ===== MENÚ DE NAVEGACIÓN ===== */
         .nav-menu {
             display: flex;
             justify-content: center;
@@ -111,15 +135,15 @@
         }
 
         .nav-item {
-            color: rgba(255,255,255,0.6);
+            color: #ffffff80;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             padding: 0.5rem 0;
             position: relative;
-            transition: color 0.2s ease;
+            transition: all 0.3s ease;
             white-space: nowrap;
         }
 
@@ -131,7 +155,7 @@
             width: 0;
             height: 2px;
             background: white;
-            transition: width 0.2s ease;
+            transition: width 0.3s ease;
         }
 
         .nav-item:hover {
@@ -152,26 +176,31 @@
 
         @media (max-width: 768px) {
             .nav-menu {
-                gap: 1.2rem;
-                margin: 0.5rem 0 1.5rem;
+                gap: 1rem;
+                padding: 0.3rem 0;
             }
+            
             .nav-item {
-                font-size: 0.75rem;
-                letter-spacing: 0.15em;
+                font-size: 0.8rem;
+                letter-spacing: 0.12em;
+                padding: 0.4rem 0;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             .nav-menu {
-                gap: 0.8rem;
+                gap: 0.7rem;
+                flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
             .nav-item {
                 font-size: 0.7rem;
-                letter-spacing: 0.1em;
-                padding: 0.3rem 0.3rem;
+                letter-spacing: 0.08em;
+                padding: 0.3rem 0.2rem;
                 white-space: normal;
+                text-align: center;
                 min-width: 65px;
             }
         }
@@ -317,6 +346,10 @@
             box-shadow: 0 5px 15px rgba(255,255,255,0.2);
         }
 
+        .btn-comprar:active {
+            transform: scale(0.97);
+        }
+
         .btn-comprar i {
             font-size: 1rem;
         }
@@ -383,29 +416,49 @@
             }
         }
 
+        /* ===== FOOTER ===== */
         footer {
             text-align: center;
-            margin-top: 4rem;
-            padding: 1.8rem 0 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.4);
-            font-size: 0.75rem;
+            margin-top: 3rem;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid #ffffff20;
+            color: #ffffff40;
+            font-size: 0.8rem;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                margin-top: 5rem;
+            }
+        }
+
+        footer i {
+            color: #ffffff60;
+            margin: 0 0.5rem;
         }
 
         .footer-tagline {
-            font-size: 0.65rem;
-            color: rgba(255,255,255,0.35);
+            font-size: 0.7rem;
+            color: #ffffff40;
             margin-top: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-tagline i {
+            color: #ffffff60;
+            font-size: 0.6rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- HEADER - MISMO QUE EL INDEX -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
             <div class="nav-menu">
@@ -461,14 +514,24 @@
             </div>
         </div>
 
+        <!-- FOOTER -->
         <footer>
             <p><i class="fas fa-bolt"></i> BIRONGO · CARACAS · 2025 <i class="fas fa-bolt"></i></p>
             <div class="footer-tagline">
                 <i class="fas fa-headphones-alt"></i>
-                <span>DJs · PRODUCTORES · EVENTO · MÚSICA ELECTRONICA · CARACAS · VENEZUELA</span>
+                <span>DJs · PRODUCTORES · EVENTOS · MÚSICA ELECTRÓNICA · CARACAS · VENEZUELA</span>
                 <i class="fas fa-sliders-h"></i>
             </div>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enlaces externos con noopener
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+        });
+    </script>
 </body>
 </html>
