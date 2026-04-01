@@ -349,6 +349,97 @@
             margin-bottom: 1rem;
         }
 
+        /* ===== VIDEO SECTION ===== */
+        .video-section {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            margin-top: 1rem;
+            border-top: 1px solid #ffffff20;
+        }
+
+        .video-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff90;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-title i {
+            color: #ff0000;
+            font-size: 1.2rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .play-button i {
+            font-size: 2.5rem;
+            color: #ff0000;
+            margin-left: 5px;
+        }
+
+        .video-container:hover .play-button {
+            background: rgba(0,0,0,0.9);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-caption {
+            padding: 0.8rem 1rem;
+            background: #111;
+            font-size: 0.85rem;
+            color: #ffffffb0;
+            text-align: center;
+            border-top: 1px solid #ffffff20;
+        }
+
+        .video-caption i {
+            margin-right: 0.5rem;
+            color: #ff0000;
+        }
+
         /* ===== TAGS DE LA NOTICIA ===== */
         .tags-noticia {
             padding: 0.5rem 1.5rem 1rem 1.5rem;
@@ -641,6 +732,25 @@
                     <p>Esta fue mi primera vez mezclando Hardtechno para otras personas, saliendo de la comodidad de mi cuarto, y la verdad es que me divertí demasiado. La vibra de la gente te eleva y te confirma que estás en el lugar indicado. Lo más brutal fue ver cómo cada invitado fue una pieza clave del proyecto. No estaban allí solo para llenar el ambiente; todos ayudaron en algo para que las piezas encajaran perfectamente. Ese día me llevé grandes lecciones sobre producción, sobre música y, sobre todo, sobre el valor de la colaboración.</p>
                     <p>Contar con la compañía de DJ Dorkas, cofundador de La Licuadora Alternativa y alguien que ha aportado tanto a la cultura techno en los últimos años, fue un honor. Haber vivido esto con él y con Techno Veneko, que es un proyecto nuevo, me llenó la mente y el corazón de tantas ideas que esa noche no pude dormir bien. Además, conocí nuevos talentos que me motivan a full a seguir trabajando para crear nuevas oportunidades para todos en la escena.</p>
                     <p>Al final, nos une que somos personas que amamos crear y hacer las cosas bien, entendiendo que buscar la perfección a veces es solo un obstáculo para avanzar. La gente de Techno Veneko no solo se ganó mi confianza personal y profesional; ese día sellé con ellos una amistad que veo muy difícil de romper.</p>
+                </div>
+
+                <!-- ===== SECCIÓN DEL VIDEO ===== -->
+                <div class="video-section">
+                    <div class="video-title">
+                        <i class="fab fa-youtube"></i>
+                        <span>VIDEOSET</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=HFlP8xzfM3o" target="_blank" rel="noopener noreferrer" class="video-container">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/HFlP8xzfM3o/maxresdefault.jpg" alt="HARD TECHNO EN CARACAS - SESSION 4 - CON HERESICKA" onerror="this.src='https://img.youtube.com/vi/HFlP8xzfM3o/hqdefault.jpg'">
+                            <div class="play-button">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </div>
+                        <div class="video-caption">
+                            <i class="fas fa-headphones"></i> HARD TECHNO EN CARACAS - SESSION 4 - CON HERESICKA DIRECTAMENTE DE @birongocaracas
+                        </div>
+                    </a>
                 </div>
 
                 <!-- ===== TAGS DE LA NOTICIA ===== -->
