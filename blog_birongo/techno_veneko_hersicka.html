@@ -356,147 +356,114 @@
             margin-bottom: 1rem;
         }
 
-        /* ===== TARJETA DE EVENTO MINI ===== */
-        .evento-mini {
-            background: linear-gradient(145deg, #111, #0a0a0a);
-            border: 1px solid #ffffff30;
-            margin: 2rem 0 1.5rem;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .evento-mini:hover {
-            border-color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(255,255,255,0.2);
-        }
-
-        .evento-mini-inner {
+        /* ===== TAGS DE LA NOTICIA ===== */
+        .tags-noticia {
+            padding: 0.5rem 1.5rem 1rem 1.5rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid #ffffff20;
             display: flex;
             flex-wrap: wrap;
-        }
-
-        .evento-mini-imagen {
-            flex: 0 0 280px;
-            position: relative;
-            overflow: hidden;
-            background: #000;
-            display: flex;
+            gap: 0.8rem;
             align-items: center;
-            justify-content: center;
         }
 
-        @media (max-width: 768px) {
-            .evento-mini-imagen {
-                flex: 0 0 100%;
-                aspect-ratio: 16/9;
-            }
-        }
-
-        .evento-mini-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .evento-mini:hover .evento-mini-imagen img {
-            transform: scale(1.05);
-        }
-
-        .play-overlay-mini {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .evento-mini:hover .play-overlay-mini {
-            opacity: 1;
-        }
-
-        .play-overlay-mini i {
-            font-size: 4rem;
-            color: #ff0000;
-            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
-        }
-
-        .evento-mini-contenido {
-            flex: 1;
-            padding: 1.5rem;
-        }
-
-        .evento-mini-titulo {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        @media (max-width: 600px) {
-            .evento-mini-titulo {
-                font-size: 1.2rem;
-            }
-        }
-
-        .evento-mini-fecha {
-            color: #ffffff80;
-            font-size: 0.85rem;
-        }
-
-        .evento-mini-lugar {
-            color: #ffffff60;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .evento-mini-desc {
+        .tags-label {
             color: #ffffff90;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .evento-mini-artistas {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .evento-mini-artista-tag {
-            background: #ffffff10;
-            color: #ffffff80;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            border: 1px solid #ffffff20;
-        }
-
-        .evento-mini-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-            text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: gap 0.3s ease;
+            font-weight: 600;
         }
 
-        .evento-mini-link:hover {
-            gap: 0.8rem;
+        .tag-item {
+            background: #1a1a1a;
+            border: 1px solid #ffffff30;
+            border-radius: 30px;
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            color: #ffffffc0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .tag-item i {
+            font-size: 0.7rem;
+            color: #ffffff90;
+        }
+
+        .tag-item:hover {
+            background: #2a2a2a;
+            border-color: #ffffff80;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        /* ===== REDES SOCIALES SECCIÓN ===== */
+        .redes-sociales-section {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            border-top: 1px solid #ffffff20;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+
+        .redes-titulo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #ffffff90;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .redes-titulo i {
+            font-size: 1rem;
+            color: #ffffffc0;
+        }
+
+        .instagram-links {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #1a1a1a;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #ffffffd0;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #ffffff30;
+            transition: all 0.2s ease;
+        }
+
+        .instagram-link i {
+            font-size: 1.1rem;
+            color: #E4405F;
+        }
+
+        .instagram-link:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .instagram-link:hover i {
+            color: white;
         }
 
         .noticia-footer {
@@ -682,6 +649,55 @@
                         <p>Esta fue mi primera vez mezclando Hardtechno para otras personas, saliendo de la comodidad de mi cuarto, y la verdad es que me divertí demasiado. La vibra de la gente te eleva y te confirma que estás en el lugar indicado. Lo más brutal fue ver cómo cada invitado fue una pieza clave del proyecto. No estaban allí solo para llenar el ambiente; todos ayudaron en algo para que las piezas encajaran perfectamente. Ese día me llevé grandes lecciones sobre producción, sobre música y, sobre todo, sobre el valor de la colaboración.</p>
                         <p>Contar con la compañía de DJ Dorkas, cofundador de La Licuadora Alternativa y alguien que ha aportado tanto a la cultura techno en los últimos años, fue un honor. Haber vivido esto con él y con Techno Veneko, que es un proyecto nuevo, me llenó la mente y el corazón de tantas ideas que esa noche no pude dormir bien. Además, conocí nuevos talentos que me motivan a full a seguir trabajando para crear nuevas oportunidades para todos en la escena.</p>
                         <p>Al final, nos une que somos personas que amamos crear y hacer las cosas bien, entendiendo que buscar la perfección a veces es solo un obstáculo para avanzar. La gente de Techno Veneko no solo se ganó mi confianza personal y profesional; ese día sellé con ellos una amistad que veo muy difícil de romper.</p>
+                    </div>
+
+                    <!-- ===== TAGS DE LA NOTICIA ===== -->
+                    <div class="tags-noticia">
+                        <span class="tags-label"><i class="fas fa-tags"></i> TAGS:</span>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Hardtechno</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Techno Veneko</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Heresicka</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Comunidad Electrónica</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Birongo Live</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Caracas Techno</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>DJ Dorkas</a>
+                        <a href="#" class="tag-item"><i class="fas fa-hashtag"></i>Videoset</a>
+                    </div>
+
+                    <!-- ===== REDES SOCIALES INSTAGRAM ===== -->
+                    <div class="redes-sociales-section">
+                        <div class="redes-titulo">
+                            <i class="fab fa-instagram"></i>
+                            <span>SEGUINOS EN INSTAGRAM</span>
+                        </div>
+                        <div class="instagram-links">
+                            <a href="https://www.instagram.com/heresicka/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                                <i class="fab fa-instagram"></i> @heresicka
+                            </a>
+                            <a href="https://www.instagram.com/technoveneko/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                                <i class="fab fa-instagram"></i> @technoveneko
+                            </a>
+                            <a href="https://www.instagram.com/birongoccs/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                                <i class="fab fa-instagram"></i> @birongoccs
+                            </a>
+                            <a href="https://www.instagram.com/djdorkas/" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                                <i class="fab fa-instagram"></i> @djdorkas
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="noticia-footer">
+                        <div class="share-buttons">
+                            <span class="share-label"><i class="fas fa-share-alt"></i> COMPARTIR</span>
+                            <a href="#" class="share-icon instagram" onclick="shareToInstagramStory('Heresicka: Mi experiencia grabando mi videoset con Techno Veneko', window.location.href); return false;"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="share-icon whatsapp" onclick="shareToWhatsAppApp('Heresicka: Mi experiencia grabando mi videoset con Techno Veneko'); return false;"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-icon twitter" onclick="shareToTwitterApp('Heresicka: Mi experiencia grabando mi videoset con Techno Veneko'); return false;"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-icon facebook" onclick="shareToFacebookApp(); return false;"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
 
         <!-- ===== BOTÓN DE NAVEGACIÓN ===== -->
         <div class="nav-links">
