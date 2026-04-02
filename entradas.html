@@ -295,6 +295,33 @@
             color: rgba(255,255,255,0.8);
             font-size: 0.9rem;
         }
+        
+        /* Estilo para los tags de géneros */
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+        
+        .genre-tag {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #dddddd;
+            transition: all 0.2s ease;
+        }
+        
+        .genre-tag:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-1px);
+        }
 
         .price-info {
             margin: 1.2rem 0 1.8rem;
@@ -393,6 +420,11 @@
                 width: 100%;
                 justify-content: center;
             }
+            
+            .genre-tag {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.7rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -416,6 +448,11 @@
             .btn-comprar {
                 padding: 0.7rem 1.4rem;
                 font-size: 0.7rem;
+            }
+            
+            .genre-tag {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.6rem;
             }
         }
 
@@ -497,6 +534,15 @@
                         <i class="fas fa-music"></i>
                         <span>Música Electrónica</span>
                     </div>
+                    <!-- TAGS DE GÉNEROS MUSICALES debajo de Música Electrónica -->
+                    <div class="genre-tags">
+                        <span class="genre-tag">UK Bass</span>
+                        <span class="genre-tag">Bass House</span>
+                        <span class="genre-tag">Techno</span>
+                        <span class="genre-tag">Schranz</span>
+                        <span class="genre-tag">Drum & Bass</span>
+                        <span class="genre-tag">Hard Raptor</span>
+                    </div>
                 </div>
                 
                 <div class="price-info">
@@ -537,4 +583,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
