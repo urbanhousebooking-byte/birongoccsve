@@ -484,7 +484,7 @@
             gap: 2rem;
         }
 
-        .youtube-video-container {
+        .video-thumbnail-link {
             width: 100%;
             background: #000;
             border-radius: 12px;
@@ -494,11 +494,11 @@
             display: block;
         }
 
-        .youtube-video-container:hover {
+        .video-thumbnail-link:hover {
             transform: scale(1.02);
         }
 
-        .youtube-thumbnail-wrapper {
+        .video-thumbnail {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%;
@@ -507,7 +507,7 @@
             cursor: pointer;
         }
 
-        .youtube-thumbnail-wrapper img {
+        .video-thumbnail img {
             position: absolute;
             top: 0;
             left: 0;
@@ -517,7 +517,7 @@
             transition: transform 0.3s ease;
         }
 
-        .youtube-video-container:hover .youtube-thumbnail-wrapper img {
+        .video-thumbnail-link:hover .video-thumbnail img {
             transform: scale(1.05);
         }
 
@@ -534,7 +534,7 @@
             transition: all 0.3s ease;
         }
 
-        .youtube-video-container:hover .play-overlay {
+        .video-thumbnail-link:hover .play-overlay {
             background: rgba(0,0,0,0.2);
         }
 
@@ -545,7 +545,7 @@
             transition: transform 0.3s ease;
         }
 
-        .youtube-video-container:hover .play-overlay i {
+        .video-thumbnail-link:hover .play-overlay i {
             transform: scale(1.1);
         }
 
@@ -775,12 +775,12 @@
             <div class="youtube-grid">
                 <!-- Video - Tech House Mix 2025 Warm Up DJ Set -->
                 <a href="https://www.youtube.com/watch?v=o4oIPK1CdW8" target="_blank" class="video-thumbnail-link">
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/o4oIPK1CdW8/maxresdefault.jpg" 
-                                 alt="Hardechno Mix 2026 - DJ Zarinovak"
-                                 onerror="this.src='https://img.youtube.com/vi/o4oIPK1CdW8/hqdefault.jpg'">
-                            <div class="play-overlay">
-                                <i class="fab fa-youtube"></i>
+                    <div class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/o4oIPK1CdW8/maxresdefault.jpg" 
+                             alt="Hardechno Mix 2026 - DJ Zarinovak"
+                             onerror="this.src='https://img.youtube.com/vi/o4oIPK1CdW8/hqdefault.jpg'">
+                        <div class="play-overlay">
+                            <i class="fab fa-youtube"></i>
                         </div>
                     </div>
                     <div class="video-title">
