@@ -3,26 +3,32 @@
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
-  <!-- Página Principal -->
+  <!-- ===== PÁGINAS PRINCIPALES ===== -->
+  
   <url>
     <loc>https://www.birongo.live/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- DJs & PRODUCTORES -->
+  <url>
+    <loc>https://www.birongo.live/index.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
   <url>
     <loc>https://www.birongo.live/djs-productores.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- DIARIO / NOTICIAS -->
   <url>
     <loc>https://www.birongo.live/diario.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <news:news>
@@ -30,81 +36,212 @@
         <news:name>Birongo</news:name>
         <news:language>es</news:language>
       </news:publication>
-      <news:publication_date>2026-03-21T10:00:00+00:00</news:publication_date>
-      <news:title>Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</news:title>
+      <news:publication_date>2026-04-10T10:00:00+00:00</news:publication_date>
+      <news:title>Birongo - Diario de música electrónica en Caracas</news:title>
     </news:news>
   </url>
   
-  <!-- EVENTOS -->
   <url>
     <loc>https://www.birongo.live/eventos.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- ENTRADAS -->
   <url>
     <loc>https://www.birongo.live/entradas.html</loc>
-    <lastmod>2026-03-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   
-  <!-- CONTACTO -->
   <url>
     <loc>https://www.birongo.live/contacto.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
-  <!-- IMÁGENES DE ARTISTAS -->
+  <!-- ===== ARTÍCULOS DEL DIARIO (BLOG) ===== -->
+  
+  <url>
+    <loc>https://www.birongo.live/blog_birongo/blog_1.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Birongo</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-15T10:00:00+00:00</news:publication_date>
+      <news:title>Así comienza Birongo Live. La experiencia integral de música electrónica en Caracas.</news:title>
+    </news:news>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/blog_birongo/techno_veneko_heresicka.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <news:news>
+      <news:publication>
+        <news:name>Birongo</news:name>
+        <news:language>es</news:language>
+      </news:publication>
+      <news:publication_date>2026-04-01T10:00:00+00:00</news:publication_date>
+      <news:title>Heresicka: Mi experiencia grabando mi videoset con Techno Veneko</news:title>
+    </news:news>
+  </url>
+  
+  <!-- ===== PÁGINAS INDIVIDUALES DE ARTISTAS ===== -->
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/alocate.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/heresicka.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/sirdiamnd.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/destro5.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/delatrinidad.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/moret.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/gerardvalera.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/kurgans.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/haddes.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/dorkas.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/kaatha.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.birongo.live/dj&productores/zarinovak.html</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- ===== IMÁGENES DE ARTISTAS ===== -->
+  
   <url>
     <loc>https://www.birongo.live/djs-productores.html</loc>
     <image:image>
       <image:loc>https://www.birongo.live/img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>ALOCATE - Birongo Live</image:title>
+      <image:title>ALOCATE DJ Hardtechno Hardstyle</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Heresicka_Foto_Artistas.png</image:loc>
-      <image:title>HERESICKA - Birongo Live</image:title>
+      <image:title>HERESICKA DJ Productor Drum and Bass</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/SirDiamnd_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>SIRDIAMND - Birongo Live</image:title>
+      <image:title>SIRDIAMND Melodic House Techno</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DESTRO5 - Birongo Live</image:title>
+      <image:title>DESTRO5 UK House Afro Latin</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/De La Trinidad_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DE LA TRINIDAD - Birongo Live</image:title>
+      <image:title>DE LA TRINIDAD Groove House</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>MORET - Birongo Live</image:title>
+      <image:title>MORET Hardgroove</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>GERARD VALERA - Birongo Live</image:title>
+      <image:title>GERARD VALERA Progressive House</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>KURGANS - Birongo Live</image:title>
+      <image:title>KURGANS Techno</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>HADDES - Birongo Live</image:title>
+      <image:title>HADDES Techouse</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>DORKAS - Birongo Live</image:title>
+      <image:title>DORKAS Techno Drum and Bass</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.birongo.live/img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
-      <image:title>KAATHA - Birongo Live</image:title>
+      <image:title>KAATHA Techouse</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.birongo.live/img/Zarinovak_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png</image:loc>
+      <image:title>ZARINOVAK Hardtechno</image:title>
     </image:image>
   </url>
+  
+  <!-- ===== IMAGEN DEL LOGO ===== -->
+  
+  <url>
+    <loc>https://www.birongo.live/</loc>
+    <image:image>
+      <image:loc>https://www.birongo.live/img/Logo birongo.jpg</image:loc>
+      <image:title>Birongo - Colectivo de música electrónica Caracas</image:title>
+    </image:image>
+  </url>
+  
 </urlset>
