@@ -50,20 +50,28 @@
     }
     </script>
     
-    <!-- FONTS & ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ===== PRELOAD DE RECURSOS CRÍTICOS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- ===== FONTS & ICONS (cargados sin bloqueo) ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
 
     <!-- ===== FAVICON SVG ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
-    <!-- Cronitor RUM -->
-    <script async src="https://rum.cronitor.io/script.js"></script>
+    <!-- Cronitor RUM (cargado diferido) -->
     <script>
         window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
         cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
     </script>
+    <script async src="https://rum.cronitor.io/script.js" defer></script>
 
     <style>
         /* ===== RESET & BASE ===== */
@@ -498,7 +506,7 @@
     <div class="container">
         <!-- ===== HEADER ===== -->
         <div class="hero">
-            <img src="img/Logo birongo.jpg" alt="BIRONGO - Colectivo de música electrónica Caracas" class="logo-image">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO - Colectivo de música electrónica Caracas" class="logo-image" loading="eager" width="800" height="300">
             
             <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
             <div class="nav-menu">
@@ -516,7 +524,7 @@
             <!-- ARTISTA 1 - ALOCATE -->
             <div class="artist-card" data-artist-url="dj&productores/alocate.html">
                 <div class="artist-image">
-                    <img src="img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ALOCATE DJ Hardtechno Hardstyle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ALOCATE DJ Hardtechno Hardstyle" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://www.youtube.com/channel/UCGlX7YhN3wujwHkPUnFzNkg" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
@@ -540,7 +548,7 @@
             <!-- ARTISTA 2 - HERESICKA -->
             <div class="artist-card" data-artist-url="dj&productores/heresicka.html">
                 <div class="artist-image">
-                    <img src="img/Heresicka_Foto_Artistas.png" alt="HERESICKA Drum and Bass Moombahton" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Heresicka_Foto_Artistas.png" alt="HERESICKA Drum and Bass Moombahton" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/2xRaiN53HUcrbyqJbZiobg?si=Amlo17J_TcuGwaBaUUbPWg" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -565,7 +573,7 @@
             <!-- ARTISTA 3 - SIRDIAMND -->
             <div class="artist-card" data-artist-url="dj&productores/sirdiamnd.html">
                 <div class="artist-image">
-                    <img src="img/SirDiamnd_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="SIRDIAMND Melodic House Techno" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/SirDiamnd_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="SIRDIAMND Melodic House Techno" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5QOEir4O0VWvh2C1PSIXpk" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -590,7 +598,7 @@
             <!-- ARTISTA 4 - DESTRO5 -->
             <div class="artist-card" data-artist-url="dj&productores/destro5.html">
                 <div class="artist-image">
-                    <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DESTRO5 UK House Afro Latin" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Destro5_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DESTRO5 UK House Afro Latin" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5J93iXfPaLAag5wPRoHIjz" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -615,7 +623,7 @@
             <!-- ARTISTA 5 - DE LA TRINIDAD -->
             <div class="artist-card" data-artist-url="dj&productores/delatrinidad.html">
                 <div class="artist-image">
-                    <img src="img/De La Trinidad_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DE LA TRINIDAD Groove House" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/De La Trinidad_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DE LA TRINIDAD Groove House" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5ZDwQ9rN1DjNqqXDr9cDw6" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -640,7 +648,7 @@
             <!-- ARTISTA 6 - MORET -->
             <div class="artist-card" data-artist-url="dj&productores/moret.html">
                 <div class="artist-image">
-                    <img src="img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="MORET Hardgroove" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Moret_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="MORET Hardgroove" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/user/31ya6uwndlzkn6x6hf7smslvrn4u" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -664,7 +672,7 @@
             <!-- ARTISTA 7 - GERARD VALERA -->
             <div class="artist-card" data-artist-url="dj&productores/gerardvalera.html">
                 <div class="artist-image">
-                    <img src="img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="GERARD VALERA Progressive House" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Gerard_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="GERARD VALERA Progressive House" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/4We0e10I4cXJtCeGnkouq8" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -688,7 +696,7 @@
             <!-- ARTISTA 8 - KURGANS -->
             <div class="artist-card" data-artist-url="dj&productores/kurgans.html">
                 <div class="artist-image">
-                    <img src="img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KURGANS Techno" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Kurgans_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KURGANS Techno" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/0yjfe423duXcL5To8EgxLP" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -712,7 +720,7 @@
             <!-- ARTISTA 9 - HADDES -->
             <div class="artist-card" data-artist-url="dj&productores/haddes.html">
                 <div class="artist-image">
-                    <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="HADDES Techouse" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Haddes_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="HADDES Techouse" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/6tBfBvEgAgFsKWK6Y4IgD8" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -736,7 +744,7 @@
             <!-- ARTISTA 10 - DORKAS -->
             <div class="artist-card" data-artist-url="dj&productores/dorkas.html">
                 <div class="artist-image">
-                    <img src="img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DORKAS Techno Drum & Bass" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Dorkas_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="DORKAS Techno Drum & Bass" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://www.youtube.com/channel/UCnoFthJ3O3juYcHhznl7BVA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
@@ -760,7 +768,7 @@
             <!-- ARTISTA 11 - KAATHA -->
             <div class="artist-card" data-artist-url="dj&productores/kaatha.html">
                 <div class="artist-image">
-                    <img src="img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KAATHA Techouse" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Kaatha_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="KAATHA Techouse" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/7r0FHBhhkVztsTzH7hNFMB" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -784,7 +792,7 @@
             <!-- ARTISTA 12 - ZARINOVAK -->
             <div class="artist-card" data-artist-url="dj&productores/zarinovak.html">
                 <div class="artist-image">
-                    <img src="img/Zarinovak_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ZARINOVAK Hardtechno" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="img/Zarinovak_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" alt="ZARINOVAK Hardtechno" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="placeholder-icon" style="display: none;"><i class="fas fa-user"></i></div>
                     <div class="artist-overlay">
                         <a href="https://open.spotify.com/intl-es/artist/5JWeruMJutO9RbOYPS3OqZ?si=CkPLWcHPSLWnIHCkoz3ZOw" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i></a>
@@ -824,11 +832,12 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
+    <!-- ===== JAVASCRIPT OPTIMIZADO ===== -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Enlaces externos con noopener (ya incluidos en los hrefs)
-            // Función para redirigir al hacer clic en la tarjeta del artista
+        (function() {
+            'use strict';
+            
+            // Redirección de tarjetas de artista
             const artistCards = document.querySelectorAll('.artist-card');
             
             artistCards.forEach(card => {
@@ -836,7 +845,6 @@
                 
                 if (artistUrl && artistUrl !== '') {
                     card.addEventListener('click', function(e) {
-                        // Si se hizo clic en los iconos de redes sociales o en el botón "ver más", no redirigir la tarjeta.
                         if (e.target.closest('.artist-overlay a') || e.target.closest('.btn-ver-mas')) {
                             return;
                         }
@@ -844,7 +852,14 @@
                     });
                 }
             });
-        });
+            
+            // Asegurar noopener en todos los enlaces externos
+            document.querySelectorAll('a[href^="http"]').forEach(link => {
+                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+            });
+        })();
     </script>
 </body>
 </html>
