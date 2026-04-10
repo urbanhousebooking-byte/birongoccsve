@@ -11,6 +11,8 @@
     <meta name="keywords" content="entradas Birongo, preventa Birongo Live, música electrónica Caracas">
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
+    
+    <!-- ===== CANONICAL URL ===== -->
     <link rel="canonical" href="https://www.birongo.live/entradas.html">
     
     <!-- ===== OPEN GRAPH ===== -->
@@ -25,23 +27,33 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Preventa Birongo Live 2.0 · Entradas $5 USD">
     <meta name="twitter:description" content="Compra tus entradas para Birongo Live 2.0 en preventa exclusiva.">
+    <meta name="twitter:image" content="https://www.birongo.live/img/Logo-birongo-og.jpg">
     
+    <!-- ===== PRELOAD DE RECURSOS CRÍTICOS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     
-    <!-- FAVICON PNG FALLBACK -->
+    <!-- PNG Favicon (fallback) -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
+    <link rel="shortcut icon" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
+
+    <!-- ===== FONTS & ICONS (cargados sin bloqueo) ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
     
-    <!-- ===== FONTS & ICONS ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
-    <!-- Cronitor RUM -->
-    <script async src="https://rum.cronitor.io/script.js"></script>
+    <!-- Cronitor RUM (cargado diferido) -->
     <script>
         window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
         cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
     </script>
+    <script async src="https://rum.cronitor.io/script.js" defer></script>
     
     <style>
         /* ===== RESET & BASE ===== */
@@ -498,9 +510,12 @@
 </head>
 <body>
     <div class="container">
+        <!-- ===== H1 PARA SEO (visible solo para motores de búsqueda) ===== -->
+        <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">Preventa Birongo Live 2.0 · Entradas música electrónica Caracas · La Quinta Bar</h1>
+
         <!-- HEADER -->
         <div class="hero">
-            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
             <div class="nav-menu">
                 <a href="index.html" class="nav-item">INICIO</a>
                 <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
@@ -514,7 +529,7 @@
         <!-- TARJETA HORIZONTAL CON IMAGEN COMPLETA -->
         <div class="ticket-card">
             <div class="card-image">
-                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0">
+                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0 - Flyer oficial" loading="eager">
             </div>
             <div class="card-content">
                 <span class="preventa-badge">✦ PREVENTA ✦</span>
@@ -534,7 +549,7 @@
                         <i class="fas fa-music"></i>
                         <span>Música Electrónica</span>
                     </div>
-                    <!-- TAGS DE GÉNEROS MUSICALES debajo de Música Electrónica -->
+                    <!-- TAGS DE GÉNEROS MUSICALES -->
                     <div class="genre-tags">
                         <span class="genre-tag">UK Bass</span>
                         <span class="genre-tag">Bass House</span>
@@ -574,13 +589,18 @@
         </footer>
     </div>
 
+    <!-- ===== JAVASCRIPT OPTIMIZADO ===== -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        (function() {
+            'use strict';
+            
             // Enlaces externos con noopener
             document.querySelectorAll('a[href^="http"]').forEach(link => {
-                link.setAttribute('rel', 'noopener noreferrer');
+                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
             });
-        });
+        })();
     </script>
 </body>
-    </html>
+</html>
