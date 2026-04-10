@@ -12,19 +12,22 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
+    <!-- ===== CANONICAL URL (evita contenido duplicado) ===== -->
+    <link rel="canonical" href="https://birongo.live/" />
+
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="BIRONGO · Música Electrónica Caracas">
     <meta property="og:description" content="Colectivo de música electrónica en Caracas. Conoce nuestros DJs, productores y eventos.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.birongo.live">
-    <meta property="og:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+    <meta property="og:url" content="https://birongo.live/">
+    <meta property="og:image" content="https://birongo.live/img/Logo birongo.jpg">
     <meta property="og:locale" content="es_VE">
 
     <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BIRONGO · Música Electrónica Caracas">
+   meta name="twitter:title" content="BIRONGO · Música Electrónica Caracas">
     <meta name="twitter:description" content="Colectivo de música electrónica en Caracas.">
-    <meta name="twitter:image" content="https://www.birongo.live/img/Logo birongo.jpg">
+    <meta name="twitter:image" content="https://birongo.live/img/Logo birongo.jpg">
 
     <!-- ===== SCHEMA.ORG ===== -->
     <script type="application/ld+json">
@@ -32,8 +35,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Birongo",
-      "url": "https://www.birongo.live",
-      "logo": "https://www.birongo.live/img/Logo birongo.jpg",
+      "url": "https://birongo.live/",
+      "logo": "https://birongo.live/img/Logo birongo.jpg",
       "description": "Colectivo de música electrónica en Caracas, Venezuela. DJs, productores y eventos.",
       "sameAs": [
         "https://www.instagram.com/birongoccs/",
@@ -112,6 +115,19 @@
         h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
+        }
+
+        /* Estilo para el H1 principal (oculto visualmente pero visible para SEO) */
+        .seo-h1 {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         /* ===== HEADER ===== */
@@ -683,6 +699,9 @@
 </head>
 <body>
     <div class="container">
+        <!-- ===== H1 PARA SEO (visible solo para motores de búsqueda) ===== -->
+        <h1 class="seo-h1">Birongo · Colectivo de Música Electrónica en Caracas, Venezuela · DJs, Productores y Eventos</h1>
+
         <!-- ===== HEADER ===== -->
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
@@ -873,7 +892,7 @@
                             }
                         }
                     });
-                }, { rootMargin: '200px' }); // Carga 200px antes de que entren al viewport
+                }, { rootMargin: '200px' });
                 
                 lazySpotifyContainers.forEach(container => observer.observe(container));
             } else {
