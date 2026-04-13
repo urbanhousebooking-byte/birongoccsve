@@ -11,11 +11,14 @@
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
 
+    <!-- ===== CANONICAL URL ===== -->
+    <link rel="canonical" href="https://www.birongo.live/dj&productores/alocate.html">
+
     <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:title" content="ALOCATE · DJ & Productor · Birongo">
     <meta property="og:description" content="DJ y productor de música electrónica en Caracas. Hardtechno, Hardstyle. Miembro del colectivo Birongo.">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://www.birongo.live/alocate.html">
+    <meta property="og:url" content="https://www.birongo.live/dj&productores/alocate.html">
     <meta property="og:image" content="https://www.birongo.live/img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png">
     <meta property="og:locale" content="es_VE">
 
@@ -52,25 +55,34 @@
     }
     </script>
 
-    <!-- FONTS & ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ===== PRELOAD DE RECURSOS CRÍTICOS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://img.youtube.com">
 
-    <!-- FAVICON -->
+    <!-- ===== FONTS & ICONS (cargados sin bloqueo) ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="all" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47.34 47.34'%3E%3Crect width='47.34' height='47.34' rx='10.67' ry='10.67' fill='%23000000'/%3E%3Cpath d='M12.84,11.32c5.51-.39,11.41.24,16.96-.02,3.02.31,6.28,1,8.37,3.38,1.2,1.36,1.57,2.48.58,4.14-.63,1.06-1.58,1.57-2.27,2.46-.84,1.1-.6,2.23.47,3.07,1.43,1.13,3.04,1.96,3.21,4.06.41,5.15-3.66,6.63-7.93,7.29-6.32.98-13.34,0-19.76.36-1.32,0-2.36-.7-2.98-1.84-.53-.97-.28-1.21-.27-2.18.07-5.97-.06-11.95,0-17.92.09-.79.97-1.84,1.61-2.27s1.22-.48,2-.53ZM21.63,16.22c-1.02.11-2.62,1.01-2.76,2.15-.08.73,1.04,1.82,1.64,2.12.96.47,3.81.47,4.87.24,1.87-.41,3.49-2.16,1.59-3.74-1.15-.95-3.9-.93-5.34-.78ZM22.13,25.94c-1.35.12-2.93.83-3.34,2.24-.28.96.94,2.23,1.75,2.59,1.58.72,6.19.52,7.56-.64s1.24-2.29-.13-3.33c-1.27-.96-4.29-1.01-5.84-.87Z' fill='%23ffffff'/%3E%3C/svg%3E">
     
-    <!-- FAVICON PNG FALLBACK -->
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon/Favicon_birongo_live_caracas_venezuela.svg">
+    <link rel="icon" type="image/png" sizes="512x512" href="../favicon/Favicon_birongo_live_caracas_venezuela.svg">
+    <link rel="shortcut icon" href="../favicon/Favicon_birongo_live_caracas_venezuela.svg">
 
-    <!-- Cronitor RUM -->
-    <script async src="https://rum.cronitor.io/script.js"></script>
+    <!-- Cronitor RUM (cargado diferido) -->
     <script>
         window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
         cronitor('config', { clientKey: 'f819cf4edd06cc110a68c3eda2330eb5' });
     </script>
+    <script async src="https://rum.cronitor.io/script.js" defer></script>
 
     <style>
-        /* ===== RESET & BASE - MISMO QUE EL INDEX ===== */
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -350,7 +362,6 @@
             color: #ffffff90;
         }
 
-        /* DESCRIPCIÓN RESPONSIVE */
         .artist-description {
             color: #cccccc;
             margin-bottom: 1.5rem;
@@ -476,7 +487,6 @@
             }
         }
 
-        /* YOUTUBE VIDEOS - CON MINIATURA QUE LLEVA A YOUTUBE */
         .youtube-grid {
             display: flex;
             flex-direction: column;
@@ -672,9 +682,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- HEADER - MISMO QUE EL INDEX -->
+        <!-- ===== H1 PARA SEO (visible solo para motores de búsqueda) ===== -->
+        <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;">ALOCATE · DJ y productor de Hardtechno y Hardstyle · Birongo Caracas Venezuela</h1>
+
+        <!-- HEADER -->
         <div class="hero">
-            <img src="../img/Logo birongo.jpg" alt="BIRONGO" class="logo-image">
+            <img src="../img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
             
             <div class="nav-menu">
                 <a href="../index.html" class="nav-item">INICIO</a>
@@ -695,14 +708,15 @@
         <div class="artist-card">
             <div class="artist-image">
                 <img src="../img/Alocate_Birongo_Live_Caracas_Venezuela_Foto_Artistas.png" 
-                     alt="ALOCATE - DJ / Productor" 
+                     alt="ALOCATE - DJ / Productor Hardtechno Hardstyle"
+                     loading="eager"
                      onerror="this.onerror=null; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;\'><i class=\'fas fa-user-music\' style=\'font-size:5rem;color:#ffffff30;\'></i></div>';">
             </div>
             <div class="artist-info">
                 <div class="artist-tag">
                     <i class="fas fa-record-vinyl"></i> DJ
                 </div>
-                <h1 class="artist-name">Alocate</h1>
+                <h2 class="artist-name">Alocate</h2>
                 <div class="artist-genre">
                     <span class="genre-badge">HARDTECHNO</span>
                     <span class="genre-badge">HARDSTYLE</span>
@@ -710,14 +724,14 @@
                 
                 <!-- DESCRIPCIÓN COMPLETA (para PC y tablets) -->
                 <div class="artist-description description-full" id="fullDescription">
-                    <p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festivalsobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante.</p>
+                    <p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festival sobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante.</p>
                     <br>
                     <p>Inspirada por la potencia y libertad de productores como Omaks, Vorteks, Rooler y Restricted, Alocate busca romper estructuras tradicionales para ofrecer experiencias sonoras crudas y de alta intensidad. Actualmente establecida en la Isla de Margarita, proyecta su visión hacia el futuro con el sueño de fundar un club de estilo berlinés dedicado exclusivamente a los hardbeats. Este espacio busca ser el epicentro para que el talento local crezca y se exprese bajo los estándares de la cultura electrónica europea, consolidando su legado como una de las principales exponentes del género en la región.</p>
                 </div>
                 
                 <!-- DESCRIPCIÓN RESUMIDA (para móviles) -->
                 <div class="artist-description description-short" id="shortDescription">
-                    <p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festivalsobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante...</p>
+                    <p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festival sobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante...</p>
                 </div>
                 
                 <!-- Botón Leer Más (solo visible en móvil) -->
@@ -727,25 +741,25 @@
                 </button>
                 
                 <div class="social-links">
-                    <a href="https://www.instagram.com/dj_alocate/" target="_blank" class="social-link">
+                    <a href="https://www.instagram.com/dj_alocate/" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-instagram"></i> Instagram
                     </a>
-                    <a href="https://www.youtube.com/channel/UCGlX7YhN3wujwHkPUnFzNkg" target="_blank" class="social-link">
+                    <a href="https://www.youtube.com/channel/UCGlX7YhN3wujwHkPUnFzNkg" target="_blank" rel="noopener noreferrer" class="social-link">
                         <i class="fab fa-youtube"></i> YouTube
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- SETS EN YOUTUBE - CON MINIATURAS QUE LLEVAN A YOUTUBE -->
+        <!-- SETS EN YOUTUBE -->
         <div class="music-section">
             <h3><i class="fab fa-youtube"></i> SETS DESTACADOS</h3>
             <div class="youtube-grid">
-                <!-- Video 1 - Hardtechno & Hardstyle Mix -->
-                <a href="https://www.youtube.com/watch?v=ibwSSKettWE&t=1s" target="_blank" class="youtube-video-container">
+                <a href="https://www.youtube.com/watch?v=ibwSSKettWE&t=1s" target="_blank" rel="noopener noreferrer" class="youtube-video-container">
                     <div class="youtube-thumbnail-wrapper">
                         <img src="https://img.youtube.com/vi/ibwSSKettWE/maxresdefault.jpg" 
-                             alt="Hardtechno & Hardstyle Mix 2025 ⚡ DJ Set (LESSSS, IMHAPPY, Junkie Kid) | ALOCATE - [GALERIA CARACAS]"
+                             alt="Hardtechno & Hardstyle Mix 2025 ⚡ DJ Set | ALOCATE"
+                             loading="lazy"
                              onerror="this.src='https://img.youtube.com/vi/ibwSSKettWE/hqdefault.jpg'">
                         <div class="play-overlay">
                             <i class="fab fa-youtube"></i>
@@ -776,34 +790,39 @@
         </footer>
     </div>
 
+    <!-- ===== JAVASCRIPT OPTIMIZADO ===== -->
     <script>
         // Función para alternar entre descripción corta y completa en móviles
         let expanded = false;
         
-        const fullDescription = document.getElementById('fullDescription')?.innerHTML || '<p><em>Biografía de ALOCATE pendiente de agregar. Este espacio está reservado para la descripción completa de su carrera, trayectoria y logros en la música electrónica.</em></p>';
-        const shortDescription = document.getElementById('shortDescription')?.innerHTML || '<p><em>Biografía resumida de ALOCATE pendiente de agregar. Este espacio está reservado para la versión corta de su perfil.</em></p>';
+        const fullHTML = `<p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festival sobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante.</p><br><p>Inspirada por la potencia y libertad de productores como Omaks, Vorteks, Rooler y Restricted, Alocate busca romper estructuras tradicionales para ofrecer experiencias sonoras crudas y de alta intensidad. Actualmente establecida en la Isla de Margarita, proyecta su visión hacia el futuro con el sueño de fundar un club de estilo berlinés dedicado exclusivamente a los hardbeats. Este espacio busca ser el epicentro para que el talento local crezca y se exprese bajo los estándares de la cultura electrónica europea, consolidando su legado como una de las principales exponentes del género en la región.</p>`;
+        
+        const shortHTML = `<p>Originaria de Vannes, Francia, Valentine Colmenares Coraspe, conocida artísticamente como Alocate, es una fuerza imparable en la escena de los ritmos pesados. Su propuesta sonora, que transita sin concesiones entre el Hardtechno y el Hardcore, ha sacudido clubes en Suiza, España, Portugal y su país natal, donde destacó en el prestigioso Insane Festival sobre la tarima del Technobus. Tras consolidar su energía en Europa, se ha convertido en una pieza clave de la movida independiente en Caracas a través de sus presentaciones con el colectivo Licuadora Alternativa, fusionando una ejecución visceral con una identidad visual vibrante...</p>`;
         
         function toggleDescription() {
             const descContainer = document.getElementById('shortDescription');
             const btn = document.getElementById('readMoreBtn');
             
             if (!expanded) {
-                descContainer.innerHTML = fullDescription;
+                descContainer.innerHTML = fullHTML;
                 btn.innerHTML = '<span>LEER MENOS</span> <i class="fas fa-chevron-up"></i>';
                 expanded = true;
             } else {
-                descContainer.innerHTML = shortDescription;
+                descContainer.innerHTML = shortHTML;
                 btn.innerHTML = '<span>LEER MÁS</span> <i class="fas fa-chevron-down"></i>';
                 expanded = false;
             }
         }
         
-        document.addEventListener('DOMContentLoaded', function() {
-            // Enlaces externos con noopener
+        // Añadir noopener a enlaces externos
+        (function() {
+            'use strict';
             document.querySelectorAll('a[href^="http"]').forEach(link => {
-                link.setAttribute('rel', 'noopener noreferrer');
+                if (!link.href.includes(window.location.hostname) && !link.getAttribute('rel')) {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
             });
-        });
+        })();
     </script>
 </body>
 </html>
