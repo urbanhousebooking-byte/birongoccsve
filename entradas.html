@@ -8,7 +8,7 @@
 
     <!-- ===== SEO ===== -->
     <meta name="description" content="Gracias por asistir a Birongo Live 2.0. Próximos eventos muy pronto. Síguenos en Instagram @birongoccs.">
-    <meta name="keywords" content="Birongo Live, evento concluido, música electrónica Caracas, próximos eventos">
+    <meta name="keywords" content="Birongo Live, evento concluido, música electrónica Caracas, próximos eventos, Extintor Bass, Haddes, Kurgans, Moret, Heresicka, Okubo">
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
     
@@ -253,12 +253,60 @@
             line-height: 1.5;
         }
 
+        /* ===== TAGS DE GÉNEROS ===== */
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem;
+            margin: 1.5rem 0 1.8rem;
+        }
+
+        .genre-tag {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #dddddd;
+            text-transform: uppercase;
+        }
+
+        /* ===== LISTA DE DJS ===== */
+        .djs-list {
+            margin: 1.5rem 0 1.8rem;
+        }
+
+        .djs-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 0.8rem;
+        }
+
+        .dj-names {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .dj-names span {
+            letter-spacing: 0.02em;
+        }
+
         .next-info {
             font-size: 0.85rem;
             color: rgba(255,255,255,0.5);
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            margin: 1.5rem 0 2rem;
+            margin: 1.8rem 0 2rem;
         }
 
         .insta-link {
@@ -298,6 +346,14 @@
             }
             .event-flyer-mini {
                 max-width: 180px;
+            }
+            .dj-names {
+                gap: 0.8rem;
+                font-size: 0.8rem;
+            }
+            .genre-tag {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.8rem;
             }
         }
 
@@ -351,7 +407,7 @@
         <!-- TARJETA ORIGINAL OCULTA -->
         <div class="ticket-card"></div>
 
-        <!-- SECCIÓN POST-EVENTO: AGRADECIMIENTO FORMAL + PRÓXIMOS EVENTOS -->
+        <!-- SECCIÓN POST-EVENTO: AGRADECIMIENTO FORMAL + TAGS + DJS -->
         <div class="post-event">
             <div class="event-flyer-mini">
                 <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0">
@@ -360,9 +416,33 @@
             <div class="event-title">BIRONGO LIVE 2.0</div>
             <p class="thankyou-text">Agradecemos su asistencia y participación.</p>
             <p class="thankyou-text">Una vez más, la escena electrónica de Caracas se hizo presente.</p>
+            
+            <!-- TAGS DE GÉNEROS MUSICALES -->
+            <div class="genre-tags">
+                <span class="genre-tag">UK Bass</span>
+                <span class="genre-tag">Bass House</span>
+                <span class="genre-tag">Techno</span>
+                <span class="genre-tag">Schranz</span>
+                <span class="genre-tag">Drum & Bass</span>
+                <span class="genre-tag">Hard Raptor</span>
+            </div>
+            
+            <!-- LISTA DE DJS -->
+            <div class="djs-list">
+                <div class="djs-label">LINEUP</div>
+                <div class="dj-names">
+                    <span>Extintor Bass</span>
+                    <span>Haddes</span>
+                    <span>Kurgans</span>
+                    <span>Moret</span>
+                    <span>Heresicka</span>
+                    <span>Okubo</span>
+                </div>
+            </div>
+            
             <div class="next-info">PRÓXIMOS EVENTOS — MUY PRONTO</div>
             <a href="https://www.instagram.com/birongoccs/" class="insta-link" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i> INSTAGRAM
+                <i class="fab fa-instagram"></i> @BIRONGOCCS
             </a>
         </div>
 
