@@ -217,254 +217,118 @@
             }
         }
 
-        /* ===== TARJETA HORIZONTAL - IMAGEN COMPLETA ===== */
+        /* ===== TARJETA HORIZONTAL - IMAGEN COMPLETA (OCULTA) ===== */
         .ticket-card {
-            display: flex;
-            max-width: 1000px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #0c0c0c 0%, #080808 100%);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 0px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
+            display: none;
         }
 
-        .ticket-card:hover {
-            border-color: rgba(255,255,255,0.25);
-            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+        /* ===== SECCIÓN POST-EVENTO - ESTILO PROFESIONAL ===== */
+        .post-event {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
-        .card-image {
-            flex: 1;
-            min-width: 0;
-            background: #050505;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .event-flyer-mini {
+            max-width: 280px;
+            margin: 0 auto 2rem;
+            opacity: 0.7;
         }
 
-        .card-image img {
+        .event-flyer-mini img {
             width: 100%;
             height: auto;
-            object-fit: contain;
             display: block;
-            transition: opacity 0.3s ease;
+            filter: grayscale(0.3);
         }
 
-        .card-content {
-            flex: 0.9;
-            padding: 2.2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .preventa-badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: rgba(255,255,255,0.6);
-            margin-bottom: 1rem;
+        .post-event-title {
+            font-size: 0.75rem;
             font-weight: 500;
-        }
-
-        .card-title {
-            font-size: 2rem;
-            font-weight: 700;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.75rem;
-            font-family: 'Space Grotesk', sans-serif;
-            color: #ffffff;
-            line-height: 1.2;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.5rem;
         }
 
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.55);
-            margin-bottom: 1.2rem;
-            line-height: 1.5;
+        .post-event-message {
+            font-size: 1.1rem;
             font-weight: 400;
+            color: rgba(255,255,255,0.75);
+            max-width: 500px;
+            margin: 0 auto 1rem;
+            line-height: 1.5;
         }
 
-        .event-details {
-            margin: 1rem 0;
+        .post-event-highlight {
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
+            color: white;
+            margin-bottom: 1rem;
         }
 
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin-bottom: 0.7rem;
+        .next-date {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
         }
 
-        .detail-item i {
-            width: 20px;
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-        }
-        
-        /* Estilo para los tags de géneros */
-        .genre-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0;
-        }
-        
-        .genre-tag {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.25rem 0.9rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
+        .social-insta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.85rem 2rem;
+            text-decoration: none;
+            color: white;
             font-weight: 500;
-            letter-spacing: 0.02em;
-            color: #dddddd;
-            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            transition: all 0.25s ease;
+            margin-top: 0.5rem;
         }
-        
-        .genre-tag:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.4);
+
+        .social-insta i {
+            font-size: 1.2rem;
+        }
+
+        .social-insta:hover {
+            border-color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.03);
             transform: translateY(-1px);
         }
 
-        .price-info {
-            margin: 1.2rem 0 1.8rem;
-            padding: 1rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .price-usd {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: -0.02em;
-        }
-
-        .price-usd small {
-            font-size: 0.9rem;
-            font-weight: 400;
-            color: rgba(255,255,255,0.5);
-        }
-
-        .price-bs {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.3rem;
-        }
-
-        .btn-comprar {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            background: #ffffff;
-            color: #000000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-size: 0.85rem;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            border: none;
-            width: fit-content;
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
-
-        .btn-comprar:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255,255,255,0.2);
-        }
-
-        .btn-comprar:active {
-            transform: scale(0.97);
-        }
-
-        .btn-comprar i {
-            font-size: 1rem;
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.05em;
         }
 
         @media (max-width: 768px) {
-            .ticket-card {
-                flex-direction: column;
-                max-width: 500px;
-                margin: 0 auto;
+            .post-event {
+                padding: 2rem 1.5rem;
+                margin: 1rem auto 0;
             }
             
-            .card-image {
-                max-height: none;
+            .post-event-highlight {
+                font-size: 1.2rem;
             }
             
-            .card-image img {
-                width: 100%;
-                height: auto;
-                object-fit: contain;
+            .post-event-message {
+                font-size: 0.9rem;
             }
             
-            .card-content {
-                padding: 1.8rem;
-            }
-            
-            .card-title {
-                font-size: 1.6rem;
-                letter-spacing: 0.05em;
-            }
-            
-            .price-usd {
-                font-size: 1.8rem;
-            }
-            
-            .btn-comprar {
-                padding: 0.8rem 1.6rem;
-                font-size: 0.75rem;
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .genre-tag {
-                font-size: 0.65rem;
-                padding: 0.2rem 0.7rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .card-content {
-                padding: 1.4rem;
-            }
-            
-            .card-title {
-                font-size: 1.3rem;
-            }
-            
-            .detail-item {
-                font-size: 0.75rem;
-                gap: 0.6rem;
-            }
-            
-            .price-usd {
-                font-size: 1.5rem;
-            }
-            
-            .btn-comprar {
-                padding: 0.7rem 1.4rem;
-                font-size: 0.7rem;
-            }
-            
-            .genre-tag {
-                font-size: 0.6rem;
-                padding: 0.15rem 0.6rem;
+            .event-flyer-mini {
+                max-width: 200px;
             }
         }
 
@@ -526,7 +390,7 @@
             </div>
         </div>
 
-        <!-- TARJETA HORIZONTAL CON IMAGEN COMPLETA -->
+        <!-- TARJETA HORIZONTAL CON IMAGEN COMPLETA (OCULTA) -->
         <div class="ticket-card">
             <div class="card-image">
                 <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0 - Flyer oficial" loading="eager">
@@ -549,7 +413,6 @@
                         <i class="fas fa-music"></i>
                         <span>Música Electrónica</span>
                     </div>
-                    <!-- TAGS DE GÉNEROS MUSICALES -->
                     <div class="genre-tags">
                         <span class="genre-tag">UK Bass</span>
                         <span class="genre-tag">Bass House</span>
@@ -575,6 +438,23 @@
                    rel="noopener noreferrer">
                     <i class="fas fa-ticket-alt"></i> COMPRAR AHORA
                 </a>
+            </div>
+        </div>
+
+        <!-- ===== SECCIÓN POST-EVENTO - PROFESIONAL Y SOBRIA ===== -->
+        <div class="post-event">
+            <div class="event-flyer-mini">
+                <img src="eventos/FLYER_BIRONGO_2-0.png" alt="Birongo Live 2.0">
+            </div>
+            <div class="post-event-title">✦ EVENTO CONCLUIDO ✦</div>
+            <div class="post-event-highlight">BIRONGO LIVE 2.0</div>
+            <p class="post-event-message">Gracias por hacer de esta noche una experiencia única.</p>
+            <div class="next-date">PRÓXIMA EDICIÓN — PRÓXIMAMENTE</div>
+            <a href="https://www.instagram.com/birongo.live" class="social-insta" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> @BIRONGO.LIVE
+            </a>
+            <div class="footer-note">
+                <i class="fas fa-bolt"></i> ENTRADAS HABILITADAS VÍA INSTAGRAM <i class="fas fa-bolt"></i>
             </div>
         </div>
 
