@@ -740,14 +740,16 @@
                     <span class="genre-badge">MELODIC TECHNO</span>
                 </div>
                 
-                <!-- DESCRIPCIÓN COMPLETA (para PC y tablets) - VACÍA PARA COMPLETAR -->
+                <!-- DESCRIPCIÓN COMPLETA (para PC y tablets) -->
                 <div class="artist-description description-full" id="fullDescription">
-                    <!-- AQUÍ VA LA DESCRIPCIÓN COMPLETA DEL ARTISTA -->
+                    SirDiamnd es un dúo compuesto por SirSoto (Aarón Soto) y Gabriell Da Vis (Gabriell Rodríguez), formado en 2016 en Cúa, estado Miranda. Ahora radicados en Caracas y Montevideo, Uruguay, su sonido nunca ha dejado de evolucionar a través de los años, ya sea creando para su propio proyecto o en colaboración con otros actos. 
+
+                    Ganadores en las categorías Disco de Música Electrónica (Electro-Dance) con ‘These Promises’ y Artista del Año de Música Electrónica en los Premios Pepsi 2021.
                 </div>
                 
-                <!-- DESCRIPCIÓN RESUMIDA (para móviles) - VACÍA PARA COMPLETAR -->
+                <!-- DESCRIPCIÓN RESUMIDA (para móviles) -->
                 <div class="artist-description description-short" id="shortDescription">
-                    <!-- AQUÍ VA LA DESCRIPCIÓN CORTA (PRIMER PÁRRAFO O RESUMEN) -->
+                    SirDiamnd es un dúo compuesto por SirSoto (Aarón Soto) y Gabriell Da Vis (Gabriell Rodríguez), formado en 2016 en Cúa, estado Miranda. Ahora radicados en Caracas y Montevideo, Uruguay, su sonido nunca ha dejado de evolucionar...
                 </div>
                 
                 <!-- Botón Leer Más (solo visible en móvil) -->
@@ -832,7 +834,7 @@
         let expanded = false;
         
         const fullDescription = document.getElementById('fullDescription')?.innerHTML || '';
-        const shortDescription = document.getElementById('shortDescription')?.innerHTML || '';
+        const shortDescriptionOriginal = document.getElementById('shortDescription')?.innerHTML || '';
         
         function toggleDescription() {
             const descContainer = document.getElementById('shortDescription');
@@ -843,7 +845,7 @@
                 btn.innerHTML = '<span>LEER MENOS</span> <i class="fas fa-chevron-up"></i>';
                 expanded = true;
             } else {
-                descContainer.innerHTML = shortDescription;
+                descContainer.innerHTML = shortDescriptionOriginal;
                 btn.innerHTML = '<span>LEER MÁS</span> <i class="fas fa-chevron-down"></i>';
                 expanded = false;
             }
