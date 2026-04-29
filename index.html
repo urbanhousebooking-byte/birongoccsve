@@ -90,6 +90,7 @@
             color: #ffffff;
             line-height: 1.6;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -103,6 +104,10 @@
                         radial-gradient(circle at 80% 70%, rgba(255,255,255,0.03) 0%, transparent 30%);
             pointer-events: none;
             z-index: -1;
+        }
+
+        body.menu-open {
+            overflow: hidden;
         }
 
         .container {
@@ -141,6 +146,7 @@
             margin-bottom: 2rem;
             padding: 2rem 0;
             border-bottom: 1px solid #ffffff20;
+            position: relative;
         }
 
         @media (min-width: 768px) {
@@ -169,8 +175,143 @@
             }
         }
 
-        /* ===== MENÚ DE NAVEGACIÓN ===== */
-        .nav-menu {
+        /* ===== MENÚ HAMBURGUESA ===== */
+        /* Botón hamburguesa */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #ffffff30;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #ffffff60;
+            transform: scale(1.05);
+        }
+
+        .menu-toggle i {
+            font-size: 1.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle.active i {
+            transform: rotate(90deg);
+        }
+
+        /* Overlay del menú */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1002;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Panel del menú lateral */
+        .nav-menu-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(320px, 85%);
+            height: 100%;
+            background: linear-gradient(145deg, #0a0a0a 0%, #050505 100%);
+            border-left: 1px solid #ffffff20;
+            z-index: 1003;
+            padding: 2rem 1.5rem;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+        }
+
+        .nav-menu-panel.active {
+            right: 0;
+        }
+
+        /* Logo dentro del menú */
+        .menu-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ffffff20;
+        }
+
+        .menu-logo-img {
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* Items del menú */
+        .nav-item-panel {
+            color: #ffffff80;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 1rem 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .nav-item-panel i {
+            width: 24px;
+            font-size: 1.1rem;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item-panel:hover {
+            color: white;
+            background: #ffffff10;
+            transform: translateX(5px);
+        }
+
+        .nav-item-panel:hover i {
+            opacity: 1;
+        }
+
+        .nav-item-panel.active {
+            color: white;
+            background: #ffffff10;
+        }
+
+        .nav-item-panel.active i {
+            opacity: 1;
+        }
+
+        /* Menú desktop (visible en pantallas grandes) */
+        .nav-menu-desktop {
             display: flex;
             justify-content: center;
             gap: 2rem;
@@ -179,7 +320,7 @@
             padding: 0.5rem 0;
         }
 
-        .nav-item {
+        .nav-item-desktop {
             color: #ffffff80;
             text-decoration: none;
             font-size: 1rem;
@@ -192,7 +333,7 @@
             white-space: nowrap;
         }
 
-        .nav-item::after {
+        .nav-item-desktop::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -203,50 +344,50 @@
             transition: width 0.3s ease;
         }
 
-        .nav-item:hover {
+        .nav-item-desktop:hover {
             color: white;
         }
 
-        .nav-item:hover::after {
+        .nav-item-desktop:hover::after {
             width: 100%;
         }
 
-        .nav-item.active {
+        .nav-item-desktop.active {
             color: white;
         }
 
-        .nav-item.active::after {
+        .nav-item-desktop.active::after {
             width: 100%;
         }
 
+        /* Responsive: mostrar hamburguesa en tablets y móviles */
         @media (max-width: 768px) {
-            .nav-menu {
-                gap: 1rem;
-                padding: 0.3rem 0;
+            .nav-menu-desktop {
+                display: none;
             }
             
-            .nav-item {
-                font-size: 0.8rem;
-                letter-spacing: 0.12em;
-                padding: 0.4rem 0;
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .hero {
+                padding-top: 1rem;
             }
         }
 
-        @media (max-width: 600px) {
-            .nav-menu {
-                gap: 0.7rem;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
+        /* Ajuste para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .menu-toggle {
+                top: 15px;
+                right: 15px;
+                width: 44px;
+                height: 44px;
             }
             
-            .nav-item {
-                font-size: 0.7rem;
-                letter-spacing: 0.08em;
-                padding: 0.3rem 0.2rem;
-                white-space: normal;
-                text-align: center;
-                min-width: 65px;
+            .nav-item-panel {
+                font-size: 0.85rem;
+                padding: 0.9rem 1rem;
+                letter-spacing: 0.15em;
             }
         }
 
@@ -703,6 +844,39 @@
     </style>
 </head>
 <body>
+    <!-- Botón Hamburguesa -->
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Menú Lateral -->
+    <div class="nav-menu-panel" id="navMenuPanel">
+        <div class="menu-logo">
+            <img src="img/Logo birongo.jpg" alt="BIRONGO" class="menu-logo-img" loading="lazy">
+        </div>
+        <a href="index.html" class="nav-item-panel active">
+            <i class="fas fa-home"></i> INICIO
+        </a>
+        <a href="djs-productores.html" class="nav-item-panel">
+            <i class="fas fa-headphones-alt"></i> DJs & PRODUCTORES
+        </a>
+        <a href="diario.html" class="nav-item-panel">
+            <i class="fas fa-newspaper"></i> DIARIO
+        </a>
+        <a href="eventos.html" class="nav-item-panel">
+            <i class="fas fa-calendar-alt"></i> EVENTOS
+        </a>
+        <a href="entradas.html" class="nav-item-panel">
+            <i class="fas fa-ticket-alt"></i> ENTRADAS
+        </a>
+        <a href="contacto.html" class="nav-item-panel">
+            <i class="fas fa-envelope"></i> CONTACTO
+        </a>
+    </div>
+
     <div class="container">
         <!-- ===== H1 PARA SEO (visible solo para motores de búsqueda) ===== -->
         <h1 class="seo-h1">Birongo · Colectivo de Música Electrónica en Caracas, Venezuela · DJs, Productores y Eventos</h1>
@@ -711,14 +885,14 @@
         <div class="hero">
             <img src="img/Logo birongo.jpg" alt="BIRONGO" class="logo-image" loading="eager" width="800" height="300">
             
-            <!-- ===== MENÚ DE NAVEGACIÓN ===== -->
-            <div class="nav-menu">
-                <a href="index.html" class="nav-item active">INICIO</a>
-                <a href="djs-productores.html" class="nav-item">DJs & PRODUCTORES</a>
-                <a href="diario.html" class="nav-item">DIARIO</a>
-                <a href="eventos.html" class="nav-item">EVENTOS</a>
-                <a href="entradas.html" class="nav-item">ENTRADAS</a>
-                <a href="contacto.html" class="nav-item">CONTACTO</a>
+            <!-- ===== MENÚ DE NAVEGACIÓN DESKTOP ===== -->
+            <div class="nav-menu-desktop">
+                <a href="index.html" class="nav-item-desktop active">INICIO</a>
+                <a href="djs-productores.html" class="nav-item-desktop">DJs & PRODUCTORES</a>
+                <a href="diario.html" class="nav-item-desktop">DIARIO</a>
+                <a href="eventos.html" class="nav-item-desktop">EVENTOS</a>
+                <a href="entradas.html" class="nav-item-desktop">ENTRADAS</a>
+                <a href="contacto.html" class="nav-item-desktop">CONTACTO</a>
             </div>
         </div>
 
@@ -861,13 +1035,57 @@
         </footer>
     </div>
 
-    <!-- ===== JAVASCRIPT OPTIMIZADO (carga diferida de iframes de Spotify) ===== -->
+    <!-- ===== JAVASCRIPT OPTIMIZADO (menú hamburguesa + carga diferida de iframes) ===== -->
     <script>
-        // Optimización: carga diferida de iframes de Spotify (solo cuando están visibles)
         (function() {
             'use strict';
             
-            // Cargar iframes cuando el usuario hace scroll o después de la carga inicial
+            // ===== MENÚ HAMBURGUESA =====
+            const menuToggle = document.getElementById('menuToggle');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const menuPanel = document.getElementById('navMenuPanel');
+            const body = document.body;
+            
+            function openMenu() {
+                menuPanel.classList.add('active');
+                menuOverlay.classList.add('active');
+                menuToggle.classList.add('active');
+                body.classList.add('menu-open');
+                menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            }
+            
+            function closeMenu() {
+                menuPanel.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuToggle.classList.remove('active');
+                body.classList.remove('menu-open');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            function toggleMenu() {
+                if (menuPanel.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            }
+            
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            
+            // Cerrar menú al hacer click en un enlace
+            document.querySelectorAll('.nav-item-panel').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            
+            // Cerrar menú al presionar Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && menuPanel.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+            
+            // ===== CARGA DIFERIDA DE IFRAMES DE SPOTIFY =====
             const lazySpotifyContainers = document.querySelectorAll('.spotify-lazy');
             
             if ('IntersectionObserver' in window) {
