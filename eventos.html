@@ -7,7 +7,7 @@
 
     <!-- ===== SEO BÁSICO ===== -->
     <meta name="description" content="Birongo: Colectivo de música electrónica en Caracas. DJs, productores, eventos y la mejor escena electrónica venezolana.">
-    <meta name="keywords" content="Birongo, música electrónica Caracas, DJs Venezuela, techno, house, drum and bass, eventos electrónicos, La Quinta Bar">
+    <meta name="keywords" content="Birongo, música electrónica Caracas, DJs Venezuela, techno, house, drum and bass, eventos electrónicos, La Quinta Bar, Birongo Live 2.0">
     <meta name="author" content="Birongo Crew">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
@@ -233,10 +233,20 @@
             }
         }
 
-        /* ===== TARJETA DE EVENTO ===== */
-        .evento-unico {
+        /* ===== EVENTOS EN GRID ===== */
+        .eventos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin: 2rem auto;
             max-width: 1000px;
-            margin: 2rem auto 5rem;
+        }
+
+        @media (min-width: 768px) {
+            .eventos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
         }
 
         .evento-card {
@@ -245,8 +255,21 @@
             transition: all 0.4s ease;
             color: white;
             display: block;
-            border: 2px solid #ffffff30;
-            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
+            text-decoration: none;
+            border: 1px solid #ffffff20;
+            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.1);
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .evento-card:hover {
+            transform: translateY(-8px);
+            border-color: #ffffff60;
+            box-shadow: 0 40px 60px -20px rgba(255,255,255,0.2);
+        }
+
+        .evento-card:active {
+            transform: scale(0.98);
         }
 
         .evento-imagen {
@@ -257,151 +280,98 @@
             overflow: hidden;
         }
 
+        .evento-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .evento-card:hover .evento-imagen img {
+            transform: scale(1.05);
+        }
+
         .evento-contenido {
-            padding: 2.5rem;
+            padding: 1.8rem;
         }
 
         .evento-titulo {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
         }
 
         @media (max-width: 768px) {
             .evento-titulo {
-                font-size: 1.8rem;
+                font-size: 1.3rem;
             }
         }
 
         .evento-fecha {
             color: #ffffff80;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .evento-lugar {
             color: #ffffff60;
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .evento-descripcion {
             color: #ffffff90;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            max-width: 80%;
-        }
-
-        @media (max-width: 768px) {
-            .evento-descripcion {
-                max-width: 100%;
-            }
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.5;
         }
 
         .evento-artistas {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
         }
 
         .evento-artista-tag {
             background: #ffffff10;
             color: #ffffff80;
-            font-size: 0.9rem;
-            padding: 0.4rem 1.2rem;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.8rem;
             border-radius: 30px;
             border: 1px solid #ffffff20;
         }
 
-        /* ===== GALERÍA ===== */
-        .galeria-titulo {
-            text-align: center;
-            margin: 5rem 0 3rem;
-            font-size: 2.2rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #ffffff90;
-        }
-
-        @media (max-width: 768px) {
-            .galeria-titulo {
-                font-size: 1.8rem;
-                margin: 3rem 0 2rem;
-            }
-        }
-
-        .galeria-original {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-            margin: 3rem 0 5rem;
-        }
-
-        @media (max-width: 768px) {
-            .galeria-original {
-                gap: 2rem;
-                margin: 2rem 0 3rem;
-            }
-        }
-
-        .galeria-item-original {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            background: #111;
-            border: 1px solid #ffffff30;
-            transition: all 0.4s ease;
-            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.5);
-            overflow: hidden;
-            display: flex;
+        .btn-ver-evento {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            background: transparent;
+            border: 1px solid #ffffff30;
+            color: #ffffff90;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: fit-content;
         }
 
-        .galeria-item-original img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .galeria-item-original:hover {
-            transform: translateY(-5px);
-            border-color: white;
-            box-shadow: 0 30px 50px -20px rgba(255,255,255,0.2);
-        }
-
-        .galeria-item-original:hover img {
-            transform: scale(1.01);
-        }
-
-        @media (min-width: 1200px) {
-            .galeria-original {
-                gap: 3.5rem;
-            }
-            .galeria-item-original {
-                max-width: 900px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .galeria-original {
-                gap: 2rem;
-            }
-            .galeria-item-original {
-                max-width: 95%;
-            }
+        .evento-card:hover .btn-ver-evento {
+            border-color: #ffffff;
+            color: white;
+            gap: 0.8rem;
+            background: rgba(255,255,255,0.05);
         }
 
         /* ===== BOTONES TÁCTILES ===== */
@@ -484,33 +454,6 @@
         .footer-tagline i {
             color: #ffffff60;
             font-size: 0.6rem;
-        }
-        
-        /* ===== FILA DE DOS COLUMNAS PARA IMAGEN 1 Y 2 ===== */
-        .galeria-row {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .galeria-item-original.mitad {
-            width: calc(50% - 1rem);
-            max-width: calc(50% - 1rem);
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .galeria-row {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            
-            .galeria-item-original.mitad {
-                width: 100%;
-                max-width: 95%;
-                margin: 0 auto;
-            }
         }
 
         /* ===== VIDEO THUMBNAILS ===== */
@@ -597,33 +540,27 @@
             </div>
         </div>
 
-        <!-- ===== EVENTO (PASADO) ===== -->
-        <div class="evento-unico">
-            <div class="evento-card">
-                <div class="evento-imagen" style="background: #000; display: flex; align-items: center; justify-content: center; position: relative;">
-                    <a href="https://www.youtube.com/watch?v=4cY4nagN-zw" target="_blank" rel="noopener noreferrer" class="video-thumbnail-link" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                        <div class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
-                                 alt="Birongo Live @ La Quinta Bar"
-                                 loading="lazy"
-                                 onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
-                            <div class="play-overlay">
-                                <i class="fab fa-youtube"></i>
-                            </div>
-                        </div>
-                    </a>
+        <!-- ===== EVENTOS EN GRID ===== -->
+        <div class="eventos-grid">
+            <!-- Evento 1: Birongo Live -->
+            <a href="birongo_live.html" class="evento-card">
+                <div class="evento-imagen">
+                    <img src="https://img.youtube.com/vi/4cY4nagN-zw/maxresdefault.jpg" 
+                         alt="Birongo Live @ La Quinta Bar"
+                         loading="lazy"
+                         onerror="this.src='https://img.youtube.com/vi/4cY4nagN-zw/hqdefault.jpg'">
                 </div>
                 <div class="evento-contenido">
-                    <div class="evento-titulo">
-                        <h3>BIRONGO LIVE</h3>
-                        <span class="evento-fecha"><i class="far fa-calendar"></i> 13 DIC 2025</span>
+                    <h3 class="evento-titulo">BIRONGO LIVE</h3>
+                    <div class="evento-fecha">
+                        <i class="far fa-calendar"></i> 13 DIC 2025
                     </div>
                     <div class="evento-lugar">
                         <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
                     </div>
                     <p class="evento-descripcion">
                         From 100 to 200 bpm: La diferencia está como tú te muevas. 
-                        Una noche histórica de la electrónica caraqueña en La Quinta Bar.
+                        Una noche histórica de la electrónica caraqueña.
                     </p>
                     <div class="evento-artistas">
                         <span class="evento-artista-tag">DESTROXTREBOLL</span>
@@ -634,85 +571,45 @@
                         <span class="evento-artista-tag">DE LA TRINIDAD</span>
                         <span class="evento-artista-tag">DORKAS</span>
                     </div>
+                    <span class="btn-ver-evento">
+                        VER DETALLES <i class="fas fa-arrow-right"></i>
+                    </span>
                 </div>
-            </div>
-        </div>
+            </a>
 
-        <!-- ===== GALERÍA DE FOTOS ===== -->
-        <h2 class="galeria-titulo">MOMENTOS DEL EVENTO</h2>
-
-        <div class="galeria-original">
-            <!-- FILA DE DOS COLUMNAS: IMAGEN 1 y IMAGEN 2 -->
-            <div class="galeria-row">
-                <div class="galeria-item-original mitad">
-                    <img src="IMG_8628.jpg" 
-                         alt="Birongo Live - Momento 1" 
+            <!-- Evento 2: Birongo Live 2.0 -->
+            <a href="birongo_live_2.0.html" class="evento-card">
+                <div class="evento-imagen">
+                    <img src="img/birongo-live-2.0-preview.jpg" 
+                         alt="Birongo Live 2.0"
                          loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+1'">
+                         onerror="this.src='https://via.placeholder.com/1280x720/1a1a1a/666666?text=Birongo+Live+2.0'">
                 </div>
-                <div class="galeria-item-original mitad">
-                    <img src="IMG_8629.jpg" 
-                         alt="Birongo Live - Momento 2" 
-                         loading="lazy"
-                         onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+2'">
+                <div class="evento-contenido">
+                    <h3 class="evento-titulo">BIRONGO LIVE 2.0</h3>
+                    <div class="evento-fecha">
+                        <i class="far fa-calendar"></i> 18 ABR 2026
+                    </div>
+                    <div class="evento-lugar">
+                        <i class="fas fa-map-marker-alt"></i> La Quinta Bar, Caracas
+                    </div>
+                    <p class="evento-descripcion">
+                        La premisa detrás de Birongo es simple: dos mentes creativas uniéndose para impulsar y celebrar 
+                        el impacto de la música electrónica en la escena nocturna de Venezuela.
+                    </p>
+                    <div class="evento-artistas">
+                        <span class="evento-artista-tag">EXTINTOR BASS</span>
+                        <span class="evento-artista-tag">HADDE</span>
+                        <span class="evento-artista-tag">KURGANS</span>
+                        <span class="evento-artista-tag">MORET</span>
+                        <span class="evento-artista-tag">HERESICKA</span>
+                        <span class="evento-artista-tag">OKUBO</span>
+                    </div>
+                    <span class="btn-ver-evento">
+                        VER DETALLES <i class="fas fa-arrow-right"></i>
+                    </span>
                 </div>
-            </div>
-
-            <div class="galeria-item-original">
-                <img src="IMG_8698.jpg" 
-                     alt="Birongo Live - Momento 3" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+3'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8731.jpg" 
-                     alt="Birongo Live - Momento 4" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+4'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8756.jpg" 
-                     alt="Birongo Live - Momento 5" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+5'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8764.jpg" 
-                     alt="Birongo Live - Momento 6" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+6'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8818.jpg" 
-                     alt="Birongo Live - Momento 7" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+7'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8829.jpg" 
-                     alt="Birongo Live - Momento 8" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+8'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8834.jpg" 
-                     alt="Birongo Live - Momento 9" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+9'">
-            </div>
-            
-            <div class="galeria-item-original">
-                <img src="IMG_8868.jpg" 
-                     alt="Birongo Live - Momento 10" 
-                     loading="lazy"
-                     onerror="this.src='https://via.placeholder.com/1080x1350/1a1a1a/666666?text=FOTO+10'">
-            </div>
+            </a>
         </div>
 
         <!-- ===== BOTONES DE NAVEGACIÓN ===== -->
